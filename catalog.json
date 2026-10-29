@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "name": "Solanum",
+  "about": "The open catalog of PS5 homebrew that Solanum installs. Anyone can add an app with a pull request.",
+  "apps": [
+    {
+      "id": "nightshade",
+      "name": "Nightshade",
+      "family": true,
+      "category": "emulator",
+      "summary": "Switch emulation on PS5, built on ProsperoEden and Eden, with its own fixes and look.",
+      "title_id": "PPSA99008",
+      "repo": "Oliv3rmoon/Nightshade",
+      "asset": "Nightshade-v{version}.zip",
+      "folder": "PPSA99008",
+      "checksums": "SHA256SUMS",
+      "attested": true,
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "id": "physalis",
+      "name": "Physalis",
+      "family": true,
+      "category": "media",
+      "summary": "Live TV, IPTV and Plex on PS5. Formerly Nightshade TV, built on ProsperoTV.",
+      "title_id": "PPSA99003",
+      "repo": "Oliv3rmoon/Physalis",
+      "asset": "PPSA99003.zip",
+      "folder": "PPSA99003",
+      "checksums": "SHA256SUMS",
+      "attested": true,
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "id": "datura",
+      "name": "Datura",
+      "family": true,
+      "category": "streaming",
+      "summary": "Moonlight game streaming from your PC to your PS5. Formerly Nightshade Stream, built on ProsperoLight.",
+      "title_id": "PPSA99002",
+      "repo": "Oliv3rmoon/Datura",
+      "asset": "PPSA99002.zip",
+      "folder": "PPSA99002",
+      "checksums": "SHA256SUMS",
+      "attested": true,
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "id": "mandrake",
+      "name": "Mandrake",
+      "family": true,
+      "category": "emulator",
+      "summary": "PlayStation emulation on PS5 at up to 16x. Formerly Nightshade Station, built on SwanStationPS5.",
+      "title_id": "PPSA98510",
+      "repo": "Oliv3rmoon/Mandrake",
+      "asset": "PPSA98510.zip",
+      "folder": "PPSA98510",
+      "checksums": "SHA256SUMS",
+      "attested": true,
+      "license": "GPL-3.0-or-later"
+    }
+  ],
+  "tips": [
+    "Every app here links its own GitHub releases. Solanum checks each download against its SHA256SUMS before installing.",
+    "Want your homebrew listed? Open a pull request on Oliv3rmoon/Solanum-Catalog. No gatekeeper: the gate is a pull request.",
+    "Title IDs are free here. No lock and key required.",
+    "Fun fact: PPSA64448 spells NIGHT on a phone keypad. Yours could spell anything.",
+    "No apps were impersonated in the making of this store.",
+    "Open source means you can fork it. Yes, really. That's the whole point.",
+    "Solanum is the genus at the heart of the nightshade family. Everything here grows from the same root.",
+    "If an update looks wrong, Solanum won't install it: a file that doesn't match its checksum never gets unpacked."
+  ],
+  "eggs": [
+    "Imagine gatekeeping a homebrew store. Couldn't be us.",
+    "Our title IDs aren't kept under lock and key. Take one, they're free.",
+    "Impersonation detector: 0 results. We checked twice.",
+    "Getting mad over nine characters is not a feature we ship.",
+    "Fork it, rename it, credit it. That's open source, chief.",
+    "This store won't vanish from GitHub overnight.",
+    "Timed out somewhere else? You're welcome here.",
+    "Store policy: the drama stays in the Discord. The catalog is drama-free.",
+    "Drama mode: 0 FPS, 100% salt. Press any button to touch grass.",
+    "Solanum: no applications, no interviews, no rizz questions. Just apps."
+  ],
+  "about_footer": "No title IDs were kept under lock and key in the making of this store."
+}
