@@ -2006,38 +2006,6 @@
       }
     },
     {
-      "id": "prosperoeden-mirror",
-      "name": "ProsperoEden (Mirror)",
-      "category": "emulator",
-      "summary": "A mirror of an early ProsperoEden build, the Eden-based Switch emulator.",
-      "title_id": "PPSA99016",
-      "repo": "heydemoura/ProsperoEden",
-      "asset": "ProsperoEden-v{version}.zip",
-      "folder": "PPSA99016",
-      "checksums": "SHA256SUMS",
-      "attested": false,
-      "license": "GPL-3.0",
-      "author": "BlackBearReloaded",
-      "channel": "newest",
-      "tags": [
-        "emulator",
-        "switch",
-        "eden"
-      ],
-      "stars": 12,
-      "release": {
-        "tag": "v1.000.111",
-        "asset": "ProsperoEden-v1.000.111.zip",
-        "size": 39559969,
-        "sha256": "5177d7cfa47be6b207e28b1b68c94c7ef6b475168ebc8d23942da135eda8ebf2",
-        "content_version": "01.000.111",
-        "title_name": "ProsperoEden",
-        "prerelease": true,
-        "published_at": "2026-10-29T21:36:41Z",
-        "notes": "This is a mirror of the last version of ProsperoEden by BlackBearReloaded. Until the upstream ProsperoEden repository is made public again this will serve as ProsperoEden distribution\n\n- **A new title ID: PPSA99016.** ProsperoEden used to be PPSA99008, the ID of the earlier ProsperoEden listed in the homebrew catalog, whose repository is not public currently. This version installs to `/data/homebrew/PPSA99016` as a title of its own. Your settings, saves, keys, firmware and covers are in `/data/prosperoeden` and are found as before. If you had the PPSA99008 version, it stays installed beside this one; delete its folder (`/data/homebrew/PPSA99008`) once this one works. Anything you kept inside that old folder (an early version's `assets`, a `block-list.txt`, a `language.txt`) is not moved: copy it to `/data/homebrew/PPSA99016`.\n- **Builds again now that the original repositories are gone.** The game and launcher are those of v1.000.110; only where the build fetches three of its inputs changed. The PS5 OpenGL SDK comes from [darkxex/ps5-opengl](https://github.com/darkxex/ps5-opengl), a mirror of the original, at its version 1.0.2 (1.0.0 is no longer published anywhere official; its headers and exported functions are the same). The Native App Boilerplate and the Lapy helper are fetched from [drakmor/ps5-native-app-boilerplate](https://github.com/drakmor/ps5-native-app-boilerplate) and [ArkSama/PS5-Lapy-JB-Daemon](https://github.com/ArkSama/PS5-Lapy-JB-Daemon), at the same commits as before."
-      }
-    },
-    {
       "id": "ps5sx2",
       "name": "PS5SX2",
       "category": "emulator",
