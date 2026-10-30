@@ -58,6 +58,34 @@
       "checksums": "SHA256SUMS",
       "attested": true,
       "license": "GPL-3.0-or-later"
+    },
+    {
+      "id": "dulcamara",
+      "name": "Dulcamara",
+      "family": true,
+      "category": "game",
+      "summary": "RPG Maker 2000 and 2003 games on PS5, played by EasyRPG Player, with CRT shaders and fast-forward.",
+      "title_id": "PPSA99010",
+      "repo": "Oliv3rmoon/Dulcamara",
+      "asset": "PPSA99010.zip",
+      "folder": "PPSA99010",
+      "checksums": "SHA256SUMS",
+      "attested": true,
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "id": "solanum",
+      "name": "Solanum",
+      "family": true,
+      "category": "store",
+      "summary": "This store: open-source PS5 homebrew, installed and updated from each app's own releases.",
+      "title_id": "PPSA76526",
+      "repo": "Oliv3rmoon/Solanum",
+      "asset": "PPSA76526.zip",
+      "folder": "PPSA76526",
+      "checksums": "SHA256SUMS",
+      "attested": true,
+      "license": "GPL-3.0-or-later"
     }
   ],
   "tips": [
