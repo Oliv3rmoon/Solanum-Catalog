@@ -2096,37 +2096,6 @@
       }
     },
     {
-      "id": "swanstationps5",
-      "name": "SwanStationPS5",
-      "category": "emulator",
-      "summary": "The SwanStation-based PlayStation emulator with a disc-art library: the app Mandrake grew from.",
-      "title_id": "PPSA98510",
-      "repo": "darkxex/SwanStationPS5",
-      "asset": "PPSA98510.zip",
-      "folder": "PPSA98510",
-      "checksums": "SHA256SUMS",
-      "attested": false,
-      "license": "GPL-3.0-or-later",
-      "author": "AngelXex",
-      "shares": "mandrake",
-      "tags": [
-        "emulator",
-        "ps1",
-        "swanstation"
-      ],
-      "stars": 91,
-      "release": {
-        "tag": "1.6.1",
-        "asset": "PPSA98510.zip",
-        "size": 18264693,
-        "sha256": "a79b65f46d756401b18d60d6422ec3b684f7a8e9fc615ff4d3e785eea159ce8a",
-        "content_version": "01.006.001",
-        "title_name": "SwanStationPS5",
-        "published_at": "2026-10-29T12:58:51Z",
-        "notes": "- Lapy elevation goes back to waiting for a resident service first, and the request files are written before the command server starts.\n- The Lapy helper is built with Payload SDK v0.42 again."
-      }
-    },
-    {
       "id": "2-ship-2-harkinian",
       "name": "2 Ship 2 Harkinian (Majora's Mask)",
       "category": "game",
@@ -3854,37 +3823,6 @@
       }
     },
     {
-      "id": "prosperotv",
-      "name": "ProsperoTV",
-      "category": "media",
-      "summary": "IPTV with an offline iptv-org catalog and hardware video decoding: the app Physalis grew from.",
-      "title_id": "PPSA99003",
-      "repo": "ThatGuyKalvin/ProsperoTV",
-      "asset": "PPSA99003.zip",
-      "folder": "PPSA99003",
-      "checksums": "SHA256SUMS",
-      "attested": false,
-      "license": "GPL-3.0",
-      "author": "ThatGuyKalvin",
-      "shares": "physalis",
-      "tags": [
-        "iptv",
-        "live-tv",
-        "video"
-      ],
-      "stars": 88,
-      "release": {
-        "tag": "01.000.090",
-        "asset": "PPSA99003.zip",
-        "size": 42353289,
-        "sha256": "efbe68d8723bd2cbab3225e5945ea86aa7c28dab827412848f285cc7d9ef40b3",
-        "content_version": "01.000.090",
-        "title_name": "ProsperoTV",
-        "published_at": "2026-10-22T09:05:41Z",
-        "notes": "## New since 01.000.080\n\n### Watching\n\n- **The TV's own remote.** With **Settings > System > HDMI > Enable HDMI Device Link** on (and the TV's CEC setting), the television's remote works in the menu and the player, beside the controller or instead of it. Arrows move, OK selects, Back goes back, Play / Pause plays or pauses, Rewind and Fast forward page through lists and step through a video, Channel − / + change the channel on live TV, and Menu opens the playback panel. Which keys reach the console is up to the television; arrows, OK and Back always do. The README has the full table.\n- **Reaching the tabs.** Up from the top of a screen, or Circle on Live TV, focuses the tab bar; Left and Right change the tab there, and Down, Cross or Circle go back in. Left of Home is a Search button, and Left from the search field reaches the results.\n- **Cross pauses.** During playback Cross pauses and resumes, as OK on a TV remote does; in the open channel list it still watches the channel. L2 now opens and closes the live channel list, and the phone remote has a **Channel list** button.\n\n### Sources\n\n- **Films and shows counted.** The Sources panel, the Settings tab and its At a glance panel show how many films and shows a source holds beside its channels, each on its own line in Sources. The channel figure counts live channels only, so a playlist's films and episodes no longer inflate it, and the header chip gives the total of all three. The counts refresh with the catalog and after an On Demand download finishes.\n\n### Fixes\n\n- **A channel in every category it belongs to.** Newer Xtream panels can file a live channel under several categories, and the app only read the first, so a category made up of such channels was missing from the list and from search. Every category the provider names now lists the channel, and a channel in any adult category is treated as an adult channel.\n\n### Maintenance\n\n- The interface kit, the OpenGL SDK and the owned-root helper are fetched from LedyBacer's copies of their original repositories, which are gone; the pinned commits and checksums are unchanged.\n\n## Validation notes\n\nHost tests cover the TV remote reader and its key mapping, tab focus and the search button, Cross and L2 in the player, the film and show counts read from saved lists and playlists, and Xtream channels with several categories.\n\n## Thanks\n\nThank you to everyone who made this version:\n\n- **ThatGuyKalvin** ([GitHub](https://github.com/ThatGuyKalvin)), for the TV remote, the tab bar and search controls, and the film and show counts.\n- **Oliv3rmoon** ([GitHub](https://github.com/Oliv3rmoon)), for listing a channel in every category its provider names.\n- **Cold** ([GitHub](https://github.com/JMUtechnologies)), for the report of the missing category."
-      }
-    },
-    {
       "id": "regie5",
       "name": "Régie5",
       "category": "media",
@@ -4068,35 +4006,6 @@
       }
     },
     {
-      "id": "prosperostore",
-      "name": "ProsperoStore",
-      "category": "store",
-      "summary": "Another PS5 homebrew store, installing from the prosperostore.net catalog.",
-      "title_id": "PPSA99000",
-      "repo": "darkxex/ProsperoStore",
-      "asset": "PPSA99000.zip",
-      "folder": "PPSA99000",
-      "checksums": "SHA256SUMS",
-      "attested": false,
-      "license": "GPL-3.0",
-      "author": "AngelXex",
-      "tags": [
-        "store",
-        "homebrew"
-      ],
-      "stars": 459,
-      "release": {
-        "tag": "v1.000.116",
-        "asset": "PPSA99000.zip",
-        "size": 31830169,
-        "sha256": "c2b5d18b9eba3daf1395729dd2b410ea6a6161542b49ce415d4b4c84b986cbb4",
-        "content_version": "01.000.116",
-        "title_name": "ProsperoStore",
-        "published_at": "2026-10-29T12:30:23Z",
-        "notes": "## Improvements since v1.000.115\n\n- Lapy elevation is back to how it worked in v1.000.112: a resident Lapy service gets the first chance to claim the request, and the helper is sent to the ELF loader only after that.\n- The HEN request files are tried first again, and etaHEN's command server is asked after them.\n- The Lapy helper is built with PS5 Payload SDK v0.42 again.\n- This undoes the elevation changes of v1.000.113, which stopped some consoles from getting write access (\"This console didn't grant permission to write\", issue #62)."
-      }
-    },
-    {
       "id": "cloud-play",
       "name": "Cloud Play",
       "category": "streaming",
@@ -4153,37 +4062,6 @@
         "title_name": "OpenNOW PS5 - Prototype",
         "published_at": "2026-10-16T14:57:05Z",
         "notes": "OpenNOW PS5 0.3.0 maps to native content version `00.003.000`, title ID `PPSA99082`. It was tested on a PS5 running firmware 13.60.\n\n## A new interface\n\nThe interface now follows OpenNOW's own console mode:\n\n- Library and Store poster grids, a game details page with \"Play on\" store chips, a sidebar for Settings, a numbered launch and queue screen, and DualSense button hints.\n- Real store logos: Steam, Epic Games, Xbox/Microsoft Store, Ubisoft Connect, EA, GOG, Battle.net, NVIDIA and Gaijin.\n- Animation that runs on frame time, so it stays smooth at 60 and 120 Hz. The focus ring glides, the focused poster scales up, the grid scrolls smoothly, pages fade in, sheets slide in, cover art fades in, and toggles, sliders and progress bars animate. The UI stops redrawing when nothing moves.\n- Drawing a frame takes about a quarter of the time it took in 0.2.0, based on host-preview measurements.\n- Cover art saved on the PS5 loads at startup, and the rows next to the visible ones load ahead of time.\n\n## Home-screen tiles for individual games\n\nPress Triangle in a game's details to add that game to the PS5 home screen, for example Forza Horizon 6. OpenNOW builds the tile, with its icon and backgrounds, in its own sandbox. Then a separate installer payload copies the tile into `/data/homebrew` through elfldr. After a homebrew rescan in ShadowMountPlus, the tile opens OpenNOW straight into that game, using your saved login and stream settings. OpenNOW itself is never elevated.\n\nTiles use the standard PS5 Forwarder Format, so they work with Forwarder Manager and the standard launcher. Requirements: ShadowMountPlus, and elfldr on port 9021. See [title forwarding](https://github.com/OpenCloudGaming/OpenNOW-PS5/blob/main/docs/TITLE_FORWARDING.md).\n\n## Streaming and sessions matched to OpenNOW\n\n- Session requests match OpenNOW: regional discovery, network test, queue position and setup progress.\n- A session that is already running is detected instead of starting a second one.\n- After an app restart, OpenNOW resumes the session that is still running.\n- NVST signaling and the data channels are stricter. The stream recovers from stalls and handles the server's idle and shutdown messages. QoS reports are accurate.\n- Rumble reaches the DualSense.\n- New **Settings → Input & controllers**: left and right stick dead zones, vibration intensity, mouse sensitivity, and keeping in-game settings between sessions for games that support it.\n- Token renewal during a stream no longer blocks.\n\n## Installation\n\n1. Download `OpenNOW-PS5-0.3.0.zip`, `OpenNOW-PS5-0.3.0.manifest.json` and `SHA256SUMS`.\n2. Check them against `SHA256SUMS`.\n3. Close OpenNOW and keep a copy of your current `PPSA99082` folder outside the folders your loader scans."
-      }
-    },
-    {
-      "id": "prosperolight",
-      "name": "ProsperoLight",
-      "category": "streaming",
-      "summary": "Moonlight game streaming from your own PC: the app Datura grew from.",
-      "title_id": "PPSA99002",
-      "repo": "LedyBacer/ProsperoLight",
-      "asset": "PPSA99002.zip",
-      "folder": "PPSA99002",
-      "checksums": "SHA256SUMS",
-      "attested": false,
-      "license": "GPL-3.0",
-      "author": "LedyBacer",
-      "shares": "datura",
-      "tags": [
-        "moonlight",
-        "streaming",
-        "pc"
-      ],
-      "stars": 148,
-      "release": {
-        "tag": "01.000.110",
-        "asset": "PPSA99002.zip",
-        "size": 36520955,
-        "sha256": "f29935f3bd9d61926c1ea63f8d34019fff19ee993e8d030ee373c004efd974ba",
-        "content_version": "01.000.110",
-        "title_name": "ProsperoLight",
-        "published_at": "2026-10-15T03:34:31Z",
-        "notes": "### Stable: Punktfunk hosts, more box art, no wait before the stream\n\n### New\n\n- **Punktfunk hosts:** the decoder now reserves six pictures by default, so Punktfunk's GameStream stream (five reference frames) decodes on a release build. Before, it showed no picture. Streams from other hosts are unaffected.\n- **JPEG and WebP box art:** covers that hosts such as Punktfunk pass through as JPEG or WebP now appear, as PNG covers always did.\n- **PyroWave from punktfunk:** punktfunk's PyroWave revision is accepted; its shaders and bitstream code are the same as the supported one.\n\n### Changed\n\n- **No wait before the stream:** the check for a newer version runs on its own. When homebrew.page could not be reached, starting a stream, a home-screen forwarder included, waited about a minute for that check to give up.\n- **Box art:** covers over 1 MiB load, and covers already fetched are kept in memory, so scrolling back through a large library does not download them again.\n- Built on ps5-opengl SDK 1.0.2.\n\n### Installation / update\n\nTitle ID remains `PPSA99002`; saved PCs, settings and pairing are kept. Close the app before updating. Extract `PPSA99002.zip` and copy the complete `PPSA99002/` folder to `/data/homebrew/`. Keep only one installation for this title. `SHA256SUMS` verifies the download."
       }
     },
     {
