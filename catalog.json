@@ -1692,6 +1692,2045 @@
         "notes": "![](https://img.shields.io/badge/Release-v01.000.003-blueviolet?style=flat-square) ![](https://img.shields.io/badge/PS5%20Hardware-Verified-0070d1?style=flat-square&logo=playstation&logoColor=white) ![](https://img.shields.io/badge/Firmware-12.70-blue?style=flat-square)\n\n**01.000.003:** the pauses of silence the app sends between format changes were four times too long on the TrueHD port, because its 768 kHz label is not the rate it really consumes frames at (192 kHz). They are now the intended length. The READMEs and the write-up also say plainly that Speaker Lab is EVO Player's Surround Sound Studio and that TrueHD works.\n\n**01.000.002:** Dolby TrueHD now plays. It goes out as a MAT bitstream on a 768 kHz port, opened with the console's system audio calls (`sceAudioOutSysOpen` and `sceAudioOutSysConfigureOutput`), the route Sony's Blu-ray player uses. Hardware-tested on a PS5 Pro, firmware 12.70: it plays and the receiver shows \"Dolby Audio\".\n\n**01.000.001:** a new icon, DTS-HD sent in the right console mode (it was going out as Atmos), AAC bursts that are valid for every frame length, and a settle time between format changes.\n\nFirst release of **Surround Sound Studio**, a PS5 homebrew app for home-theatre sound. Please report problems.\n\n**Passthrough page.** Plays test clips untouched over HDMI, so your soundbar or receiver decodes them:\n\n- Dolby Digital, Dolby Digital Plus (including Atmos), DTS, AAC, Dolby TrueHD, DTS-HD, and Linear PCM (2ch and 6ch surround). TrueHD goes out as MAT through the console's system audio calls, the same route Sony's Blu-ray player uses; the receiver shows \"Dolby Audio\".\n- Shows the formats your TV or receiver says it can decode, and every return code from the console.\n- The bundled clips are channel-ID tones: each speaker beeps in turn, so a wrong channel map is easy to hear.\n- Displays an \"ATMOS\" badge for Dolby Atmos clips (`local-atmos.eac3`).\n\n**Speaker Lab page** (new, not yet tested on hardware). EVO Player's speaker test suite:\n\n- A test tone on each speaker, and automatic 5.1 and 7.1 sequences.\n- A 360 degree sweep, and a 3D sound field you can fly around the room.\n- Calibration through the DualSense microphone: the level, distance and delay of each speaker, as a report.\n\nSwitch pages with **L1 / R1**; the tabs at the top show where you are.\n\n**Install:** copy `PPSA99051.ffpfsc` to `/data/homebrew/` and start it with ShadowMount+, or unpack `PPSA99051.zip` into `/data/homebrew/`. Close the app before replacing it.\n\n**Known limits:** While a bitstream plays, the console mutes the app's other sounds. After many format changes in a row the receiver can get stuck on its last format (a PCM clip labelled AAC, AAC silent); restarting the receiver clears it.",
         "content_version": "01.000.003"
       }
+    },
+    {
+      "id": "arcade-gallery",
+      "name": "Arcade Gallery",
+      "category": "emulator",
+      "summary": "A MAME-based arcade emulator with save states, automatic rotation and a CRT-style library.",
+      "title_id": "PPSA99984",
+      "repo": "zomavich-netizen/Arcade-PS5",
+      "asset": "Arcade-v{version}-PS5.zip",
+      "folder": "PPSA99984",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "zomavich",
+      "channel": "newest",
+      "tags": [
+        "emulator",
+        "arcade",
+        "mame"
+      ]
+    },
+    {
+      "id": "fbneo",
+      "name": "FBNeo PS5",
+      "category": "emulator",
+      "summary": "Final Burn Neo for arcade games.",
+      "title_id": "PPSA99924",
+      "repo": "MisterTemaki/fbneo-ps5",
+      "asset": "FBNeoPS5-v{version}-PPSA99924.zip",
+      "folder": "PPSA99924",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "FBNeo License (non-commercial)",
+      "author": "MisterTemaki",
+      "tags": [
+        "emulator",
+        "arcade",
+        "fbneo"
+      ]
+    },
+    {
+      "id": "forgenx",
+      "name": "ForgeNX",
+      "category": "emulator",
+      "summary": "A ProsperoEden edition with a Switch-style interface.",
+      "title_id": "PPSA99186",
+      "repo": "KernelForgeLabs/ProsperoEden-Switch-UI",
+      "asset": "ProsperoEden-v{version}.zip",
+      "folder": "PPSA99186",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "KernelForgeLabs",
+      "channel": "newest",
+      "tags": [
+        "emulator",
+        "switch",
+        "eden"
+      ]
+    },
+    {
+      "id": "genesis-plus-gx",
+      "name": "Genesis Plus GX PS5",
+      "category": "emulator",
+      "summary": "Genesis Plus GX for Mega Drive, Sega CD, Master System and Game Gear games.",
+      "title_id": "PPSA99921",
+      "repo": "MisterTemaki/genplusgxPS5",
+      "asset": "GenesisPlusGXPS5-v{version}-PPSA99921.zip",
+      "folder": "PPSA99921",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "Genesis Plus GX License (non-commercial)",
+      "author": "MisterTemaki",
+      "tags": [
+        "emulator",
+        "mega-drive",
+        "sega-cd",
+        "master-system"
+      ]
+    },
+    {
+      "id": "mihawkos",
+      "name": "MihawkOS",
+      "category": "emulator",
+      "summary": "A Windows-style desktop that runs 32- and 64-bit Windows games through Wine, Steam included.",
+      "title_id": "PPSA99170",
+      "repo": "mihawk-99/PS5_MihawkOS",
+      "asset": "PS5_MihawkOS-v{version}-PPSA99170.zip",
+      "folder": "PPSA99170",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Mihawk",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "wine",
+        "windows",
+        "pc-games",
+        "steam"
+      ]
+    },
+    {
+      "id": "pc5",
+      "name": "PC5",
+      "category": "emulator",
+      "summary": "Installs the PC games you own from a USB drive and runs them through prospero-win, on a shelf of covers.",
+      "title_id": "PPSA11018",
+      "repo": "bornaradusin/PC5",
+      "asset": "PPSA11018.zip",
+      "folder": "PPSA11018",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "LGPL-2.1",
+      "author": "bornaradusin",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "windows",
+        "pc-games",
+        "launcher"
+      ]
+    },
+    {
+      "id": "pico-8",
+      "name": "PICO-8 for PS5",
+      "category": "emulator",
+      "summary": "Runs the official PICO-8 fantasy console from your own licensed Linux build.",
+      "title_id": "PPSA99808",
+      "repo": "RafaelNGP/pico8-ps5",
+      "asset": "PPSA99808.zip",
+      "folder": "PPSA99808",
+      "checksums": "PPSA99808.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "RafaelNGP",
+      "needs_game_files": true,
+      "tags": [
+        "pico-8",
+        "fantasy-console"
+      ]
+    },
+    {
+      "id": "playden",
+      "name": "Playden",
+      "category": "emulator",
+      "summary": "Plays the Windows games of your own Steam library on the PS5 through Wine, with Steam built in.",
+      "title_id": "FAKE77031",
+      "repo": "leolobato/playden-ps5",
+      "asset": "playden-ps5-{version}.zip",
+      "folder": "FAKE77031",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "leolobato",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "steam",
+        "windows",
+        "pc-games"
+      ]
+    },
+    {
+      "id": "prospero-win",
+      "name": "Prospero Win",
+      "category": "emulator",
+      "summary": "A Wine-based runtime and launcher for the Windows games you install yourself.",
+      "title_id": "PPSA99995",
+      "repo": "mpereiraesaa/prospero-win",
+      "asset": "prospero-win-v{version}.zip",
+      "folder": "PPSA99995",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "LGPL-2.1",
+      "author": "mpereiraesaa",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "windows",
+        "pc-games"
+      ]
+    },
+    {
+      "id": "prosperoeden-mirror",
+      "name": "ProsperoEden (Mirror)",
+      "category": "emulator",
+      "summary": "A mirror of an early ProsperoEden build, the Eden-based Switch emulator.",
+      "title_id": "PPSA99016",
+      "repo": "heydemoura/ProsperoEden",
+      "asset": "ProsperoEden-v{version}.zip",
+      "folder": "PPSA99016",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "BlackBearReloaded",
+      "channel": "newest",
+      "tags": [
+        "emulator",
+        "switch",
+        "eden"
+      ]
+    },
+    {
+      "id": "ps5sx2",
+      "name": "PS5SX2",
+      "category": "emulator",
+      "summary": "A PCSX2 port for PlayStation 2 games, with a disc helper payload.",
+      "title_id": "PPSA99203",
+      "repo": "Swordpdf/PS5SX2",
+      "asset": "PS5SX2-{version}.zip",
+      "folder": "PPSA99203",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Sword",
+      "tags": [
+        "emulator",
+        "ps2",
+        "pcsx2"
+      ]
+    },
+    {
+      "id": "retroarch",
+      "name": "RetroArch",
+      "category": "emulator",
+      "summary": "RetroArch with 35 cores for 44 systems, and the ES-DE frontend.",
+      "title_id": "PPSA99169",
+      "repo": "mihawk-99/PS5_RetroArch",
+      "asset": "PS5_RetroArch-v{version}.zip",
+      "folder": "PPSA99169",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Mihawk",
+      "tags": [
+        "emulator",
+        "retroarch",
+        "libretro",
+        "es-de"
+      ]
+    },
+    {
+      "id": "snes9x",
+      "name": "Snes9x PS5",
+      "category": "emulator",
+      "summary": "Snes9x 1.63 for Super Nintendo games.",
+      "title_id": "PPSA99922",
+      "repo": "MisterTemaki/snes9xPS5",
+      "asset": "Snes9xPS5-v{version}-PPSA99922.zip",
+      "folder": "PPSA99922",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "Snes9x License (non-commercial)",
+      "author": "MisterTemaki",
+      "tags": [
+        "emulator",
+        "snes"
+      ]
+    },
+    {
+      "id": "swanstationps5",
+      "name": "SwanStationPS5",
+      "category": "emulator",
+      "summary": "The SwanStation-based PlayStation emulator with a disc-art library: the app Mandrake grew from.",
+      "title_id": "PPSA98510",
+      "repo": "darkxex/SwanStationPS5",
+      "asset": "PPSA98510.zip",
+      "folder": "PPSA98510",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "AngelXex",
+      "shares": "mandrake",
+      "tags": [
+        "emulator",
+        "ps1",
+        "swanstation"
+      ]
+    },
+    {
+      "id": "2-ship-2-harkinian",
+      "name": "2 Ship 2 Harkinian (Majora's Mask)",
+      "category": "game",
+      "summary": "Majora's Mask through 2 Ship 2 Harkinian in 4K with HD textures; bring your own ROM.",
+      "title_id": "PPSA99621",
+      "repo": "mshivam019/tmm64-ps5",
+      "asset": "PPSA99621.zip",
+      "folder": "PPSA99621",
+      "checksums": "PPSA99621.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "n64",
+        "zelda",
+        "libultraship"
+      ]
+    },
+    {
+      "id": "a2-racer-2",
+      "name": "A2 Racer II",
+      "category": "game",
+      "summary": "Davilex's 1998 highway racer on the a2racer2-re reimplementation, read from your own disc image.",
+      "title_id": "PPSA69428",
+      "repo": "Marice/a2-racer-2-ps5",
+      "asset": "A2Racer2-PS5-{version}.zip",
+      "folder": "PPSA69428",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Marice",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "engine-port",
+        "racing"
+      ]
+    },
+    {
+      "id": "animal-crossing",
+      "name": "Animal Crossing for PS5",
+      "category": "game",
+      "summary": "The Animal Crossing decompilation in 4K at 60 fps; needs your own game files.",
+      "title_id": "PPSA99660",
+      "repo": "mshivam019/ac-ps5",
+      "asset": "PPSA99660.zip",
+      "folder": "PPSA99660",
+      "checksums": "PPSA99660.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gamecube",
+        "life-sim"
+      ]
+    },
+    {
+      "id": "apricotgs",
+      "name": "ApricotGS",
+      "category": "game",
+      "summary": "Plays HeartGold and SoulSilver natively, compiled on the console from your own NDS dump.",
+      "title_id": "PPSA99429",
+      "repo": "BaZZtian/PS5-ApricotGS",
+      "asset": "ApricotGS-v{version}-PS5.zip",
+      "folder": "PPSA99429",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "MIT",
+      "author": "BaZZtian",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "nds",
+        "pokemon"
+      ]
+    },
+    {
+      "id": "bedlam-2",
+      "name": "Bedlam 2: Absolute Bedlam",
+      "category": "game",
+      "summary": "A native port of the 1997 mech-squad shooter with twin-stick controls; needs the original game's files.",
+      "title_id": "PPSA94003",
+      "repo": "ChaDea1/Bedlam2-PS5",
+      "asset": "PPSA94003.zip",
+      "folder": "PPSA94003",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "none stated",
+      "author": "GOREslinger",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "engine-port",
+        "shooter"
+      ]
+    },
+    {
+      "id": "burnout-3",
+      "name": "Burnout 3",
+      "category": "game",
+      "summary": "Burnout 3: Takedown through the Takedawn Xbox recompilation at 60 fps, from your own USA disc.",
+      "title_id": "PPSA99316",
+      "repo": "griches/PS5_Burnout3",
+      "asset": "Burnout3-PS5-{version}.zip",
+      "folder": "PPSA99316",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "xbox",
+        "racing"
+      ]
+    },
+    {
+      "id": "ccleste",
+      "name": "ccleste",
+      "category": "game",
+      "summary": "Celeste Classic, the PICO-8 mountain climb that started Celeste, through the ccleste C port.",
+      "title_id": "PPSA59322",
+      "repo": "darkxex/PS5_Celeste",
+      "asset": "PPSA59322.zip",
+      "folder": "PPSA59322",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "AngelXex",
+      "tags": [
+        "platformer",
+        "pico-8",
+        "celeste"
+      ]
+    },
+    {
+      "id": "devilutionx-angelxex",
+      "name": "DevilutionX",
+      "category": "game",
+      "summary": "Diablo on the DevilutionX engine, played from your own copy of the game's data.",
+      "title_id": "PPSA98514",
+      "repo": "darkxex/DevilutionXPS5",
+      "asset": "DevilutionX-PS5-1.0.0.zip",
+      "folder": "PPSA98514",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "Sustainable Use License 1.0",
+      "author": "AngelXex",
+      "needs_game_files": true,
+      "tags": [
+        "engine-port",
+        "diablo",
+        "rpg"
+      ]
+    },
+    {
+      "id": "devilutionx-ps5",
+      "name": "DevilutionX for PlayStation 5",
+      "category": "game",
+      "summary": "Diablo on DevilutionX with controller, keyboard and mouse; needs your own copy of the game's data.",
+      "title_id": "PPSA99308",
+      "repo": "griches/PS5_DevilutionX",
+      "asset": "DevilutionX-PS5-v{version}.zip",
+      "folder": "PPSA99308",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "Sustainable Use License 1.0 AND MIT",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "engine-port",
+        "diablo",
+        "rpg"
+      ]
+    },
+    {
+      "id": "dusklight",
+      "name": "Dusklight",
+      "category": "game",
+      "summary": "Twilight Princess on the Dusklight decompilation (Aurora, Dawn), from your own disc image.",
+      "title_id": "PPSA99305",
+      "repo": "griches/PS5_Dusklight",
+      "asset": "Dusklight-PS5-v{version}.zip",
+      "folder": "PPSA99305",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gamecube",
+        "zelda"
+      ]
+    },
+    {
+      "id": "eternal-darkness",
+      "name": "Eternal Darkness",
+      "category": "game",
+      "summary": "Eternal Darkness: Sanity's Requiem recompiled, set up on the console from your own disc.",
+      "title_id": "PPSA99314",
+      "repo": "griches/PS5_EternalDarkness",
+      "asset": "EternalDarkness-PS5-{version}.zip",
+      "folder": "PPSA99314",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "gamecube",
+        "horror"
+      ]
+    },
+    {
+      "id": "fftarecomp",
+      "name": "FFTARecomp",
+      "category": "game",
+      "summary": "Final Fantasy Tactics Advance recompiled, with widescreen and video options; needs your own ROM.",
+      "title_id": "PPSA98512",
+      "repo": "darkxex/FFTARecomp-PS5",
+      "asset": "PPSA98512.zip",
+      "folder": "PPSA98512",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "AngelXex",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "gba",
+        "tactics",
+        "final-fantasy"
+      ]
+    },
+    {
+      "id": "forever-launcher",
+      "name": "Forever Launcher",
+      "category": "game",
+      "summary": "Runs Battle.net and World of Warcraft through Wine on the PS5's GPU, with frame generation; needs your own account.",
+      "title_id": "PPSA99030",
+      "repo": "bizkut/ps5-forever",
+      "asset": "PPSA99030.zip",
+      "folder": "PPSA99030",
+      "checksums": "PPSA99030.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "bizkut",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "wine",
+        "battle-net",
+        "world-of-warcraft"
+      ]
+    },
+    {
+      "id": "forza-horizon",
+      "name": "Forza Horizon for PS5",
+      "category": "game",
+      "summary": "A Forza Horizon port, set up from your own Xbox 360 game files.",
+      "title_id": "PPSA99690",
+      "repo": "mshivam019/fh-ps5",
+      "asset": "PPSA99690.zip",
+      "folder": "PPSA99690",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "port",
+        "xbox-360",
+        "racing"
+      ]
+    },
+    {
+      "id": "foxhollow",
+      "name": "FoxHollow",
+      "category": "game",
+      "summary": "Early port research for Star Fox Adventures, not playable yet; needs your own ISO.",
+      "title_id": "PPSA99573",
+      "repo": "BaZZtian/PS5-FoxHollow",
+      "asset": "FoxHollow-{version}-PPSA99573.zip",
+      "folder": "PPSA99573",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "MIT",
+      "author": "BaZZtian",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gamecube",
+        "research"
+      ]
+    },
+    {
+      "id": "futbol13",
+      "name": "FUTBOL13",
+      "category": "game",
+      "summary": "Runs your own PC copy of Pro Evolution Soccer 2013 through prospero-win.",
+      "title_id": "PPSA99405",
+      "repo": "7tg/futbol13",
+      "asset": "PPSA99405.zip",
+      "folder": "PPSA99405",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "7tg",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "football",
+        "pes"
+      ]
+    },
+    {
+      "id": "geometry-wars-2",
+      "name": "Geometry Wars 2",
+      "category": "game",
+      "summary": "Geometry Wars: Retro Evolved 2 in 4K at 120 Hz with an online scoreboard; needs your own game files.",
+      "title_id": "PPSA99322",
+      "repo": "griches/PS5_GeometryWars2",
+      "asset": "GeometryWars2-PS5-{version}.zip",
+      "folder": "PPSA99322",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "port",
+        "shooter",
+        "xbox-360"
+      ]
+    },
+    {
+      "id": "getsu-san",
+      "name": "GETSU-SAN",
+      "category": "game",
+      "summary": "Runs your own PC copy of GTA San Andreas (classic edition) through Wine, with DualSense controls.",
+      "title_id": "PPSA99604",
+      "repo": "CHI-GETSU/GTA-SA-PS5-Homebrew",
+      "asset": "GTA-SA-PS5-PPSA99604-TEST.zip",
+      "folder": "PPSA99604",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "CHI-GETSU",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "gta",
+        "open-world"
+      ]
+    },
+    {
+      "id": "halo-ce",
+      "name": "Halo: Combat Evolved",
+      "category": "game",
+      "summary": "The Xbox Halo decompilation (OpenCE) on Vulkan; needs your own Xbox disc image.",
+      "title_id": "PPSA99500",
+      "repo": "thelinkin3000/halo-ce-universal",
+      "asset": "halo-ps5-release.zip",
+      "folder": "PPSA99500",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "AGPL-3.0",
+      "author": "thelinkin3000",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "xbox",
+        "fps"
+      ]
+    },
+    {
+      "id": "iwbtg-tribute",
+      "name": "I Wanna Be The Guy: Remastered Tribute Edition",
+      "category": "game",
+      "summary": "A remastered fan tribute to the famously punishing freeware platformer.",
+      "title_id": "PPSA99616",
+      "repo": "kaizerfcm/iwbtg-remastered-tribute-edition",
+      "asset": "IWBTGR-TributeEdition-PS5-PPSA99616.zip",
+      "folder": "PPSA99616",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "shaman",
+      "tags": [
+        "platformer",
+        "fan-game",
+        "hard"
+      ]
+    },
+    {
+      "id": "james-pond-2",
+      "name": "James Pond 2: Codename RoboCod",
+      "category": "game",
+      "summary": "The Amiga platformer statically recompiled, with widescreen and smooth motion; needs your own disk image.",
+      "title_id": "PPSA99323",
+      "repo": "griches/JamesPond2RobocodRecomp",
+      "asset": "JamesPond2-PS5-{version}.zip",
+      "folder": "PPSA99323",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "recomp",
+        "amiga",
+        "platformer"
+      ]
+    },
+    {
+      "id": "jsrf-unleashed",
+      "name": "JSRF Unleashed",
+      "category": "game",
+      "summary": "Jet Set Radio Future through JSRF Unleashed on Vulkan, run from your own Xbox disc image.",
+      "title_id": "PPSA69431",
+      "repo": "Marice/jsrf-ps5",
+      "asset": "JSRFUnleashed-PS5-{version}.zip",
+      "folder": "PPSA69431",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "Marice",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "xbox",
+        "jet-set-radio"
+      ]
+    },
+    {
+      "id": "links-awakening",
+      "name": "Link's Awakening for PS5",
+      "category": "game",
+      "summary": "A Link's Awakening port, set up from your own game files with the release's helper.",
+      "title_id": "PPSA99670",
+      "repo": "mshivam019/la-ps5",
+      "asset": "PPSA99670.zip",
+      "folder": "PPSA99670",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "port",
+        "zelda",
+        "adventure"
+      ]
+    },
+    {
+      "id": "mario-64",
+      "name": "Mario 64",
+      "category": "game",
+      "summary": "Super Mario 64 through Ghostship (libultraship), from your own ROM.",
+      "title_id": "PPSA99310",
+      "repo": "griches/PS5_Ghostship",
+      "asset": "Mario64-PS5-v{version}.zip",
+      "folder": "PPSA99310",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "n64",
+        "mario",
+        "libultraship"
+      ]
+    },
+    {
+      "id": "middle-ages-ping-pong",
+      "name": "Middle Ages Ping Pong",
+      "category": "game",
+      "summary": "A table-tennis duel with a medieval look, made for the PS5.",
+      "title_id": "PPSA28319",
+      "repo": "STL1te/MedievalTennis",
+      "asset": "PPSA28319.zip",
+      "folder": "PPSA28319",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "STL1te",
+      "tags": [
+        "sports",
+        "ping-pong",
+        "unity"
+      ]
+    },
+    {
+      "id": "naruto-rise-of-a-ninja",
+      "name": "Naruto: Rise of a Ninja for PS5",
+      "category": "game",
+      "summary": "A Naruto: Rise of a Ninja port, set up from your own Xbox 360 game files.",
+      "title_id": "PPSA99680",
+      "repo": "mshivam019/naruto-ps5",
+      "asset": "PPSA99680.zip",
+      "folder": "PPSA99680",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "port",
+        "xbox-360",
+        "naruto"
+      ]
+    },
+    {
+      "id": "nfs-black-box",
+      "name": "NFS Black Box",
+      "category": "game",
+      "summary": "Installs your PC copy of Need for Speed: Most Wanted and runs it through prospero-win, with fan mods.",
+      "title_id": "PPSA99403",
+      "repo": "lavavex/nfs-blackbox-ps5",
+      "asset": "PPSA99403.zip",
+      "folder": "PPSA99403",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "lavavex",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "need-for-speed",
+        "racing"
+      ]
+    },
+    {
+      "id": "pokemmo-prospero",
+      "name": "PokeMMO Prospero",
+      "category": "game",
+      "summary": "A client for the PokeMMO online game, which plays from your own Pokemon ROMs.",
+      "title_id": "PPSA98001",
+      "repo": "Shabbypenguin/PokeMMO-Prospero",
+      "asset": "PPSA98001.zip",
+      "folder": "PPSA98001",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Shabbypenguin",
+      "needs_game_files": true,
+      "tags": [
+        "mmo",
+        "pokemmo",
+        "java"
+      ]
+    },
+    {
+      "id": "prosperocraft",
+      "name": "ProsperoCraft",
+      "category": "game",
+      "summary": "Minecraft Java Edition on a Java 25 port for the PS5; needs your own Minecraft account.",
+      "title_id": "PPSA99874",
+      "repo": "mateo-cogeanu/ProsperoCraft",
+      "asset": "PPSA99874.zip",
+      "folder": "PPSA99874",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "mateo-cogeanu",
+      "needs_game_files": true,
+      "tags": [
+        "minecraft",
+        "java",
+        "sandbox"
+      ]
+    },
+    {
+      "id": "pulse",
+      "name": "Pulse",
+      "category": "game",
+      "summary": "A rhythm game for PS VR2 and Sense controllers that turns any MP3 into note maps.",
+      "title_id": "PPSA99993",
+      "repo": "shwan-ps5/pulse",
+      "asset": "Pulse-{version}.zip",
+      "folder": "PPSA99993",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "shwan-ps5",
+      "channel": "newest",
+      "tags": [
+        "rhythm",
+        "vr",
+        "psvr2"
+      ]
+    },
+    {
+      "id": "raptor",
+      "name": "Raptor: Call of the Shadows",
+      "category": "game",
+      "summary": "A native port of the vertical shooter with Classic and Enhanced modes; fetches the shareware episode or uses your full game.",
+      "title_id": "PPSA94002",
+      "repo": "ChaDea1/RaptorPS5",
+      "asset": "raptor-ps5-v{version}.zip",
+      "folder": "PPSA94002",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "ChaDea1",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "engine-port",
+        "shooter",
+        "shareware"
+      ]
+    },
+    {
+      "id": "rekhcom",
+      "name": "ReKHCoM",
+      "category": "game",
+      "summary": "Kingdom Hearts: Chain of Memories, decompiled and widescreen, from your own GBA cartridge dump.",
+      "title_id": "PPSA98511",
+      "repo": "darkxex/ReKHCom-PS5",
+      "asset": "PPSA98511.zip",
+      "folder": "PPSA98511",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "CC0-1.0",
+      "author": "AngelXex",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gba",
+        "rpg",
+        "kingdom-hearts"
+      ]
+    },
+    {
+      "id": "resot",
+      "name": "reSOT - The Sands of Time",
+      "category": "game",
+      "summary": "Prince of Persia: The Sands of Time through the reSOT Xbox recompilation, from your own disc.",
+      "title_id": "PPSA99023",
+      "repo": "bystritskiy/rePOP-ps5",
+      "asset": "PPSA99023-{version}.zip",
+      "folder": "PPSA99023",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT AND GPL-3.0-or-later AND LGPL-2.1-or-later",
+      "author": "bystritskiy",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "xbox",
+        "prince-of-persia"
+      ]
+    },
+    {
+      "id": "rush-2-recompiled",
+      "name": "Rush 2 Recompiled",
+      "category": "game",
+      "summary": "San Francisco Rush 2 recompiled from the N64 game and drawn with RT64; plays your own ROM.",
+      "title_id": "PPSA69423",
+      "repo": "Marice/rush2-ps5",
+      "asset": "Rush2Recompiled-PS5-{version}.zip",
+      "folder": "PPSA69423",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Marice",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "recomp",
+        "n64",
+        "racing",
+        "rt64"
+      ]
+    },
+    {
+      "id": "sahin",
+      "name": "Sahin",
+      "category": "game",
+      "summary": "Runs your own PC copy of Blur through prospero-win.",
+      "title_id": "PPSA99404",
+      "repo": "7tg/sahin",
+      "asset": "PPSA99404.zip",
+      "folder": "PPSA99404",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "7tg",
+      "needs_game_files": true,
+      "tags": [
+        "wine",
+        "blur",
+        "racing"
+      ]
+    },
+    {
+      "id": "ship-of-harkinian",
+      "name": "Ship of Harkinian (Ocarina of Time)",
+      "category": "game",
+      "summary": "Ship of Harkinian in 4K at about 60 fps with HD textures; bring your own ROM.",
+      "title_id": "PPSA99620",
+      "repo": "mshivam019/oot64-ps5",
+      "asset": "PPSA99620.zip",
+      "folder": "PPSA99620",
+      "checksums": "PPSA99620.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "n64",
+        "zelda",
+        "libultraship"
+      ]
+    },
+    {
+      "id": "shipwright-vulkan",
+      "name": "Ship of Harkinian (Vulkan)",
+      "category": "game",
+      "summary": "Ship of Harkinian's Ocarina of Time on Vulkan, with its full settings menu; needs your own ROM.",
+      "title_id": "PPSA99320",
+      "repo": "damiantw/PS5_Shipwright",
+      "asset": "PPSA99320.zip",
+      "folder": "PPSA99320",
+      "checksums": "PPSA99320.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "damiantw",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "n64",
+        "zelda",
+        "libultraship"
+      ]
+    },
+    {
+      "id": "source-port",
+      "name": "Source Port",
+      "category": "game",
+      "summary": "A Source engine port that runs Half-Life 2 from your own game files. Alpha.",
+      "title_id": "PPSA20040",
+      "repo": "gmorb/source-port-ps5",
+      "asset": "PPSA20040.zip",
+      "folder": "PPSA20040",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gm0rb",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "engine-port",
+        "half-life-2",
+        "source-engine"
+      ]
+    },
+    {
+      "id": "speedbreaker",
+      "name": "SpeedBreaker",
+      "category": "game",
+      "summary": "Need for Speed: Most Wanted through the SpeedBreaker Xbox recompilation, from your own disc.",
+      "title_id": "PPSA90505",
+      "repo": "bystritskiy/speedbreaker-ps5",
+      "asset": "PPSA90505.zip",
+      "folder": "PPSA90505",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "bystritskiy",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "xbox",
+        "racing",
+        "need-for-speed"
+      ]
+    },
+    {
+      "id": "spider-man-edge-of-time",
+      "name": "Spider-Man: Edge of Time",
+      "category": "game",
+      "summary": "The Xbox 360 game statically recompiled on ReXGlue; add the files from your own copy.",
+      "title_id": "PPSA99300",
+      "repo": "KongaTime/Spider-Man-Edge-Of-Time-PS5",
+      "asset": "Spider.Man.Edge.Of.Time.{version}.zip",
+      "folder": "PPSA99300",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MIT",
+      "author": "KongaTime",
+      "needs_game_files": true,
+      "tags": [
+        "recomp",
+        "xbox-360",
+        "rexglue"
+      ]
+    },
+    {
+      "id": "sudokuzen",
+      "name": "SudokuZen",
+      "category": "game",
+      "summary": "Calm 9x9 Sudoku with soft music, played with the controller.",
+      "title_id": "PPSA50001",
+      "repo": "Bruce303lee/sudokuzen",
+      "asset": "PPSA50001.zip",
+      "folder": "PPSA50001",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "bruce303lee",
+      "channel": "newest",
+      "tags": [
+        "puzzle",
+        "sudoku"
+      ]
+    },
+    {
+      "id": "super-mario-sunshine",
+      "name": "Super Mario Sunshine",
+      "category": "game",
+      "summary": "Super Mario Sunshine on sms-pc-port, in 4K at 60 fps, from your own disc image.",
+      "title_id": "PPSA99312",
+      "repo": "griches/PS5_Sunshine",
+      "asset": "Sunshine-PS5-v{version}.zip",
+      "folder": "PPSA99312",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gamecube",
+        "mario"
+      ]
+    },
+    {
+      "id": "supertuxkart",
+      "name": "SuperTuxKart",
+      "category": "game",
+      "summary": "SuperTuxKart 1.5, the open-source kart racer, ported to the PS5. Alpha.",
+      "title_id": "PPSA69421",
+      "repo": "Marice/stk-ps5",
+      "asset": "PPSA69421.zip",
+      "folder": "PPSA69421",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Marice",
+      "channel": "newest",
+      "tags": [
+        "racing",
+        "kart",
+        "open-source"
+      ]
+    },
+    {
+      "id": "syobon-action",
+      "name": "Syobon Action",
+      "category": "game",
+      "summary": "Cat Mario, the trap-filled Japanese freeware platformer, as a native PS5 title.",
+      "title_id": "PPSA47402",
+      "repo": "kvaps/syobon-action-ps5",
+      "asset": "PPSA47402.zip",
+      "folder": "PPSA47402",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Andrei Kvapil",
+      "tags": [
+        "platformer",
+        "freeware",
+        "cat-mario"
+      ]
+    },
+    {
+      "id": "twilight-princess-dusklight",
+      "name": "Twilight Princess (Dusklight)",
+      "category": "game",
+      "summary": "Twilight Princess on the Dusklight decompilation, set up from your own game files.",
+      "title_id": "PPSA99640",
+      "repo": "mshivam019/dusklight-ps5",
+      "asset": "PPSA99640.zip",
+      "folder": "PPSA99640",
+      "checksums": "PPSA99640.zip.sha256",
+      "attested": false,
+      "license": "CC0-1.0",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gamecube",
+        "zelda"
+      ]
+    },
+    {
+      "id": "vkquake",
+      "name": "vkQuake",
+      "category": "game",
+      "summary": "vkQuake, the Vulkan Quake engine, played from your own pak files.",
+      "title_id": "PPSA99010",
+      "repo": "mihawk-99/PS5_vkQuake",
+      "asset": "PPSA99010.zip",
+      "folder": "PPSA99010",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "none stated",
+      "author": "Mihawk",
+      "shares": "dulcamara",
+      "needs_game_files": true,
+      "tags": [
+        "engine-port",
+        "quake",
+        "fps",
+        "vulkan"
+      ]
+    },
+    {
+      "id": "wave-race-64-recompiled",
+      "name": "Wave Race 64 Recompiled",
+      "category": "game",
+      "summary": "Wave Race 64 recompiled into a native title with RT64; plays your own ROM.",
+      "title_id": "PPSA69424",
+      "repo": "Marice/wave-race-64-ps5",
+      "asset": "WaveRace64Recompiled-PS5-{version}.zip",
+      "folder": "PPSA69424",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Marice",
+      "needs_game_files": true,
+      "channel": "newest",
+      "tags": [
+        "recomp",
+        "n64",
+        "racing",
+        "rt64"
+      ]
+    },
+    {
+      "id": "wind-waker",
+      "name": "Wind Waker",
+      "category": "game",
+      "summary": "The Wind Waker through SwitchWaker on the PS5's Vulkan stack, from your own disc.",
+      "title_id": "PPSA99309",
+      "repo": "griches/PS5_SwitchWaker",
+      "asset": "WindWaker-PS5-v{version}.zip",
+      "folder": "PPSA99309",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "needs_game_files": true,
+      "tags": [
+        "decomp",
+        "gamecube",
+        "zelda"
+      ]
+    },
+    {
+      "id": "wind-waker-hd",
+      "name": "Wind Waker HD",
+      "category": "game",
+      "summary": "The Wind Waker HD port, prepared on a PC from your own game files.",
+      "title_id": "PPSA99641",
+      "repo": "mshivam019/ww-ps5",
+      "asset": "PPSA99641.zip",
+      "folder": "PPSA99641",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "MPL-2.0",
+      "author": "mshivam019",
+      "needs_game_files": true,
+      "tags": [
+        "port",
+        "wii-u",
+        "zelda"
+      ]
+    },
+    {
+      "id": "xashps5",
+      "name": "XashPS5",
+      "category": "game",
+      "summary": "The Xash3D FWGS engine, playing Half-Life from your own copy of its data.",
+      "title_id": "PPSA19111",
+      "repo": "GordonProsperoMan/xash3d-ps5",
+      "asset": "PPSA19111.zip",
+      "folder": "PPSA19111",
+      "checksums": "PPSA19111.zip.sha256",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "GordonProsperoMan",
+      "needs_game_files": true,
+      "tags": [
+        "engine-port",
+        "half-life",
+        "xash3d",
+        "fps"
+      ]
+    },
+    {
+      "id": "evo-player",
+      "name": "EVO Player",
+      "category": "media",
+      "summary": "A media player around the Nuvio web app, with add-on streams and native playback.",
+      "title_id": "PPSA99039",
+      "repo": "sainsaji/EVO-PLAYER-PS5",
+      "asset": "EVOPlayer-v{version}-PPSA99039.zip",
+      "folder": "PPSA99039",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Sain Saji",
+      "tags": [
+        "video",
+        "nuvio",
+        "addons"
+      ]
+    },
+    {
+      "id": "mortalfin",
+      "name": "Mortalfin",
+      "category": "media",
+      "summary": "A native Jellyfin client.",
+      "title_id": "PPSA99141",
+      "repo": "mortaljinx/mortalfin",
+      "asset": "Mortalfin-{version}.zip",
+      "folder": "PPSA99141",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "mortaljinx",
+      "channel": "newest",
+      "tags": [
+        "jellyfin",
+        "video"
+      ]
+    },
+    {
+      "id": "nuvio-maxd",
+      "name": "Nuvio Max'd",
+      "category": "media",
+      "summary": "Nuvio with synced watch progress, add-on streams, episode skipping and experimental HDR10.",
+      "title_id": "PPSA99288",
+      "repo": "HandshakeHackin/Nuvio-maxd-releases",
+      "asset": "PPSA99288.zip",
+      "folder": "PPSA99288",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "HandshakeHackin",
+      "tags": [
+        "nuvio",
+        "video",
+        "addons",
+        "hdr"
+      ]
+    },
+    {
+      "id": "nuvio-ps5",
+      "name": "Nuvio PS5",
+      "category": "media",
+      "summary": "An experimental Nuvio TV port with native playback.",
+      "title_id": "PPSA99997",
+      "repo": "bilawalriaz/nuvio-ps5-homebrew",
+      "asset": "PPSA99997.zip",
+      "folder": "PPSA99997",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Bilawal Riaz",
+      "channel": "newest",
+      "tags": [
+        "nuvio",
+        "video",
+        "addons"
+      ]
+    },
+    {
+      "id": "prospero-hi-fi",
+      "name": "Prospero Hi-Fi",
+      "category": "media",
+      "summary": "A music player built for lossless audio, from the MiSTer Hi-Fi project.",
+      "title_id": "PPSA99287",
+      "repo": "Anime0t4ku/Prospero-Hi-Fi",
+      "asset": "prospero-hifi.zip",
+      "folder": "PPSA99287",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Anime0t4ku",
+      "tags": [
+        "music",
+        "lossless",
+        "flac"
+      ]
+    },
+    {
+      "id": "prosperotv",
+      "name": "ProsperoTV",
+      "category": "media",
+      "summary": "IPTV with an offline iptv-org catalog and hardware video decoding: the app Physalis grew from.",
+      "title_id": "PPSA99003",
+      "repo": "ThatGuyKalvin/ProsperoTV",
+      "asset": "PPSA99003.zip",
+      "folder": "PPSA99003",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "ThatGuyKalvin",
+      "shares": "physalis",
+      "tags": [
+        "iptv",
+        "live-tv",
+        "video"
+      ]
+    },
+    {
+      "id": "regie5",
+      "name": "Régie5",
+      "category": "media",
+      "summary": "A couch remote for Sonarr, Radarr, Seerr, Jellyfin, Plex and Emby.",
+      "title_id": "PPSA99520",
+      "repo": "viviandsx/regie5",
+      "asset": "PPSA99520.zip",
+      "folder": "PPSA99520",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Vivian",
+      "tags": [
+        "sonarr",
+        "radarr",
+        "jellyfin",
+        "plex"
+      ]
+    },
+    {
+      "id": "spot5",
+      "name": "Spot5",
+      "category": "media",
+      "summary": "A standalone Spotify client for the console.",
+      "title_id": "PPSA99061",
+      "repo": "abhi245y/spot5",
+      "asset": "PPSA99061.zip",
+      "folder": "PPSA99061",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "abhi245y",
+      "tags": [
+        "music",
+        "spotify"
+      ]
+    },
+    {
+      "id": "stremio-plus",
+      "name": "Stremio Plus",
+      "category": "media",
+      "summary": "A Stremio client with a torrent engine of its own for add-on streams.",
+      "title_id": "PPSA74126",
+      "repo": "LoZazaMastro/Stremio-Plus",
+      "asset": "PPSA74126.zip",
+      "folder": "PPSA74126",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "LoZazaMastro",
+      "tags": [
+        "stremio",
+        "video",
+        "addons",
+        "torrent"
+      ]
+    },
+    {
+      "id": "symphonystation5",
+      "name": "SymphonyStation5",
+      "category": "media",
+      "summary": "Streams your own music library from a Navidrome server, browsed with the controller.",
+      "title_id": "PPSA17641",
+      "repo": "TsvetomirGT/SymphonyStation5",
+      "asset": "SymphonyStation5-v{version}.zip",
+      "folder": "PPSA17641",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "TsvetomirGT",
+      "channel": "newest",
+      "tags": [
+        "music",
+        "navidrome",
+        "subsonic"
+      ]
+    },
+    {
+      "id": "tubeblock",
+      "name": "TubeBlock",
+      "category": "media",
+      "summary": "A YouTube client that leaves out ads and sponsor segments, with QR sign-in and a choice of codecs.",
+      "title_id": "PPSA98260",
+      "repo": "animatian112/ytps5-sponsorblock",
+      "asset": "SmartTube-PPSA98260.zip",
+      "folder": "PPSA98260",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "animatian112",
+      "tags": [
+        "youtube",
+        "video",
+        "sponsorblock"
+      ]
+    },
+    {
+      "id": "youtube-maxd",
+      "name": "YouTube Max'd",
+      "category": "media",
+      "summary": "A YouTube app with Google sign-in, voice search, a phone remote and picture-in-picture.",
+      "title_id": "PPSA99991",
+      "repo": "HandshakeHackin/youtube-maxd",
+      "asset": "PPSA99991.zip",
+      "folder": "PPSA99991",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "HandshakeHackin",
+      "tags": [
+        "youtube",
+        "video",
+        "sponsorblock"
+      ]
+    },
+    {
+      "id": "prosperostore",
+      "name": "ProsperoStore",
+      "category": "store",
+      "summary": "Another PS5 homebrew store, installing from the prosperostore.net catalog.",
+      "title_id": "PPSA99000",
+      "repo": "darkxex/ProsperoStore",
+      "asset": "PPSA99000.zip",
+      "folder": "PPSA99000",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "AngelXex",
+      "tags": [
+        "store",
+        "homebrew"
+      ]
+    },
+    {
+      "id": "cloud-play",
+      "name": "Cloud Play",
+      "category": "streaming",
+      "summary": "A Chiaki-based client that streams games from the PS Plus Premium cloud catalog.",
+      "title_id": "PPSA99600",
+      "repo": "tertiumndatur/ps5-cloud-play",
+      "asset": "CloudPlay-PS5.zip",
+      "folder": "PPSA99600",
+      "checksums": "PS5-SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "tertiumndatur",
+      "tags": [
+        "cloud-gaming",
+        "ps-plus",
+        "chiaki"
+      ]
+    },
+    {
+      "id": "opennow-ps5",
+      "name": "OpenNOW PS5",
+      "category": "streaming",
+      "summary": "A prototype GeForce NOW client with hardware decoding.",
+      "title_id": "PPSA99082",
+      "repo": "OpenCloudGaming/OpenNOW-PS5",
+      "asset": "OpenNOW-PS5-{version}.zip",
+      "folder": "PPSA99082",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "OpenCloudGaming",
+      "tags": [
+        "geforce-now",
+        "cloud-gaming"
+      ]
+    },
+    {
+      "id": "prosperolight",
+      "name": "ProsperoLight",
+      "category": "streaming",
+      "summary": "Moonlight game streaming from your own PC: the app Datura grew from.",
+      "title_id": "PPSA99002",
+      "repo": "LedyBacer/ProsperoLight",
+      "asset": "PPSA99002.zip",
+      "folder": "PPSA99002",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "LedyBacer",
+      "shares": "datura",
+      "tags": [
+        "moonlight",
+        "streaming",
+        "pc"
+      ]
+    },
+    {
+      "id": "steam-remote-play",
+      "name": "Steam Remote Play",
+      "category": "streaming",
+      "summary": "An unofficial Steam Remote Play client: play the games your PC streams.",
+      "title_id": "PPSA99350",
+      "repo": "jmelovich/Steam-Link-PS5",
+      "asset": "PPSA99350.zip",
+      "folder": "PPSA99350",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "jmelovich",
+      "tags": [
+        "steam",
+        "streaming",
+        "pc"
+      ]
+    },
+    {
+      "id": "art-swap",
+      "name": "Art Swap",
+      "category": "tool",
+      "summary": "Changes any title's home-screen icon, background, logo and music, with art from SteamGridDB.",
+      "title_id": "PPSA99318",
+      "repo": "griches/PS5_ArtSwap",
+      "asset": "PS5_ArtSwap-v{version}.zip",
+      "folder": "PPSA99318",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Gary Riches",
+      "tags": [
+        "home-screen",
+        "icons",
+        "steamgriddb"
+      ]
+    },
+    {
+      "id": "breeze",
+      "name": "Breeze",
+      "category": "tool",
+      "summary": "Your own fan curve for the PS5, with live temperatures, presets, history and a web panel.",
+      "title_id": "PPSA92878",
+      "repo": "MiladRTX/Breeze",
+      "asset": "PPSA92878.zip",
+      "folder": "PPSA92878",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Milad",
+      "tags": [
+        "fan",
+        "temperature",
+        "payloads"
+      ]
+    },
+    {
+      "id": "codex-ps5",
+      "name": "Codex PS5",
+      "category": "tool",
+      "summary": "A prototype Codex coding assistant with local voice transcription and console tools; needs a ChatGPT account.",
+      "title_id": "PPSA99105",
+      "repo": "Portablelle/Codex-PS5",
+      "asset": "codex-ps5-{version}-Folder.zip",
+      "folder": "PPSA99105",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Portablelle",
+      "channel": "newest",
+      "tags": [
+        "ai",
+        "codex",
+        "assistant",
+        "voice"
+      ]
+    },
+    {
+      "id": "estante",
+      "name": "Estante",
+      "category": "tool",
+      "summary": "Puts your game library on a 3D shelf, with collections, favourites and your emulators' games.",
+      "title_id": "PPSA99841",
+      "repo": "kauansilvalopes/estante",
+      "asset": "Estante-v{version}-PPSA99841.zip",
+      "folder": "PPSA99841",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "kauansilvalopes",
+      "tags": [
+        "launcher",
+        "library",
+        "collections"
+      ]
+    },
+    {
+      "id": "forwarder-manager",
+      "name": "Forwarder Manager",
+      "category": "tool",
+      "summary": "Makes and edits home-screen tiles that open an emulator straight into one of your games.",
+      "title_id": "PPSA99930",
+      "repo": "heydemoura/ps5-forwarder-manager",
+      "asset": "PPSA99930.zip",
+      "folder": "PPSA99930",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "heydemoura",
+      "tags": [
+        "forwarders",
+        "home-screen",
+        "emulators"
+      ]
+    },
+    {
+      "id": "gyroaim",
+      "name": "GyroAim",
+      "category": "tool",
+      "summary": "Turns the DualSense gyroscope into stick input in any game, tuned from your phone.",
+      "title_id": "PPSA99510",
+      "repo": "jmelovich/ps5-gyroaim",
+      "asset": "PPSA99510.zip",
+      "folder": "PPSA99510",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "jmelovich",
+      "tags": [
+        "gyro",
+        "dualsense",
+        "controls"
+      ]
+    },
+    {
+      "id": "isshelf",
+      "name": "isShelf",
+      "category": "tool",
+      "summary": "Gathers your emulator libraries in Grid, Swipe and a furnished Shelf room.",
+      "title_id": "PPSA99541",
+      "repo": "Iswebro/console-shelf-ps5",
+      "asset": "PPSA99541.zip",
+      "folder": "PPSA99541",
+      "checksums": "SHA256SUMS.txt",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Iswebro",
+      "channel": "newest",
+      "tags": [
+        "launcher",
+        "frontend",
+        "emulators"
+      ]
+    },
+    {
+      "id": "jewel-case",
+      "name": "Jewel Case",
+      "category": "tool",
+      "summary": "A ROM launcher that shelves your games, NES to Xbox 360, as cartridges and discs and opens each in its emulator.",
+      "title_id": "PPSA75837",
+      "repo": "SkaRift/JewelCase",
+      "asset": "PPSA75837.zip",
+      "folder": "PPSA75837",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "SkaRift",
+      "tags": [
+        "launcher",
+        "frontend",
+        "roms",
+        "emulators"
+      ]
+    },
+    {
+      "id": "machete-ai-studio",
+      "name": "Machete AI Studio",
+      "category": "tool",
+      "summary": "Image and video generation (Wan 2.2, LTX-Video, SDXL, FLUX) on the console's GPU.",
+      "title_id": "PPSA99699",
+      "repo": "VenezuelanBiggie24/Machete-PS5SD-IMG-and-VID",
+      "asset": "PPSA99699.zip",
+      "folder": "PPSA99699",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "VenezuelanBiggie24 & Darkatek7",
+      "tags": [
+        "ai",
+        "images",
+        "video"
+      ]
+    },
+    {
+      "id": "machete-save-manager",
+      "name": "MacheteSaveGameManager",
+      "category": "tool",
+      "summary": "A PS5 and PS4 save manager: back saves up, restore them and move them between accounts.",
+      "title_id": "PPSA99700",
+      "repo": "VenezuelanBiggie24/MacheteSVG-PS5-Save-Manager",
+      "asset": "PPSA99700.zip",
+      "folder": "PPSA99700",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "VenezuelanBiggie24",
+      "tags": [
+        "saves",
+        "backup"
+      ]
+    },
+    {
+      "id": "orion-media-center",
+      "name": "ORION Media Center",
+      "category": "tool",
+      "summary": "One library for your games, homebrew, media apps and emulated games, with box art and tabs of your own.",
+      "title_id": "PPSA99062",
+      "repo": "XeN-Made/Orion-Media-Center",
+      "asset": "PPSA99062.zip",
+      "folder": "PPSA99062",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "XeN-Made",
+      "tags": [
+        "launcher",
+        "library",
+        "box-art"
+      ]
+    },
+    {
+      "id": "payloader",
+      "name": "PayLoader",
+      "category": "tool",
+      "summary": "A controller front end for the pldmgr payload manager: pick the payloads your console boots with.",
+      "title_id": "PPSA67670",
+      "repo": "Marice/ps5-payloader",
+      "asset": "PPSA67670.zip",
+      "folder": "PPSA67670",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Marice",
+      "tags": [
+        "payloads",
+        "jailbreak",
+        "pldmgr"
+      ]
+    },
+    {
+      "id": "photo-splat-vr",
+      "name": "Photo Splat VR",
+      "category": "tool",
+      "summary": "Turns one photo into a 3D Gaussian-splat scene to look around in with PS VR2.",
+      "title_id": "PPSA99770",
+      "repo": "Papyszoo/photo-splat-vr",
+      "asset": "photo-splat-vr-v{version}.zip",
+      "folder": "PPSA99770",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Papyszoo",
+      "tags": [
+        "ai",
+        "vr",
+        "psvr2",
+        "gaussian-splat"
+      ]
+    },
+    {
+      "id": "prospero-explorer",
+      "name": "Prospero Explorer",
+      "category": "tool",
+      "summary": "A file explorer: browse and manage files, archives, pictures, media and text, and serve them over the network.",
+      "title_id": "PPSA99109",
+      "repo": "SvenGDK/Prospero-Explorer",
+      "asset": "ProsperoExplorer-v1.zip",
+      "folder": ".",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "SvenGDK",
+      "tags": [
+        "files",
+        "explorer",
+        "ftp"
+      ]
+    },
+    {
+      "id": "prospero-themes",
+      "name": "Prospero Themes",
+      "category": "tool",
+      "summary": "Applies and restores community themes for the home screen, with import from USB.",
+      "title_id": "PPSA90210",
+      "repo": "Darkatek7/ProsperoThemes",
+      "asset": "PPSA90210.zip",
+      "folder": "PPSA90210",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Darkatek7",
+      "tags": [
+        "themes",
+        "home-screen"
+      ]
+    },
+    {
+      "id": "ps5lm-plus",
+      "name": "PS5LM Plus",
+      "category": "tool",
+      "summary": "Runs GGUF language models with llama.cpp on the console's GPU.",
+      "title_id": "PPSA99581",
+      "repo": "abhi245y/PS5LM-Plus",
+      "asset": "ps5lm-plus-v{version}.zip",
+      "folder": "PPSA99581",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Abhiram",
+      "channel": "newest",
+      "tags": [
+        "ai",
+        "llm",
+        "llama-cpp"
+      ]
+    },
+    {
+      "id": "ps5sd",
+      "name": "PS5SD",
+      "category": "tool",
+      "summary": "Runs stable-diffusion.cpp on the console's GPU, with a web UI and a TV dashboard.",
+      "title_id": "PPSA99576",
+      "repo": "Darkatek7/PS5SD",
+      "asset": "PPSA99576.zip",
+      "folder": "PPSA99576",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "Darkatek7",
+      "tags": [
+        "ai",
+        "stable-diffusion",
+        "images"
+      ]
+    },
+    {
+      "id": "pscord",
+      "name": "PSCord",
+      "category": "tool",
+      "summary": "A Discord client for the console.",
+      "title_id": "PPSA99190",
+      "repo": "desstannsoftware/pscord",
+      "asset": "PPSA99190.zip",
+      "folder": "PPSA99190",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "desstannsoft",
+      "tags": [
+        "discord",
+        "chat"
+      ]
+    },
+    {
+      "id": "rommps",
+      "name": "RommPS",
+      "category": "tool",
+      "summary": "A client for your own RomM server: downloads your games to the console and syncs saves both ways.",
+      "title_id": "PPSA76677",
+      "repo": "s0liton/RommPS",
+      "asset": "PPSA76677.zip",
+      "folder": "PPSA76677",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "s0liton",
+      "tags": [
+        "romm",
+        "roms",
+        "saves",
+        "sync"
+      ]
+    },
+    {
+      "id": "signal-companion",
+      "name": "Signal Companion",
+      "category": "tool",
+      "summary": "Sets the console's light colour and edits the startup tune of the ps5-signal payload.",
+      "title_id": "PPSA69426",
+      "repo": "Marice/ps5-signal-companion",
+      "asset": "PPSA69426.zip",
+      "folder": "PPSA69426",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0-or-later",
+      "author": "Marice",
+      "tags": [
+        "light-bar",
+        "startup-tune",
+        "payloads"
+      ]
+    },
+    {
+      "id": "tokenstation5",
+      "name": "TokenStation5",
+      "category": "tool",
+      "summary": "Makes the console an AI endpoint over Tailscale, on its own Vulkan inference engine.",
+      "title_id": "PPSA99555",
+      "repo": "ThatRetiredDude/TokenStation5",
+      "asset": "PPSA99555.zip",
+      "folder": "PPSA99555",
+      "checksums": "PPSA99555.zip.sha256",
+      "attested": false,
+      "license": "PolyForm-Small-Business-1.0.0 AND GPL-3.0",
+      "author": "ThatRetiredDude",
+      "tags": [
+        "ai",
+        "llm",
+        "tailscale"
+      ]
+    },
+    {
+      "id": "trophy-manager",
+      "name": "Trophy Manager",
+      "category": "tool",
+      "summary": "Shows, unlocks, locks and backs up your trophies on the console.",
+      "title_id": "PPSA99842",
+      "repo": "kauansilvalopes/trophy",
+      "asset": "Trophy-Manager-v{version}-PPSA99842.zip",
+      "folder": "PPSA99842",
+      "checksums": "SHA256SUMS",
+      "attested": false,
+      "license": "GPL-3.0",
+      "author": "kauansilvalopes",
+      "tags": [
+        "trophies"
+      ]
     }
   ],
   "tips": [
@@ -1706,7 +3745,9 @@
     "Every release here is pinned: the catalog's workflow downloaded it, checked it and wrote down its SHA-256.",
     "Changed your mind about an update? More on the app's page rolls it back, from the copy Solanum kept.",
     "Search by tag: #emulator, #media-player, #ps1, #engine-port.",
-    "Installed something by hand? If the catalog lists it, Solanum finds it and looks after it from now on."
+    "Installed something by hand? If the catalog lists it, Solanum finds it and looks after it from now on.",
+    "\"Needs your own game files\" means the app ships none: it runs a game you own, copied over by you.",
+    "No license on an app's page means its repository states none. Solanum installs the author's own release, as published."
   ],
   "eggs": [
     "Imagine gatekeeping a homebrew store. Couldn't be us.",
