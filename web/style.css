@@ -14,6 +14,7 @@
   --soft: #cacad0;
   --dim: #8f8f98;
   --good: #6fe3ae;
+  --gold: #e8b54c;
   --radius: 14px;
   --font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -95,6 +96,8 @@ html:not(.js) .controls { display: none; }
 .badges:empty { display: none; }
 .badge { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.12rem 0.55rem; border-radius: 999px; background: var(--selected); color: var(--accent); border: 1px solid #4a2a2d; }
 .badge.good { background: rgba(111, 227, 174, 0.08); color: var(--good); border-color: rgba(111, 227, 174, 0.3); }
+.badge.warn { background: rgba(232, 181, 76, 0.08); color: var(--gold); border-color: rgba(232, 181, 76, 0.32); }
+.badge.note { background: var(--pill); color: var(--soft); border-color: var(--border); }
 .empty { color: var(--soft); padding: 2rem 0; text-align: center; }
 .icon { flex: none; width: var(--size, 64px); height: var(--size, 64px); border-radius: 22%; object-fit: contain; background: var(--deep); }
 .tile { display: grid; place-items: center; font-weight: 700; font-size: calc(var(--size, 64px) * 0.46); color: #fff; background: linear-gradient(145deg, #e5484d, #8f2328); }

@@ -10,7 +10,9 @@ no external fonts, scripts or services (the QR codes are inline SVGs made here).
 Pages: the home page (every app, a search and a category filter that work in plain JavaScript), a page for each app
 (icon, summary, license, the newest pinned version and its date, the SHA-256, the GitHub link, a QR code to the page
 for installing through the Solanum app), "Submit your app" and "Get Solanum". Everything comes from catalog.json, so
-the site shows what the pin workflow pinned.
+the site shows what the pin workflow pinned. Notes say what to know before installing an app: "No license" when its
+repository states none, "Needs your own game files" for a port, "Pre-release" when its newest release is one, and the
+other app of its title ID when two share one.
 
 Icons: an app's icon is its sce_sys/icon0.png in its own repository. --fetch-icons finds it through GitHub's API (the
 one beside a param.json naming the app's title ID when a repository has several), downloads it, shrinks it to 128
@@ -48,6 +50,7 @@ CATEGORY_ONE = {'emulator': 'Emulator', 'media': 'Media', 'streaming': 'Streamin
                 'store': 'Store'}
 REPO = re.compile(r'^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$')
 SPDX = re.compile(r'^[A-Za-z0-9.+-]+$')
+NO_LICENSE = 'none stated'  # an app whose repository states no license
 MONTHS = ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
           'November', 'December')
 ICON_SIZE = 128
@@ -329,12 +332,22 @@ def fetch_icons(apps, cache=CACHE, token=''):
 NAV = (('', 'Apps'), ('submit/', 'Submit your app'), ('get-solanum/', 'Get Solanum'))
 
 
+def no_license(app):
+    return app.get('license', '').strip().lower() == NO_LICENSE
+
+
 def badges(app):
     found = ''
     if app.get('family'):
         found += '<span class="badge family">Nightshade family</span>'
     if app.get('attested'):
         found += '<span class="badge good">Attested</span>'
+    if app.get('needs_game_files'):
+        found += '<span class="badge warn">Needs your own game files</span>'
+    if no_license(app):
+        found += '<span class="badge warn">No license</span>'
+    if (app.get('release') or {}).get('prerelease'):
+        found += '<span class="badge note">Pre-release</span>'
     return found
 
 
@@ -348,6 +361,13 @@ class Site:
         self.icons = Path(icons)
         self.have_icon = {a['id'] for a in self.apps if (self.icons / f'{a["id"]}.png').is_file()}
         self.solanum = next((a for a in self.apps if a.get('repo') == APP_REPO), None)
+        self.by_id = {a['id']: a for a in self.apps}
+
+    def sharing(self, app):
+        """The other apps of an app's title ID (`shares`, either side): a console holds one of them."""
+        return [a for a in self.apps if a['id'] != app['id'] and a['title_id'] == app['title_id'] and
+                (a.get('shares') == app['id'] or app.get('shares') == a['id'] or
+                 (app.get('shares') and a.get('shares') == app.get('shares')))]
 
     # --- the parts every page shares
 
@@ -438,7 +458,7 @@ class Site:
         categories = sum(1 for key in counts if counts[key])
         grid = '\n'.join(cards)
         body = f'''<section class="hero">
-<h1>Open-source PS5 homebrew, <span class="accent">one catalog</span></h1>
+<h1>PS5 homebrew, <span class="accent">one open catalog</span></h1>
 <p class="lead">{esc(about)}</p>
 <p class="actions"><a class="button" href="get-solanum/">Get Solanum</a> <a class="button ghost" href="submit/">Submit your app</a></p>
 <p class="stats"><strong>{len(apps)}</strong> apps · <strong>{categories}</strong> categories · every release pinned by its SHA-256</p>
@@ -456,8 +476,8 @@ class Site:
 </ul>
 <p id="none" class="empty" hidden>No app matches. Try a shorter search, or <a href="submit/">submit yours</a>.</p>
 </section>'''
-        return self.page('', 'Solanum Catalog: open-source PS5 homebrew',
-                         f'{len(apps)} open-source PS5 homebrew apps, each release pinned by its SHA-256. Browse them '
+        return self.page('', 'Solanum Catalog: PS5 homebrew, one open catalog',
+                         f'{len(apps)} PS5 homebrew apps, each release pinned by its SHA-256. Browse them '
                          'and install them with Solanum.', body, 0, script=True)
 
     # --- an app
@@ -476,6 +496,8 @@ class Site:
             if repo_url:
                 tag_url = f'{repo_url}/releases/tag/{urllib.parse.quote(release["tag"])}'
                 version = f'<a href="{esc(tag_url)}" rel="noopener">{version}</a>'
+            if release.get('prerelease'):
+                version += ' <span class="dim">(a pre-release: its author hasn\'t called it finished)</span>'
             fact('Latest version', version)
             if format_date(release.get('published_at')):
                 fact('Released', esc(format_date(release['published_at'])))
@@ -484,10 +506,21 @@ class Site:
         else:
             fact('Latest version', '<span class="dim">Not pinned yet: the catalog workflow pins it on its next run.</span>')
         license_id = app.get('license', '')
-        if SPDX.match(license_id):
+        if no_license(app):
+            fact('License', 'No license: its repository states none, so its author keeps every right to it. Solanum '
+                            'installs it from the author\'s own release, as published.')
+        elif SPDX.match(license_id):
             fact('License', f'<a href="https://spdx.org/licenses/{esc(license_id)}.html" rel="noopener">{esc(license_id)}</a>')
         else:
             fact('License', esc(license_id))
+        if app.get('needs_game_files'):
+            fact('Needs your own game files', 'It ships none: it runs the files of a game you own, which you copy to '
+                                              'the console yourself. Its README says which.')
+        others = self.sharing(app)
+        if others:
+            names = ', '.join(f'<a href="../{esc(o["id"])}/">{esc(o["name"])}</a>' for o in others)
+            fact('Shares its title ID', f'with {names}. A console holds one of them: installing one replaces the other '
+                                        '(saved data stays).')
         fact('Category', esc(CATEGORY_NAME.get(app['category'], app['category'])))
         if app.get('author'):
             fact('Author', esc(app['author']))
@@ -561,10 +594,17 @@ class Site:
             ('checksums', "the release's checksum file, usually <code>SHA256SUMS</code> (leave that when it has none)"),
             ('attested', '<code>true</code> only if your CI attests the build (<code>gh attestation verify</code> '
                          'must accept it)'),
-            ('license', 'an SPDX identifier of an OSI-approved license, such as <code>GPL-3.0-or-later</code> or '
-                        '<code>MIT</code>'),
+            ('license', 'an SPDX identifier, such as <code>GPL-3.0-or-later</code> or <code>MIT</code>; the '
+                        "license's own name when it has none; <code>none stated</code> when the repository states "
+                        'none (Solanum and this site say "No license")'),
             ('author', 'optional: who makes it'),
             ('tags', "optional: up to eight lowercase words, for Solanum's search"),
+            ('needs_game_files', 'optional: <code>true</code> for a port or launcher that runs the files of a game '
+                                 'the player owns (it ships none)'),
+            ('channel', 'optional: <code>newest</code> when the app\'s release is the newest one that has its file, '
+                        'pre-releases included; leave it out for GitHub\'s latest release'),
+            ('shares', "optional: another app's <code>id</code>, listed before it, whose title ID this one has too "
+                       '(a fork that kept it). A console holds one of them'),
         )
         rows = ''.join(f'<tr><th scope="row"><code>{k}</code></th><td>{v}</td></tr>' for k, v in fields)
         entry = json.dumps({
@@ -581,16 +621,17 @@ class Site:
 <div class="prose">
 <h2>The rules</h2>
 <ul class="rules">
-<li><strong>Open source, with an OSI-approved license.</strong> Your repository links its source and carries the license.</li>
-<li><strong>A release ZIP with a title-ID folder.</strong> Releases come from your app's own GitHub repository. The ZIP holds your app's folder, named after its title ID, with <code>eboot.bin</code> beside <code>sce_sys/param.json</code> (Solanum finds it up to three folders deep). The <code>titleId</code> in that <code>param.json</code> is the one you list.</li>
-<li><strong>No game files.</strong> No game dumps, ROMs, BIOS files, keys or packages in a release, nothing that downloads them, no backup loaders, and no ports of commercial games' code. Emulators and engine ports that need your own game files (OpenMW, OpenRCT2...) are fine, as long as they ship none.</li>
+<li><strong>A public repository and release.</strong> Releases come from your app's own GitHub repository. Its license is listed as it is: an OSI license, another license under its own name, or "No license" when the repository states none.</li>
+<li><strong>A release ZIP with a title-ID folder.</strong> The ZIP holds your app's folder, named after its title ID, with <code>eboot.bin</code> beside <code>sce_sys/param.json</code> (Solanum finds it up to three folders deep, or at the top of the ZIP). The <code>titleId</code> in that <code>param.json</code> is the one you list.</li>
+<li><strong>No game files.</strong> No game data, ROMs, BIOS files, keys or packages in a release. Ports that run the player's own game files (decompilations, recompilations, engine re-implementations, PC launchers) and emulators are welcome as long as they ship none; they are marked "Needs your own game files".</li>
+<li><strong>No backup tools.</strong> Nothing whose main purpose is installing or loading commercial game dumps or backups: PKG and fPKG installers, backup loaders, dump-to-package converters.</li>
 <li><strong>Authors decide.</strong> If you made an app and want it off the list, open an issue and it comes off.</li>
 </ul>
 <h2>How to submit it</h2>
 <ol class="steps">
 <li><a href="{edit}" rel="noopener">Edit <code>catalog.json</code> on GitHub</a> (it forks the repository for you), or fork the repository and clone it.</li>
 <li>Add an entry like the one below to the <code>apps</code> list. Leave out <code>release</code>, <code>pins</code> and <code>stars</code>: the catalog's workflow writes those.</li>
-<li>Open a pull request. CI checks the entry (<code>tools/check_catalog.py --online</code>): the title ID's shape and that no other app has it, that your repository's latest release has the file you named and that Solanum can check it, and that every pinned release is still the file that was pinned.</li>
+<li>Open a pull request. CI checks the entry (<code>tools/check_catalog.py --online</code>): the title ID's shape and that no other app has it (unless the entry says it <code>shares</code> it), that your repository's latest release has the file you named and that Solanum can check it, and that every pinned release is still the file that was pinned.</li>
 <li>Once it is merged, the workflow pins your newest release within six hours, and Solanum and this site show it.</li>
 </ol>
 <h2>The entry</h2>
@@ -600,7 +641,7 @@ class Site:
 <p class="actions"><a class="button" href="{edit}" rel="noopener">Start a pull request</a> <a class="button ghost" href="{readme}" rel="noopener">Read the README</a></p>
 </div>'''
         return self.page('submit/', 'Submit your app: Solanum Catalog',
-                         'How to add your open-source PS5 homebrew to the Solanum catalog with a pull request, and the '
+                         'How to add your PS5 homebrew to the Solanum catalog with a pull request, and the '
                          'rules.', body, 1)
 
     def get_solanum(self):
@@ -621,7 +662,7 @@ class Site:
                 info += f'<p class="hash"><span class="dim">SHA-256</span> <code>{esc(release["sha256"])}</code></p>'
         body = f'''<section class="page-head">
 <h1>Get Solanum</h1>
-<p class="lead">A store for open-source PS5 homebrew. It installs, updates, rolls back and uninstalls the apps of this catalog from their own GitHub releases, each checked against the SHA-256 the catalog pinned.</p>
+<p class="lead">A store for PS5 homebrew. It installs, updates, rolls back and uninstalls the apps of this catalog from their own GitHub releases, each checked against the SHA-256 the catalog pinned.</p>
 <p class="actions"><a class="button" href="{esc(download)}" rel="noopener">Download {esc(asset)}</a> <a class="button ghost" href="https://github.com/{APP_REPO}/releases/latest" rel="noopener">Release notes</a></p>
 {info}
 </section>

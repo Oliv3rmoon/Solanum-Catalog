@@ -205,6 +205,12 @@ def catalog():
             {'id': 'evil', 'name': '<script>alert(1)</script>', 'category': 'tool', 'summary': '"><img src=x onerror=alert(2)>',
              'title_id': 'PPSA00003', 'repo': 'bad/repo" onclick="x', 'asset': 'e.zip', 'folder': '.',
              'checksums': 'SHA256SUMS', 'attested': False, 'license': 'GPL-3.0 <x>', 'tags': ['a"b']},
+            {'id': 'zeta-fork', 'name': 'Zeta Fork', 'category': 'game', 'summary': 'Plays your own game.',
+             'title_id': 'PPSA00002', 'shares': 'zeta', 'repo': 'other/zeta-fork', 'asset': 'ZF.zip',
+             'folder': 'PPSA00002', 'checksums': 'SHA256SUMS', 'attested': False, 'license': 'none stated',
+             'needs_game_files': True, 'channel': 'newest',
+             'release': {'tag': 'v2.0.0-beta.1', 'asset': 'ZF.zip', 'size': 1000, 'sha256': '12' * 32,
+                         'prerelease': True, 'published_at': '2026-10-29T12:52:17Z', 'notes': ''}},
             {'id': 'solanum', 'name': 'Solanum', 'family': True, 'category': 'store', 'summary': 'The store.',
              'title_id': 'PPSA76526', 'repo': 'Oliv3rmoon/Solanum', 'asset': 'PPSA76526.zip', 'folder': 'PPSA76526',
              'checksums': 'SHA256SUMS', 'attested': True, 'license': 'GPL-3.0-or-later',
@@ -270,16 +276,18 @@ class SiteTest(unittest.TestCase):
     def test_home_lists_the_apps_family_first(self):
         home = self.read('index.html')
         order = re.findall(r'<a href="apps/([a-z-]+)/">', home)
-        self.assertEqual(order, ['alpha', 'solanum', 'evil', 'zeta'])
+        self.assertEqual(order, ['alpha', 'solanum', 'evil', 'zeta-fork', 'zeta'])
         self.assertIn('data-category="media"', home)
         self.assertIn('#media-player', home)                              # a tag is searchable
         self.assertIn('ppsa00002', home)                                  # so is a title ID
         self.assertIn('<img class="icon" src="icons/alpha.png"', home)
         self.assertIn('class="icon tile"', home)                          # no icon: the initial on red
         self.assertIn('Nightshade family', home)
-        self.assertIn('<strong>4</strong> apps', home)
+        self.assertIn('<strong>5</strong> apps', home)
         self.assertIn('>Media <span>1</span>', home)
-        self.assertNotIn('>Games', home)                                  # a category with no app has no chip
+        self.assertNotIn('>Streaming', home)                              # a category with no app has no chip
+        self.assertIn('Needs your own game files</span>', home)
+        self.assertIn('No license</span>', home)
         self.assertIn('<script src="assets/app.js" defer>', home)
 
     def test_an_app_page_says_what_the_pin_says(self):
@@ -295,6 +303,18 @@ class SiteTest(unittest.TestCase):
         self.assertIn('Not pinned yet', unpinned)
         self.assertNotIn('spdx.org', unpinned)                            # an odd license is text, not a link
 
+    def test_an_app_page_says_what_to_know_before_installing(self):
+        fork = self.read('apps', 'zeta-fork', 'index.html')
+        for text in ('No license: its repository states none', 'Needs your own game files', 'a pre-release',
+                     'Pre-release</span>', 'Shares its title ID', '<a href="../zeta/">Zeta Player</a>',
+                     'installing one replaces the other'):
+            self.assertIn(text, fork)
+        self.assertNotIn('spdx.org/licenses/none', fork)
+        original = self.read('apps', 'zeta', 'index.html')
+        self.assertIn('<a href="../zeta-fork/">Zeta Fork</a>', original)  # the original names its fork too
+        self.assertNotIn('Needs your own game files', original)
+        self.assertNotIn('Shares its title ID', self.read('apps', 'alpha', 'index.html'))
+
     def test_the_qr_code_is_the_pages_address(self):
         for app_id in ('zeta', 'alpha'):
             page = self.read('apps', app_id, 'index.html')
@@ -304,8 +324,9 @@ class SiteTest(unittest.TestCase):
 
     def test_submit_and_get_pages(self):
         submit = self.read('submit', 'index.html')
-        for text in ('OSI-approved', 'title-ID folder', 'No game files', 'pull request', 'catalog.json',
-                     'title_id', 'edit/main/catalog.json', 'check_catalog.py'):
+        for text in ('No license', 'title-ID folder', 'No game files', 'No backup tools', 'Needs your own game files',
+                     'pull request', 'catalog.json', 'title_id', 'needs_game_files', 'channel', 'shares',
+                     'edit/main/catalog.json', 'check_catalog.py'):
             self.assertIn(text, submit)
         get = self.read('get-solanum', 'index.html')
         for text in ('releases/latest/download/PPSA76526.zip', '0.2.0', '30 October 2026', '17.4 MB', 'ef' * 32,

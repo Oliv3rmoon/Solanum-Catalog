@@ -15,14 +15,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import pin_catalog  # noqa: E402
 
 
-def app_zip(title, files=None, folder=None):
+def app_zip(title, files=None, folder=None, name=None):
     folder = title if folder is None else folder
     prefix = f'{folder}/' if folder else ''
+    param = {'titleId': title, 'contentVersion': '01.002.000'}
+    if name:
+        param['localizedParameters'] = {'defaultLanguage': 'en-US', 'en-US': {'titleName': name}}
     data = io.BytesIO()
     with zipfile.ZipFile(data, 'w') as archive:
         archive.writestr(prefix + 'eboot.bin', b'program')
-        archive.writestr(prefix + 'sce_sys/param.json',
-                         json.dumps({'titleId': title, 'contentVersion': '01.002.000'}))
+        archive.writestr(prefix + 'sce_sys/param.json', json.dumps(param))
         for name, body in (files or {}).items():
             archive.writestr(name, body)
     return data.getvalue()
@@ -31,20 +33,27 @@ def app_zip(title, files=None, folder=None):
 class FakeGitHub:
     """api.github.com and the release files, from memory."""
 
-    def __init__(self, tag, files, digest=True, sums=None, stars=7):
+    def __init__(self, tag, files, digest=True, sums=None, stars=7, releases=None):
         self.tag, self.files, self.stars = tag, files, stars
         self.digest, self.sums = digest, sums
         self.downloads = 0
+        # the list (/releases), newest first: (tag, file names, prerelease, draft); the files' bodies are in `files`
+        self.releases = releases or []
+
+    def release(self, tag, names, prerelease=False, draft=False):
+        assets = [{'name': n, 'size': len(self.files[n]), 'state': 'uploaded',
+                   'digest': 'sha256:' + hashlib.sha256(self.files[n]).hexdigest() if self.digest else None}
+                  for n in names]
+        if self.sums is not None:
+            assets.append({'name': 'SHA256SUMS', 'size': len(self.sums), 'state': 'uploaded'})
+        return {'tag_name': tag, 'assets': assets, 'draft': draft, 'prerelease': prerelease,
+                'published_at': '2026-10-30T10:00:00Z', 'body': '## New\n- something'}
 
     def get_json(self, url):
         if url.endswith('/releases/latest'):
-            assets = [{'name': n, 'size': len(b), 'state': 'uploaded',
-                       'digest': 'sha256:' + hashlib.sha256(b).hexdigest() if self.digest else None}
-                      for n, b in self.files.items()]
-            if self.sums is not None:
-                assets.append({'name': 'SHA256SUMS', 'size': len(self.sums), 'state': 'uploaded'})
-            return {'tag_name': self.tag, 'assets': assets, 'draft': False, 'prerelease': False,
-                    'published_at': '2026-10-30T10:00:00Z', 'body': '## New\n- something'}
+            return self.release(self.tag, list(self.files))
+        if '/releases?' in url:
+            return [self.release(*r) for r in self.releases]
         return {'stargazers_count': self.stars}
 
     def download(self, url, path, limit):
@@ -192,6 +201,63 @@ class PinTest(unittest.TestCase):
         changed, lines = self.pin(FakeGitHub('v1.1.0', {'Other.zip': b'x'}), app)
         self.assertTrue(any('keeps its pin' in line for line in lines))
         self.assertEqual(app['release']['tag'], 'v1.0.0')
+
+
+    def test_newest_channel_takes_the_newest_release_with_the_file(self):
+        body, other = app_zip('ABCD12345', name='Thing'), b'windows build'
+        files = {'Thing-1.3.0.zip': body, 'Thing-1.2.0.zip': app_zip('ABCD12345'), 'Thing-Windows-1.4.0.zip': other,
+                 'Thing-1.5.0.zip': app_zip('ABCD12345')}
+        github = FakeGitHub('v1.4.0', files, releases=[
+            ('v1.5.0', ['Thing-1.5.0.zip'], False, True),        # a draft: never
+            ('v1.4.0', ['Thing-Windows-1.4.0.zip']),             # another platform's release
+            ('v1.3.0', ['Thing-1.3.0.zip'], True),               # a pre-release with the file: this one
+            ('v1.2.0', ['Thing-1.2.0.zip'])])
+        app = entry(channel='newest')
+        changed, _ = self.pin(github, app)
+        self.assertTrue(changed)
+        self.assertEqual(app['release']['tag'], 'v1.3.0')
+        self.assertTrue(app['release']['prerelease'])
+        self.assertEqual(app['release']['title_name'], 'Thing')
+        # without the channel, GitHub's latest release decides, and it has no file of the pattern
+        plain = entry()
+        changed, lines = self.pin(github, plain)
+        self.assertNotIn('release', plain)
+        self.assertTrue(any('keeps its pin' in line for line in lines))
+
+    def test_newest_channel_with_no_release_holding_the_file_keeps_its_pin(self):
+        github = FakeGitHub('v1.0.0', {'Other.zip': b'x'}, releases=[('v1.0.0', ['Other.zip'], True)])
+        app = entry(channel='newest', release={'tag': 'v0.9.0', 'asset': 'Thing-0.9.0.zip', 'size': 10,
+                                               'sha256': 'c' * 64})
+        changed, lines = self.pin(github, app)
+        self.assertEqual(app['release']['tag'], 'v0.9.0')
+        self.assertTrue(any('keeps its pin' in line for line in lines))
+
+    def test_an_app_sharing_its_title_id_is_given_its_name(self):
+        body = app_zip('ABCD12345', name='Thing Plus')
+        sha = hashlib.sha256(body).hexdigest()
+        pinned = {'tag': 'v1.1.0', 'asset': 'Thing-1.1.0.zip', 'size': len(body), 'sha256': sha,
+                  'content_version': '01.002.000', 'published_at': '2026-10-30T10:00:00Z',
+                  'notes': '## New\n- something'}
+        app = entry(stars=7, release=dict(pinned))
+        github = FakeGitHub('v1.1.0', {'Thing-1.1.0.zip': body})
+        changed, _ = self.pin(github, app)
+        self.assertFalse(changed)  # not sharing: not downloaded for a name
+        self.assertEqual(github.downloads, 0)
+        with mock.patch.object(pin_catalog, 'get_json', github.get_json), \
+                mock.patch.object(pin_catalog, 'download', github.download), \
+                mock.patch.object(pin_catalog, 'request', github.request), \
+                tempfile.TemporaryDirectory() as work:
+            changed = pin_catalog.pin_app(app, work, lambda line: None, names=True)
+        self.assertTrue(changed)
+        self.assertEqual(app['release']['title_name'], 'Thing Plus')
+        self.assertEqual(github.downloads, 1)
+        self.assertEqual(pin_catalog.sharing([entry(id='a'), entry(id='b', shares='a'), entry(id='c')]), {'a', 'b'})
+
+    def test_title_names(self):
+        self.assertEqual(pin_catalog.title_name({'localizedParameters': {'defaultLanguage': 'ja-JP', 'en-US': {
+            'titleName': 'Thing'}, 'ja-JP': {'titleName': 'シング'}}}), 'シング')
+        self.assertEqual(pin_catalog.title_name({'localizedParameters': {'en-US': {'titleName': ' Thing '}}}), 'Thing')
+        self.assertEqual(pin_catalog.title_name({'titleId': 'ABCD12345'}), '')
 
 
 if __name__ == '__main__':

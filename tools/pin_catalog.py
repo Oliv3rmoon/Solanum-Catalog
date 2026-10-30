@@ -3,11 +3,14 @@
 """Pins every app's newest release into catalog.json: its file's SHA-256 and size, hashed here from a download.
 
 Most homebrew releases publish no checksum file. Solanum checks every download before anything is unpacked, so for
-each app this reads its repository's newest release (not a draft or a pre-release), downloads the file the catalog's
-pattern names, and writes what it found into the app's entry:
+each app this reads its repository's newest release (GitHub's latest release, never a draft or a pre-release; for an
+app whose `channel` is "newest", the newest release that has the app's file, pre-releases included), downloads the
+file the catalog's pattern names, and writes what it found into the app's entry:
 
-    "release": {"tag", "asset", "size", "sha256", "content_version", "published_at", "notes"}   the newest release
-    "pins":    [{"tag", "asset", "size", "sha256", "content_version"}, ...]   the ones pinned before it (five at most)
+    "release": {"tag", "asset", "size", "sha256", "content_version", "title_name", "prerelease", "published_at",
+                "notes"}   the newest release
+    "pins":    [{"tag", "asset", "size", "sha256", "content_version", "title_name"}, ...]   the ones pinned before it
+               (five at most)
     "stars":   the repository's stars on GitHub
 
 A release is pinned only when everything agrees: the downloaded file's size is the one GitHub lists; its SHA-256 is
@@ -18,7 +21,8 @@ for its repository. A release pinned before is never pinned again: when the file
 another size or has another digest, or a download of it hashes to anything else, the file was replaced after it was
 pinned, and that is an error, not a new pin. content_version is the app's contentVersion in the file's param.json:
 Solanum compares it with the installed one, whatever the tag says; a pin made before it was recorded is downloaded
-again, checked against its pin, and given it.
+again, checked against its pin, and given it. title_name is the name in that param.json: when two apps share a title ID
+(`shares`), Solanum tells which of them is installed by it, so the pins of those apps are given it the same way.
 
 The pins live in this git repository, so every one is in its history. Solanum uses them only for Solanum's own
 catalog, never for a custom one.
@@ -122,9 +126,22 @@ def sums_line(text, name):
     return found
 
 
-def inspect_zip(path, title_id):
+def title_name(param):
+    """The app's name in a param.json: its default language's titleName, else the first one it has; '' for none."""
+    localized = param.get('localizedParameters')
+    if not isinstance(localized, dict):
+        return ''
+    names = [localized.get(localized.get('defaultLanguage'))] + [v for v in localized.values() if isinstance(v, dict)]
+    for entry in names:
+        if isinstance(entry, dict) and isinstance(entry.get('titleName'), str) and entry['titleName'].strip():
+            return entry['titleName'].strip()[:63]
+    return ''
+
+
+def inspect_app(path, title_id):
     """The ZIP's app folder as the install helper finds it: the one folder (at the top, or up to three folders deep)
-    holding sce_sys/param.json and eboot.bin. Returns its param.json's contentVersion; raises ValueError otherwise."""
+    holding sce_sys/param.json and eboot.bin. Returns its param.json's contentVersion and name
+    ({'content_version', 'title_name'}); raises ValueError otherwise."""
     with zipfile.ZipFile(path) as archive:
         names = [info.filename for info in archive.infolist()]
         # The app's own image beside its folder (<title ID>.ffpfsc, for ShadowMountPlus to mount instead) is the app,
@@ -143,7 +160,12 @@ def inspect_zip(path, title_id):
         param = json.loads(archive.read(params[0]).decode('utf-8-sig'))
         if param.get('titleId') != title_id:
             raise ValueError(f'its param.json is {param.get("titleId")}, not {title_id}')
-        return param.get('contentVersion', '')
+        return {'content_version': param.get('contentVersion', ''), 'title_name': title_name(param)}
+
+
+def inspect_zip(path, title_id):
+    """inspect_app's contentVersion alone."""
+    return inspect_app(path, title_id)['content_version']
 
 
 def attested(path, repo):
@@ -159,8 +181,47 @@ class Problem(Exception):
     pass
 
 
-def pin_app(app, work, log):
-    """Pins one app's newest release. True when its entry changed."""
+LIST = 30  # releases read for an app whose channel is "newest"
+PIN_KEYS = ('tag', 'asset', 'size', 'sha256', 'content_version', 'title_name')
+
+
+def uploaded(release):
+    return {a['name']: a for a in release.get('assets', []) if a.get('state', 'uploaded') == 'uploaded'}
+
+
+def find_release(app, log):
+    """The release to pin, or None (said in the log). GitHub's latest release (never a draft or a pre-release); for an
+    app whose channel is "newest", the newest release (pre-releases included, drafts never) that has the file the
+    pattern names for its tag, so that an app publishing only pre-releases, or other platforms' releases between its
+    own, is pinned all the same."""
+    repo = app['repo']
+    if app.get('channel') == 'newest':
+        try:
+            releases = get_json(f'{API}{repo}/releases?per_page={LIST}')
+        except urllib.error.HTTPError as error:
+            log(f'{app["id"]}: its releases can\'t be read ({error.code}); left as it is')
+            return None
+        for release in releases if isinstance(releases, list) else []:
+            name = pattern_name(app['asset'], release.get('tag_name', ''))
+            if not release.get('draft') and name and name in uploaded(release):
+                return release
+        log(f'WARNING {app["id"]}: none of its newest {LIST} releases has {app["asset"]}; it keeps its pin')
+        return None
+    try:
+        release = get_json(f'{API}{repo}/releases/latest')
+    except urllib.error.HTTPError as error:
+        log(f'{app["id"]}: no release ({error.code}); left as it is')
+        return None
+    if release.get('draft') or release.get('prerelease'):
+        log(f'{app["id"]}: its newest release is a draft or a pre-release; left as it is')
+        return None
+    return release
+
+
+def pin_app(app, work, log, names=False):
+    """Pins one app's newest release. True when its entry changed. `names`: the app shares its title ID with another
+    (`shares`), so its pinned release must say its param.json's name, and one pinned before it was recorded is
+    downloaded again for it."""
     repo = app['repo']
     changed = False
     try:
@@ -172,46 +233,50 @@ def pin_app(app, work, log):
     if app.get('stars') != stars:
         app['stars'] = stars
         changed = True
-    try:
-        release = get_json(f'{API}{repo}/releases/latest')
-    except urllib.error.HTTPError as error:
-        log(f'{app["id"]}: no release ({error.code}); left as it is')
-        return changed
-    if release.get('draft') or release.get('prerelease'):
-        log(f'{app["id"]}: its newest release is a draft or a pre-release; left as it is')
+    release = find_release(app, log)
+    if release is None:
         return changed
     tag = release['tag_name']
     name = pattern_name(app['asset'], tag)
-    assets = {a['name']: a for a in release.get('assets', []) if a.get('state', 'uploaded') == 'uploaded'}
+    assets = uploaded(release)
     if not name or name not in assets:
         log(f'WARNING {app["id"]}: {tag} has no {name or app["asset"]}; it keeps its pin')
         return changed
     asset = assets[name]
     digest = (asset.get('digest') or '')
     digest = digest[7:].lower() if digest.startswith('sha256:') else None
+    prerelease = bool(release.get('prerelease'))
     pinned = app.get('release') or {}
     if pinned.get('tag') == tag and pinned.get('asset') == name:
         # Pinned already: the file must still be the one that was hashed.
         if asset['size'] != pinned['size'] or (digest and digest != pinned['sha256']):
             raise Problem(f'{app["id"]}: {tag}/{name} is not the file that was pinned (size {asset["size"]} '
                           f'for {pinned["size"]}, digest {digest} for {pinned["sha256"]}): it was replaced')
-        if not pinned.get('content_version'):
-            # Pinned before content versions were recorded: downloaded again, it must hash to the pin.
+        if not pinned.get('content_version') or (names and 'title_name' not in pinned):
+            # Pinned before content versions (or names) were recorded: downloaded again, it must hash to the pin.
             path = Path(work) / f'{app["id"]}.zip'
             sha256, size = download(f'https://github.com/{repo}/releases/download/{tag}/{name}', path, MAX_FILE)
             if sha256 != pinned['sha256'] or size != pinned['size']:
                 raise Problem(f'{app["id"]}: {tag}/{name} hashes to {sha256}, not its pin {pinned["sha256"]}: '
                               f'it was replaced')
             try:
-                pinned['content_version'] = inspect_zip(path, app['title_id'])
+                found = inspect_app(path, app['title_id'])
             except (ValueError, zipfile.BadZipFile, KeyError, json.JSONDecodeError) as error:
                 raise Problem(f'{app["id"]}: {tag}/{name} isn\'t the app: {error}') from error
+            pinned['content_version'] = found['content_version']
+            pinned['title_name'] = found['title_name']
             path.unlink()
             changed = True
         notes = cut_notes(release.get('body'))
         if pinned.get('notes', '') != notes or pinned.get('published_at') != release.get('published_at'):
             pinned['notes'] = notes
             pinned['published_at'] = release.get('published_at')
+            changed = True
+        if bool(pinned.get('prerelease')) != prerelease:
+            if prerelease:
+                pinned['prerelease'] = True
+            else:
+                pinned.pop('prerelease', None)
             changed = True
         log(f'{app["id"]}: {tag} pinned already')
         return changed
@@ -244,7 +309,7 @@ def pin_app(app, work, log):
             raise Problem(f'{app["id"]}: {tag}/{name} hashes to {sha256}, but it was pinned as {old["sha256"]}: '
                           f'it was replaced')
     try:
-        version = inspect_zip(path, app['title_id'])
+        found = inspect_app(path, app['title_id'])
     except (ValueError, zipfile.BadZipFile, KeyError, json.JSONDecodeError) as error:
         raise Problem(f'{app["id"]}: {tag}/{name} isn\'t the app: {error}') from error
     if app.get('attested'):
@@ -256,14 +321,27 @@ def pin_app(app, work, log):
     path.unlink()
 
     if pinned.get('tag'):
-        older = [{k: pinned[k] for k in ('tag', 'asset', 'size', 'sha256', 'content_version') if k in pinned}]
+        older = [{k: pinned[k] for k in PIN_KEYS if k in pinned}]
         older += [p for p in app.get('pins', []) if p.get('tag') != pinned['tag'] and p.get('tag') != tag]
         app['pins'] = older[:MAX_PINS]
-    app['release'] = {'tag': tag, 'asset': name, 'size': size, 'sha256': sha256, 'content_version': version,
-                      'published_at': release.get('published_at'), 'notes': cut_notes(release.get('body'))}
-    log(f'{app["id"]}: pinned {tag} {name} {size} bytes sha256 {sha256} (contentVersion {version}'
-        f'{", digest agrees" if digest else ""}{", " + sums + " agrees" if sums in assets else ""})')
+    app['release'] = {'tag': tag, 'asset': name, 'size': size, 'sha256': sha256,
+                      'content_version': found['content_version'], 'title_name': found['title_name']}
+    if prerelease:
+        app['release']['prerelease'] = True
+    app['release'].update({'published_at': release.get('published_at'), 'notes': cut_notes(release.get('body'))})
+    log(f'{app["id"]}: pinned {tag} {name} {size} bytes sha256 {sha256} (contentVersion {found["content_version"]}'
+        f'{", a pre-release" if prerelease else ""}{", digest agrees" if digest else ""}'
+        f'{", " + sums + " agrees" if sums in assets else ""})')
     return True
+
+
+def sharing(apps):
+    """The ids of the apps that share a title ID with another (`shares`, either side of it)."""
+    found = set()
+    for app in apps:
+        if app.get('shares'):
+            found.update((app['id'], app['shares']))
+    return found
 
 
 def main():
@@ -274,6 +352,7 @@ def main():
         only = set(arguments[arguments.index('--only') + 1].split(','))
     text = CATALOG.read_text(encoding='utf-8')
     catalog = json.loads(text)
+    named = sharing(catalog['apps'])
     problems = []
     changed = False
     with tempfile.TemporaryDirectory() as work:
@@ -281,7 +360,7 @@ def main():
             if only and app['id'] not in only:
                 continue
             try:
-                changed = pin_app(app, work, print) or changed
+                changed = pin_app(app, work, print, names=app['id'] in named) or changed
             except Problem as problem:
                 problems.append(str(problem))
                 print(f'ERROR {problem}')

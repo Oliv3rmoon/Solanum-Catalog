@@ -2,15 +2,18 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Checks catalog.json, the list of apps Solanum installs.
 
-Offline (always): the schema; unique ids and title IDs; title IDs in the console's form (four letters, five
-digits); a repository in owner/name form; a known category; a license; a file pattern that names a release's file
-({version} is the tag without a leading v, {content} the tag as a content version); and what the pin workflow and the
-authors add: tags (lowercase), an author, a data folder (one folder of its own directly in /data, none the console,
-the HEN, ShadowMountPlus or Solanum keeps), stars, and pinned releases (a tag, the file the pattern names for it, its
-size and a lowercase SHA-256, and notes Solanum can hold).
+Offline (always): the schema; unique ids; title IDs in the console's form (four letters, five digits), each one
+app's, unless a later app says it `shares` it with the one listed first (two apps of one title ID: a console holds one
+of them); a repository in owner/name form; a known category; a license (an SPDX identifier, the license's own name,
+or "none stated"); a file pattern that names a release's file ({version} is the tag without a leading v, {content}
+the tag as a content version); and what the pin workflow and the authors add: tags (lowercase), an author, a data
+folder (one folder of its own directly in /data, none the console, the HEN, ShadowMountPlus or Solanum keeps), the
+release channel ("newest"), whether it needs the player's own game files, stars, and pinned releases (a tag, the file
+the pattern names for it, its size and a lowercase SHA-256, the name in its param.json, and notes Solanum can hold).
 
-Online (--online): for every app, the repository's latest release (not a draft or a pre-release) has the app's file,
-and Solanum can check it: the release's checksum file names it, GitHub keeps a digest of it, or the catalog pins it.
+Online (--online): for every app, the repository's latest release (not a draft or a pre-release; for a "newest"
+channel, the newest release that has the app's file, pre-releases included) has the app's file, and Solanum can check
+it: the release's checksum file names it, GitHub keeps a digest of it, or the catalog pins it.
 When the catalog pins that very release, the file GitHub lists is the pinned one (its size, and its digest when GitHub
 keeps one): a file replaced after it was pinned fails. A newer release that has neither a checksum nor a pin yet is a
 warning (the pin workflow pins it on its next run; Solanum offers the pinned one meanwhile). Set GITHUB_TOKEN for
@@ -25,12 +28,14 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pin_catalog import NOTES_BYTES, pattern_name  # noqa: E402
+from pin_catalog import LIST, NOTES_BYTES, pattern_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = ('id', 'name', 'category', 'summary', 'title_id', 'repo', 'asset', 'folder', 'checksums',
             'attested', 'license')
 CATEGORIES = {'emulator', 'media', 'streaming', 'game', 'tool', 'store'}
+CHANNELS = {'newest'}
+NO_LICENSE = 'none stated'  # an app whose repository states no license: Solanum and the site say "No license"
 TITLE_ID = re.compile(r'^[A-Z]{4}[0-9]{5}$')
 REPO = re.compile(r'^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$')
 ID = re.compile(r'^[a-z0-9-]+$')
@@ -58,6 +63,10 @@ def check_pin(app, pin, what):
         fail(f'{app["id"]}: {what}\'s size is not a size')
     if 'content_version' in pin and not re.fullmatch(r'\d{2}\.\d{3}\.\d{3}', pin['content_version']):
         fail(f'{app["id"]}: {what}\'s content_version is not a content version (01.002.003)')
+    if 'title_name' in pin and (not isinstance(pin['title_name'], str) or len(pin['title_name'].encode('utf-8')) > 63):
+        fail(f'{app["id"]}: {what}\'s title_name is not text of at most 63 bytes')
+    if 'prerelease' in pin and not isinstance(pin['prerelease'], bool):
+        fail(f'{app["id"]}: {what}\'s prerelease is true or false')
     if pattern_name(app['asset'], pin['tag']) != pin['asset']:
         fail(f'{app["id"]}: {what} pins {pin["asset"]}, but the pattern names {pattern_name(app["asset"], pin["tag"])} '
              f'for {pin["tag"]}')
@@ -71,7 +80,7 @@ def check_offline(catalog):
         fail('apps must be a non-empty list')
     if len(apps) > 256:
         fail('Solanum reads 256 apps at most')
-    seen_ids, seen_titles = set(), set()
+    seen_ids, seen_titles = set(), {}
     for app in apps:
         missing = [key for key in REQUIRED if key not in app]
         if missing:
@@ -80,10 +89,17 @@ def check_offline(catalog):
             fail(f'{app["id"]}: id is not lowercase letters, digits and -')
         if app['id'] in seen_ids:
             fail(f'{app["id"]}: id listed twice')
-        if app['title_id'] in seen_titles:
-            fail(f'{app["id"]}: title ID {app["title_id"]} already belongs to another app')
+        if 'shares' in app:
+            # Two apps of one title ID (a fork and the app it came from): the later one says so, naming the first.
+            first = seen_titles.get(app['title_id'])
+            if first is None or first['id'] != app['shares'] or 'shares' in first:
+                fail(f'{app["id"]}: shares names {app["shares"]}, which must be listed before it, with its title ID '
+                     f'{app["title_id"]}, and share no other app\'s')
+        elif app['title_id'] in seen_titles:
+            fail(f'{app["id"]}: title ID {app["title_id"]} already belongs to another app (an app of the same title ID '
+                 f'says so with shares)')
         seen_ids.add(app['id'])
-        seen_titles.add(app['title_id'])
+        seen_titles.setdefault(app['title_id'], app)
         if not TITLE_ID.match(app['title_id']):
             fail(f'{app["id"]}: title ID {app["title_id"]} is not four letters and five digits')
         if not REPO.match(app['repo']):
@@ -92,8 +108,11 @@ def check_offline(catalog):
             fail(f'{app["id"]}: category {app["category"]} is not one of {sorted(CATEGORIES)}')
         if not app['license'].strip():
             fail(f'{app["id"]}: no license')
-        if not isinstance(app['attested'], bool) or not isinstance(app.get('family', False), bool):
-            fail(f'{app["id"]}: attested and family are true or false')
+        if not isinstance(app['attested'], bool) or not isinstance(app.get('family', False), bool) or \
+                not isinstance(app.get('needs_game_files', False), bool):
+            fail(f'{app["id"]}: attested, family and needs_game_files are true or false')
+        if 'channel' in app and app['channel'] not in CHANNELS:
+            fail(f'{app["id"]}: channel is one of {sorted(CHANNELS)}, or left out for GitHub\'s latest release')
         if not pattern_name(app['asset'], 'v1.0.0'):
             fail(f'{app["id"]}: asset {app["asset"]} can\'t name a release\'s file')
         if app['folder'] != '.' and not NAME.match(app['folder']):
@@ -139,9 +158,23 @@ def get(url):
         return response.read()
 
 
+def newest_release(app):
+    """The release Solanum offers for an app: GitHub's latest release; for a "newest" channel, the newest release (not a
+    draft) that has the app's file."""
+    if app.get('channel') != 'newest':
+        return json.loads(get(f'https://api.github.com/repos/{app["repo"]}/releases/latest'))
+    releases = json.loads(get(f'https://api.github.com/repos/{app["repo"]}/releases?per_page={LIST}'))
+    for release in releases:
+        name = pattern_name(app['asset'], release['tag_name'])
+        if not release.get('draft') and name and any(a['name'] == name and a.get('state', 'uploaded') == 'uploaded'
+                                                     for a in release['assets']):
+            return release
+    fail(f'{app["id"]}: none of its newest {LIST} releases has {app["asset"]}')
+
+
 def check_online(apps):
     for app in apps:
-        release = json.loads(get(f'https://api.github.com/repos/{app["repo"]}/releases/latest'))
+        release = newest_release(app)
         tag = release['tag_name']
         asset = pattern_name(app['asset'], tag)
         files = {a['name']: a for a in release['assets'] if a.get('state', 'uploaded') == 'uploaded'}
