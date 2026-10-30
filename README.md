@@ -2,6 +2,8 @@
 
 **The open list of PS5 homebrew that [Solanum](https://github.com/Oliv3rmoon/Solanum) installs.** Solanum is a Nightshade app, named after the genus at the heart of the nightshade family. Anyone can add an app here with a pull request, and there's no gatekeeper: the gate is a pull request.
 
+**Browse it on the web: <https://oliv3rmoon.github.io/Solanum-Catalog/>**, with a page for every app, how to submit one, and where to get Solanum.
+
 ## Rules
 - **Open-source homebrew only.** Every app links its source and has an OSI license in its repository.
 - **No game dumps, no piracy,** and nothing that downloads either: no ROMs, BIOS, keys or game files in a release, no backup loaders, no ports of commercial games' code. Engine ports that need your own game files (OpenMW, OpenRCT2...) and emulators are fine, as long as they ship none.
@@ -10,7 +12,7 @@
 - **Authors decide.** If you made an app and want it off the list, open an issue and it comes off.
 
 ## Add an app
-Add an entry to `catalog.json`'s `apps` and open a pull request; leave out `release`, `pins` and `stars`, which the pin workflow writes. CI runs `tools/check_catalog.py --online`, which checks that:
+The site's [Submit your app](https://oliv3rmoon.github.io/Solanum-Catalog/submit/) page says the same. Add an entry to `catalog.json`'s `apps` and open a pull request; leave out `release`, `pins` and `stars`, which the pin workflow writes. CI runs `tools/check_catalog.py --online`, which checks that:
 - the title ID is four letters and five digits, used by no other app;
 - the repository's latest release has the file the entry's `asset` names, and Solanum can check it: the release's checksum file names it, GitHub keeps a digest of it, or it is pinned;
 - every pinned release is the file the pattern names for its tag, and the file GitHub lists for a pinned tag is still the pinned one.
@@ -46,6 +48,9 @@ A release that is pinned is never pinned again: when the file GitHub lists for a
 Solanum shows each app's pinned release without asking GitHub's API, so a catalog of any size costs nothing of the 60 requests an hour GitHub allows an address; it asks GitHub only for the apps installed on the console, to see a release newer than its pin.
 
 Run it yourself with `GITHUB_TOKEN=... python3 tools/pin_catalog.py` (or `--only id,id`); `python3 -m unittest discover -s tests` checks the tool without a network.
+
+## The website
+`tools/build_site.py` writes the catalog's website from `catalog.json`: plain HTML, one stylesheet and one small script, no framework and no external service. It has the home page (every app, with a search and a category filter), a page for each app (its icon, summary, license, newest pinned version and date, SHA-256, GitHub link, and a QR code to the page, which says how to install it with Solanum), *Submit your app* and *Get Solanum*. An app's icon is its `sce_sys/icon0.png` in its own repository (`--fetch-icons` finds it and shrinks it; an app with none gets its initial on red). `.github/workflows/pages.yml` builds it on every push and publishes it with GitHub Pages from `main`, and again after each run of the pin workflow, so it shows what was pinned. `python3 tools/build_site.py --out site` writes it on your computer (the site is never committed); `python3 -m unittest discover -s tests` checks it, QR codes included, without a network.
 
 ## Your own catalog
 Solanum can also read other catalogs in this format (Settings > Catalogs): a GitHub repository with a `catalog.json` at its root, or any HTTPS address of one. Their apps are shown as third-party, never as attested; their pins are not used (their downloads are checked against what GitHub says alone); and an app this catalog lists comes from this catalog.

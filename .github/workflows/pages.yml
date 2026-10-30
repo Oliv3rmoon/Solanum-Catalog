@@ -1,0 +1,64 @@
+name: Publish the site
+# The catalog's website (tools/build_site.py): built from catalog.json on every push to any branch, so a branch shows
+# that it still builds, and published with GitHub Pages from main. A push made with the workflow token never starts
+# a workflow, so the pin workflow's own commits don't start this one; a finished run of it on main does, which is how
+# a new pin reaches the site.
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - catalog.json
+      - tools/build_site.py
+      - tools/qr.py
+      - web/**
+      - .github/workflows/pages.yml
+  workflow_run:
+    workflows: ["Pin the apps' releases"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: The site's own checks
+        run: python3 -B -m unittest tests.test_build_site -v
+      - name: Set up Pages
+        id: pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      # The apps' icons come from their repositories; the cache keeps the last ones when GitHub can't be asked.
+      - name: Icons seen before
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .cache/icons
+          key: icons-${{ github.run_id }}
+          restore-keys: icons-
+      - name: Build the site
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 -B tools/build_site.py --fetch-icons --base-url "${{ steps.pages.outputs.base_url }}"
+      - name: Keep the site
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: site
+  deploy:
+    name: Publish on GitHub Pages
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

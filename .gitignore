@@ -1,0 +1,4 @@
+# The site is built by CI (tools/build_site.py), never committed; the icon cache is local.
+site/
+.cache/
+__pycache__/
