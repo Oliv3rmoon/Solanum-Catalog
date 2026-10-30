@@ -1,0 +1,56 @@
+name: Pin the apps' releases
+# Most homebrew releases publish no checksum file. Every six hours, and on every push that changes the catalog or its
+# tools, this reads each app's newest release, downloads its file and pins its SHA-256 and size into catalog.json
+# (tools/pin_catalog.py), once the download agrees with GitHub's digest and the release's checksum file, holds the
+# app (its param.json's title ID), holds no game images, ROMs or keys, and, for an attested app, passes
+# `gh attestation verify`. A file replaced after it was pinned fails the run instead of being pinned again.
+#
+# On main the new pins are committed to the catalog, in its history like every other change. On any other branch
+# the run pins the same way and shows what would change, without committing (a pull request's branch stays the
+# author's); the pinned catalog.json is the run's artifact.
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - catalog.json
+      - tools/**
+      - .github/workflows/pin.yml
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pin-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  pin:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Pin every app's newest release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B tools/pin_catalog.py
+      - name: Check the catalog as Solanum reads it
+        run: python3 -B tools/check_catalog.py
+      - name: What changed
+        run: git diff --stat catalog.json
+      - name: Keep the pinned catalog
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog
+          path: catalog.json
+      - name: Commit the new pins (main)
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet catalog.json; then
+            echo "Nothing new to pin."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "Pin the apps' newest releases" catalog.json
+          git push origin HEAD:main

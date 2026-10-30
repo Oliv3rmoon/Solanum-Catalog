@@ -1,8 +1,10 @@
 name: Check the catalog
+# Every push and pull request: catalog.json as Solanum reads it, and every app's latest release (its file there, and
+# something Solanum can check it against: the release's checksum file, GitHub's digest, or the catalog's pin).
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: ["**"]
   schedule:
     - cron: '17 6 * * *'
 permissions:
@@ -12,6 +14,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: The pin tool's own checks
+        run: python3 -B -m unittest discover -s tests -v
       - name: Catalog and every app's latest release
         env:
           GITHUB_TOKEN: ${{ github.token }}
