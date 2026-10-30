@@ -1094,6 +1094,7 @@
       "attested": false,
       "license": "GPL-3.0",
       "author": "lowbit",
+      "needs_game_files": true,
       "tags": [
         "game",
         "openrct2",
@@ -1124,6 +1125,7 @@
       "attested": false,
       "license": "GPL-3.0",
       "author": "mshivam019",
+      "needs_game_files": true,
       "tags": [
         "game",
         "openmw",
@@ -1154,6 +1156,7 @@
       "attested": false,
       "license": "GPL-3.0",
       "author": "griches",
+      "needs_game_files": true,
       "tags": [
         "game",
         "doom",
@@ -1184,6 +1187,7 @@
       "attested": false,
       "license": "GPL-3.0",
       "author": "griches",
+      "needs_game_files": true,
       "tags": [
         "game",
         "quake",
@@ -1542,6 +1546,7 @@
       "attested": false,
       "license": "GPL-3.0",
       "author": "tristinbaker",
+      "needs_game_files": true,
       "tags": [
         "game",
         "rpg",
@@ -1572,6 +1577,7 @@
       "attested": false,
       "license": "GPL-3.0",
       "author": "tristinbaker",
+      "needs_game_files": true,
       "tags": [
         "game",
         "rpg",
