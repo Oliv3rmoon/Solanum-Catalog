@@ -186,7 +186,7 @@
         "store",
         "homebrew"
       ],
-      "stars": 0,
+      "stars": 1,
       "release": {
         "tag": "0.3.0",
         "asset": "PPSA76526.zip",
@@ -593,16 +593,26 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 178,
+      "stars": 180,
       "release": {
-        "tag": "v1.5.4",
+        "tag": "v1.5.5",
         "asset": "PPSA99810.zip",
-        "size": 11591864,
-        "sha256": "377f83e50b980addb9f4c10fed7b462ff40b90a7724b870ca5fb00685ef9a6dc",
-        "published_at": "2026-10-24T22:48:00Z",
-        "notes": "## What's New and Fixed in Version 1.5.4\n\n### 🖱️ Full Mouse & Vector Cursor Navigation\n• **Seamless Mouse Navigation on PS5 & Desktop**: Complete point-and-click support across all screens with responsive cursor rendering, card hover states, tabs, search filters, and menu items.\n• **Precision Hit-Testing**: Clean bounds checking for top bar and game details with automatic software cursor hiding when DualSense gamepad input is detected.\n\n### ⚡ 2D Renderer Optimization & Lower Frame Latency\n• **Canvas Fast Paths**: Optimized software 2D pipeline using direct scanline copy (`std::memcpy`) and batch fill (`std::fill_n`) for opaque textures, avoiding redundant full-screen overdraw.\n• **Zero-Contention Glyph & Font Cache**: Fast $O(1)$ UTF-8 text layout and font cache, eliminating per-character mutex contention and heap allocations.\n• **Intelligent Catalog Indexing**: Replaced per-frame $O(N)$ scans of 5,000 tiles with event-driven synchronization and coalesced library rebuilds during hydration.\n\n### 🧩 Modular Codebase Architecture\n• **Modular Translation Units**: Clean separation of large components (`app_ui`, `web_server`, `library`, `worker`, and localization tables) into modular files with zero regressions.\n\n### 🛠️ Behavioral & UI Bug Fixes\n• **Post-Login Redirection**: Fixed an issue where the login screen remained stuck on \"Sign in to play\" after approving the device code; now smoothly transitions to home screen once signed in.\n• **Free-to-Play Store Acquisition**: Guaranteed instant transition to the \"Play\" action after 1-click free game acquisition on Free accounts.\n• **Store Prices & QR Codes**: Restored price badges and Store QR codes on purchasable cloud titles.\n• **Multi-Edition Metadata Isolation (`CALLOFDUTYHQ`)**: Fixed cross-contamination of descriptions and hero artwork between editions sharing a title ID.\n• **Settings Layout & Alignment**: Adjusted vertical spacing and alignment of settings rows to match the Web Config card without text overlap.\n\n---\n\n## Novidades e Correções no v1.5.4\n\n### 🖱️ Suporte Completo a Mouse e Cursor Vetorial\n• **Navegação Fluida por Mouse no PS5 e Desktop**: Navegação completa em todas as telas com cursor de mouse responsivo, hover e seleção de cards, abas, filtros e itens de menu.\n• **Hit-Testing e Proteção de Janela**: Detecção precisa de clique na barra de ferramentas, detalhes de jogos e configurações, com ocultação suave do cursor de software ao utilizar o controle DualSense.\n\n### ⚡ Otimização do Renderizador 2D e Redução de Latência",
-        "content_version": "01.504.000"
-      }
+        "size": 19571291,
+        "sha256": "ea61fbb4b4207fd96946c64fa4552e9ad0d7960b9f80ef3d66c951be373ffc76",
+        "content_version": "01.505.000",
+        "title_name": "PSBox Cloud Gaming",
+        "published_at": "2026-10-30T22:02:01Z",
+        "notes": "# PSBox Cloud Gaming v1.5.5\n\n[English](#english) | [Português](#português)\n\n---\n\n<a name=\"english\"></a>\n## 🌐 English\n\nPSBox Cloud Gaming **v1.5.5** introduces instant boot and background catalog sync, automated Xbox Game Pass shelf feeds, a fully consolidated native PlayStation 4 port with hardware video acceleration, and essential stability and quality-of-life fixes across all platforms (**PlayStation 5**, **PlayStation 4**, and **Linux / Steam Deck**).\n\n---\n\n### ✨ Highlights & New Features\n\n#### ⚡ Instant Boot & Zero Splash Retention\n- **Immediate Dashboard Access**: The application no longer retains users on the initial splash screen waiting for network catalog hydration. Users transition directly into the Home screen (`showHome()`) while catalog differences are synchronized non-blockingly in the background.\n- **Eliminated False \"46 New Games\" Notification**: Resolved a bug where every cold boot incorrectly announced 46 new titles. Known products are now persisted across runs in `library_cache.json` (`knownProducts_`), ensuring notifications only trigger when actual new titles are added.\n\n#### 📚 Automatic Xbox Game Pass Shelf Updates\n- **Seamless Feed Refresh**: Game Pass curated shelves (*\"Recently added\"*, *\"Most popular\"*, *\"Free to play\"*, *\"Leaving soon\"*) are now automatically synchronized in the background via differential delta sync without requiring manual intervention (<kbd>L3</kbd>).\n\n#### 🎮 Consolidated PlayStation 4 Port (`PSBX00001`)\n- **Native Hardware Decoding**: Full H.264 video decoding using Sony's `libSceVideodec2` hardware decoder with Onion/Garlic direct memory mapping.\n- **Multithreaded 2D Software Renderer**: Low-latency 4-thread SIMD SSE4.2 rendering engine with zero-copy overlay sharing.\n- **Native Orbis WebRTC & Audio**: Customized ICE/STUN socket stack for FreeBSD/Orbis OS, MbedTLS certificate handshakes, and clean DMA audio draining.\n- **DualShock 4 & GoldHEN Support**: Out-of-the-box support for DualShock 4 (lightbar, rumble, touchpad) packaged as a clean FPKG (`PSBoxCloudGaming[PS4]-v1.5.5.pkg`).\n\n#### 🖱️ Desktop & Steam Deck Fixes\n- **No More Duplicate Cursors**: Fixed an issue where the operating system's hardware cursor was rendered simultaneously with the in-game vector software cursor on Linux / Steam Deck / Windows via SDL3 (`SDL_HideCursor()`).\n\n#### 🛠️ General Stability & Bug Fixes\n- **Graceful Shutdown During Active Gameplay (#290)**: Installed system signal handlers (`SIGTERM`, `SIGINT`, `SIGHUP`) to ensure a clean teardown when closing the app from the console dashboard or system switcher during an active cloud stream, preventing hangs or crashes."
+      },
+      "pins": [
+        {
+          "tag": "v1.5.4",
+          "asset": "PPSA99810.zip",
+          "size": 11591864,
+          "sha256": "377f83e50b980addb9f4c10fed7b462ff40b90a7724b870ca5fb00685ef9a6dc",
+          "content_version": "01.504.000"
+        }
+      ]
     },
     {
       "id": "psxs5",
@@ -1368,7 +1378,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 743,
+      "stars": 745,
       "release": {
         "tag": "v0.9.1",
         "asset": "ps5lm-app-v0.9.1.zip",
@@ -1857,7 +1867,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 332,
+      "stars": 334,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -1900,7 +1910,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 48,
+      "stars": 49,
       "release": {
         "tag": "v2.0.2",
         "asset": "PPSA11018.zip",
@@ -1962,7 +1972,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 889,
+      "stars": 893,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2023,17 +2033,27 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1583,
+      "stars": 1585,
       "release": {
-        "tag": "vk-285-177",
-        "asset": "PS5SX2-vk-285-177.zip",
-        "size": 21387634,
-        "sha256": "4a63f445a904808382a11b1f84d7affdf3a7a3e47a6facb3eec2bb0b1524569b",
-        "content_version": "02.150.000",
+        "tag": "vk-285-182",
+        "asset": "PS5SX2-vk-285-182.zip",
+        "size": 24454104,
+        "sha256": "739c652acab11fc4eb79a7e20a67d22183ee97ea5292d3b8330bf5dbca412076",
+        "content_version": "02.200.000",
         "title_name": "PS5SX2",
-        "published_at": "2026-10-19T14:10:40Z",
-        "notes": "**PS5SX2 2.15** (build vk-285-177)\n\nEverything from the test builds since 2.10 (172 to 177) in one version. It is the build testers have had since 17 October as test build 177.\n\n**New**\n- **Game tiles.** Any game can get its own tile on the PS5 home screen: on the shelf, press **□** on a game and pick \"Home screen tile\". Press the tile and the game starts right away, no shelf. Off until you switch it on: make the empty file `/data/PCSX2/flags/gametiles`, restart the console, then load ShadowMount+ and the helper. The tile shows up about 30 seconds after you close PS5SX2.\n- **192 more HD texture packs.** The .7z packs of the community Google Drive folder can be installed now, so the shelf offers 228 Drive packs for 223 games, next to archive.org's.\n- **Less stutter from discs.** The game no longer waits on the drive itself, the drive reads ahead, and the PS5's own drive runs at 3.2x (the empty file `nodisc32` in `/data/PCSX2/flags/` turns that off).\n- **Covers.** Back covers (the right stick or **R3** flips the case), spines and disc art, also from the LaunchBox Games Database. Covers keep their shape on the case, and the stick is less touchy.\n- **Search the shelf with R2** (**○** shows everything again).\n- **Frame generation can switch the TV to 120 Hz again**, so a 60 fps game can show 120. Still off by default: it needs a 120 Hz TV and \"120 Hz Output\" on.\n- **Folder settings are exact.** Once you set a game, BIOS or Textures folder, only that folder is used. New: \"Scan USB drives\" and \"Scan subfolders\".\n- A disc copy goes on where it stopped when you leave a game, and a PS2 disc not copied yet is the first entry on the shelf.\n\n**Changed and fixed**\n- **L1 + R1 + touch pad** from a disc tile or a game tile takes you back to the shelf (the home screen shows for a few seconds). From a shelf game it stays instant, as in 2.10.\n- .elf files no longer show on the shelf, the web settings of a disc game open that game, and the PS2 BIOS setup no longer comes back at every start.\n- **Disc helper 171g**: no log files of its own and quiet when the console shuts down (that stopped the kernel panics at shutdown for the tester who had them), plus the game tiles.\n\n---\n\n## Download\n\n- **`PS5SX2-vk-285-177.zip`**: the app (eboot and files). The installer installs it for you.\n  SHA-256: `4a63f445a904808382a11b1f84d7affdf3a7a3e47a6facb3eec2bb0b1524569b`\n- **`PS5SX2Installer.elf`**: the installer, the same file as in 2.00 and 2.10. Send it and it installs this build, and every later one, from this page.\n  SHA-256: `6b1be3ea24ec8144b27b2a1f3e279cd17574f3093e9431abf8579dcc6c0bfae9`\n- **`PS5SXHelper.elf`**: helper 171g with the `/data` mount, for ShadowMount+ 1.7beta3.\n  SHA-256: `f7960126abe5ad30869fbe01235fecf2bfac71bd90ee3b9c9eb22810b699e736`"
-      }
+        "published_at": "2026-10-30T20:47:26Z",
+        "notes": "**PS5SX2 2.20** (build vk-285-182)\n\nEverything from the test builds since 2.15 (178 to 181) plus the fixes from your reports, in one version.\n\n**New**\n- **Updates inside the app.** Square on the shelf > All games > PS5SX2 > **System update**: press Cross to check, Cross again to install. PS5SX2 closes, installs the new version and starts again by itself.\n- **Nothing to load by hand.** PS5SX2 now starts its own disc helper and installer. You only need your jailbreak (with its ELF loader), kstuff and ShadowMount+.\n- **Open-source BIOS built in.** No PS2 BIOS? Before a game starts, PS5SX2 asks: use **OpenPS2BIOS** (experimental, by Tamariba Devs, MIT licence: some games don't work yet) or put your own BIOS in `/data/PCSX2/bios`. Your own BIOS always wins. The open BIOS can't start PS1 discs, audio CDs or DVD video.\n- **BIOS check before every start** (shelf, discs, tiles): most failed starts were a missing BIOS, now you're told what to do.\n- **PS5SX2 and PS5SX3 work side by side.** A PS2 disc goes to PS5SX2, any other disc is left to PS5SX3 (use PS5SX3 TB19.1 or newer).\n- **Game database built in.** If `/data/PCSX2/resources` is missing (store installs, eboot copied by hand), the app uses its own copy, so games keep their fixes (Black, Need for Speed: Carbon, Burnout Revenge and many more were running without them).\n- **Game tiles on by default.**\n\n**Faster**\n- **Texture packs install much faster**: big packs no longer crawl at 2-3 MB/s after the first ~2 GB.\n- **Big CHD libraries:** no more long black screen before the shelf. CHDs are read only as far as needed, results are remembered, and new games show a \"Looking at new games\" screen. Covers for games on USB drives download after the shelf opens (the empty file `flags/prefetchusb` brings back the old way).\n- **PS5 drive:** tries 8x first when playing or copying a disc, falls back to 3.2x.\n\n**Fixed**\n- **Google Drive texture packs:** when Google's download limit is used up you get a clear message (try later or pick the archive.org pack) instead of a download stuck for good.\n- **L1 + R1 + touch pad** always brings you back to the shelf (the home screen shows for a moment).\n- **PS2 disc tile:** never asks any more. It starts your dump of that game if you have one, otherwise the disc.\n- **Back from a disc game** the shelf lands on that disc or its dump.\n- **Disc games use their own per-game settings.**\n- **RetroAchievements:** \"Could not read or protect account storage\" fixed; you stay signed in.\n- **Online (DEV9):** the emulation no longer freezes when a game server is slow to take data (Killzone dropped out of matches); a manual DNS is applied and DNS2 is read."
+      },
+      "pins": [
+        {
+          "tag": "vk-285-177",
+          "asset": "PS5SX2-vk-285-177.zip",
+          "size": 21387634,
+          "sha256": "4a63f445a904808382a11b1f84d7affdf3a7a3e47a6facb3eec2bb0b1524569b",
+          "content_version": "02.150.000",
+          "title_name": "PS5SX2"
+        }
+      ]
     },
     {
       "id": "retroarch",
@@ -2054,7 +2074,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 416,
+      "stars": 417,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2679,15 +2699,25 @@
       ],
       "stars": 79,
       "release": {
-        "tag": "build-129",
+        "tag": "build-130",
         "asset": "halo-ps5-release.zip",
-        "size": 56470837,
-        "sha256": "5b39232124fc2d88081b4f7365f6d0e057d44110102387c8c42f4fca8711a4d9",
-        "content_version": "01.000.129",
+        "size": 56697129,
+        "sha256": "57c4afa8b8f195854d9ec3417f2ebbf30e43701f588fbf129931dcf8bcb7d660",
+        "content_version": "01.000.130",
         "title_name": "Halo: Combat Evolved",
-        "published_at": "2026-10-30T09:48:10Z",
-        "notes": "Build 129\n\n- Network: this build plays with current OpenCE builds and servers (network version 41); it no longer plays with Build 128 or older. (thelinkin3000)\n- Bots: six skill levels, from Recruit to Legendary, in the overlay menu's Difficulty and bots.skill; easy, normal, heroic and legendary keep their numbers. Each level now fights as a player of that level does: how soon it reacts, where it aims, how it paces the pistol and zooms the sniper, its blows, grenades, strafes, halts, jumps and crouches, when it retreats or closes in. Bots holding the hill, a flag or ball, or a vantage point stay put, and Infection zombies fight as before. (PeterRichardsonGolf's levels, ported to our bots by thelinkin3000)\n\n### From OpenCE\n\n- Votes: vote popups, end-of-game and map votes (with the map's picture), AFK kicks and co-op loading zone majorities; vote with the D-pad's left and right, and a host can set the share of votes needed. (MrBruh)\n- Dedicated servers can refuse VPN addresses unless the player shows a Discord account linked under Settings > Network Setup > DISCORD ACCOUNT. (MrBruh)\n- The host's notices show to the players whatever game.console_log says. (MrBruh)\n- Co-op: a network checkpoint saves once one player is safe, a dedicated co-op game gets its settings, a public dedicated server counts as public for team wipes, hosts can choose to rewind to a checkpoint after a team wipe, and clients get the level's surfaces back after a revert. (MrBruh, Steve Rice)\n- Players turn with their aim in every network game, and while in the air, whatever their own setting, so shots go where everyone sees them aimed. (MrBruh, Constantine Luke Matthew Bubar)\n- Custom Edition maps with map protection load. (hispanorum)\n- Split screen: ADD PLAYER is the Xbox's SELECT PROFILE screen, four players at once; quarter-screen menus are centred, and the pause menu's box and dim fit each player's screen. Custom Edition maps' own pause screens are laid out as the Xbox's. (bnunu)\n- Text chat: half its size, scrolls back while you type, and stays in place when you die. (bnunu)\n- Lobby: START NOW starts the match at once, and a dedicated server's director runs its countdown. (medic-code)\n- Server browser: listings it cannot show no longer take queue places, and a host is not timed again right after a probe. (bnunu, medic-code)\n- Android: the keyboard comes up when you type a name on the touchscreen. (Guven)\n- Android: the carnage report has CONTINUE and LEAVE buttons on the touchscreen, and shows its A and B prompt with a controller connected. (Guven)"
-      }
+        "published_at": "2026-10-30T22:15:44Z",
+        "notes": "Build 130\n\n- Replays: the D-pad scrubs. A tap of left or right skips 10 seconds and taps add up; held, it slides a marker along the seek bar, and the playback catches up to it. (thelinkin3000)\n- Replays: replays recorded on network versions 39 and 40 (Build 128 and earlier) play again. (thelinkin3000)\n- Replays: the free camera is a tripod. It follows the player you're watching and zooms in on them until you move it. (thelinkin3000)\n- Replays: D-pad Up switches the free camera between following the player and holding still, as R3 does; D-pad Down or L3 puts it back behind the player, following them. (thelinkin3000)\n- Replays: with a controller, a second bar above the buttons shows the camera's controls: in the free camera, move, aim, track and follow player; in the behind view, zoom, orbit and reset. The north button in the pause menu (X on Switch, triangle on PS5) hides or shows the hints, and the choice is remembered. (thelinkin3000)\n- Replays: on a touchscreen, the buttons sit in two rows and are pressed where they are drawn; they used to answer below themselves, near the seek bar. New UP, DOWN and PLAYER buttons on the right raise and lower the free camera and put it behind the player. (thelinkin3000)\n- Replays: skipping ahead in a foggy part of a level (Chill Out) no longer crashes the game. (thelinkin3000)\n- Replays: a recording shorter than 15 seconds is deleted as the game ends; the limit was 5 seconds. (thelinkin3000)\n- Theater: deleting a replay works; it always said the replay could not be deleted. Short recordings are now really deleted, and replays uploaded from the replay page are kept. (thelinkin3000)\n- Theater: on Switch and PS5, Y (square on PS5) deletes the chosen replay after asking and X (triangle on PS5) turns RECORD on or off; the bottom bar shows button hints, with RECORD showing ON or OFF. (thelinkin3000)\n- Theater: the replay list no longer reads the SD card every frame, which kept the CPU busy while the screen was open. (thelinkin3000)\n- Server browser: on Switch and PS5, X (triangle on PS5) refreshes, Y (square on PS5) opens the filters and the shoulder buttons change between all, dedicated and P2P games, from any row; the bottom bar shows button hints. (thelinkin3000)\n- Server browser: the D-pad sorts the list. Left and right highlight a column; up sorts it A to Z or fewest first, as the column's arrow shows, and down sorts it the other way. The left stick still moves through the servers. (thelinkin3000)\n- Mods: on Switch and PS5, A saves, X (triangle on PS5) turns the selected mod on or off, the shoulder buttons move it up or down and B cancels; the bottom bar shows button hints. (thelinkin3000)\n- Select Profile: on Switch and PS5 the bottom bar shows button hints for SELECT, CREATE NEW, DELETE and BACK. (thelinkin3000)"
+      },
+      "pins": [
+        {
+          "tag": "build-129",
+          "asset": "halo-ps5-release.zip",
+          "size": 56470837,
+          "sha256": "5b39232124fc2d88081b4f7365f6d0e057d44110102387c8c42f4fca8711a4d9",
+          "content_version": "01.000.129",
+          "title_name": "Halo: Combat Evolved"
+        }
+      ]
     },
     {
       "id": "iwbtg-tribute",
@@ -2989,15 +3019,25 @@
       ],
       "stars": 47,
       "release": {
-        "tag": "01.000.158",
+        "tag": "01.000.167",
         "asset": "PPSA99874.zip",
-        "size": 123159171,
-        "sha256": "22d2c4864e7d797d066337a973f7560e7e4e7f003f9b19991b6816d7e982a954",
-        "content_version": "01.000.158",
+        "size": 123870351,
+        "sha256": "3480ab817659c43e954ce89ba5933cb5181f2fe2f396b1321bfae51d274171de",
+        "content_version": "01.000.167",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-10-30T13:42:14Z",
-        "notes": "# ProsperoCraft 01.000.158\n\nMinecraft Java Edition running natively on PlayStation 5, powered by a Native Java 25 Runtime. Sign in, create separate instances, and play Minecraft Java 26.3 with native graphics, audio, DualSense controls and keyboard/mouse support. Java Edition ownership is required.\n\n## Changelog\n\n- Detect PS5 or PS5 Pro once in the native launcher and share the cached hardware identity with Minecraft’s F3 CPU/GPU display.\n- Show compact CPU labels using 8C16T and PS5/PS5 Pro, with 36 CUs for PS5/Slim and 60 CUs for PS5 Pro. Preserve real logical processor counts and graphics driver information.\n- Replace the unavailable model-name lookup with the native SoC query; preserve the existing F3 wording and report the launcher’s detection result for diagnostics.\n\n## Install and compatibility\n\nInstall PPSA99874.zip through your usual homebrew workflow or update through ProsperoStore after catalog approval and deployment. Instances, worlds, downloads, settings and saved account data are preserved. Minecraft 26.3 and supported 26.4 snapshots remain available; Fabric 26.2 cannot launch in this release.\n\nHost launcher policy, original 26.2 dependency/bootstrap, package integrity and native relink checks pass. Exact build158 console startup, PS5/Slim/Pro identification, F3 and broader gameplay/audio/lifecycle endurance remain pending. This exact build is published at the user’s explicit request; no new console pass is claimed. This release does not establish a new frozen passing milestone. Microphone capture is not included, and no new shader-performance improvement is claimed.\n\n## Credits and source\n\nGUI: **mihawk-99/PS5_VKHomebrewUI**, based on BlackBearReloaded's ps5-homebrew-ui. Instance icons: **MultiMC and Prism Launcher contributors**, with original licenses and attribution retained. Runtime: **PS5 Java 25**, with OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft. Project thumbnails belong to their respective mod and pack authors; image decoding uses libwebp and STB.\n\nMatching OpenAL corresponding source, relink materials, validation and SHA-256 checksums accompany this release. ProsperoCraft is unofficial and is not affiliated with Mojang, Microsoft or Sony."
-      }
+        "published_at": "2026-10-30T19:57:44Z",
+        "notes": "# ProsperoCraft 01.000.167\n\nMinecraft Java Edition running natively on PlayStation 5, powered by a Native Java 25 Runtime. Java Edition ownership is required.\n\n## Changelog\n\n- Enable supported Minecraft 26.2 Fabric alongside 26.2 Vanilla and 26.3. Remove the development-test labels from Fabric26.2 instances, launch controls and creation choices.\n- Fix Controlify controller detection and switching between controller and physical keyboard/mouse on 26.2 and 26.3 Fabric. Isolate its SDL connection-event handling so game keyboard/mouse events remain available.\n- Add mouse and keyboard controls to the launcher: click buttons and instance cards, scroll, right-click or Escape to go back, navigate with arrows, confirm with Enter, switch pages with Tab, and type/edit instance names and searches. Launcher text entry currently uses US ASCII with Shift/Caps Lock.\n- Add a rounded vector cursor matching the requested silhouette, with theme-colored fill and one continuous light outline. It follows all six saved launcher themes; controller navigation hides it until the mouse is used again.\n- Fix 26.3 Controlify on-screen keyboard deletion and 26.2 Vanilla held-key typing. Preserve genuine upstream game/mod JARs and the existing controller, audio and rendering integration.\n- Retain the native shader/audio/TLS startup and allocation repairs developed since 158.\n\n## Install and compatibility\n\nInstall PPSA99874.zip through your usual homebrew workflow, or update through ProsperoStore once its catalog update is approved and deployed. The exact user-tested 167 package is published without rebuilding. Existing instances, worlds, downloads, settings and saved account data are preserved.\n\nMinecraft 26.2 and 26.3 Vanilla/Fabric are supported. Supported26.4 snapshots 1–6 remain available, hidden by default; snapshot-specific Fabric and mod compatibility depend on matching upstream versions. Other versions and NeoForge are not newly enabled.\n\nThe user accepts the functionality and polish of exact 167 and explicitly requests release, following acceptance of 166’s Controlify handoff repair. Host input/model, six-theme Vulkan rendering, package integrity and exact native relinks pass. This is functional acceptance, not a measured per-device/per-feature regression matrix or long-session endurance result. Microphone capture is not included; no new shader-performance guarantee is made.\n\n## Credits and source\n\nGUI: **mihawk-99/PS5_VKHomebrewUI**, based on BlackBearReloaded's ps5-homebrew-ui. Instance icons: **MultiMC and Prism Launcher contributors**, with original licenses and attribution retained. Runtime: **PS5 Java 25**, with OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft. Project thumbnails belong to their respective mod and pack authors; image decoding uses libwebp and STB."
+      },
+      "pins": [
+        {
+          "tag": "01.000.158",
+          "asset": "PPSA99874.zip",
+          "size": 123159171,
+          "sha256": "22d2c4864e7d797d066337a973f7560e7e4e7f003f9b19991b6816d7e982a954",
+          "content_version": "01.000.158",
+          "title_name": "ProsperoCraft"
+        }
+      ]
     },
     {
       "id": "pulse",
@@ -3810,17 +3850,27 @@
         "lossless",
         "flac"
       ],
-      "stars": 0,
+      "stars": 3,
       "release": {
-        "tag": "v1.1.0",
+        "tag": "v1.2.0",
         "asset": "prospero-hifi.zip",
-        "size": 19386722,
-        "sha256": "ea8ac53f66e928d4e412a7ef2ae90b68a8562dff906900364ff262f05a6cb73c",
-        "content_version": "01.010.000",
+        "size": 19396295,
+        "sha256": "71d2d6b9ed7c83feee67ce85532e3e43cd6585723e6efc86b7588fab527adc70",
+        "content_version": "01.020.000",
         "title_name": "Prospero Hi-Fi",
-        "published_at": "2026-10-30T17:28:47Z",
-        "notes": "## Prospero Hi-Fi v1.1.0\n\n### Player improvements\n\n- Refreshed mini-player and fullscreen controls with modern playback icons.\n- Smaller footer with PlayStation button symbols, leaving more space for the track list and mini player.\n- Fullscreen now opens with Play/Pause highlighted and uses its own controls.\n- L1/R1 and L2/R2 skip tracks in fullscreen; Circle returns to browsing.\n- Equalizer presets can be changed directly from fullscreen.\n- Added **Auto Fullscreen**, disabled by default, to open fullscreen when selecting a track.\n- Default volume is now **100%** for new configurations. Existing saved volumes are preserved.\n\n### Settings and browsing\n\n- Redesigned Settings with categories on the left, entries in the middle and the mini player on the right.\n- Press Cross to enter a category and Circle to return.\n- File browsing now uses natural sorting: **1, 2, 3…10**.\n- Improved text centering inside audio-format badges.\n- Aligned total track duration with the end of the seek bar in both players."
-      }
+        "published_at": "2026-10-30T21:33:31Z",
+        "notes": "## Prospero Hi-Fi v1.2.0\n\n- Added **Listening Mode**: press L3 in fullscreen for a cleaner player. Choose whether to hide the title/version, clock, technical metadata and footer in Settings. Playback and volume controls are always hidden.\n- Options, L1/R1 and L2/R2 remain usable in Listening Mode. Any other button exits without triggering its normal action.\n- Fullscreen **L2/R2 now seek backward/forward five seconds**, while L1/R1 change tracks.\n- Adjusted player spacing and visualizer placement to keep technical metadata clear.\n- Redesigned the web interface for desktop and mobile, with compact source rows, grouped settings, folder filtering, breadcrumbs and a compact mobile player.\n- Added a web toggle for Listening Mode.\n- Added application identification and capability reporting for future NX Hi-Fi remote compatibility improvements."
+      },
+      "pins": [
+        {
+          "tag": "v1.1.0",
+          "asset": "prospero-hifi.zip",
+          "size": 19386722,
+          "sha256": "ea8ac53f66e928d4e412a7ef2ae90b68a8562dff906900364ff262f05a6cb73c",
+          "content_version": "01.010.000",
+          "title_name": "Prospero Hi-Fi"
+        }
+      ]
     },
     {
       "id": "regie5",
@@ -3963,7 +4013,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "01.000.193",
         "asset": "SmartTube-PPSA98260.zip",
@@ -4449,15 +4499,25 @@
       ],
       "stars": 8,
       "release": {
-        "tag": "v00.001.000",
+        "tag": "v00.001.001",
         "asset": "PPSA67670.zip",
-        "size": 19408891,
-        "sha256": "c818a6598d5b34268d3ae766e3ca19e4051db08372d5158dac72dbf7565a0d91",
-        "content_version": "00.001.000",
+        "size": 19408761,
+        "sha256": "18cff33e98b967f711c69a6d9f3f49a616d150651770cf5b6f2c9ac540325e3e",
+        "content_version": "00.001.001",
         "title_name": "PayLoader",
-        "published_at": "2026-10-19T19:11:06Z",
-        "notes": "First release.\n\n### Added\n\n- Payloads screen: start an installed payload; mark favourites; add it to or take it out of the autoload list;\n  delete it.\n- Repository screen: install payloads from pldmgr's repositories, see and install updates, refresh every\n  repository. Asks before it replaces a payload installed from another repository.\n- Autoload screen: switch pldmgr's start list on or off, set the countdown, order the payloads, add and change waits.\n  Shows the progress of a run and can stop it.\n- Running screen: the payloads that run now with their memory; stop one after a question. System processes and\n  pldmgr itself are not listed.\n- Settings screen: add and remove repositories; pldmgr's options for extra repositories, the browser at start, its\n  own home screen icon, the disc player and USB drives.\n- A card on every screen when pldmgr does not run, is older than 0.6.0, or something else uses port 8084.\n- Autoload screen: the boot chain the console uses. ps5-autoloader's `autoload.txt` (USB before `/data`) is edited\n  directly, also without pldmgr, with a daily backup of the list; pldmgr's own list when the autoloader has none.\n  Payloads screen: \"Start with autoload\" acts on the same chain.\n- The Signal suite: PayLoader keeps its repository in pldmgr's sources, installs or updates the whole suite in one\n  go, recommends it when ps5-homeassistant is installed alone, and offers to start it with the console.\n- PayLoader brings pldmgr: when it does not run, X starts the bundled copy through the ELF loader. pldmgr's own\n  icon and browser start are switched off; PayLoader is its front-end.\n- Autoload screen: waits on a slider (0.5 to 25 seconds, steps of 0.5). Entries that pldmgr keeps are named by\n  their full path; comments and directives in the list (`#`, `@sync`) are kept.\n- A recovery copy of the boot list on a USB stick, stored switched off (`autoload.txt_disabled`), and a switch\n  between the console's list and the stick's.\n\n### Install\n\nUnzip and copy the `PPSA67670` folder to `/data/homebrew/` on the console (FTP).\n\nPayLoader carries Payload Manager (pldmgr) 0.6.3 by itsPLK (GPL-3.0, source: https://github.com/itsPLK/ps5-payload-manager/tree/v0.6.3) and starts it on request."
-      }
+        "published_at": "2026-10-30T19:58:58Z",
+        "notes": "### Fixed\n\n- Repository screen: the \"Install the whole suite\" row counts only ps5-exporter, ps5-homeassistant and ps5-signal.\n  Another payload in the suite's repository no longer makes it read \"Update ready\" for good, or \"Installed\" while\n  one of the three is missing."
+      },
+      "pins": [
+        {
+          "tag": "v00.001.000",
+          "asset": "PPSA67670.zip",
+          "size": 19408891,
+          "sha256": "c818a6598d5b34268d3ae766e3ca19e4051db08372d5158dac72dbf7565a0d91",
+          "content_version": "00.001.000",
+          "title_name": "PayLoader"
+        }
+      ]
     },
     {
       "id": "photo-splat-vr",
