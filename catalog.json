@@ -982,7 +982,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 427,
+      "stars": 428,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1853,16 +1853,26 @@
       ],
       "stars": 332,
       "release": {
-        "tag": "v5.0.1-alpha-5",
-        "asset": "PS5_MihawkOS-v5.0.1-alpha-5-PPSA99170.zip",
-        "size": 20037577,
-        "sha256": "ff4c2c3dc20a3fd0896f437a138b2a38533ef50b4a295419de9f65489b33cba3",
+        "tag": "v6.0.0-alpha-6",
+        "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
+        "size": 19700962,
+        "sha256": "a7921fe7bf42d2ae49f1ee055b67074f9c5e8c7d455662eafbc1a479145db427",
         "content_version": "01.000.000",
         "title_name": "MihawkOS",
         "prerelease": true,
-        "published_at": "2026-10-29T20:31:22Z",
-        "notes": "**A hotfix for Alpha 5.** If MihawkOS showed every payload as \"Missing\" even though they were loaded, or games\ncould not start with \"No access to /data\", this fixes it. Everything else is the same as\n[Alpha 5](https://github.com/mihawk-99/PS5_MihawkOS/releases/tag/v5.0.0-alpha-5).\n\n## What's fixed\n\n- **MihawkOS gets its access to `/data` even when `dev.conf` is missing or points somewhere unreachable.** Its access\n  helper used to quit at once when it could not reach its log server (set in `/data/homebrew/dev.conf`), so MihawkOS\n  never got access to your files. The helper now keeps running and writes its log to a file instead. You no longer\n  need to create or fix `dev.conf`.\n- **The payload checklist tells you what's really wrong.** When MihawkOS cannot see your payloads because it has no\n  access to `/data`, the checklist no longer calls every payload \"Missing\". It says what is blocking it, and how to fix\n  it.\n\n## Played on the console\n\nStandard PS5, firmware 13.60, with the payloads loaded through Payload Manager:\n\n- **A `dev.conf` pointing at an address nobody answers** (the reported case): the access helper kept running,\n  MihawkOS got `/data`, and the payload checklist passed.\n- **The full test battery of 104 cases:** 102 passed, the other two skipped by a test-network setting (`alpha5-hotfix-base-2026-10-29-01`). The payload checklist passed at every one of its 143 starts.\n\n## Installing or updating\n\n**New install:** the same as Alpha 5: copy `PPSA99170` to `/data/homebrew/`, open MihawkOS, and the guided setup\ninstalls the runtime from a USB drive or over FTP.\n\n**Updating from Alpha 5 (or Alpha 4):**\n\n1. **Replace the `PPSA99170` folder** in `/data/homebrew/` with the new one.\n2. **Put the new runtime pieces on your USB drive** (the `mihawkos` folder from the runtime zip), or have them ready\n   for FTP.\n3. **Open MihawkOS from its own icon.** It sees that the runtime belongs to the previous build and offers to install\n   the new one.\n4. **Restart the PS5**, load your payloads, and open MihawkOS.\n\nYour prefix, your games in `C:\\Games`, Steam and your settings are kept.\n\n| File | Size | What it is |\n| --- | --- | --- |\n| `PS5_MihawkOS-v5.0.1-alpha-5-PPSA99170.zip` | 20.0 MB | The MihawkOS title: the `PPSA99170` folder |\n| `PS5_MihawkOS-v5.0.1-alpha-5-usb-mihawkos.zip` | 520.2 MB | The Windows runtime: the `mihawkos` folder, for a USB drive or FTP |\n| `PS5_MihawkOS-v5.0.1-alpha-5-README.txt` | 1 KB | The install steps in short |\n| `PS5_MihawkOS-v5.0.1-alpha-5-SHA256SUMS` | 40 KB | The SHA-256 of every file in both folders: `sha256sum -c` checks a copy |\n| `PS5_MihawkOS-v5.0.1-alpha-5-zips.sha256` | 1 KB | The SHA-256 of the two zips |\n\nLoad the official payload set first (see Alpha 5's notes), then open MihawkOS."
-      }
+        "published_at": "2026-10-30T18:44:44Z",
+        "notes": "<p align=\"center\">\n<picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/banner-night.svg\"><img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/banner-day.svg\" width=\"960\" alt=\"MihawkOS: the MihawkOS mark over a sky with clouds and soap bubbles above green hills\"></picture>\n</p>\n\n<p align=\"center\">\n<picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/badges/status-night.svg\"><img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/badges/status-day.svg\" height=\"22\" alt=\"Status: alpha, experimental\"></picture>\n<picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/badges/tested-on-night.svg\"><img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/badges/tested-on-day.svg\" height=\"22\" alt=\"Tested on: PS5 Pro firmware 10.01 and PS5 firmware 13.60\"></picture>\n<picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/badges/languages-night.svg\"><img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/badges/languages-day.svg\" height=\"22\" alt=\"Languages: 10\"></picture>\n</p>\n\n## MihawkOS is a passion project, not a piracy project.\n\nIt exists so you can play the games you own on the console you own.\n\n- **Piracy is not condoned.**\n- **No games, saves, keys, firmware or exploits are included, and they never will be.**\n- **Use only games and programs you have the right to run**: your own copies, bought or installed by you.\n- **Requests for, or links to, games, keys, firmware or exploits are not welcome** in this project's issues or discussions.\n\n---\n\n**Resident Evil 4 runs. Installers are faster. The Alpha 5 hotfix is built in.**\n\nThe sixth alpha of MihawkOS, the homebrew title that runs Windows games on a PS5 from a desktop of their own,\nMihawk OS. It is still experimental.\n\n<a id=\"highlights\"></a>\n\n<a id=\"highlights\"></a>\n\n## <picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/orb-this-pc-night.svg\"><img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_MihawkOS/v6.0.0-alpha-6/docs/media/readme/orb-this-pc-day.svg\" width=\"34\" height=\"34\" alt=\"\"></picture> At a glance\n\n| What's new |\n| --- |"
+      },
+      "pins": [
+        {
+          "tag": "v5.0.1-alpha-5",
+          "asset": "PS5_MihawkOS-v5.0.1-alpha-5-PPSA99170.zip",
+          "size": 20037577,
+          "sha256": "ff4c2c3dc20a3fd0896f437a138b2a38533ef50b4a295419de9f65489b33cba3",
+          "content_version": "01.000.000",
+          "title_name": "MihawkOS"
+        }
+      ]
     },
     {
       "id": "pc5",
