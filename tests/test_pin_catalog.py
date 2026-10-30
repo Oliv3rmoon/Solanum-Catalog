@@ -126,13 +126,39 @@ class PinTest(unittest.TestCase):
         self.assertEqual(app['release']['sha256'], hashlib.sha256(body).hexdigest())
         self.assertEqual(app['release']['size'], len(body))
         self.assertEqual(app['pins'][0]['tag'], 'v1.0.0')
+        self.assertEqual(app['release']['content_version'], '01.002.000')
         self.assertEqual(app['stars'], 7)
         self.assertNotIn('published_at', app['pins'][0])
+
+    def test_a_pin_without_its_content_version_is_checked_again_and_given_it(self):
+        body = app_zip('ABCD12345')
+        sha = hashlib.sha256(body).hexdigest()
+        app = entry(stars=7, release={'tag': 'v1.1.0', 'asset': 'Thing-1.1.0.zip', 'size': len(body), 'sha256': sha,
+                                      'published_at': '2026-10-30T10:00:00Z', 'notes': '## New\n- something'})
+        github = FakeGitHub('v1.1.0', {'Thing-1.1.0.zip': body}, digest=False)
+        changed, _ = self.pin(github, app)
+        self.assertTrue(changed)
+        self.assertEqual(app['release']['content_version'], '01.002.000')
+        self.assertEqual(github.downloads, 1)
+        replaced = entry(release={'tag': 'v1.1.0', 'asset': 'Thing-1.1.0.zip', 'size': len(body), 'sha256': 'c' * 64})
+        with self.assertRaisesRegex(pin_catalog.Problem, 'replaced'):
+            self.pin(FakeGitHub('v1.1.0', {'Thing-1.1.0.zip': body}, digest=False), replaced)
+
+    def test_an_older_pinned_release_that_comes_back_must_be_the_same_file(self):
+        body = app_zip('ABCD12345')
+        app = entry(release={'tag': 'v1.2.0', 'asset': 'Thing-1.2.0.zip', 'size': 10, 'sha256': 'c' * 64,
+                             'content_version': '01.002.000'},
+                    pins=[{'tag': 'v1.1.0', 'asset': 'Thing-1.1.0.zip', 'size': len(body), 'sha256': 'd' * 64}])
+        with self.assertRaisesRegex(pin_catalog.Problem, 'replaced'):
+            self.pin(FakeGitHub('v1.1.0', {'Thing-1.1.0.zip': body}, digest=False), app)
+        self.assertEqual(app['pins'][0]['sha256'], 'd' * 64)
+        self.assertEqual(app['release']['tag'], 'v1.2.0')
 
     def test_a_pinned_release_is_not_downloaded_again(self):
         body = app_zip('ABCD12345')
         sha = hashlib.sha256(body).hexdigest()
         app = entry(stars=7, release={'tag': 'v1.1.0', 'asset': 'Thing-1.1.0.zip', 'size': len(body), 'sha256': sha,
+                                      'content_version': '01.002.000',
                                       'published_at': '2026-10-30T10:00:00Z', 'notes': '## New\n- something'})
         github = FakeGitHub('v1.1.0', {'Thing-1.1.0.zip': body})
         changed, _ = self.pin(github, app)

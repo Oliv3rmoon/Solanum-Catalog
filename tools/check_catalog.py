@@ -56,6 +56,8 @@ def check_pin(app, pin, what):
         fail(f'{app["id"]}: {what}\'s sha256 is not 64 lowercase hex digits')
     if not isinstance(pin['size'], int) or not 0 < pin['size'] <= 0x80000000:
         fail(f'{app["id"]}: {what}\'s size is not a size')
+    if 'content_version' in pin and not re.fullmatch(r'\d{2}\.\d{3}\.\d{3}', pin['content_version']):
+        fail(f'{app["id"]}: {what}\'s content_version is not a content version (01.002.003)')
     if pattern_name(app['asset'], pin['tag']) != pin['asset']:
         fail(f'{app["id"]}: {what} pins {pin["asset"]}, but the pattern names {pattern_name(app["asset"], pin["tag"])} '
              f'for {pin["tag"]}')

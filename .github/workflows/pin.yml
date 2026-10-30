@@ -30,7 +30,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      # One release that can't be trusted fails the run (the last step), but doesn't hold back the others' pins.
       - name: Pin every app's newest release
+        id: pin
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GH_TOKEN: ${{ github.token }}
@@ -54,3 +57,8 @@ jobs:
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
             commit -m "Pin the apps' newest releases" catalog.json
           git push origin HEAD:main
+      - name: Fail when a release couldn't be trusted
+        if: steps.pin.outcome == 'failure'
+        run: |
+          echo "::error title=A release couldn't be pinned::See the pin step: a file that changed after it was pinned, or a release that isn't the app."
+          exit 1

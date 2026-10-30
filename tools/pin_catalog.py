@@ -6,8 +6,8 @@ Most homebrew releases publish no checksum file. Solanum checks every download b
 each app this reads its repository's newest release (not a draft or a pre-release), downloads the file the catalog's
 pattern names, and writes what it found into the app's entry:
 
-    "release": {"tag", "asset", "size", "sha256", "published_at", "notes"}   the newest release
-    "pins":    [{"tag", "asset", "size", "sha256"}, ...]                      the ones pinned before it (five at most)
+    "release": {"tag", "asset", "size", "sha256", "content_version", "published_at", "notes"}   the newest release
+    "pins":    [{"tag", "asset", "size", "sha256", "content_version"}, ...]   the ones pinned before it (five at most)
     "stars":   the repository's stars on GitHub
 
 A release is pinned only when everything agrees: the downloaded file's size is the one GitHub lists; its SHA-256 is
@@ -15,7 +15,10 @@ GitHub's digest of the file when GitHub keeps one, and the line the release's ch
 one; the ZIP holds an app folder (eboot.bin beside sce_sys/param.json) whose titleId is the catalog's; it holds no
 game images, ROMs, keys or packages; and, for an app the catalog marks attested, `gh attestation verify` accepts it
 for its repository. A release pinned before is never pinned again: when the file GitHub now lists for a pinned tag is
-another size or has another digest, the file was replaced after it was pinned, and that is an error, not a new pin.
+another size or has another digest, or a download of it hashes to anything else, the file was replaced after it was
+pinned, and that is an error, not a new pin. content_version is the app's contentVersion in the file's param.json:
+Solanum compares it with the installed one, whatever the tag says; a pin made before it was recorded is downloaded
+again, checked against its pin, and given it.
 
 The pins live in this git repository, so every one is in its history. Solanum uses them only for Solanum's own
 catalog, never for a custom one.
@@ -192,6 +195,19 @@ def pin_app(app, work, log):
         if asset['size'] != pinned['size'] or (digest and digest != pinned['sha256']):
             raise Problem(f'{app["id"]}: {tag}/{name} is not the file that was pinned (size {asset["size"]} '
                           f'for {pinned["size"]}, digest {digest} for {pinned["sha256"]}): it was replaced')
+        if not pinned.get('content_version'):
+            # Pinned before content versions were recorded: downloaded again, it must hash to the pin.
+            path = Path(work) / f'{app["id"]}.zip'
+            sha256, size = download(f'https://github.com/{repo}/releases/download/{tag}/{name}', path, MAX_FILE)
+            if sha256 != pinned['sha256'] or size != pinned['size']:
+                raise Problem(f'{app["id"]}: {tag}/{name} hashes to {sha256}, not its pin {pinned["sha256"]}: '
+                              f'it was replaced')
+            try:
+                pinned['content_version'] = inspect_zip(path, app['title_id'])
+            except (ValueError, zipfile.BadZipFile, KeyError, json.JSONDecodeError) as error:
+                raise Problem(f'{app["id"]}: {tag}/{name} isn\'t the app: {error}') from error
+            path.unlink()
+            changed = True
         notes = cut_notes(release.get('body'))
         if pinned.get('notes', '') != notes or pinned.get('published_at') != release.get('published_at'):
             pinned['notes'] = notes
@@ -222,6 +238,11 @@ def pin_app(app, work, log):
         line = sums_line(text, name)
         if line and line != sha256:
             raise Problem(f'{app["id"]}: {sums} gives {name} {line}, it hashes to {sha256}')
+    # A tag pinned before (an older release that is the newest again) must be the very file pinned then.
+    for old in app.get('pins', []):
+        if old.get('tag') == tag and old.get('asset') == name and (old['sha256'] != sha256 or old['size'] != size):
+            raise Problem(f'{app["id"]}: {tag}/{name} hashes to {sha256}, but it was pinned as {old["sha256"]}: '
+                          f'it was replaced')
     try:
         version = inspect_zip(path, app['title_id'])
     except (ValueError, zipfile.BadZipFile, KeyError, json.JSONDecodeError) as error:
@@ -235,10 +256,10 @@ def pin_app(app, work, log):
     path.unlink()
 
     if pinned.get('tag'):
-        older = [{k: pinned[k] for k in ('tag', 'asset', 'size', 'sha256')}]
+        older = [{k: pinned[k] for k in ('tag', 'asset', 'size', 'sha256', 'content_version') if k in pinned}]
         older += [p for p in app.get('pins', []) if p.get('tag') != pinned['tag'] and p.get('tag') != tag]
         app['pins'] = older[:MAX_PINS]
-    app['release'] = {'tag': tag, 'asset': name, 'size': size, 'sha256': sha256,
+    app['release'] = {'tag': tag, 'asset': name, 'size': size, 'sha256': sha256, 'content_version': version,
                       'published_at': release.get('published_at'), 'notes': cut_notes(release.get('body'))}
     log(f'{app["id"]}: pinned {tag} {name} {size} bytes sha256 {sha256} (contentVersion {version}'
         f'{", digest agrees" if digest else ""}{", " + sums + " agrees" if sums in assets else ""})')
