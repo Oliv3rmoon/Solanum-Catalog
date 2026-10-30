@@ -175,14 +175,23 @@
       ],
       "stars": 0,
       "release": {
-        "tag": "0.1.0",
+        "tag": "0.2.0",
         "asset": "PPSA76526.zip",
-        "size": 17282070,
-        "sha256": "e3219146b127060881bdf713babbf82153a8b7c21f9db5f20511478828de288f",
-        "published_at": "2026-10-30T00:44:25Z",
-        "notes": "The first Solanum, a Nightshade app: a store for open-source PS5 homebrew. It installs and updates the apps of the\nopen [Solanum catalog](https://github.com/Oliv3rmoon/Solanum-Catalog) from their own GitHub releases, each checked\nagainst its checksums before anything is unpacked, in Nightshade's black and red.\n\n**Install:** unzip `PPSA76526.zip` and copy its `PPSA76526` folder to `/data/homebrew/` with permissions `777`.\nIt needs the HEN's payload loader (port 9021) for its install helper and launch payload.\n\n- Browse the catalog by category (the Nightshade family first) or search it; each app has a page with its license,\n  an attested badge, its newest version, date and release notes.\n- Install, update and open apps; new ones go beside Solanum in `/data/homebrew/<title ID>`.\n- Updates lists the installed apps with a newer release and their changelogs; Installed shows where each lives.\n- An interrupted download goes on where it stopped.\n- Updates itself from this repository's releases.\n\nCheck the download with `gh attestation verify PPSA76526.zip -R Oliv3rmoon/Solanum`, or against `SHA256SUMS`.",
-        "content_version": "00.001.000"
-      }
+        "size": 17358632,
+        "sha256": "ba3504f21987932f5ed4e197576983586d161533eaf7d89baf4cbebbc17efc49",
+        "content_version": "00.002.000",
+        "published_at": "2026-10-30T12:34:04Z",
+        "notes": "Solanum 0.2.0: a catalog of 56 open-source apps, every release pinned by its SHA-256, and everything a store should\ndo with what it installs: uninstall, roll back, older versions, holds, any drive, custom catalogs and ten languages.\n\n**Install:** unzip `PPSA76526.zip` and copy its `PPSA76526` folder to `/data/homebrew/` with permissions `777`, over\n0.1.0 or new. It needs the HEN's payload loader (port 9021) for its install helper and launch payload. 0.1.0 updates\nitself to it.\n\n- **56 apps**, up from 6: media players and clients for your own servers, emulators, engine ports that need your own\n  game files, games and tools, each open source with no game files. Search them by tag (`#emulator`, `#ps1`).\n- **Every release is pinned:** the catalog's workflow downloads each app's newest release, checks it and records\n  its SHA-256; Solanum checks every download against it before anything is unpacked. Releases without a checksum\n  file install too, and showing the whole catalog costs GitHub's hourly limit nothing.\n- **Uninstall** (the app's folder and home-screen entry, its data if you tick it), **Roll back** in one press from\n  the copy Solanum kept, **Versions** to install any release, **Skip** or **Hold** updates, **Update all**, and\n  automatic updates if you switch them on.\n- **Install on** internal storage, an extended drive or a USB drive, with a free-space check.\n- **Custom catalogs** (Settings > Catalogs): a GitHub repository or an HTTPS catalog.json, always third-party.\n- **Ten languages**, a **Downloads** queue that runs a few at once, a **USB keyboard**, each app's stars, and a QR\n  code to its source.\n- Apps you installed by hand are found on any drive ShadowMountPlus scans, and looked after from then on.\n\nCheck the download with `gh attestation verify PPSA76526.zip -R Oliv3rmoon/Solanum`, or against `SHA256SUMS`."
+      },
+      "pins": [
+        {
+          "tag": "0.1.0",
+          "asset": "PPSA76526.zip",
+          "size": 17282070,
+          "sha256": "e3219146b127060881bdf713babbf82153a8b7c21f9db5f20511478828de288f",
+          "content_version": "00.001.000"
+        }
+      ]
     },
     {
       "id": "vlc",
