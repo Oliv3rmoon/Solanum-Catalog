@@ -258,6 +258,9 @@ class PinTest(unittest.TestCase):
             'titleName': 'Thing'}, 'ja-JP': {'titleName': 'シング'}}}), 'シング')
         self.assertEqual(pin_catalog.title_name({'localizedParameters': {'en-US': {'titleName': ' Thing '}}}), 'Thing')
         self.assertEqual(pin_catalog.title_name({'titleId': 'ABCD12345'}), '')
+        long = pin_catalog.title_name({'localizedParameters': {'en-US': {'titleName': 'タイトル' * 20}}})
+        self.assertLessEqual(len(long.encode('utf-8')), 63)          # bytes, as the check and Solanum count them
+        self.assertEqual(long, ('タイトル' * 20)[:21])                 # 21 whole three-byte characters, none cut
 
 
 if __name__ == '__main__':

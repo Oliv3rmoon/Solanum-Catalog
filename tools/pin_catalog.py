@@ -134,7 +134,8 @@ def title_name(param):
     names = [localized.get(localized.get('defaultLanguage'))] + [v for v in localized.values() if isinstance(v, dict)]
     for entry in names:
         if isinstance(entry, dict) and isinstance(entry.get('titleName'), str) and entry['titleName'].strip():
-            return entry['titleName'].strip()[:63]
+            # at most 63 bytes of UTF-8, as the catalog check and Solanum hold it, cut between characters
+            return entry['titleName'].strip().encode('utf-8')[:63].decode('utf-8', 'ignore').rstrip()
     return ''
 
 
