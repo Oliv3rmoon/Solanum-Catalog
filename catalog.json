@@ -24,15 +24,23 @@
       ],
       "stars": 5,
       "release": {
-        "tag": "v1.010.006",
-        "asset": "Nightshade-v1.010.006.zip",
-        "size": 38587520,
-        "sha256": "0647ba156b8a3cb09544bc7711b6a42761f7c8348cb85b558c9fd959ca046f00",
-        "content_version": "01.010.006",
-        "published_at": "2026-10-30T16:09:32Z",
-        "notes": "**Big games start right away, and the emulator gives memory back.** Tears of the Kingdom built the 16,000 pipelines it saved in earlier sessions for about 200 seconds at every start before it played, however often it had started before. Now a game starts as soon as its graphics are ready, and its saved pipelines are built while it plays. And a TOTK session that ended after 1.5 hours on v1.010.005 (\"heap exhausted\") should no longer end that way. Not measured on a console yet: start TOTK twice, play as long as you can, and send `/data/prosperoeden/logs`. The new `EDEN_SHADER_START` lines in `stderr.log` say where the start's time went, and the `heap:` lines what the emulator holds of the console's memory.\n\n### Fixes\n\n- **The game starts while its shader cache is built.** With the Vulkan renderer a game no longer waits for its saved pipelines: they are read and built behind it on the spare CPUs, and the game takes each one as soon as it is built. One it needs sooner it builds itself, as it does any new effect: with **Asynchronous shaders** on, that effect is missing for a moment; with them off, the game pauses for it. Leaving the game in the middle stops the build at once. `\"background_shader_cache\": false` in the settings file builds the whole cache before the game starts, as before (see [the settings](https://github.com/Oliv3rmoon/Nightshade/blob/v1.010.006/docs/SETTINGS.md#the-shader-cache-while-the-game-plays)). `stderr.log` says `Shader cache: the game starts now`, then how far the build is every 5 seconds, then `Shader cache ready: ... built while the game ran`.\n- **Building the cache should be faster.** In every TOTK log the build ran at about 200 pipelines a second for its first 3,000, then at about 60, and letting the builders use every CPU in v1.010.004 hardly helped. The most likely reason: each of the 15 building threads has 8 MiB of memory of its own for its small allocations, what it built filled that after a few thousand pipelines, and from then on all of them allocated through the one lock every thread shares. A thread whose memory is full now takes another 8 MiB of its own. `EDEN_SHADER_START_HEAP` in `stderr.log` counts the allocations that still go through the shared lock.\n- **The cache file is read in 8 MiB pieces, and only as fast as it is built.** It was read 4 KiB at a time, asking the file again for every entry: reading TOTK's took 15 seconds. And the whole file was queued at once, so the start held most of it in memory (the emulator's memory grew by 1.9 GB while TOTK's cache was built, and it keeps what it grows by); now at most a few pipelines per building thread wait to be built."
+        "tag": "v1.010.007",
+        "asset": "Nightshade-v1.010.007.zip",
+        "size": 38702462,
+        "sha256": "516b79beee6064c87f011f5589a7dacb1a01b768d3ee925f440e44d99e366d5c",
+        "content_version": "01.010.007",
+        "title_name": "Nightshade",
+        "published_at": "2026-10-31T10:17:26Z",
+        "notes": "**Memory in long sessions, video profiles, Safe Launch and Quick settings, and homebrew in the Library.** Tears of the Kingdom ended after about an hour on v1.010.006 and slowed down after its item menu: Nightshade kept 2 GB more of the console's memory than it used and never gave any back, and the game's largest texture needed one 176 MiB block that a long session no longer had. Nightshade now gives its memory back, uploads large textures in pieces, and its graphics caches no longer evict at their hardest for the rest of a session. Choose Minimum, Recommended, High or Ultra for every game or for one, start a game once in safe mode when it won't start, and change a game's video from a quick panel. Homebrew NROs are listed beside your games with their own names and icons, and newer games' ZBIC-compressed code must decode whole. Not confirmed on a console yet: play TOTK as long as you can, open its item menu often, and send `/data/prosperoeden/logs`.\n\n### New\n\n- **Video profiles.** **Settings > Video > Video profile** sets the resolution, upscaling filter, ASTC textures, **Faster GPU emulation** and **Asynchronous shaders** at once: **Minimum** (0.75x with AMD FSR, the faster GPU accuracy, asynchronous shaders), **Recommended** (1x, Bilinear: what a new install has), **High** (1.5x, Bicubic) and **Ultra** (2x, Bicubic). Each turns frame generation and post-processing off, and keeps ASTC textures compressed. A game's own Video has the same row, first: a profile chosen there is that game's own. Change one of those settings by hand and the profile shows **Custom**. Tears of the Kingdom has profiles of its own that keep the console's 4 GiB and compressed textures in every one, what v1.010.005 found it needs. See [Video profiles](https://github.com/Oliv3rmoon/Nightshade/blob/v1.010.007/docs/SETTINGS.md#video-profiles).\n- **Quick settings.** Options on a game, in the Library, on the home screen or on its settings page, opens a panel with **Play**, **Start in safe mode**, its video profile, resolution, upscaling filter, renderer, FPS overlay and frame generation. A change is saved for that game at once; Triangle opens all of its settings."
       },
       "pins": [
+        {
+          "tag": "v1.010.006",
+          "asset": "Nightshade-v1.010.006.zip",
+          "size": 38587520,
+          "sha256": "0647ba156b8a3cb09544bc7711b6a42761f7c8348cb85b558c9fd959ca046f00",
+          "content_version": "01.010.006"
+        },
         {
           "tag": "v1.010.005",
           "asset": "Nightshade-v1.010.005.zip",
@@ -293,7 +301,7 @@
         "emby",
         "video"
       ],
-      "stars": 40,
+      "stars": 41,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -322,16 +330,26 @@
         "emby",
         "video"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
-        "tag": "1.2.9",
-        "asset": "Emby5-1.2.9.zip",
-        "size": 29103252,
-        "sha256": "a1592d81312bebb14b46490fb4aeb410e59e5d5f7e428847b3dc7952e0ae5155",
-        "published_at": "2026-10-26T01:26:49Z",
-        "notes": "## What's new\n\n### TV guide\n- New full TV guide in Live TV: press **Square**. Channels down the left, the time across, a block for each programme and a line at the current time, with the focused programme's details at the top.\n- **Up/Down** change channel, **Left/Right** move through the programmes, **L1/R1** change group, **X** watches the channel, **Square** or **Circle** go back to the channel cards.\n- Works with Emby and Jellyfin Live TV, Xtream providers and M3U playlists. For M3U, Emby5 uses the guide the playlist names (`url-tvg`), or one you enter in **Settings > Live TV > M3U TV guide (XMLTV) URL** (`.xml` or `.xml.gz`).\n- M3U channels now also show what's on now and next on their cards and in the player.\n\n### Playback\n- New **Volume boost** in **Settings > Playback**: Off, +50 %, +100 %, +200 % or +300 %, with a limiter so loud scenes don't distort. HDMI bitstream is off while it's on.\n- New **Network buffer** in **Settings > Playback**: 30 seconds (the default), 1, 2 or 5 minutes, for servers reached over the internet or a weak Wi-Fi.\n- Changing the audio track now shows that it's switching, instead of looking frozen.\n- Tracks without a language now read \"Unknown language - track 2\", so they can be told apart.\n- The playback information panel (**L3**) now shows dropped frames, and stays open for the next video if you left it open.\n- Live TV and VOD now use your playback settings (night mode, HDMI bitstream, volume boost, network buffer) too.\n\n### Languages\n- Fixed 24 texts that stayed in English in every language, such as \"Play\" on VOD pages, \"Mark all as played\" and some Live TV and VOD status texts.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.2.9.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.2.9** under **Settings > System > Installed version**.",
-        "content_version": "01.002.009"
-      }
+        "tag": "1.2.10",
+        "asset": "Emby5-1.2.10.zip",
+        "size": 32738639,
+        "sha256": "8245685e9139840fcb8e45e86e6fceb3fabb1264a27cebad5c407336674a8085",
+        "content_version": "01.002.010",
+        "title_name": "Emby5",
+        "published_at": "2026-10-31T11:31:14Z",
+        "notes": "## What's new\n\n### Servers\n- Emby5 now connects to Emby- and Jellyfin-compatible servers that use their own name (unofficial builds and rebranded servers), instead of saying \"This is not an Emby or Jellyfin server\". It works out by itself whether such a server works like Emby or like Jellyfin.\n\n### Look\n- New background on the PS5 home screen when Emby5 is selected. Delete Emby5 from the Home UI and reload it with ShadowMountPlus.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.2.10.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.2.10** under **Settings > System > Installed version**."
+      },
+      "pins": [
+        {
+          "tag": "1.2.9",
+          "asset": "Emby5-1.2.9.zip",
+          "size": 29103252,
+          "sha256": "a1592d81312bebb14b46490fb4aeb410e59e5d5f7e428847b3dc7952e0ae5155",
+          "content_version": "01.002.009"
+        }
+      ]
     },
     {
       "id": "media-player-classic-ps5",
@@ -391,14 +409,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.000.030",
-        "asset": "Mediathek-PPSA66120-01.000.030.zip",
-        "size": 24366744,
-        "sha256": "dd211d806269368f6f0efe0fbc889677366cc2a75823aee885783ae028568252",
-        "published_at": "2026-10-29T12:29:41Z",
-        "notes": "## Mediathek 0.3.0 (`01.000.030`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.3.0\n\n- **A richer details page.** It now shows the film's **length**, **video format** (codec, resolution, container), **sound format**, TMDB's **user score** (out of 10) and its **genres** (next to the collection above the title).\n- **Languages.** An **Audio** row lists the audio languages of the tracks the app can actually decode, and a **Subtitles** row shows the language of the `.srt` file beside the film, read from its file name (`Film (2011).de.srt`, `Film.English.srt`). A track that does not play is not offered. Untagged tracks show \"Unknown language\".\n- **Read from the file, once.** Length, formats and audio languages are read with FFmpeg when the page opens (headers only, no decoding) and cached, so reopening is instant. \"Refresh cover and info\" reads the file again.\n- **Fewer TMDB requests.** Covers, wallpapers and descriptions are fetched only for films that have no cover; a rescan or restart no longer asks about films that already have one. Films that were fetched before get their score and genres once.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, decades and All Movies.\n- **Movies:** an eight-column grid, sortable by title, newest or year.\n- **Player:** scrubber, seeking, pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n- **Names are read for you:** `Blue Harbor (2011).mkv` and `blue.harbor.2011.2160p.BluRay.x265-GRP.mkv` both work.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds no films.\n- Checked on the author's console: start-up, the scan, cover and description download, the details page with its length, formats, score, genres and languages, and a large 1080p H.264 MKV playing with sound.\n- **Not yet checked on a console:** the console language detection, 4K and HEVC playback (software decoding, not expected to be smooth), subtitle and audio-track switching, menu sound and rumble, and drives other than the author's.\n- Only one `.srt` per film is used. Embedded subtitle tracks are not shown.",
-        "content_version": "01.000.030"
-      }
+        "tag": "01.000.040",
+        "asset": "Mediathek-PPSA66120-01.000.040.zip",
+        "size": 31360585,
+        "sha256": "93dc2a0d7658d27eff97e8c1e90856670085c6bb2e95ad78b21083871cd34094",
+        "content_version": "01.000.040",
+        "title_name": "Mediathek",
+        "published_at": "2026-10-31T11:34:51Z",
+        "notes": "## Mediathek 0.4.0 (`01.000.040`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.4.0\n\n- **Genre shelves on Home.** One shelf per TMDB genre, between the collections and the decades. A film is on the shelves of the two genres its details page names, and only those. The decade shelves stay.\n- **Search on the Movies page.** Triangle opens an on-screen keyboard; every word must be in the title (case and accents ignored). Back clears an active search. **Sorting moved to R3.**\n- **Step between films.** On the details page, L1/R1 and left/right move to the previous or next film of the shelf or grid you came from.\n- **Several subtitle files per film** (up to eight, English first). In the player, Triangle steps through them and then off, and says which one is on. Square still steps through the audio tracks. The details page lists all subtitle languages.\n- **Proper selection and launch background** on the console's home screen.\n- The red shelf title above the billboard is back for every shelf, and moving between shelves plays the same sound on every row.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, genres, decades and All Movies.\n- **Movies:** an eight-column grid, sortable by title, newest or year, with search.\n- **Player:** scrubber, seeking, pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n- **Names are read for you:** `Blue Harbor (2011).mkv` and `blue.harbor.2011.2160p.BluRay.x265-GRP.mkv` both work.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds no films.\n- Checked on the author's console (firmware 12.70): language detection, subtitle and audio switching, Back/exit, menu sounds, controller feedback, stepping between films, genre shelves, search and R3 sort, and the internal and external drives.\n- **Not yet checked on a console:** 4K and HEVC playback (software decoding, not expected to be smooth).\n- Embedded subtitle tracks are not shown; `.srt` files are."
+      },
+      "pins": [
+        {
+          "tag": "01.000.030",
+          "asset": "Mediathek-PPSA66120-01.000.030.zip",
+          "size": 24366744,
+          "sha256": "dd211d806269368f6f0efe0fbc889677366cc2a75823aee885783ae028568252",
+          "content_version": "01.000.030"
+        }
+      ]
     },
     {
       "id": "cd-player",
@@ -661,16 +689,26 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 24,
+      "stars": 23,
       "release": {
-        "tag": "v1.0.15",
-        "asset": "Crux2-v1.0.15.zip",
-        "size": 32669031,
-        "sha256": "c7e7415b37a40f9f1e0947a6a1584fe76dcc5260ac1c7760bf9859ce583ca015",
-        "published_at": "2026-10-25T10:49:12Z",
-        "notes": "<img width=\"1920\" height=\"1080\" alt=\"Bez nazwy\" src=\"https://github.com/user-attachments/assets/16931a3b-1f3e-4b9c-b6a0-480edcdf0c6c\" />\n\n<html><head></head><body><h1>Crux2 v1.0.15</h1>\n\n<h2>What's new in v1.0.15</h2>\n<p>Fixed:</p>\n<ul>\n<li><strong>A game could freeze a few seconds after it started</strong> (v1.0.14). When the frame queue went back to none, the emulation thread could wait for a signal the graphics thread had already sent. It now checks again before waiting. Reported on firmware 9.20.</li>\n</ul>\n<p>Changed:</p>\n<ul>\n<li><strong>Long descriptions no longer run under the value</strong> on the right of a row.</li>\n<li><strong>The content version goes up with each release</strong> (<code>01.015.000</code>), so the console and the homebrew catalog see updates.</li>\n\n<h2>Known issues</h2>\n<ul>\n<li>paraLLEl-GS is slower than PCSX2's renderer in the heaviest game I test with, and its picture is softer by design.</li>\n<li>The free BIOS is early work: many games reach their menus and go no further. Use a BIOS dumped from your own PlayStation 2.</li>\n<li>RetroAchievements' hardcore mode is not offered.</li>\n</ul>\n<h2>Install or update</h2>\n<ol>\n<li>Copy the <code>PPSA99249</code> folder from the ZIP to your homebrew folder on the console (<code>/data/homebrew/</code>), over an older one if you have it.</li>\n<li>Your settings, memory cards, states and games stay: with a folder <code>/data/crux2</code>, Crux2 keeps them there, outside the title folder.</li>\n<li>Your own games in <code>games/</code> (or on a USB drive or a share), your own BIOS in <code>bios/</code>. None included, none ever will be.</li>\n<li>Read <code>LEGAL.txt</code> and <code>README.md</code> in the folder. Shaders are compiled again once after the update.</li>\n</ol>\n<h2>Reporting problems</h2>\n<p>Open an issue with <code>crux2-boot.log</code> and <code>logs/emulog.txt</code> from the title folder (Settings &gt; System can copy them to a USB drive), copied before Crux2 is started again. Never attach games, BIOS files, firmware or keys.</p>\n<h2>Source</h2>\n<p>This ZIP was built from this release's tag. The source of every part is public: this repository at the tag (the port, its interface, the patches it applies to PCSX2 and to Mesa's RADV, the paraLLEl-GS renderer's patches in <code>crux2recomp/</code>, its tools and tests), PCSX2 at <a href=\"https://github.com/PCSX2/pcsx2/tree/5675313c6db3390fdc38f75a658ddfc68498103e\"><code>5675313c6db3390fdc38f75a658ddfc68498103e</code></a> (v2.9.142), and every other part at the revision <code>licenses/README.txt</code> and <code>licenses/components.json</code> in the ZIP name. Crux2 is GPL-3.0-or-later with one additional term: keep the credit \"Crux2 by Press5elect\" (<code>NOTICE</code>).</p>\n<h2>Build</h2>",
-        "content_version": "01.015.000"
-      }
+        "tag": "v1.0.17",
+        "asset": "Crux2-v1.0.17.zip",
+        "size": 32647214,
+        "sha256": "dc0dd59ee77a23b8c1baeb7cd1347100d553a6159c319aa8a263887a308a355e",
+        "content_version": "01.017.000",
+        "title_name": "Crux2",
+        "published_at": "2026-10-31T08:05:53Z",
+        "notes": "<h2>What's new in v1.0.17</h2>\n<p>v1.0.16 was not published: its changes are part of this release.</p>\n<p>Added:</p>\n<ul>\n<li><strong>Variable refresh (VRR)</strong> (Settings &gt; Interface &gt; PlayStation 5, off; experimental): at 120 Hz on a TV with VRR, each frame is shown as soon as it is ready.</li>\n<li><strong>Graphics driver on a core of its own</strong> (Settings &gt; Emulation, on): the graphics driver's thread no longer shares the GS thread's core, so the GS thread has the core to itself.</li>\n</ul>\n<p>Changed:</p>\n<ul>\n<li><strong>Less work on the GS thread</strong>, the thread that limits the heaviest scenes: besides the driver's thread moving off its core, the auto-flush test is worked out once per strip in every vertex format that carries only vertex data (it was once per vertex outside PCSX2's two built-in formats), and a texture upload skips mipmapped textures it does not touch instead of checking each of their levels.</li>\n<li><strong>Built on the newest Mesa main</strong> (27.0.0-devel of 2026-10-31): fixes to the shader compiler and to how graphics pipelines are hashed for the shader cache.</li>\n<li><strong>Built on PCSX2 v2.9.150</strong> (was v2.9.142): game database fixes, vibration shown in the inputs display, and more.</li>\n<li><strong>GS dumps record 1 second by default</strong> (<em>GS dump length</em>: 1, 2 or 5 seconds), are compressed on worker threads so recording slows the game less, and the \"dump saved\" message gives the file's size.</li>\n<li><strong>The boot log names each vertex format a game draws in</strong> (lines starting <code>GS: PS5: packed format</code>).</li>\n<li><strong>The content version is <code>01.017.000</code>.</strong></li>\n</ul>\n<p>Fixed:</p>\n<ul>\n<li><strong>120 Hz fell back to 60 Hz on TVs with VRR</strong>: before the first frame such a TV refreshes at 48 Hz, which was taken for a TV still at 60 Hz. The boot log now says which rate was chosen and why.</li>\n<li><strong>The README's list of what does not work</strong> still named features Crux2 has.</li>\n</ul>\n\n\n## Known issues\n\n- paraLLEl-GS is slower than PCSX2's renderer in the heaviest game I test with, and its picture is softer by design.\n- The free BIOS is early work: many games reach their menus and go no further. Use a BIOS dumped from your own PlayStation 2.\n- RetroAchievements' hardcore mode is not offered.\n\n## Install or update\n\n1. Copy the `PPSA99249` folder from the ZIP to your homebrew folder on the console (`/data/homebrew/`), over an older one if you have it.\n2. Your settings, memory cards, states and games stay: with a folder `/data/crux2`, Crux2 keeps them there, outside the title folder.\n3. Your own games in `games/` (or on a USB drive or a share), your own BIOS in `bios/`. None included, none ever will be."
+      },
+      "pins": [
+        {
+          "tag": "v1.0.15",
+          "asset": "Crux2-v1.0.15.zip",
+          "size": 32669031,
+          "sha256": "c7e7415b37a40f9f1e0947a6a1584fe76dcc5260ac1c7760bf9859ce583ca015",
+          "content_version": "01.015.000"
+        }
+      ]
     },
     {
       "id": "psflycast",
@@ -962,7 +1000,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 395,
+      "stars": 397,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1291,7 +1329,7 @@
         "controller",
         "tester"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "01.000.000",
         "asset": "PPSA98766.zip",
@@ -1322,14 +1360,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "1.0.2",
+        "tag": "1.0.3",
         "asset": "PPSA11019.zip",
-        "size": 8314732,
-        "sha256": "3b12fddc9495ac2c011a8764e1a116a13a26020c742eb4cf43a8814d5cfa06f5",
-        "published_at": "2026-10-23T17:31:47Z",
-        "notes": "### What's new\n\n- **Search what goes in a room.** In the list of everything from Home Assistant, **△** searches by name, area or entity id (any case; every word you type has to match), and **□** clears the search. **L2 / R2** still show one kind at a time.\n- **Nothing but your rooms on the home screen.** The card that added to a room and the **New room** tab are gone. Both are in the menu (**Options**): **Add to the room** is its first line, and **New room** is further down. An empty room, or no rooms yet, says where to find them.\n- **Focus after adding.** Back from the list, the room's first card is focused.\n- **Coming from 1.0.1:** your rooms and sign-in stay.",
-        "content_version": "01.000.002"
-      }
+        "size": 8315903,
+        "sha256": "ac97390d6fb853334f4ed85226842dd24d40ff68edbc605b53047c2158f33a1d",
+        "content_version": "01.000.003",
+        "title_name": "Home5",
+        "published_at": "2026-10-31T11:40:43Z",
+        "notes": "### What's new\n\n- **Your own certificates for HTTPS.** Home Assistant behind a reverse proxy or ingress with its own certificate authority now works over `https://`: put the authority's `.crt` file in `/data/homebrew/PPSA11019/assets/`, and Home5 trusts it alongside the console's and its own. Thanks to @tonytwostep for this one.\n- **Coming from 1.0.2:** your rooms and sign-in stay. If you add a `.crt` file, keep a copy: a clean reinstall replaces the app's folder."
+      },
+      "pins": [
+        {
+          "tag": "1.0.2",
+          "asset": "PPSA11019.zip",
+          "size": 8314732,
+          "sha256": "3b12fddc9495ac2c011a8764e1a116a13a26020c742eb4cf43a8814d5cfa06f5",
+          "content_version": "01.000.002"
+        }
+      ]
     },
     {
       "id": "prospero-ai",
@@ -1378,7 +1426,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 749,
+      "stars": 753,
       "release": {
         "tag": "v0.9.1",
         "asset": "ps5lm-app-v0.9.1.zip",
@@ -1867,7 +1915,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 336,
+      "stars": 340,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -1910,17 +1958,27 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 59,
+      "stars": 66,
       "release": {
-        "tag": "v2.0.2",
+        "tag": "v2.0.3",
         "asset": "PPSA11018.zip",
-        "size": 406843064,
-        "sha256": "bd4dfc335ecd616cfbb1c9362347e32887e3c00b462f6a11317ebb835c0e18ce",
-        "content_version": "02.000.002",
+        "size": 311322947,
+        "sha256": "ee5a32f3bbb11ec199fa312f56653afc3f916223a7f2e8817a8d7bfd91b96a10",
+        "content_version": "02.000.003",
         "title_name": "PC5",
-        "published_at": "2026-10-30T15:02:51Z",
-        "notes": "PC5 2.0.2 brings the mouse wheel, a button that slows the pointer, and fixes from your reports.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **Mouse wheel**: a USB mouse's wheel now reaches the game. With a game on **Keyboard & mouse**, any button can also be **Wheel up** or **Wheel down** in **△ › Button mapping** (after the mouse buttons in the key list): each press turns the wheel one notch, for a visual novel's rollback or a map's zoom.\n- **Slow pointer button**: in **△ › Button mapping**, with a stick moving the pointer, **Slow pointer button** picks a button that slows the pointer while you hold it, for placing and aiming precisely. **Slower by** sets how much, 10 % to 90 % (50 % by default).\n\n### Fixes from your reports\n\n- **No sound device found**: the console's speakers now have a hardware ID, as Windows reports one. A game's system check that asks for it no longer says there is no sound device.\n- **Direct3D 12 detection**: Unreal Engine 5 games that keep Direct3D 12's Agility SDK in `D3D12\\x64` beside their program now draw with Direct3D 12 too.\n- Everything else in 2.0.1 is unchanged.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs."
-      }
+        "published_at": "2026-10-31T10:14:13Z",
+        "notes": "PC5 2.0.3 brings a web page and FTP login for managing PC5 from a phone or PC, installing games on a USB drive, a Steam emulator, PhysX and other redistributables, smaller games, faster loading, and many fixes from your reports.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n**Going back:** a game installed with 2.0.3 needs 2.0.3 or newer: on 2.0.2 it is missing Windows' own files, so install it again there. Games installed before keep working on any version.\n\n### What's new\n\n- **Install on a USB drive** (replaces Play from USB): with a USB drive plugged in, PC5 asks where a game goes, **Console** or **USB drive**. On the drive it goes in its `PC5` folder and plays from there; its saves stay on the console. Uninstalling deletes it from the drive too. Games set to play from a USB drive with an earlier PC5 keep working.\n- **An INSTALL folder on each USB drive**: `PC5/INSTALL`. Games put there are offered as those in PC5's own INSTALL folder are, when PC5 opens or when the drive is plugged in. Installed on that same drive, a game is moved at once instead of copied.\n- **Settings › Network**: the FTP server moved here from Game maintenance, with an on/off switch, a **Username** and an optional **Password**. With none set, any login works, as before.\n- **Web page**: in **Settings › Network**, turn on **Web page** and open the address it shows in a browser on your phone or PC. From there you can send a game's folder to PC5 (it then asks to install it), edit a game's launch options (`launch.txt`, `env.txt`), and download a game's newest log and the kept logs. It asks for the same username and password as the FTP server.\n- **Games made for Steam**: a game whose copy needs Steam's `steam_api64.dll` gets an emulator in its place (gbe_fork), so it starts without Steam's client. **△ › Manage › Steam emulator** turns it off for a game. Programs wrapped in Steam's DRM (SteamStub) still don't start; PC5 now says why instead of crashing.\n- **PhysX and other redistributables**: the first time a game starts, PC5 installs the packages it carries (`_CommonRedist`, `Redist`, `PhysX` folders, and PhysX inside a setup program), such as NVIDIA's PhysX, once. A PhysX runtime copied into a game's Windows by hand is registered as its setup program would.\n- **Smaller games**: each game you install takes about 300 MB less and installs sooner. Wine's DLLs are no longer copied into every game.\n- **A smaller PC5**: about 110 MB smaller to download and 300 MB smaller on the console."
+      },
+      "pins": [
+        {
+          "tag": "v2.0.2",
+          "asset": "PPSA11018.zip",
+          "size": 406843064,
+          "sha256": "bd4dfc335ecd616cfbb1c9362347e32887e3c00b462f6a11317ebb835c0e18ce",
+          "content_version": "02.000.002",
+          "title_name": "PC5"
+        }
+      ]
     },
     {
       "id": "pico-8",
@@ -1972,7 +2030,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 899,
+      "stars": 904,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2003,7 +2061,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 241,
+      "stars": 242,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2033,7 +2091,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1592,
+      "stars": 1599,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2512,16 +2570,26 @@
       ],
       "stars": 16,
       "release": {
-        "tag": "01.000.021",
+        "tag": "01.000.023",
         "asset": "PPSA99030.zip",
-        "size": 390138966,
-        "sha256": "8a64493e56ee667259133b559509eccfcd89c89a856b73550c19993229b4ba34",
-        "content_version": "01.000.021",
+        "size": 390140465,
+        "sha256": "c2867e71abf7d716f8acd4770448770132a537fdb35895de47f68313257b937d",
+        "content_version": "01.000.023",
         "title_name": "Forever Launcher",
         "prerelease": true,
-        "published_at": "2026-10-23T15:32:28Z",
-        "notes": "### Forever Launcher 01.000.021\n\n**Adds PS5 VRR support for WoW at up to 120 Hz.**\n\n- The game title now declares the retail VRR and high-frame-rate metadata\n  instead of the older combination that disabled system VRR.\n- Before the first frames, a VRR display may idle at its 48 Hz floor. Forever\n  now keeps the accepted 119.88 Hz mode instead of misreading that idle rate as\n  failed 120 Hz and restoring 59.94 Hz.\n- On a compatible display, set PS5 **VRR** to **Automatic**. If VideoOut does\n  not offer or accept the 119.88 Hz mode, Forever continues at 59.94 Hz.\n\n### Forever Launcher 01.000.020\n\n**Repairs Battle.net signature setup and completes large add-on installs.**\n\n- Incomplete Wine Trust and PE signature-provider registration is repaired\n  through normal Wine setup before Battle.net starts. Verification now fails\n  closed if no provider is registered.\n- Continuously progressing add-on archives may download for up to 15 minutes,\n  with a 30-second idle timeout. Errors identify body-transfer versus JSON\n  failures.\n- Polestar's full package includes all 24 folders, including the requested\n  Brazilian Portuguese and database/navigation modules; Recorder remains a\n  separate optional package.\n- A bounded native worker hashes, extracts, synchronizes and activates add-ons\n  outside Wine. Interrupted install and removal cleanup retains durable recovery\n  proof instead of restoring partial folders.\n- Existing 01.000.018 catalogue caches migrate automatically to the corrected\n  package list.\n\n### Forever Launcher 01.000.018\n\n**Fixes missing multi-pack add-ons in Find.**\n\n- Repositories that publish several independent add-ons now keep every release stream instead of showing only the first one.\n- Spoken Books, Quests and Zones audio packs appear as separate Find entries, including **Spoken Zones Audio (All)** and **Spoken Zones Audio (Portuguese)**.\n- Includes complete GitHub release pagination from 01.000.017, so older release streams install without silently selecting the wrong release.\n- 01.000.017 was superseded before its homebrew-catalog submission after native testing found the same-repository listing bug.\n\n### Forever Launcher 01.000.017\n\n**More Spoken audio packs and complete GitHub add-on release discovery.**\n\n- Find now includes **Spoken Zones Audio (All)** and **Spoken Zones Audio (Portuguese)** for English and Brazilian Portuguese place narration.\n- Add-ons can now install from release streams older than a GitHub repository's first 100 releases. Forever follows every release page until it finds the requested stream.\n- GitHub API, connection and malformed-response errors remain visible instead of silently installing the wrong release.\n\n### Forever Launcher 01.000.016\n\n**Faster Battle.net installs and Blizzard game downloads.**"
-      }
+        "published_at": "2026-10-31T12:30:23Z",
+        "notes": "### Forever Launcher 01.000.023\n\n**The write helper now recovers by itself.**\n\n- Forever checks its write helper every 30 seconds and starts it again if it\n  stops answering.\n- After a reset or deleted Forever data folder, the helper takes over the new\n  key instead of blocking until a PS5 restart, so Battle.net keeps fast disk\n  writes and sees the real free space instead of 16 GB.\n\nAlso in this release, from 01.000.022: faster Battle.net downloads (larger\nnetwork buffers and merged archive writes), a fix for a Battle.net crash on the\nWoW Forever page, Battle.net opening on the WoW Forever page, and a fix for\nAdd-ons error 61 when another homebrew helper uses port 9142.\n\n### Forever Launcher 01.000.022\n\n**Faster Battle.net downloads, and fixes for a Battle.net crash and Add-ons error 61.**\n\n- Download connections get a larger network receive buffer (the PS5 stopped\n  growing it at 128 KB), and Battle.net's archive writes are merged into fewer,\n  larger disk writes. A WoW Forever update on one PS5 went from 6-7 MB/s to\n  11-14 MB/s; the gain depends on the line and on Blizzard's servers.\n- Chromium's audio service now runs inside Battle.net, so opening the WoW\n  Forever page during an update no longer crashes Battle.net.\n- Battle.net opens on the WoW Forever page when it starts.\n- The Add-ons helper moves to port 9143, so another homebrew helper on port\n  9142 (for example Savage Wind's) no longer causes Add-ons error 61.\n\n### Forever Launcher 01.000.021\n\n**Adds PS5 VRR support for WoW at up to 120 Hz.**\n\n- The game title now declares the retail VRR and high-frame-rate metadata\n  instead of the older combination that disabled system VRR.\n- Before the first frames, a VRR display may idle at its 48 Hz floor. Forever\n  now keeps the accepted 119.88 Hz mode instead of misreading that idle rate as\n  failed 120 Hz and restoring 59.94 Hz.\n- On a compatible display, set PS5 **VRR** to **Automatic**. If VideoOut does\n  not offer or accept the 119.88 Hz mode, Forever continues at 59.94 Hz.\n\n### Forever Launcher 01.000.020\n\n**Repairs Battle.net signature setup and completes large add-on installs.**\n\n- Incomplete Wine Trust and PE signature-provider registration is repaired\n  through normal Wine setup before Battle.net starts. Verification now fails\n  closed if no provider is registered.\n- Continuously progressing add-on archives may download for up to 15 minutes,\n  with a 30-second idle timeout. Errors identify body-transfer versus JSON\n  failures.\n- Polestar's full package includes all 24 folders, including the requested\n  Brazilian Portuguese and database/navigation modules; Recorder remains a\n  separate optional package.\n- A bounded native worker hashes, extracts, synchronizes and activates add-ons"
+      },
+      "pins": [
+        {
+          "tag": "01.000.021",
+          "asset": "PPSA99030.zip",
+          "size": 390138966,
+          "sha256": "8a64493e56ee667259133b559509eccfcd89c89a856b73550c19993229b4ba34",
+          "content_version": "01.000.021",
+          "title_name": "Forever Launcher"
+        }
+      ]
     },
     {
       "id": "forza-horizon",
@@ -2769,7 +2837,7 @@
         "amiga",
         "platformer"
       ],
-      "stars": 19,
+      "stars": 20,
       "release": {
         "tag": "v1.0.2",
         "asset": "JamesPond2-PS5-1.0.2.zip",
@@ -3726,7 +3794,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 47,
+      "stars": 48,
       "release": {
         "tag": "v0.13.0",
         "asset": "EVOPlayer-v0.13.0-PPSA99039.zip",
@@ -3852,16 +3920,24 @@
       ],
       "stars": 3,
       "release": {
-        "tag": "v1.2.0",
+        "tag": "v1.3.0",
         "asset": "prospero-hifi.zip",
-        "size": 19396295,
-        "sha256": "71d2d6b9ed7c83feee67ce85532e3e43cd6585723e6efc86b7588fab527adc70",
-        "content_version": "01.020.000",
+        "size": 19446913,
+        "sha256": "9df62d5c1128af0d92aa20957a3d6166fc798a765ac1a4eb26a9b3293957261f",
+        "content_version": "01.030.000",
         "title_name": "Prospero Hi-Fi",
-        "published_at": "2026-10-30T21:33:31Z",
-        "notes": "## Prospero Hi-Fi v1.2.0\n\n- Added **Listening Mode**: press L3 in fullscreen for a cleaner player. Choose whether to hide the title/version, clock, technical metadata and footer in Settings. Playback and volume controls are always hidden.\n- Options, L1/R1 and L2/R2 remain usable in Listening Mode. Any other button exits without triggering its normal action.\n- Fullscreen **L2/R2 now seek backward/forward five seconds**, while L1/R1 change tracks.\n- Adjusted player spacing and visualizer placement to keep technical metadata clear.\n- Redesigned the web interface for desktop and mobile, with compact source rows, grouped settings, folder filtering, breadcrumbs and a compact mobile player.\n- Added a web toggle for Listening Mode.\n- Added application identification and capability reporting for future NX Hi-Fi remote compatibility improvements."
+        "published_at": "2026-10-31T11:48:33Z",
+        "notes": "## Prospero Hi-Fi v1.3.0\n\n- Added 11 full-width visualizer styles with transparent backgrounds and theme colors, plus dedicated palettes for selected styles.\n- Added an edge-to-edge fullscreen visualizer. Press Cross while highlighting the visualizer to expand it, and Circle to return.\n- D-pad Left/Right cycles through visualizers while highlighted or expanded and saves your selection.\n- Added GPU rendering for smoother visuals and improved fullscreen performance.\n- Improved music response with continuous audio analysis, wider frequency coverage, stereo handling and playback-aligned timing.\n- Added an Equalizer/Visualizer dialog to the fullscreen player, with controller icons, first-entry focus and L1/R1 tab switching.\n- Moved Equalizer into Settings and added visualizer settings to the web interface.\n- Moved the track counter directly beside **NOW PLAYING**.\n- Mini-player, web and remote interfaces retain the stock visualizer.\n- Fixed a crash when starting playback caused by audio-analysis buffers exceeding the decoder thread’s stack."
       },
       "pins": [
+        {
+          "tag": "v1.2.0",
+          "asset": "prospero-hifi.zip",
+          "size": 19396295,
+          "sha256": "71d2d6b9ed7c83feee67ce85532e3e43cd6585723e6efc86b7588fab527adc70",
+          "content_version": "01.020.000",
+          "title_name": "Prospero Hi-Fi"
+        },
         {
           "tag": "v1.1.0",
           "asset": "prospero-hifi.zip",
@@ -4013,7 +4089,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "01.000.193",
         "asset": "SmartTube-PPSA98260.zip",
@@ -4162,7 +4238,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 18,
+      "stars": 19,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -4638,7 +4714,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 484,
+      "stars": 486,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
