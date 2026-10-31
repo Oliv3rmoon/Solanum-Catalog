@@ -72,15 +72,25 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "01.002.002",
+        "tag": "01.002.003",
         "asset": "PPSA99003.zip",
-        "size": 40716282,
-        "sha256": "e439e4f27f5cba9554ce2c3333b097137d6a5c1871c85bb638e1c8dda00cfff7",
-        "published_at": "2026-10-30T01:32:05Z",
-        "notes": "**Physalis v1.002.002: free public channels with one press.** Channels on a fresh install without typing an address.\n\n## What changed\n\n- **Free public channels.** With no source set up, Live TV's empty screen offers **Square: Free public channels**. It adds [iptv-org](https://github.com/iptv-org/iptv)'s community-maintained public list as an ordinary playlist source and chooses it, so its channels load now and at every start. Physalis still ships no list of its own: the list is added only when you press Square, and it's removed on the Sources tab like any other source. Neither Physalis nor iptv-org hosts the streams, and some may not play.\n\n## Install\n\n- `PPSA99003.zip`: choose **Update now** when Physalis offers this release, or extract the ZIP and copy its `PPSA99003` folder over your current one (usually `/data/homebrew/PPSA99003`). Your sources, favorites and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99003.zip -R Oliv3rmoon/Physalis` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoTV, and to **ThatGuyKalvin** and everyone who carries it on and tests it.",
-        "content_version": "01.002.002",
-        "title_name": "Physalis"
-      }
+        "size": 40719568,
+        "sha256": "107d961fab725f148d07ecb2293425103454f9e37a7b41c8b16bd6918e585607",
+        "content_version": "01.002.003",
+        "title_name": "Physalis",
+        "published_at": "2026-10-31T20:10:36Z",
+        "notes": "**Physalis v1.002.003: the community in About.** Where to find other Physalis viewers, from the app.\n\n## What changed\n\n- **The community in About.** The About tab now names the community's Discord server, **nightly**, with its address (`discord.gg/pSqgRU3YP9`) and a QR code your phone opens it with. The first time Physalis opens with this version, a card shows the same once, after the opening; any button closes it, and it doesn't come back. In all nine languages.\n- **QR codes right to left.** In Arabic and Hebrew the QR codes (pairing a phone, signing in to Plex and now the community) were mirrored with the rest of the screen. They keep their place but are drawn as made, the way a phone expects to read them.\n\n## Install\n\n- `PPSA99003.zip`: choose **Update now** when Physalis offers this release, or extract the ZIP and copy its `PPSA99003` folder over your current one (usually `/data/homebrew/PPSA99003`). Your sources, favorites and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99003.zip -R Oliv3rmoon/Physalis` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoTV, and to **ThatGuyKalvin** and everyone who carries it on and tests it."
+      },
+      "pins": [
+        {
+          "tag": "01.002.002",
+          "asset": "PPSA99003.zip",
+          "size": 40716282,
+          "sha256": "e439e4f27f5cba9554ce2c3333b097137d6a5c1871c85bb638e1c8dda00cfff7",
+          "content_version": "01.002.002",
+          "title_name": "Physalis"
+        }
+      ]
     },
     {
       "id": "datura",
@@ -103,15 +113,25 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "01.001.001",
+        "tag": "01.001.002",
         "asset": "PPSA99002.zip",
-        "size": 33860975,
-        "sha256": "0eb678f8866a7905edf78ebf587f2e6f6fed27c0f8f4ec470ed0f26997ba136a",
-        "published_at": "2026-10-29T20:37:56Z",
-        "notes": "**Datura v1.001.001: renamed from Nightshade Stream.** Renamed to Datura; same app, same title ID, your settings stay.\n\n## What changed\n\n- **The name.** The PS5 home screen, the header, the About page, the update dialog, the stream's notifications and the on-screen keyboard say Datura, in all 31 languages. The About page keeps the Moonlight, Sunshine and ProsperoLight credits.\n- **Updates.** The app asks [Oliv3rmoon/Datura](https://github.com/Oliv3rmoon/Datura/releases) for a newer release. The old address, Oliv3rmoon/Nightshade-Stream, forwards there, so Nightshade Stream 01.001.000 finds this release and **Update now** installs it over itself.\n- **What stays.** The title ID (PPSA99002) and `/data/prosperolight`, so it installs over Nightshade Stream and keeps your PCs, pairing and settings. Streaming is as it was, built with the same measured settings. The release's files are named as before.\n\n## Install\n\n- `PPSA99002.zip`: choose **Update now** when Nightshade Stream or Datura offers this release, or close the app, extract the ZIP and copy its `PPSA99002` folder over your current one (`/data/homebrew/PPSA99002`). Your PCs, pairing and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99002.zip -R Oliv3rmoon/Datura` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoLight, to its contributors **Nikita Dybov** and **Kris Escobar** and everyone who tests it, and to the **Moonlight** and **Sunshine** developers, whose protocol and host it streams with. The full list is in the [README](https://github.com/Oliv3rmoon/Datura#credits).",
-        "content_version": "01.001.001",
-        "title_name": "Datura"
-      }
+        "size": 34361729,
+        "sha256": "f1a16903417fbc69c8ead5878431a873dee29b781353395bd2ab6c3df6f30b6a",
+        "content_version": "01.001.002",
+        "title_name": "Datura",
+        "published_at": "2026-10-31T20:14:00Z",
+        "notes": "**Datura v1.001.002: the community in About.** Where to find other Datura players, from the app.\n\n## What changed\n\n- **The community in About.** About now names the community's Discord server, **nightly**, with its address (`discord.gg/pSqgRU3YP9`) and a QR code your phone opens it with; **Cross** there shows the code larger. The first time Datura starts with this version, a card shows the same once, after any update offer; any button closes it, and it doesn't come back. In all 31 languages.\n- **Streaming is as it was**, built with the same measured settings as 01.001.001.\n\n## Install\n\n- `PPSA99002.zip`: choose **Update now** when Datura offers this release, or close the app, extract the ZIP and copy its `PPSA99002` folder over your current one (`/data/homebrew/PPSA99002`). Your PCs, pairing and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99002.zip -R Oliv3rmoon/Datura` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoLight, to its contributors **Nikita Dybov** and **Kris Escobar** and everyone who tests it, and to the **Moonlight** and **Sunshine** developers, whose protocol and host it streams with. The full list is in the [README](https://github.com/Oliv3rmoon/Datura#credits)."
+      },
+      "pins": [
+        {
+          "tag": "01.001.001",
+          "asset": "PPSA99002.zip",
+          "size": 33860975,
+          "sha256": "0eb678f8866a7905edf78ebf587f2e6f6fed27c0f8f4ec470ed0f26997ba136a",
+          "content_version": "01.001.001",
+          "title_name": "Datura"
+        }
+      ]
     },
     {
       "id": "mandrake",
@@ -196,16 +216,24 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "0.3.0",
+        "tag": "0.4.0",
         "asset": "PPSA76526.zip",
-        "size": 17432826,
-        "sha256": "17d809236b4a4d34a5b26f4776c6c0b4fe73edcacae8bf5e6cbcd0e557022282",
-        "content_version": "00.003.000",
+        "size": 17453133,
+        "sha256": "bbf703b3844623958085e97a929d638758a5771a955d9f8aba7b1dbe86a4626a",
+        "content_version": "00.004.000",
         "title_name": "Solanum",
-        "published_at": "2026-10-30T17:19:02Z",
-        "notes": "Solanum 0.3.0: background music. Put WAV, MP3 or OGG files in `/data/solanum/music` and they play behind the store,\nin order or shuffled, and fade out as an app opens.\n\n**Install:** unzip `PPSA76526.zip` and copy its `PPSA76526` folder to `/data/homebrew/` with permissions `777`, over\n0.2.0 or new. It needs the HEN's payload loader (port 9021) for its install helper and launch payload. 0.2.0 updates\nitself to it.\n\n- **Your own music.** Copy WAV (16-bit PCM), MP3 or OGG Vorbis files, mono or stereo at any sample rate, into\n  `/data/solanum/music`, a folder Solanum makes. They play one after another in the order of their names (`2.wav`\n  before `10.wav`), and files you add meanwhile join in when the list comes round. Other kinds (FLAC, M4A, Opus)\n  are not played.\n- **Settings > Interface:** **Background music** (on, and silent until there are files), **Shuffle music** (every file\n  once before any plays again) and **Music volume** (10 to 100 %, 50 % to start with). Interface volume stays the\n  clicks' own.\n- **It fades out when an app opens,** so the app starts in silence, and fades in when it starts or is switched on.\n- **The clicks keep working** over the music: they are mixed into it.\n- The new settings are in all ten languages.\n\nCheck the download with `gh attestation verify PPSA76526.zip -R Oliv3rmoon/Solanum`, or against `SHA256SUMS`."
+        "published_at": "2026-10-31T19:57:08Z",
+        "notes": "Solanum 0.4.0: 154 apps. ProsperoStore's catalog's apps are in Solanum's catalog now, 98 more, and Solanum installs\nthem all: apps that publish only pre-releases, ports that need your own game files, and apps that share a title ID\nwith another.\n\n**Install:** unzip `PPSA76526.zip` and copy its `PPSA76526` folder to `/data/homebrew/` with permissions `777`, over\n0.3.0 or new. It needs the HEN's payload loader (port 9021) for its install helper and launch payload. 0.3.0 updates\nitself to it.\n\n- **98 more apps,** from ProsperoStore's catalog: decompiled and recompiled console games and engine ports that run\n  your own game files, PC-game launchers on Wine, more emulators (RetroArch, PS5SX2, Snes9x, Genesis Plus GX, FBNeo,\n  Arcade Gallery...), media and streaming clients, AI apps and tools. Six of its apps are left out by the catalog's\n  rules (backup tools, a release with game data, and two releases with nothing to check) and five by choice.\n- **Needs your own game files** marks a port that ships none: it runs the copy of a game you own, which you copy\n  over as its README says.\n- **No license** marks an app whose repository states none. Solanum installs the author's own release, as published.\n- **Pre-release apps install.** An app that publishes only pre-releases (or other platforms' releases between its\n  own) is offered its newest release with its file, and its page says **Pre-release**.\n- **Two apps of one title ID.** vkQuake and Dulcamara share one, and a console holds one of them. Solanum shows which\n  one is installed, and asks before installing the other in its place (Versions too); your saved data stays. When it\n  can't tell which app is there, it says so and leaves it alone.\n- **nightly, the community.** About shows the Nightshade apps' Discord server, `discord.gg/pSqgRU3YP9`, with a QR\n  code your phone opens it with; Triangle shows the code larger. The first start shows it once on a card, and any\n  button closes it for good.\n- In all ten languages.\n\nCheck the download with `gh attestation verify PPSA76526.zip -R Oliv3rmoon/Solanum`, or against `SHA256SUMS`."
       },
       "pins": [
+        {
+          "tag": "0.3.0",
+          "asset": "PPSA76526.zip",
+          "size": 17432826,
+          "sha256": "17d809236b4a4d34a5b26f4776c6c0b4fe73edcacae8bf5e6cbcd0e557022282",
+          "content_version": "00.003.000",
+          "title_name": "Solanum"
+        },
         {
           "tag": "0.2.0",
           "asset": "PPSA76526.zip",
@@ -409,16 +437,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.000.040",
-        "asset": "Mediathek-PPSA66120-01.000.040.zip",
-        "size": 31360585,
-        "sha256": "93dc2a0d7658d27eff97e8c1e90856670085c6bb2e95ad78b21083871cd34094",
-        "content_version": "01.000.040",
+        "tag": "01.000.062",
+        "asset": "Mediathek-PPSA66120-01.000.062.zip",
+        "size": 31961975,
+        "sha256": "04f21e484301ed46718b274e0c841de857775ce25dcb94e2ce5afb6848c7e779",
+        "content_version": "01.000.062",
         "title_name": "Mediathek",
-        "published_at": "2026-10-31T11:34:51Z",
-        "notes": "## Mediathek 0.4.0 (`01.000.040`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.4.0\n\n- **Genre shelves on Home.** One shelf per TMDB genre, between the collections and the decades. A film is on the shelves of the two genres its details page names, and only those. The decade shelves stay.\n- **Search on the Movies page.** Triangle opens an on-screen keyboard; every word must be in the title (case and accents ignored). Back clears an active search. **Sorting moved to R3.**\n- **Step between films.** On the details page, L1/R1 and left/right move to the previous or next film of the shelf or grid you came from.\n- **Several subtitle files per film** (up to eight, English first). In the player, Triangle steps through them and then off, and says which one is on. Square still steps through the audio tracks. The details page lists all subtitle languages.\n- **Proper selection and launch background** on the console's home screen.\n- The red shelf title above the billboard is back for every shelf, and moving between shelves plays the same sound on every row.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, genres, decades and All Movies.\n- **Movies:** an eight-column grid, sortable by title, newest or year, with search.\n- **Player:** scrubber, seeking, pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n- **Names are read for you:** `Blue Harbor (2011).mkv` and `blue.harbor.2011.2160p.BluRay.x265-GRP.mkv` both work.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds no films.\n- Checked on the author's console (firmware 12.70): language detection, subtitle and audio switching, Back/exit, menu sounds, controller feedback, stepping between films, genre shelves, search and R3 sort, and the internal and external drives.\n- **Not yet checked on a console:** 4K and HEVC playback (software decoding, not expected to be smooth).\n- Embedded subtitle tracks are not shown; `.srt` files are."
+        "published_at": "2026-10-31T19:37:35Z",
+        "notes": "## Mediathek 0.6.2 (`01.000.062`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.6.2\n\n- **App language (new setting).** Automatic (the console's language), English or Deutsch. Every text changes at once, no restart; a choice made there wins over `UI_LANGUAGE` in `mediathek.env`. Descriptions fetched from TMDB follow the new language after the next start.\n- **Wallpaper on the details page (new setting).** Off, the page shows only the film's colour with its glow, as it does for a film without a wallpaper.\n- **Settings tidied:** the Home section is now Appearance, and Reload all covers and infos sits above Debug info.\n- **Player:** while paused, the Cross hint reads \"Resume\" instead of \"Pause\".\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, one per TMDB genre, decades and All Movies.\n- **Movies:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between films.\n- **Player:** scrubber, seeking (hold left/right to seek faster, up to 5 minutes per step), pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched.\n- **Settings:** UI sounds, fixed billboard, details wallpaper, app language, reload all covers and infos, debug info; the version and build time at the bottom left.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds no films.\n- Checked on the author's console (firmware 12.70): everything in this release and the earlier 0.6 releases, including the new settings, the language switch, hold-to-seek, and the language detection for sound and subtitles. **Not yet checked on a console:** 4K and HEVC playback (software decoding, not expected to be smooth).\n- Films whose file has no seek index (an MKV without Cues) take longer the farther you jump; remuxing with `ffmpeg -i in.mkv -c copy out.mkv` fixes that.\n- Embedded subtitle tracks are not shown; `.srt` files are."
       },
       "pins": [
+        {
+          "tag": "01.000.040",
+          "asset": "Mediathek-PPSA66120-01.000.040.zip",
+          "size": 31360585,
+          "sha256": "93dc2a0d7658d27eff97e8c1e90856670085c6bb2e95ad78b21083871cd34094",
+          "content_version": "01.000.040",
+          "title_name": "Mediathek"
+        },
         {
           "tag": "01.000.030",
           "asset": "Mediathek-PPSA66120-01.000.030.zip",
@@ -621,7 +657,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 180,
+      "stars": 182,
       "release": {
         "tag": "v1.5.5",
         "asset": "PPSA99810.zip",
@@ -660,7 +696,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 96,
+      "stars": 97,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1030,7 +1066,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 430,
+      "stars": 429,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1426,7 +1462,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 753,
+      "stars": 762,
       "release": {
         "tag": "v0.9.1",
         "asset": "ps5lm-app-v0.9.1.zip",
@@ -1915,7 +1951,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 340,
+      "stars": 341,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -1958,18 +1994,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 66,
+      "stars": 79,
       "release": {
-        "tag": "v2.0.3",
+        "tag": "v2.0.7",
         "asset": "PPSA11018.zip",
-        "size": 311322947,
-        "sha256": "ee5a32f3bbb11ec199fa312f56653afc3f916223a7f2e8817a8d7bfd91b96a10",
-        "content_version": "02.000.003",
+        "size": 312221196,
+        "sha256": "60201f19788fab9fa23fa573198c2761141c35bc9745d84fa919f374da6e59cf",
+        "content_version": "02.000.007",
         "title_name": "PC5",
-        "published_at": "2026-10-31T10:14:13Z",
-        "notes": "PC5 2.0.3 brings a web page and FTP login for managing PC5 from a phone or PC, installing games on a USB drive, a Steam emulator, PhysX and other redistributables, smaller games, faster loading, and many fixes from your reports.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n**Going back:** a game installed with 2.0.3 needs 2.0.3 or newer: on 2.0.2 it is missing Windows' own files, so install it again there. Games installed before keep working on any version.\n\n### What's new\n\n- **Install on a USB drive** (replaces Play from USB): with a USB drive plugged in, PC5 asks where a game goes, **Console** or **USB drive**. On the drive it goes in its `PC5` folder and plays from there; its saves stay on the console. Uninstalling deletes it from the drive too. Games set to play from a USB drive with an earlier PC5 keep working.\n- **An INSTALL folder on each USB drive**: `PC5/INSTALL`. Games put there are offered as those in PC5's own INSTALL folder are, when PC5 opens or when the drive is plugged in. Installed on that same drive, a game is moved at once instead of copied.\n- **Settings › Network**: the FTP server moved here from Game maintenance, with an on/off switch, a **Username** and an optional **Password**. With none set, any login works, as before.\n- **Web page**: in **Settings › Network**, turn on **Web page** and open the address it shows in a browser on your phone or PC. From there you can send a game's folder to PC5 (it then asks to install it), edit a game's launch options (`launch.txt`, `env.txt`), and download a game's newest log and the kept logs. It asks for the same username and password as the FTP server.\n- **Games made for Steam**: a game whose copy needs Steam's `steam_api64.dll` gets an emulator in its place (gbe_fork), so it starts without Steam's client. **△ › Manage › Steam emulator** turns it off for a game. Programs wrapped in Steam's DRM (SteamStub) still don't start; PC5 now says why instead of crashing.\n- **PhysX and other redistributables**: the first time a game starts, PC5 installs the packages it carries (`_CommonRedist`, `Redist`, `PhysX` folders, and PhysX inside a setup program), such as NVIDIA's PhysX, once. A PhysX runtime copied into a game's Windows by hand is registered as its setup program would.\n- **Smaller games**: each game you install takes about 300 MB less and installs sooner. Wine's DLLs are no longer copied into every game.\n- **A smaller PC5**: about 110 MB smaller to download and 300 MB smaller on the console."
+        "published_at": "2026-10-31T19:39:30Z",
+        "notes": "PC5 2.0.7 fixes big games running out of memory and makes updates finish sooner.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **Updates finish sooner**: the last step of an update, deleting the files it no longer needs, no longer keeps you waiting. PC5 does it in the background after it restarts.\n\n### Fixes from your reports\n\n- **\"Failed to allocate memory\" in big Direct3D 11 and 12 games**: the console's memory is shared between a game and its graphics, but games were told they had 8 GB of video memory of their own. One that filled its textures to that ran the rest of the console out of memory, often at a cutscene or a new area. **Video memory** (△ › Graphics) is now offered for 64-bit Direct3D 10, 11 and 12 games too, and its **Auto** tells them 4 GB. **Full** tells them all 8 GB, as before.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n- Changing a game's controller mode, resolution or aspect ratio while it runs.\n- Updating a PC5 installed as a package (`.pkg`): it updates from a folder only."
       },
       "pins": [
+        {
+          "tag": "v2.0.3",
+          "asset": "PPSA11018.zip",
+          "size": 311322947,
+          "sha256": "ee5a32f3bbb11ec199fa312f56653afc3f916223a7f2e8817a8d7bfd91b96a10",
+          "content_version": "02.000.003",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.0.2",
           "asset": "PPSA11018.zip",
@@ -2030,7 +2074,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 904,
+      "stars": 912,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2061,7 +2105,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 242,
+      "stars": 243,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2091,7 +2135,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1599,
+      "stars": 1603,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2132,7 +2176,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 419,
+      "stars": 420,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2163,15 +2207,25 @@
       ],
       "stars": 63,
       "release": {
-        "tag": "v2.10",
-        "asset": "Snes9xPS5-v2.10-PPSA99922.zip",
-        "size": 27324243,
-        "sha256": "8ebb25c608903f8cd5ab90316c751cb9e16aa38fed0e7190777d4f4fd4816341",
-        "content_version": "02.100.000",
+        "tag": "v2.11",
+        "asset": "Snes9xPS5-v2.11-PPSA99922.zip",
+        "size": 27734291,
+        "sha256": "821495ae35a19d9b522cd546e54dfa2d5d67c29bb249d36fb5b1a1250040a03f",
+        "content_version": "02.110.000",
         "title_name": "Snes9x PS5",
-        "published_at": "2026-10-30T14:00:47Z",
-        "notes": "## Snes9x PS5 2.10\n\n### New\n\n- **Search by name on the shelf.** **Circle** opens the on-screen keyboard. Type part of a game's name, choose Done, and the shelf shows only the games that match.\n  - Capitals and accents don't matter: `pokemon` finds *Pokémon*.\n  - The file name counts too.\n  - The shelf shows what you searched and how many games match (`Search: mario (3)`). Circle again changes or clears it.\n  - With no match, the shelf says so and how to get every game back.\n  - The search stays while you change tabs or play, and is gone when the app quits.\n- **The shelf opens at once.** \"Looking for games...\" no longer comes up every time the shelf opens.\n  - The app saves the game list (`/data/snes9x/library.bin`) and opens from it next time. It checks the folders in the background, with nothing on screen, and the shelf updates quietly if a game was added or removed.\n  - Back from a game there is no scan at all. It only checks again if a USB drive or a share was plugged in or removed while you played.\n  - The first start after installing still scans as before, once.\n  - A game picked after its file was deleted says \"The file is no longer there.\" and goes back to the shelf.\n\n### Fixed (from a full code audit)\n\n- **C++ exceptions.**\n  - The app's C++ runtime was split between its own copy and the console's. This is the mix that made Stella PS5 1.0 crash at its first exception. It is now entirely the app's own, and every build checks it.\n  - When memory runs out while a ROM is loaded or a state is saved or loaded, that load or save fails with a message.\n  - A damaged state file can no longer make the app ask for gigabytes of memory.\n- **Updates with ShadowMountPlus.**\n  - When ShadowMountPlus runs the app from another folder (a USB or extended drive), an update, from Settings > Updates or a new payload, now goes into that folder. Up to 2.9 it went into `/data/homebrew/PPSA99922`, so the copy the console runs stayed old.\n  - Without ShadowMountPlus, updates go to `/data/homebrew/PPSA99922` as before.\n- **Smaller fixes:**\n  - the shelf could hang if the system refused a thread;\n  - the update download is checked more strictly (sizes, no HTTPS-to-HTTP redirect);\n  - the crash log now also catches SIGSYS;\n  - update error messages are translated and no longer cut off;\n  - the build rebuilds what a version change needs.\n\n### Updating\n\n- **From 2.9:** Settings > Updates offers 2.10. Or send `Snes9xPS5-v2.10.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload when you can: it carries the new helper.\n\n### Files\n\n- `Snes9xPS5-v2.10.elf`: send it to your payload loader (port 9021).\n- `Snes9xPS5-v2.10-PPSA99922.zip`: the app folder, used by Settings > Updates and the homebrew catalog. You don't need to download it yourself."
-      }
+        "published_at": "2026-10-31T13:38:26Z",
+        "notes": "## Snes9x PS5 2.11\n\n### New: RetroAchievements\n\nAchievements for SNES games from [retroachievements.org](https://retroachievements.org), with RetroAchievements' own client library (rcheevos 12.5.0).\n\n- **Logging in.** Settings > RetroAchievements > Log in, with your retroachievements.org user name and password.\n  - The password is hidden as you type and sent once. Only the token the server sends back is kept, in `/data/snes9x/retroachievements/login.txt`. Log out deletes it.\n  - The next time the app starts, it logs in again with that token on its own.\n- **In a game.**\n  - The game is recognised by its ROM, also inside `.zip`, `.7z` and `.gz` files and MSU-1 packs.\n  - Small boxes over the picture, which never pause the game, show:\n    - at the start, how many achievements are unlocked;\n    - each unlock, with its badge;\n    - leaderboards and mastery;\n    - when the connection is lost and comes back.\n  - The pause menu has an **Achievements** list: locked and unlocked, with progress.\n- **Hardcore mode**, on by default as RetroAchievements asks. While a game has achievements, it turns off:\n  - loading states;\n  - cheats;\n  - a Super FX clock under 100%;\n  - `snes9x.conf` overrides that change how a game looks or runs.\n\n  The menus show these greyed out, with the reason. Turning hardcore on during a game restarts the game; turning it off is allowed at any time.\n- **Patched games.** A game patched at load time (an IPS/BPS/UPS file) counts as the patched game, never as the original.\n- **No connection.** The game plays normally. The unlocks are sent when the connection comes back, as long as the app stays open.\n- **Without an account nothing changes**, and nothing is sent to RetroAchievements.\n- **Hardcore unlocks may show as softcore on the site.** RetroAchievements records an emulator's hardcore unlocks as hardcore only once it has approved that emulator. Snes9x PS5 hasn't been approved yet.\n\n### Updating\n\n- **Send `Snes9xPS5-v2.11.elf` to your payload loader (port 9021) once**, and put it in your autoload in place of the older ELF. RetroAchievements goes through the helper the ELF starts. With a 2.10 helper, the app says \"Update the helper: send the Snes9xPS5-v2.11.elf payload.\"\n- Settings > Updates also offers 2.11, but the payload is still needed once for the new helper.\n\n### Files\n\n- `Snes9xPS5-v2.11.elf`: send it to your payload loader (port 9021).\n- `Snes9xPS5-v2.11-PPSA99922.zip`: the app folder, used by Settings > Updates and the homebrew catalog. You don't need to download it yourself.\n- `snes9x-ps5-v2.11-src.zip`: the source, including rcheevos (MIT), libsmb2 and libnfs (LGPL-2.1).\n\n### Status"
+      },
+      "pins": [
+        {
+          "tag": "v2.10",
+          "asset": "Snes9xPS5-v2.10-PPSA99922.zip",
+          "size": 27324243,
+          "sha256": "8ebb25c608903f8cd5ab90316c751cb9e16aa38fed0e7190777d4f4fd4816341",
+          "content_version": "02.100.000",
+          "title_name": "Snes9x PS5"
+        }
+      ]
     },
     {
       "id": "2-ship-2-harkinian",
@@ -2350,7 +2404,7 @@
         "xbox",
         "racing"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v0.2.2",
         "asset": "Burnout3-PS5-0.2.2.zip",
@@ -2767,16 +2821,24 @@
       ],
       "stars": 80,
       "release": {
-        "tag": "build-130",
+        "tag": "build-131",
         "asset": "halo-ps5-release.zip",
-        "size": 56697129,
-        "sha256": "57c4afa8b8f195854d9ec3417f2ebbf30e43701f588fbf129931dcf8bcb7d660",
-        "content_version": "01.000.130",
+        "size": 56710789,
+        "sha256": "7e9dcf435720ae4196a855d66847b0c389db436b872fdd2edf38bd3afbf7d918",
+        "content_version": "01.000.131",
         "title_name": "Halo: Combat Evolved",
-        "published_at": "2026-10-30T22:15:44Z",
-        "notes": "Build 130\n\n- Replays: the D-pad scrubs. A tap of left or right skips 10 seconds and taps add up; held, it slides a marker along the seek bar, and the playback catches up to it. (thelinkin3000)\n- Replays: replays recorded on network versions 39 and 40 (Build 128 and earlier) play again. (thelinkin3000)\n- Replays: the free camera is a tripod. It follows the player you're watching and zooms in on them until you move it. (thelinkin3000)\n- Replays: D-pad Up switches the free camera between following the player and holding still, as R3 does; D-pad Down or L3 puts it back behind the player, following them. (thelinkin3000)\n- Replays: with a controller, a second bar above the buttons shows the camera's controls: in the free camera, move, aim, track and follow player; in the behind view, zoom, orbit and reset. The north button in the pause menu (X on Switch, triangle on PS5) hides or shows the hints, and the choice is remembered. (thelinkin3000)\n- Replays: on a touchscreen, the buttons sit in two rows and are pressed where they are drawn; they used to answer below themselves, near the seek bar. New UP, DOWN and PLAYER buttons on the right raise and lower the free camera and put it behind the player. (thelinkin3000)\n- Replays: skipping ahead in a foggy part of a level (Chill Out) no longer crashes the game. (thelinkin3000)\n- Replays: a recording shorter than 15 seconds is deleted as the game ends; the limit was 5 seconds. (thelinkin3000)\n- Theater: deleting a replay works; it always said the replay could not be deleted. Short recordings are now really deleted, and replays uploaded from the replay page are kept. (thelinkin3000)\n- Theater: on Switch and PS5, Y (square on PS5) deletes the chosen replay after asking and X (triangle on PS5) turns RECORD on or off; the bottom bar shows button hints, with RECORD showing ON or OFF. (thelinkin3000)\n- Theater: the replay list no longer reads the SD card every frame, which kept the CPU busy while the screen was open. (thelinkin3000)\n- Server browser: on Switch and PS5, X (triangle on PS5) refreshes, Y (square on PS5) opens the filters and the shoulder buttons change between all, dedicated and P2P games, from any row; the bottom bar shows button hints. (thelinkin3000)\n- Server browser: the D-pad sorts the list. Left and right highlight a column; up sorts it A to Z or fewest first, as the column's arrow shows, and down sorts it the other way. The left stick still moves through the servers. (thelinkin3000)\n- Mods: on Switch and PS5, A saves, X (triangle on PS5) turns the selected mod on or off, the shoulder buttons move it up or down and B cancels; the bottom bar shows button hints. (thelinkin3000)\n- Select Profile: on Switch and PS5 the bottom bar shows button hints for SELECT, CREATE NEW, DELETE and BACK. (thelinkin3000)"
+        "published_at": "2026-10-31T20:55:18Z",
+        "notes": "Build 131\n\n- Saved games: a checkpoint or Save and Quit made on Android, Switch or PS5 is no longer lost between runs. The game's memory can land somewhere else each time it starts, and a save made with it elsewhere was refused; such saves now load, and so do saves made before this build. (thelinkin3000)\n- Profiles: each player profile keeps its own Controls Setup, Mouse Settings and Gyro Aim, saved in its folder beside its saved games. Profiles start with the settings you had before, until you change them. In split screen on Switch and PS5, each player uses their own profile's gyro settings. (thelinkin3000)\n- Profiles: on Switch and PS5, the profile settings no longer list Controls Setup and Mouse Settings, which are for keyboard and mouse; gamepads' BUTTON LAYOUT is in their place. (thelinkin3000)\n- Replays: a new view, CINEMATIC, after the free camera (Y). It is the free camera with no controls: it starts behind the player and follows them, zooming in as they get farther away, and moves back behind them whenever a wall or scenery hides them for a moment, or at once as they respawn out of sight. (thelinkin3000)\n- Replays: the free camera zooms in on the player you're watching about twice as far as before. (thelinkin3000)\n- Replays: when a replay ends you're back in the Theater half a second later, instead of at the main menu four seconds later, and without the notice that the game's server couldn't be reached. Leaving a replay from its pause menu goes back to the Theater too. (thelinkin3000)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n\nCommit: https://github.com/thelinkin3000/halo-ce-universal/commit/431e9ae20998fa3ad057b0239e472fe17a234885\nBuild: https://github.com/thelinkin3000/halo-ce-universal/actions/runs/41240181744\n\nThe release builds are for playing; the debug builds stop at the first failed assertion and log it."
       },
       "pins": [
+        {
+          "tag": "build-130",
+          "asset": "halo-ps5-release.zip",
+          "size": 56697129,
+          "sha256": "57c4afa8b8f195854d9ec3417f2ebbf30e43701f588fbf129931dcf8bcb7d660",
+          "content_version": "01.000.130",
+          "title_name": "Halo: Combat Evolved"
+        },
         {
           "tag": "build-129",
           "asset": "halo-ps5-release.zip",
@@ -3087,16 +3149,24 @@
       ],
       "stars": 48,
       "release": {
-        "tag": "01.000.167",
+        "tag": "01.000.179",
         "asset": "PPSA99874.zip",
-        "size": 123870351,
-        "sha256": "3480ab817659c43e954ce89ba5933cb5181f2fe2f396b1321bfae51d274171de",
-        "content_version": "01.000.167",
+        "size": 124180315,
+        "sha256": "7381b0746b178785b303f7486a0533aa6acce3d25167634b9ce849e0546b648a",
+        "content_version": "01.000.179",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-10-30T19:57:44Z",
-        "notes": "# ProsperoCraft 01.000.167\n\nMinecraft Java Edition running natively on PlayStation 5, powered by a Native Java 25 Runtime. Java Edition ownership is required.\n\n## Changelog\n\n- Enable supported Minecraft 26.2 Fabric alongside 26.2 Vanilla and 26.3. Remove the development-test labels from Fabric26.2 instances, launch controls and creation choices.\n- Fix Controlify controller detection and switching between controller and physical keyboard/mouse on 26.2 and 26.3 Fabric. Isolate its SDL connection-event handling so game keyboard/mouse events remain available.\n- Add mouse and keyboard controls to the launcher: click buttons and instance cards, scroll, right-click or Escape to go back, navigate with arrows, confirm with Enter, switch pages with Tab, and type/edit instance names and searches. Launcher text entry currently uses US ASCII with Shift/Caps Lock.\n- Add a rounded vector cursor matching the requested silhouette, with theme-colored fill and one continuous light outline. It follows all six saved launcher themes; controller navigation hides it until the mouse is used again.\n- Fix 26.3 Controlify on-screen keyboard deletion and 26.2 Vanilla held-key typing. Preserve genuine upstream game/mod JARs and the existing controller, audio and rendering integration.\n- Retain the native shader/audio/TLS startup and allocation repairs developed since 158.\n\n## Install and compatibility\n\nInstall PPSA99874.zip through your usual homebrew workflow, or update through ProsperoStore once its catalog update is approved and deployed. The exact user-tested 167 package is published without rebuilding. Existing instances, worlds, downloads, settings and saved account data are preserved.\n\nMinecraft 26.2 and 26.3 Vanilla/Fabric are supported. Supported26.4 snapshots 1–6 remain available, hidden by default; snapshot-specific Fabric and mod compatibility depend on matching upstream versions. Other versions and NeoForge are not newly enabled.\n\nThe user accepts the functionality and polish of exact 167 and explicitly requests release, following acceptance of 166’s Controlify handoff repair. Host input/model, six-theme Vulkan rendering, package integrity and exact native relinks pass. This is functional acceptance, not a measured per-device/per-feature regression matrix or long-session endurance result. Microphone capture is not included; no new shader-performance guarantee is made.\n\n## Credits and source\n\nGUI: **mihawk-99/PS5_VKHomebrewUI**, based on BlackBearReloaded's ps5-homebrew-ui. Instance icons: **MultiMC and Prism Launcher contributors**, with original licenses and attribution retained. Runtime: **PS5 Java 25**, with OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft. Project thumbnails belong to their respective mod and pack authors; image decoding uses libwebp and STB."
+        "published_at": "2026-10-31T18:24:48Z",
+        "notes": "# ProsperoCraft 01.000.179\n\nThe exact179 package is confirmed on PS5 for automatic SVC microphone input, the\nphysical mic mute/unmute button, removal of the launcher microphone menu and\nleaving/rejoining. Published bytes are unchanged from that tested package.\n\n## Changes\n\n- Add working PS5 system microphone input for compatible Simple Voice Chat,\n  following the user's successful178 and179 microphone tests. Prepare input automatically\n  when launching gameplay; remove the launcher microphone menu and toggle.\n- Use the DualSense physical mic button or PS5 system mute to mute input. The app\n  does not unmute the system microphone or change the selected route.\n- Retain the input port across healthy SVC stop/reopen cycles, with conservative\n  ownership when native cleanup fails. Preserve game/voice output and the socket\n  lifecycle repair for leaving worlds.\n- Keep Browser uploads in instance settings and Done/Delete at the bottom.\n- Include launcher-style browser uploads, case-insensitive auto-hyphen pairing,\n  mods/resource packs/shaders/schematics handling and the existing runtime fixes\n  developed since167. Original game/mod JARs and saved data stay intact.\n\n## Scope and credits\n\nMinecraft26.2/26.3 Vanilla/Fabric support is retained; actual mod compatibility\ndepends on matching upstream versions. No universal mod/native-code compatibility,\nnew supported-version expansion, formal endurance or per-device claim. Exact179\nacceptance is the user's functional confirmation, not a formal ALL PASS matrix.\n\nGUI: mihawk-99/PS5_VKHomebrewUI, based on BlackBearReloaded's ps5-homebrew-ui.\nInstance icons: MultiMC/Prism contributors with original attribution/licenses.\nRuntime: Native Java25/OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft. GPL-3.0-or-later\nand upstream rights/notices remain unchanged; matching OpenAL corresponding\nsource/relink material and checksums accompany authorized binary publication.\nJava Edition ownership is required. ProsperoCraft is unofficial and not affiliated\nwith Mojang, Microsoft or Sony."
       },
       "pins": [
+        {
+          "tag": "01.000.167",
+          "asset": "PPSA99874.zip",
+          "size": 123870351,
+          "sha256": "3480ab817659c43e954ce89ba5933cb5181f2fe2f396b1321bfae51d274171de",
+          "content_version": "01.000.167",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.158",
           "asset": "PPSA99874.zip",
@@ -4331,7 +4401,7 @@
         "library",
         "collections"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v0.5.5",
         "asset": "Estante-v0.5.5-PPSA99841.zip",
@@ -4513,18 +4583,26 @@
         "saves",
         "backup"
       ],
-      "stars": 25,
+      "stars": 26,
       "release": {
-        "tag": "v1.3.15",
+        "tag": "v1.3.16",
         "asset": "PPSA99700.zip",
-        "size": 40319653,
-        "sha256": "87e56e1b644ff73e0bcc530ded91d9d077dfe5f7785c68d0f8dbb3e0b0ca7434",
-        "content_version": "01.043.000",
+        "size": 40310864,
+        "sha256": "a1eaeabcc3d9c87eacfab863909fead0c8b8d4423b6064bf2d21ff7976c5dba7",
+        "content_version": "01.044.000",
         "title_name": "MacheteSaveGameManager",
-        "published_at": "2026-10-31T04:42:45Z",
-        "notes": "MacheteSaveGameManager v1.3.15 (Build #89)\n\nNovedades y Mejoras:\n1. MODO DUMP (Verdad-Terreno PFS):\n   - Diagnostico integral automatico al montar cualquier contenedor PFS (/data/save_mnt): vuelca recursivamente cada archivo con tamanos, permisos octales (0%03o) y uid/gid.\n   - Vuelca campos criticos de param.sfo interno: ACCOUNT_ID, user_id, title_id, title_id_1, title_id_2, estado y primeros bytes de psid_hmac, y SAVEDATA_LIST_PARAM.\n   - Volcado automatico de param.json (PS5) con tamano y contenido.\n   - Endpoint bajo demanda en el servidor web: GET /api/dump?title_id=<TitleID> para volcar contenedores instalados en cualquier momento.\n\n2. Resignacion Completa de param.sfo Interno PS4:\n   - Deteccion robusta de OpenPSID de consola mediante sysctl BSD machdep.openpsid, carga dinamica de librerias de sistema (libSceOpenPsId.sprx) y cache de sistema.\n   - Recalculo exacto de psid_hmac = HMAC-SHA256(clave Sony 13D1DF0675C9FD950A17E564C2777F2C, OpenPSID local de 16 bytes) ubicado en PARAMS+0x08.\n   - Sincronizacion de PARAMS.title_id_1 y title_id_2 al Title ID del juego objetivo.\n   - Preservacion y propagacion de SAVEDATA_LIST_PARAM entre el backup y el contenedor restaurado.\n\n3. Auditoria y Transparencia en Restauracion de PS5:\n   - Eliminada la opacidad en la resignacion de param.sfo en PS5: registro detallado de cada campo evaluado y modificado (ACCOUNT_ID, user_id, TITLE_ID).\n   - Volcado diagnostico post-modificacion antes de sellar el contenedor en el kernel.\n\n4. Registro Individual de Nombres de Archivo en Sincronizacion:\n   - Registro explicito por slot de cada archivo individual extraido (EXTRACT) e inyectado (INJECT) con nombre relativo, bytes transferidos y ruta de destino."
+        "published_at": "2026-10-31T17:48:33Z",
+        "notes": "Release v1.3.16 (Build #90)\n\nChanges:\n- PS4 BC Save Integrity: Fixed an issue where the PS4 param.sfo resigner replaced the local PS4 user index (user_id=1) with the 32-bit PS5 OS user ID (0x105f615a), causing backwards compatibility runtimes to reject saves with 'Datos danados' (CE-108255-1 / corrupt save).\n- Metadata Isolation: Cleaned up and unlinked rogue param.sfo files from savedata_meta/user/<TitleID> on PS4 games, ensuring only presentation icon assets exist in the metadata folder as expected by the PS5 OS.\n- All 179 unit tests passing cleanly."
       },
       "pins": [
+        {
+          "tag": "v1.3.15",
+          "asset": "PPSA99700.zip",
+          "size": 40319653,
+          "sha256": "87e56e1b644ff73e0bcc530ded91d9d077dfe5f7785c68d0f8dbb3e0b0ca7434",
+          "content_version": "01.043.000",
+          "title_name": "MacheteSaveGameManager"
+        },
         {
           "tag": "v1.3.11",
           "asset": "PPSA99700.zip",
@@ -4553,7 +4631,7 @@
         "library",
         "box-art"
       ],
-      "stars": 50,
+      "stars": 49,
       "release": {
         "tag": "01.106.000",
         "asset": "PPSA99062.zip",
@@ -4583,7 +4661,7 @@
         "jailbreak",
         "pldmgr"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "v00.001.001",
         "asset": "PPSA67670.zip",
@@ -4714,7 +4792,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 486,
+      "stars": 489,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
