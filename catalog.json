@@ -720,7 +720,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 217,
+      "stars": 218,
       "release": {
         "tag": "v4.0",
         "asset": "Porpoise-4.0.zip",
@@ -962,7 +962,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 392,
+      "stars": 395,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -992,7 +992,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 428,
+      "stars": 430,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1378,7 +1378,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 745,
+      "stars": 749,
       "release": {
         "tag": "v0.9.1",
         "asset": "ps5lm-app-v0.9.1.zip",
@@ -1867,7 +1867,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 334,
+      "stars": 336,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -1910,7 +1910,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 49,
+      "stars": 59,
       "release": {
         "tag": "v2.0.2",
         "asset": "PPSA11018.zip",
@@ -1972,7 +1972,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 893,
+      "stars": 899,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2033,7 +2033,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1585,
+      "stars": 1592,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2074,7 +2074,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 417,
+      "stars": 419,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2415,7 +2415,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 15,
+      "stars": 16,
       "release": {
         "tag": "v1.0.0",
         "asset": "Dusklight-PS5-v1.0.0.zip",
@@ -2697,7 +2697,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 79,
+      "stars": 80,
       "release": {
         "tag": "build-130",
         "asset": "halo-ps5-release.zip",
@@ -2800,7 +2800,7 @@
         "xbox",
         "jet-set-radio"
       ],
-      "stars": 0,
+      "stars": 1,
       "release": {
         "tag": "v00.002.000",
         "asset": "JSRFUnleashed-PS5-00.002.000.zip",
@@ -3017,7 +3017,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 47,
+      "stars": 48,
       "release": {
         "tag": "01.000.167",
         "asset": "PPSA99874.zip",
@@ -4285,7 +4285,7 @@
         "home-screen",
         "emulators"
       ],
-      "stars": 24,
+      "stars": 25,
       "release": {
         "tag": "00.001.005",
         "asset": "PPSA99930.zip",
@@ -4439,15 +4439,25 @@
       ],
       "stars": 25,
       "release": {
-        "tag": "v1.3.11",
+        "tag": "v1.3.15",
         "asset": "PPSA99700.zip",
-        "size": 40244111,
-        "sha256": "b2e0cd63db1b30cc3c274890cc2e3644c4bc75b0cabee6485717dd5f2df2cf3c",
-        "content_version": "01.040.000",
+        "size": 40319653,
+        "sha256": "87e56e1b644ff73e0bcc530ded91d9d077dfe5f7785c68d0f8dbb3e0b0ca7434",
+        "content_version": "01.043.000",
         "title_name": "MacheteSaveGameManager",
-        "published_at": "2026-10-26T05:22:13Z",
-        "notes": "MacheteSVG v1.3.11 (Build #85)\n\n### Decima Engine Root Save Correction\n- Fixed PS5 primary slot selection to prioritize PROFILE when present on disk.\n- Fixed Decima Engine boot detection (Horizon Zero Dawn Remastered, Death Stranding) by setting dirName to PROFILE with matching exact fileSize (6,291,456 bytes) and empty subTitle in savedata_prospero_meta/param.json.\n- Prevented stale .meta_dummy from overriding authentic PROFILE metadata.\n- Configured savedata.db free_blocks calculation to exactly allocate 24 free blocks for PROFILE (96 total blocks) and 48 free blocks for 192-block gameplay slots.\n\n### PS4 Backwards Compatibility Clean Mirroring\n- Excluded internal backup twin containers (sce_bu_*) from being indexed as standalone gameplay slots.\n- Prevented invalid registration of sce_bu_* containers in savedata.db, resolving 'Datos no se pudieron cargar' in Dragon Quest XI S (CUSA18600).\n- Automatic 1:1 mirroring of sealed active slots to backup twins (sce_bu_Book and sce_bu_Book.bin) upon commit.\n- Purged orphan sce_bu_* rows from savedata.db during database synchronization."
-      }
+        "published_at": "2026-10-31T04:42:45Z",
+        "notes": "MacheteSaveGameManager v1.3.15 (Build #89)\n\nNovedades y Mejoras:\n1. MODO DUMP (Verdad-Terreno PFS):\n   - Diagnostico integral automatico al montar cualquier contenedor PFS (/data/save_mnt): vuelca recursivamente cada archivo con tamanos, permisos octales (0%03o) y uid/gid.\n   - Vuelca campos criticos de param.sfo interno: ACCOUNT_ID, user_id, title_id, title_id_1, title_id_2, estado y primeros bytes de psid_hmac, y SAVEDATA_LIST_PARAM.\n   - Volcado automatico de param.json (PS5) con tamano y contenido.\n   - Endpoint bajo demanda en el servidor web: GET /api/dump?title_id=<TitleID> para volcar contenedores instalados en cualquier momento.\n\n2. Resignacion Completa de param.sfo Interno PS4:\n   - Deteccion robusta de OpenPSID de consola mediante sysctl BSD machdep.openpsid, carga dinamica de librerias de sistema (libSceOpenPsId.sprx) y cache de sistema.\n   - Recalculo exacto de psid_hmac = HMAC-SHA256(clave Sony 13D1DF0675C9FD950A17E564C2777F2C, OpenPSID local de 16 bytes) ubicado en PARAMS+0x08.\n   - Sincronizacion de PARAMS.title_id_1 y title_id_2 al Title ID del juego objetivo.\n   - Preservacion y propagacion de SAVEDATA_LIST_PARAM entre el backup y el contenedor restaurado.\n\n3. Auditoria y Transparencia en Restauracion de PS5:\n   - Eliminada la opacidad en la resignacion de param.sfo en PS5: registro detallado de cada campo evaluado y modificado (ACCOUNT_ID, user_id, TITLE_ID).\n   - Volcado diagnostico post-modificacion antes de sellar el contenedor en el kernel.\n\n4. Registro Individual de Nombres de Archivo en Sincronizacion:\n   - Registro explicito por slot de cada archivo individual extraido (EXTRACT) e inyectado (INJECT) con nombre relativo, bytes transferidos y ruta de destino."
+      },
+      "pins": [
+        {
+          "tag": "v1.3.11",
+          "asset": "PPSA99700.zip",
+          "size": 40244111,
+          "sha256": "b2e0cd63db1b30cc3c274890cc2e3644c4bc75b0cabee6485717dd5f2df2cf3c",
+          "content_version": "01.040.000",
+          "title_name": "MacheteSaveGameManager"
+        }
+      ]
     },
     {
       "id": "orion-media-center",
@@ -4628,7 +4638,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 483,
+      "stars": 484,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -4688,7 +4698,7 @@
         "discord",
         "chat"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "v01.000.010",
         "asset": "PPSA99190.zip",
