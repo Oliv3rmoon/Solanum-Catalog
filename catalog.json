@@ -72,16 +72,24 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "01.002.003",
+        "tag": "01.002.004",
         "asset": "PPSA99003.zip",
-        "size": 40719568,
-        "sha256": "107d961fab725f148d07ecb2293425103454f9e37a7b41c8b16bd6918e585607",
-        "content_version": "01.002.003",
+        "size": 40737537,
+        "sha256": "f951fd494c0627dd6c8f5be9dd1573e4ce828cc0be2ee4eab6998a8ac1ed84a1",
+        "content_version": "01.002.004",
         "title_name": "Physalis",
-        "published_at": "2026-10-31T20:10:36Z",
-        "notes": "**Physalis v1.002.003: the community in About.** Where to find other Physalis viewers, from the app.\n\n## What changed\n\n- **The community in About.** The About tab now names the community's Discord server, **nightly**, with its address (`discord.gg/pSqgRU3YP9`) and a QR code your phone opens it with. The first time Physalis opens with this version, a card shows the same once, after the opening; any button closes it, and it doesn't come back. In all nine languages.\n- **QR codes right to left.** In Arabic and Hebrew the QR codes (pairing a phone, signing in to Plex and now the community) were mirrored with the rest of the screen. They keep their place but are drawn as made, the way a phone expects to read them.\n\n## Install\n\n- `PPSA99003.zip`: choose **Update now** when Physalis offers this release, or extract the ZIP and copy its `PPSA99003` folder over your current one (usually `/data/homebrew/PPSA99003`). Your sources, favorites and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99003.zip -R Oliv3rmoon/Physalis` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoTV, and to **ThatGuyKalvin** and everyone who carries it on and tests it."
+        "published_at": "2026-11-01T09:04:16Z",
+        "notes": "**Physalis v1.002.004: long lists, faster.** Scroll faster, jump to a letter in On demand, and why a channel didn't open in plain words.\n\n## What changed\n\n- **Faster scrolling.** Hold Up or Down and the focus goes faster the longer you hold it: two rows a step after about a second, then four, then eight. In Live TV, Favorites, On demand, Sources and the provider's categories. L2 and R2 still turn a page; held for 3, 5 and 7 seconds they turn two, four and eight pages at a time, and they now turn pages of the provider's categories too (Touchpad on Live TV).\n- **Letters in On demand.** In Movies, TV shows and their categories, press Right to reach the letters beside the list, # and A to Z as on Live TV. Up and Down jump to the next letter that has titles, and Left, Cross or Circle go back to the list. Going onto the letters sorts the list Title A–Z. Ported from ProsperoTV, by JMU Technologies.\n- **Network errors in plain words.** A channel that doesn't open says why in your language, such as \"the channel's server could not be reached in time; it may be offline or blocked on this network (curl 28)\", instead of \"connection failed (native error 0xFFFFD8D4)\". When a channel's server can't be reached, it is no longer asked three times over (about thirty seconds for some channels); Physalis says so after the first try. Some of the public list's channels are on servers that no longer take connections. A channel list that can't be downloaded says why the same way.\n\n## Install\n\n- `PPSA99003.zip`: choose **Update now** when Physalis offers this release, or extract the ZIP and copy its `PPSA99003` folder over your current one (usually `/data/homebrew/PPSA99003`). Your sources, favorites and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99003.zip -R Oliv3rmoon/Physalis` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoTV, to **JMU Technologies**, whose letters for ProsperoTV's On demand these are, and to **ThatGuyKalvin** and everyone who carries it on and tests it."
       },
       "pins": [
+        {
+          "tag": "01.002.003",
+          "asset": "PPSA99003.zip",
+          "size": 40719568,
+          "sha256": "107d961fab725f148d07ecb2293425103454f9e37a7b41c8b16bd6918e585607",
+          "content_version": "01.002.003",
+          "title_name": "Physalis"
+        },
         {
           "tag": "01.002.002",
           "asset": "PPSA99003.zip",
@@ -405,7 +413,7 @@
         "video",
         "ffmpeg"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "v1.5.3",
         "asset": "MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip",
@@ -453,16 +461,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.000.062",
-        "asset": "Mediathek-PPSA66120-01.000.062.zip",
-        "size": 31961975,
-        "sha256": "04f21e484301ed46718b274e0c841de857775ce25dcb94e2ce5afb6848c7e779",
-        "content_version": "01.000.062",
+        "tag": "01.000.064",
+        "asset": "Mediathek-PPSA66120-01.000.064.zip",
+        "size": 31964554,
+        "sha256": "175b4807acecee6f9113f6c0261ed39495f060a19693ba49342d17c29ce05770",
+        "content_version": "01.000.064",
         "title_name": "Mediathek",
-        "published_at": "2026-10-31T19:37:35Z",
-        "notes": "## Mediathek 0.6.2 (`01.000.062`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.6.2\n\n- **App language (new setting).** Automatic (the console's language), English or Deutsch. Every text changes at once, no restart; a choice made there wins over `UI_LANGUAGE` in `mediathek.env`. Descriptions fetched from TMDB follow the new language after the next start.\n- **Wallpaper on the details page (new setting).** Off, the page shows only the film's colour with its glow, as it does for a film without a wallpaper.\n- **Settings tidied:** the Home section is now Appearance, and Reload all covers and infos sits above Debug info.\n- **Player:** while paused, the Cross hint reads \"Resume\" instead of \"Pause\".\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, one per TMDB genre, decades and All Movies.\n- **Movies:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between films.\n- **Player:** scrubber, seeking (hold left/right to seek faster, up to 5 minutes per step), pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched.\n- **Settings:** UI sounds, fixed billboard, details wallpaper, app language, reload all covers and infos, debug info; the version and build time at the bottom left.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds no films.\n- Checked on the author's console (firmware 12.70): everything in this release and the earlier 0.6 releases, including the new settings, the language switch, hold-to-seek, and the language detection for sound and subtitles. **Not yet checked on a console:** 4K and HEVC playback (software decoding, not expected to be smooth).\n- Films whose file has no seek index (an MKV without Cues) take longer the farther you jump; remuxing with `ffmpeg -i in.mkv -c copy out.mkv` fixes that.\n- Embedded subtitle tracks are not shown; `.srt` files are."
+        "published_at": "2026-11-01T07:33:41Z",
+        "notes": "## Mediathek 0.6.4 (`01.000.064`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.6.4\n\n- **Shelves on Home: new *Decades only* option.** *Genres* is now *Genres only* and no longer includes the decade shelves. Decades appear under *All* and *Decades only*.\n- **Continue Watching stays.** It now shows under every option; 0.6.3 hid it under *Genres*. If *Genres only* or *Decades only* has no shelf of its own, All Movies is added so your films are still there.\n- **Reload progress.** *Reload all covers and infos* now counts up in a message at the bottom (\"Fetching 3/26 covers and infos...\"), then says when it has finished. The message waits while a film plays, and if TMDB stops the reload you see the problem instead.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, one per TMDB genre, decades and All Movies. A setting limits them to your own collections, genres or decades.\n- **Movies:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between films.\n- **Player:** scrubber, seeking (hold left/right to seek faster, up to 5 minutes per step), pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched.\n- **Settings:** categories on the left, their settings on the right: UI sounds, fixed billboard, details wallpaper, shelves on Home, app language, reload all covers and infos, debug info, version and build time.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds no films.\n- Your saved settings carry over.\n- Checked on the author's console: the changes in this release, the Settings page from 0.6.3, and everything from the earlier 0.6 releases on firmware 12.70. **Not yet checked on a console:** 4K and HEVC playback (software decoding, not expected to be smooth).\n- Films whose file has no seek index (an MKV without Cues) take longer the farther you jump; remuxing with `ffmpeg -i in.mkv -c copy out.mkv` fixes that.\n- Embedded subtitle tracks are not shown; `.srt` files are."
       },
       "pins": [
+        {
+          "tag": "01.000.062",
+          "asset": "Mediathek-PPSA66120-01.000.062.zip",
+          "size": 31961975,
+          "sha256": "04f21e484301ed46718b274e0c841de857775ce25dcb94e2ce5afb6848c7e779",
+          "content_version": "01.000.062",
+          "title_name": "Mediathek"
+        },
         {
           "tag": "01.000.040",
           "asset": "Mediathek-PPSA66120-01.000.040.zip",
@@ -646,14 +662,24 @@
       ],
       "stars": 8,
       "release": {
-        "tag": "v1.6.0.1",
-        "asset": "wiliwili-PS5-v1.6.0.1.zip",
-        "size": 61193492,
-        "sha256": "3929aa2966d4184beae9066315c86c335004f82eb121d3d2ce9cd7140ae4cdba",
-        "published_at": "2026-10-24T10:54:59Z",
-        "notes": "## wiliwili PS5 v1.6.0.1\n\nNative Homebrew title application for PlayStation 5 (Title ID: `PPSA99099`).\nThis release brings compatibility fixes for DLNA casting, resolves critical crashes during search input and application exit, and enhances the home screen presentation with native 4K backgrounds and a full-bleed icon.\n\n---\n\n### 🚀 Key Improvements & Fixes\n\n#### 1. 📡 DLNA Casting Compatibility on PS5\n- **Sandbox Network & Port Adaptation**: Adapted to PS5 sandbox network policies with reworked port probing and binding logic, resolving socket option errors and ensuring reliable casting service startup.\n- **Upgraded DLNA Core (Renderer & Mongoose)**: Updated the underlying streaming server to properly handle restricted socket options on the console. You can now cast videos directly from the mobile Bilibili app to your PS5.\n\n#### 2. ⌨️ TV-Style Search Experience & Input Crash Fixes\n- **TV Virtual Keyboard by Default**: Search now defaults to the TV-friendly virtual keyboard optimized for gamepad controls on fresh installs, eliminating the need to toggle it manually in settings.\n- **UTF-8 Character Stream & Crash Fix**: Fixed a fatal exception in wide-character conversion during on-screen keyboard input that could hang the title; resolved multibyte character backspace truncation for smoother, crash-free typing.\n\n#### 3. 🛡️ Lifecycle & Clean Application Exit\n- **Resolved Home Screen Freeze & Black Screen**: The title now unloads cleanly via system services upon exit, avoiding thread join deadlocks on network shutdown that could trigger watchdogs or leave a black window upon relaunch.\n\n#### 4. 🎨 Native 4K Visuals & Home Screen Artwork\n- **Native 4K Backgrounds (BC7 DDS)**: Added 3840×2160 ultra-HD background art (`pic0.dds` for selection, `pic1.dds` for launch transition), replacing the blank system background on the home screen.\n- **Full-bleed Icon**: Updated to a 512×512 borderless icon matching native PS5 tile art style.\n\n#### 5. 📦 Build & Deployment\n- **Build Timestamping**: Refined build number tracking to prevent workspace pollution.\n- **Bug Reporting Guidelines**: Updated documentation and issue templates for PS5 diagnostic reporting.\n\n---\n\n### ⚠️ Requirements\n\n1. **ShadowMountPlus 1.7beta6** or higher ([Releases](https://github.com/drakmor/ShadowMountPlus/releases))\n2. **Latest kstuff** payload\n\n---\n\n### 📥 Installation\n\n1. Download and extract `wiliwili-PS5-v1.6.0.1.zip` from the release assets to get the `PPSA99099` folder.\n2. Transfer the `PPSA99099` folder via FTP to `/data/homebrew/` on your PS5:\n   ```text\n   /data/homebrew/PPSA99099/\n   ├── eboot.bin\n   ├── imports.txt\n   ├── resources/\n   ├── sce_module/\n   └── sce_sys/\n   ```",
-        "content_version": "01.600.001"
-      }
+        "tag": "v1.6.0.5",
+        "asset": "wiliwili-PS5-v1.6.0.5.zip",
+        "size": 63581194,
+        "sha256": "c754cde3684d426fcf17b6c96644b7c8efacaefe5cf17ea45d549961df444a59",
+        "content_version": "01.600.005",
+        "title_name": "wiliwili",
+        "published_at": "2026-11-01T07:23:09Z",
+        "notes": "# wiliwili PS5 v1.6.0.5\n\nNative homebrew title for PlayStation 5 (Title ID: PPSA99099).\nThis update brings Vulkan rendering for smoother playback, true 10-bit HDR output to your TV, full Dolby Vision and HLG color correction, high quality HDR-to-SDR tone mapping, and a new convenient ffpfsc image package.\n\n---\n\n## What's New\n\n### 1. Vulkan Rendering Engine\n- Switched to the native Vulkan rendering backend, making 4K video playback significantly smoother and reducing stutter.\n- Video buffer size now adjusts automatically to match the video resolution, saving memory bandwidth.\n- Smooth transition on startup: the splash screen now disappears cleanly as soon as the app loads.\n\n### 2. Real 10-bit HDR10 TV Output\n- Supports true 10-bit HDR10 output to compatible TVs.\n- Fixed the color inversion issue that previously caused purple video tints and yellow UI focus rings.\n- UI elements and subtitles are calibrated to standard reference brightness (203 nits) so menus won't look washed out.\n\n### 3. Dolby Vision and HLG Color Fixes\n- Fixed the green/purple color cast when playing Bilibili Dolby Vision videos, restoring accurate colors.\n- Supports Dolby Vision Profile 5 cinema streams as well as Profile 8.4 and HLG videos recorded from smartphones (such as iPhones).\n- Fixed video metadata syncing to prevent single-frame flickering.\n\n### 4. Better HDR on SDR Displays\n- Built-in color tone mapping allows HDR and Dolby Vision videos to look vivid and natural even on standard SDR displays, without blown-out highlights or dark, muddy scenes.\n\n---\n\n## Release Packages\n\n- wiliwili-PS5-v1.6.0.5.zip: Traditional zip archive containing the PPSA99099 folder. Suitable for manual installation via FTP.\n- wiliwili-PS5-v1.6.0.5.ffpfsc: Compressed PFS image file. Recommended for use with ShadowMountPlus or ItemzFlow for quick mounting without copying thousands of loose files.\n\n---\n\n## Requirements\n\n1. Jailbroken PlayStation 5 (compatible with kstuff)\n2. ShadowMountPlus 1.7beta6 or newer\n3. Latest kstuff payload\n\n---\n\n## Installation\n\n### Option 1: Using the .ffpfsc Image (Recommended)\n1. Download wiliwili-PS5-v1.6.0.5.ffpfsc.\n2. Transfer the file to your PS5 (via USB drive or FTP into /data/).\n3. Mount or install it directly using ShadowMountPlus or ItemzFlow, then launch from your home screen.\n\n### Option 2: Using the ZIP Folder (FTP)\n1. Download wiliwili-PS5-v1.6.0.5.zip and extract it to get the PPSA99099 folder.\n2. Upload the entire PPSA99099 folder to your PS5 under /data/homebrew/:\n   /data/homebrew/PPSA99099/\n   ├── eboot.bin\n   ├── imports.txt\n   ├── resources/\n   ├── sce_module/\n   └── sce_sys/\n3. Reload ShadowMountPlus or restart your console to see the app on your home screen.\n\n---\n---\n\n# wiliwili PS5 v1.6.0.5 (中文说明)"
+      },
+      "pins": [
+        {
+          "tag": "v1.6.0.1",
+          "asset": "wiliwili-PS5-v1.6.0.1.zip",
+          "size": 61193492,
+          "sha256": "3929aa2966d4184beae9066315c86c335004f82eb121d3d2ce9cd7140ae4cdba",
+          "content_version": "01.600.001"
+        }
+      ]
     },
     {
       "id": "psbox-cloud-gaming",
@@ -743,16 +769,24 @@
       ],
       "stars": 25,
       "release": {
-        "tag": "v1.0.17",
-        "asset": "Crux2-v1.0.17.zip",
-        "size": 32647214,
-        "sha256": "dc0dd59ee77a23b8c1baeb7cd1347100d553a6159c319aa8a263887a308a355e",
-        "content_version": "01.017.000",
+        "tag": "v1.0.18",
+        "asset": "Crux2-v1.0.18.zip",
+        "size": 35743309,
+        "sha256": "9b585c6d46f855db0eb0b8d50910bc7fef6ed5f113733c218ea7e007deec2471",
+        "content_version": "01.018.000",
         "title_name": "Crux2",
-        "published_at": "2026-10-31T08:05:53Z",
-        "notes": "<h2>What's new in v1.0.17</h2>\n<p>v1.0.16 was not published: its changes are part of this release.</p>\n<p>Added:</p>\n<ul>\n<li><strong>Variable refresh (VRR)</strong> (Settings &gt; Interface &gt; PlayStation 5, off; experimental): at 120 Hz on a TV with VRR, each frame is shown as soon as it is ready.</li>\n<li><strong>Graphics driver on a core of its own</strong> (Settings &gt; Emulation, on): the graphics driver's thread no longer shares the GS thread's core, so the GS thread has the core to itself.</li>\n</ul>\n<p>Changed:</p>\n<ul>\n<li><strong>Less work on the GS thread</strong>, the thread that limits the heaviest scenes: besides the driver's thread moving off its core, the auto-flush test is worked out once per strip in every vertex format that carries only vertex data (it was once per vertex outside PCSX2's two built-in formats), and a texture upload skips mipmapped textures it does not touch instead of checking each of their levels.</li>\n<li><strong>Built on the newest Mesa main</strong> (27.0.0-devel of 2026-10-31): fixes to the shader compiler and to how graphics pipelines are hashed for the shader cache.</li>\n<li><strong>Built on PCSX2 v2.9.150</strong> (was v2.9.142): game database fixes, vibration shown in the inputs display, and more.</li>\n<li><strong>GS dumps record 1 second by default</strong> (<em>GS dump length</em>: 1, 2 or 5 seconds), are compressed on worker threads so recording slows the game less, and the \"dump saved\" message gives the file's size.</li>\n<li><strong>The boot log names each vertex format a game draws in</strong> (lines starting <code>GS: PS5: packed format</code>).</li>\n<li><strong>The content version is <code>01.017.000</code>.</strong></li>\n</ul>\n<p>Fixed:</p>\n<ul>\n<li><strong>120 Hz fell back to 60 Hz on TVs with VRR</strong>: before the first frame such a TV refreshes at 48 Hz, which was taken for a TV still at 60 Hz. The boot log now says which rate was chosen and why.</li>\n<li><strong>The README's list of what does not work</strong> still named features Crux2 has.</li>\n</ul>\n\n\n## Known issues\n\n- paraLLEl-GS is slower than PCSX2's renderer in the heaviest game I test with, and its picture is softer by design.\n- The free BIOS is early work: many games reach their menus and go no further. Use a BIOS dumped from your own PlayStation 2.\n- RetroAchievements' hardcore mode is not offered.\n\n## Install or update\n\n1. Copy the `PPSA99249` folder from the ZIP to your homebrew folder on the console (`/data/homebrew/`), over an older one if you have it.\n2. Your settings, memory cards, states and games stay: with a folder `/data/crux2`, Crux2 keeps them there, outside the title folder.\n3. Your own games in `games/` (or on a USB drive or a share), your own BIOS in `bios/`. None included, none ever will be."
+        "published_at": "2026-11-01T07:06:54Z",
+        "notes": "# Crux2 v1.0.18\n\n> [!IMPORTANT]\n> No games, BIOS files, firmware or keys are included, and none ever will be. Use only legally obtained backups of games you own and a BIOS dumped from your own PlayStation 2.\n\n## Added\n- **Settings > Folders**: add game folders from USB drives, network shares or the console's storage, and choose where the BIOS, memory cards, save states, screenshots, cheats, covers and texture replacements are kept.\n- **Accurate floating point** for the FPU, VU0 and VU1 (Settings > Advanced, or a game's own Settings > Emulation; off), from PCSX2 Reliquary.\n- **MihawkGen**, a third frame generation method.\n- **Show the movement** (Settings > Graphics, advanced): shows what FSR 3 optical flow decided for each pixel.\n\n## Changed\n- Frame generation is lighter when no upscaler is used: frames are made at the game picture's own size.\n- Accurate floating point is on for the FPU and VU0 in the two games known to need it.\n- x86 emitter encoding fixes from PCSX2 Reliquary.\n- Save states keep their format: v1.0.17 and v1.0.18 load each other's states.\n\n## Fixed\n- Frame generation at 120 Hz held games at 67% or 50% speed, even standing still.\n- Frame generation sped up and slowed down every few seconds in games at 30 frames a second.\n- Frame generation at 120 Hz made one picture between the game's instead of three when frames came unevenly.\n- What's new now shows what was added, changed and fixed in each version, and opens once after an update.\n\n## Installation\n- Copy the `PPSA99249` folder to `/data/homebrew/` on the console, over an older one if you have it.\n- Your games, BIOS files, memory cards, states and settings are kept. Shaders are compiled again once after the update.\n- Read `LEGAL.txt` and `README.md` in the folder.\n\n## Reporting problems\n- Open an issue and attach `crux2-boot.log` from the title folder, copied before Crux2 is started again. Don't attach games, BIOS files, firmware or keys.\n\n## Source and licensing\n- GPL-3.0-or-later with one additional term: keep the credit \"Crux2 by Press5elect\" (`NOTICE`).\n- Source: this repository at the tag, and PCSX2 at [`6d5e7daacefe`](https://github.com/PCSX2/pcsx2/tree/6d5e7daacefef49a0a921fb89730c50b70d9119e); every other part's revision is in `licenses/components.json` in the ZIP.\n\n## Build versions\n- Crux2: `d6c7f6a` (build 43)\n- PCSX2: v2.9.150 (`6d5e7daacefe`)\n- RADV: Mesa 27.0-devel, 2026-10-31\n- PS5_Vulkan: `f410e67`\n- PS5_PayloadSDK: `b5efad5`\n- paraLLEl-GS: `cc6184a`\n- MihawkGen: `c57232a9f16b`\n\nSHA-256 of `Crux2-v1.0.18.zip`: `9b585c6d46f855db0eb0b8d50910bc7fef6ed5f113733c218ea7e007deec2471`"
       },
       "pins": [
+        {
+          "tag": "v1.0.17",
+          "asset": "Crux2-v1.0.17.zip",
+          "size": 32647214,
+          "sha256": "dc0dd59ee77a23b8c1baeb7cd1347100d553a6159c319aa8a263887a308a355e",
+          "content_version": "01.017.000",
+          "title_name": "Crux2"
+        },
         {
           "tag": "v1.0.15",
           "asset": "Crux2-v1.0.15.zip",
@@ -977,14 +1011,24 @@
       ],
       "stars": 5,
       "release": {
-        "tag": "v1.23",
-        "asset": "Seedee5-1.23.zip",
-        "size": 30585897,
-        "sha256": "fd084b557def78a6aa02713ba24d200526f7b04aead25a43bffd0c85fe51d20e",
-        "published_at": "2026-10-21T21:20:00Z",
-        "notes": "## Seedee5 1.23\n\n### Fixed: connecting to a NAS\n\n- **Entering a NAS address while \"Find NAS\" was still searching did nothing.** The request was refused, no shares appeared, and the old search's progress stayed on screen. A new request now stops the search and asks the NAS straight away.\n- **Type the share path:** a NAS that doesn't list its shares (NFS 4 only, or listing turned off) can now be opened by typing the share's path on the Shares page, such as `/volume1/games`, with the on-screen keyboard. Then pick the folder with your games as usual.\n\nSeedee5 speaks NFS 3 and NFS 4 (4.0). A NAS set to NFS 4.1 normally accepts 4.0 too: choose NFS 4 in Settings › NAS › NFS version.\n\n### Updating\n\n- **With ProsperoStore from 1.22:** your settings, NAS settings, saved games and BIOS come back by themselves. Copy games you keep on the console (`data/roms`) back from `/data/prosperostore/previous/PPSA99142/data/` over FTP.\n- **From 1.21 or older:** copy everything in `/data/prosperostore/previous/PPSA99142/data/` back to `/data/homebrew/PPSA99142/data/` over FTP. The wheel reminds you.\n- **By hand:** copy the `PPSA99142` folder from `Seedee5-1.23.zip` over the old one on your PS5 (`/data/homebrew/`).\n\nNo BIOS, games or keys are included. Check the downloads against `SHA256SUMS`.",
-        "content_version": "01.230.000"
-      }
+        "tag": "v1.24",
+        "asset": "Seedee5-1.24.zip",
+        "size": 30597210,
+        "sha256": "2573d8acd4b4f0ab692068975115c5c24f98292ebdf310805a59a860a1036e33",
+        "content_version": "01.240.000",
+        "title_name": "Seedee5",
+        "published_at": "2026-11-01T14:46:55Z",
+        "notes": "## Seedee5 1.24\n\n### Fixed: USB drives listed other systems' games and held the start-up on a black screen\n\nSeedee5 searched any `roms` folder on a USB or extended drive, even with the NAS turned off. Other systems' CHD, CUE and ISO files were listed as CD-i games, and on a big mechanical drive the search could keep the start-up on a black screen for half an hour.\n\n- **Only CD-i folders:** on each drive Seedee5 looks for a folder named for the CD-i: `cdi`, `CD-i`, `Philips CD-i`, `roms/cdi`, `roms/CD-i`, `ps5-cdi` or `ps5-cdi/roms`, in any upper or lower case. It never searches a general `roms` folder.\n- **Pick your own folder:** *Settings › Games › Where on the drives* browses your drives; choose the folder with your CD-i games and only that one is searched. *Games on USB drives* turns drives off completely.\n- **No more waiting:** the drives are searched in the background. The wheel opens straight away, and their games join it when found; the top line shows the search.\n- **A safety limit:** a search that meets more than 20,000 files stops and tells you to pick the folder.\n\n### Updating\n\nCopy the `PPSA99142` folder from `Seedee5-1.24.zip` over the old one in `/data/homebrew/` over FTP, or update with ProsperoStore (your settings, NAS settings, saved games and BIOS come back by themselves).\n\nNo BIOS, games or keys are included. Check the downloads against `SHA256SUMS`."
+      },
+      "pins": [
+        {
+          "tag": "v1.23",
+          "asset": "Seedee5-1.23.zip",
+          "size": 30585897,
+          "sha256": "fd084b557def78a6aa02713ba24d200526f7b04aead25a43bffd0c85fe51d20e",
+          "content_version": "01.230.000"
+        }
+      ]
     },
     {
       "id": "capy-mobile",
@@ -1182,14 +1226,24 @@
       ],
       "stars": 0,
       "release": {
-        "tag": "01.002.001",
+        "tag": "01.004.002",
         "asset": "PPSA77305.zip",
-        "size": 9794845,
-        "sha256": "7111d4a23d541862ab1b87a20598443492f301ece6d123a99667e85b2ee3983b",
-        "published_at": "2026-10-25T18:38:02Z",
-        "notes": "In-play menu update.\n\n- OPTIONS opens an in-play menu: RESUME or quit. Single player pauses behind it; in MMO and co-op the world keeps running.\n- In single player the quit option is QUIT TO TITLE, on a ship editor test flight it's BACK TO EDITOR, and in MMO and co-op it's LEAVE WORLD or LEAVE ROOM.\n- CIRCLE no longer leaves the game by accident.\n\nInstall: extract and copy the PPSA77305 folder over the previous one in /data/homebrew/ (or homebrew/ on a USB drive).",
-        "content_version": "01.002.001"
-      }
+        "size": 10071496,
+        "sha256": "cb27f501ecd08bee1f99e85aaa904f9e2244c64dd1156f961cf2929f0b8c1aa4",
+        "content_version": "01.004.002",
+        "title_name": "PSteroid5",
+        "published_at": "2026-11-01T13:27:30Z",
+        "notes": "PSteroid5 01.004.002 brings the expanded ship and pattern designers to PS5, with richer space effects and matching launcher artwork.\n\n- Design repeating hull fills with starter patterns, custom tiles, curve editing, mirroring, colors, undo/redo and live previews.\n- Save editable pattern recipes, keep a local tile library and exchange designs with the browser editor.\n- Choose Classic, Triangle, Diamond, Meridian, Manta, Delta or Blank starting hulls from OPTIONS in the ship editor.\n- Tap or hold D-pad up/down to adjust editor view zoom smoothly, with a visible 25–400% slider. Oversized ships fit the editor and previews.\n- Fly through parallax star layers and shooting stars across game modes.\n- Ship trails follow design colors and change appearance with powerups, including other players' ships.\n- Updated launcher artwork uses the game's flat vector ships, rear trails, polygon asteroids and stars.\n\nInstall the PPSA77305 folder from PPSA77305.zip using the existing folder-title workflow. The title ID remains PPSA77305; contentVersion is 01.004.002.\n\nValidation: native build, portable gameplay/editor/pattern tests, independent browser comparisons, SELF integrity and final folder/hash checks passed. The exact package was deployed to PS5 for testing. Manual gameplay and launcher acceptance have not been recorded. Version 01.004.002 changes artwork and packaging metadata over the validated 01.004.001 native executable.\n\nThe release retains the original build provenance and source hashes. Its build predates the final source commit; no executable rebuild is implied by the release tag. The source archive includes the corresponding port sources and dependency notices; the prepared local native toolchain is required."
+      },
+      "pins": [
+        {
+          "tag": "01.002.001",
+          "asset": "PPSA77305.zip",
+          "size": 9794845,
+          "sha256": "7111d4a23d541862ab1b87a20598443492f301ece6d123a99667e85b2ee3983b",
+          "content_version": "01.002.001"
+        }
+      ]
     },
     {
       "id": "openrct2",
@@ -1273,7 +1327,7 @@
         "fps",
         "engine-port"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "v1.0",
         "asset": "Doom3BFG-PS5-v1.0.zip",
@@ -1488,16 +1542,26 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 769,
+      "stars": 779,
       "release": {
-        "tag": "v0.9.1",
-        "asset": "ps5lm-app-v0.9.1.zip",
-        "size": 35325715,
-        "sha256": "7b221d2b754f4d812cd0cb19e62e116f5191de144bb3763b13ead566a6a8b556",
-        "published_at": "2026-10-20T06:26:24Z",
-        "notes": "A fix release: the server no longer stops when its log falls behind, and the app asks the HEN to open the console's storage.\n\n**Install:** unzip `ps5lm-app-v0.9.1.zip` and copy the `PPSA99575` folder to `/data/homebrew` over FTP; ShadowMountPlus puts PS5LM on the home screen. To update, copy it over the old folder; settings and models in `/data/PS5LM` stay. Needs a jailbroken PS5 on firmware 7.00 to 13.60 with kstuff-lite, etaHEN and ShadowMountPlus ([README](https://github.com/cobanov/PS5LM#try-it)). On OnionHEN, add `PPSA99575` to `app_jailbreak.exact_title_ids` in `/data/OnionHEN/config.ini`.\n\n### Fixed\n- A full log queue no longer stops the server. llama.cpp's log holds 512 lines, and the app's writer prints each one to `app.log` and `llama.log`; when it fell behind, the server thread waited for room, so `/slots` and `/metrics` stopped answering while `/health` still did, the hang in #20. On the console a full queue now drops the line and the writer says how many it dropped (`patches/0008-log-never-blocks.patch`, by @bilawalriaz in #28).\n- Storage on consoles where the HEN does not open `/data` to the app by itself (#16, #23, #24). The app asks the HEN at every start, the restart for a model included, by writing `{\"PID\":n}` to `/download0/etahen_jailbreak`, which OnionHEN honours for a title on its allowlist. If `/data` stays closed, a notification on the TV says so and names the OnionHEN setting. From @abhi245y's PS5LM Plus.\n- `/data/PS5LM` is created when it is missing.\n\n### Changed\n- ps5-homebrew-ui and ps5-opengl are gone from GitHub: the submodule now comes from a mirror at the same pinned commit, and [docs/BUILDING.md](https://github.com/cobanov/PS5LM/blob/main/docs/BUILDING.md) says where the ps5-opengl SDK archive is still found.",
-        "content_version": "01.009.001"
-      }
+        "tag": "v0.10.0",
+        "asset": "ps5lm-app-v0.10.0.zip",
+        "size": 35563549,
+        "sha256": "8def2d656d3b5bfb617d53e19d98b331518536d42d74a19f2262e3feed8926ca",
+        "content_version": "01.010.000",
+        "title_name": "PS5LM",
+        "published_at": "2026-11-01T11:00:59Z",
+        "notes": "Downloads keep their speed past 2 GB, models on M.2 and USB drives show up, and two opt-in features: an introspection endpoint for the model's logits and activations, and an experimental fleet build that splits one model across several consoles.\n\n**Install:** unzip `ps5lm-app-v0.10.0.zip` and copy the `PPSA99575` folder to `/data/homebrew` over FTP; ShadowMountPlus puts PS5LM on the home screen. To update, copy it over the old folder; settings and models in `/data/PS5LM` stay. Needs a jailbroken PS5 on firmware 7.00 to 13.60 with kstuff-lite, etaHEN and ShadowMountPlus ([README](https://github.com/cobanov/PS5LM#try-it)). On OnionHEN, add `PPSA99575` to `app_jailbreak.exact_title_ids` in `/data/OnionHEN/config.ini`.\n\n`ps5lm-app-fleet-v0.10.0.zip` is the fleet build. It has the same title ID, so installing it replaces the normal app. Without `/data/PS5LM/fleet-worker.txt` it behaves like the normal app. Most people want the normal zip.\n\n### Added\n- **Fleet, experimental: one model across several consoles.** A PC runs the controller (`python3 -m fleet serve`) and one llama-server. Each PS5 runs the fleet build as an RPC worker that holds a run of the model's layers on its GPU. Dense `llama` and `qwen2` GGUFs only for now; Qwen 3.8's `qwen35` layout is refused by the planner. A worker starts only when `/data/PS5LM/fleet-worker.txt` names the console's own private IP, a port below 40000 (the PS5 refuses higher ones) and the acknowledgement line. RPC has no authentication, so keep it on an isolated network. [docs/FLEET.md](https://github.com/cobanov/PS5LM/blob/main/docs/FLEET.md) is the guide. By @ntindle in #35.\n- **An opt-in endpoint for the model's own numbers**: `POST /v1/introspect` returns the logit row at the positions you name, the top candidates with their probabilities, the entropy, and one row of a named graph tensor (`l_out`, `ffn_swiglu`, `attn_out`, ...) for a named layer. A request can also zero, scale or shift one channel. Off by default: Settings > Developer > \"Logits and activations API\", or `LLAMA_INTROSPECT=1`. [docs/INTROSPECTION.md](https://github.com/cobanov/PS5LM/blob/main/docs/INTROSPECTION.md) is the reference. By @bilawalriaz in #28.\n\n### Fixed\n- **Downloads keep their speed past 2 GB.** The console slows a title's own writes to about 1.2 MB/s after the first ~2.2 GB, while a payload's keep going, so the app now writes through a loopback ftpsrv: yours on 2121 when a test write works, else its own `ps5lm-ftpsrv` on `127.0.0.1:2123`. With no ftpsrv it writes the file itself as before. Ported from [PS5SD](https://github.com/Darkatek7/PS5SD) by @Darkatek7 in #46 (#41).\n- Models saved to an M.2 or USB drive show up in the library wherever that drive is mounted (#43, #44)."
+      },
+      "pins": [
+        {
+          "tag": "v0.9.1",
+          "asset": "ps5lm-app-v0.9.1.zip",
+          "size": 35325715,
+          "sha256": "7b221d2b754f4d812cd0cb19e62e116f5191de144bb3763b13ead566a6a8b556",
+          "content_version": "01.009.001"
+        }
+      ]
     },
     {
       "id": "psswanstation",
@@ -1987,7 +2051,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 347,
+      "stars": 351,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2030,18 +2094,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 87,
+      "stars": 94,
       "release": {
-        "tag": "v2.0.8",
+        "tag": "v2.1.1",
         "asset": "PPSA11018.zip",
-        "size": 317667596,
-        "sha256": "591278b7a0ebf16d2f764326647c0c438d09a0de721d4977d3d036632cc7123d",
-        "content_version": "02.000.008",
+        "size": 318077798,
+        "sha256": "c539a06396c003e39cfffa5c75014c1e45d884a1999813816f518760436deb6d",
+        "content_version": "02.001.001",
         "title_name": "PC5",
-        "published_at": "2026-10-31T23:16:00Z",
-        "notes": "PC5 2.0.8 speaks your language, keeps your own button mapping for every game, and installs games already on a USB drive at once.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **PC5 in your language**: PC5's screens and its web page now follow the PS5's language, in 27 of the console's languages (Arabic and Thai to follow). **Settings › System › Language** picks another. The translations are new: if something reads wrong in yours, see [Translations](https://github.com/bornaradusin/PC5/wiki/Translations) for how to send a fix.\n- **Your own button mapping**: in a game's **Button mapping**, **Save as my mapping** keeps the layout for every game. Games set up from then on start with it, and **Use my mapping** puts it on any game. It stays when a game is uninstalled.\n- **More Video memory choices**: for a 64-bit Direct3D 10, 11 or 12 game, **△ › Graphics › Video memory** now has **5 GB** and **6 GB** between **Auto** (4 GB) and **Full** (8 GB), for a game that warns there is too little video memory on Auto. If it then runs out of memory, go back a step.\n\n### Fixes from your reports\n\n- **Installing to a USB drive copied a game that was already on it**: a game anywhere on the USB drive, not only in its `PC5/INSTALL` folder, is now moved into the drive's `PC5` folder at once instead of copied, so it doesn't take the time or the space twice.\n- **A game closed at once because PC5 started its crash reporter in its place**: a game that starts an error monitor as it boots now carries on without it.\n- **A mouse pointer stuck in a corner while playing with the controller**: the pointer now hides when it hasn't been moved or clicked for 5 seconds, and shows again as soon as you move it (a stick, the touchpad or a mouse) or click.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself."
+        "published_at": "2026-11-01T12:51:48Z",
+        "notes": "PC5 2.1.1 lets you choose which drive a game installs on, brings memory and crash fixes from prospero-win's newest work, gives Grand Theft Auto IV the options it was tested with, adds texture packs for Direct3D 9 games, and two fixes from Mihawk OS.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **Grand Theft Auto IV: The Complete Edition's options**: PC5 starts `GTAIV.exe` with the options the game was tested with on the console, so a copy that starts without the Rockstar Games Launcher no longer limits its settings to the video memory it finds, starts full screen at the game's **Resolution** and 60 Hz, and plays more smoothly through DXVK. **Current Steam and Rockstar copies still check for the Rockstar Games Launcher as they start and stop with a message that it's needed: like every game that needs a store's launcher, they don't run in PC5.** A `launch.txt` beside `GTAIV.exe` replaces PC5's options (see [Launch options](https://github.com/bornaradusin/PC5/wiki/Launch-options)).\n\n- **Choose the drive to install on**: with more than one USB drive (or a USB drive and extended storage) plugged in, left and right in the install question now go through the console and every drive, not just one of them ([#249](https://github.com/bornaradusin/PC5/issues/249)).\n\n- **Texture packs for Direct3D 9 games**: DXVK can save a game's textures and show your own sharper pictures in their place, set in the game's `env.txt` (see [Launch options](https://github.com/bornaradusin/PC5/wiki/Launch-options#texture-packs-direct3d-9-games)).\n\n### Fixes\n\n- **Stuck at \"Closing\" after leaving a game**: a game's last frames were still on their way to the screen as PC5 closed it, which could leave the console at its \"Closing\" screen until a reboot. PC5 now waits for them, leaving to PC5 or to the home screen.\n- **OpenGL games slowing to a few fps and crashing after a while**: Wine's own memory now comes from the console's main memory, with room kept for the game, instead of the small pool that ran out.\n- **Games that make thousands of threads or fibers ran out of memory**: their stacks now take only what they use, as on Windows, not their whole size at once.\n- **Emulators that recompile code ran stale code** (black screen, 0 fps): a page made read-only beside a writable one now faults as on a PC, and accesses beside a protected page stop being slowed down once they come often (Unity games)."
       },
       "pins": [
+        {
+          "tag": "v2.0.8",
+          "asset": "PPSA11018.zip",
+          "size": 317667596,
+          "sha256": "591278b7a0ebf16d2f764326647c0c438d09a0de721d4977d3d036632cc7123d",
+          "content_version": "02.000.008",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.0.7",
           "asset": "PPSA11018.zip",
@@ -2118,7 +2190,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 919,
+      "stars": 930,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2149,7 +2221,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 244,
+      "stars": 246,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2179,7 +2251,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1609,
+      "stars": 1614,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2220,7 +2292,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 420,
+      "stars": 421,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2249,7 +2321,7 @@
         "emulator",
         "snes"
       ],
-      "stars": 63,
+      "stars": 64,
       "release": {
         "tag": "v2.11",
         "asset": "Snes9xPS5-v2.11-PPSA99922.zip",
@@ -2385,17 +2457,27 @@
         "nds",
         "pokemon"
       ],
-      "stars": 2,
+      "stars": 1,
       "release": {
-        "tag": "v00.040.005",
-        "asset": "ApricotGS-v00.040.005-PS5.zip",
-        "size": 55415566,
-        "sha256": "4149b6a58ffc5948edf59918f05219a55c0deb33a25b52c92674490e07c83113",
-        "content_version": "00.040.005",
+        "tag": "v00.040.006",
+        "asset": "ApricotGS-v00.040.006-PS5.zip",
+        "size": 55426486,
+        "sha256": "7c7b0ad716be8a6a7fbef738ce0e82fb79f43d9c8ee5a8a7e5b8cf5b7331d625",
+        "content_version": "00.040.006",
         "title_name": "ApricotGS",
-        "published_at": "2026-10-28T22:28:36Z",
-        "notes": "Browse your own supported game files locally or through RomM, keep the RomM connection for later downloads, and manage imported editions while preserving saves. This release also makes the library, keyboard and related app controls easier to read with consistent glass surfaces and original controller artwork.\n\nDownload **ApricotGS-v00.040.005-PS5.zip** and verify it using **SHA256SUMS.txt**. The automatic Source code ZIP and TAR.GZ contain the corresponding application source and required notices. No games, saves or stored server credentials are included.\n\n| Version | Type | Change |\n| --- | --- | --- |\n| 00.040.000 | Added | Local browser for explicitly selected readable folders, including USB storage, with individual supported NDS-file selection. |\n| 00.040.000 | Added | RomM server URL/hostname connection, sign-in, paginated NDS listing and bounded downloads with progress and cancellation. |\n| 00.040.000 | Added | Imported-edition removal with explicit confirmation; saves, original source files and backups are preserved. |\n| 00.040.001 | Fixed | Held controller buttons no longer cascade through library screens or repeat actions on each frame. |\n| 00.040.001 | Fixed | Directory listing and edition verification keep the interface responsive during reads. |\n| 00.040.001 | Fixed | Back from import management returns to the edition selection; only the explicit exit action closes the library. |\n| 00.040.001 | Fixed | Import management shows meaningful edition names, actual prepared-file names/sizes and reasons a removal is blocked. |\n| 00.040.001 | Fixed | Valid prepared editions open directly in the edition selector; the library remains available for adding games. |\n| 00.040.001 | Fixed | Background/channel handling and grouped library controls remain inside the visible app layout. |\n| 00.040.002 | Added | Device pairing accepts the eight-character RomM connection code and reports invalid, expired, used or rate-limited codes. Long API-token entry is no longer needed. |\n| 00.040.002 | Fixed | Username and password entry exposes upper/lowercase and symbols while preserving exact spelling. Passwords stay masked. |\n| 00.040.003 | Improved | Keyboard selection and current character mode are clearly identified; username/password and device pairing are separate sign-in choices. |\n| 00.040.004 | Improved | Proportional text, grouped keyboard fields and consistent dialog spacing improve readability; controller hints reuse the model-derived artwork. |\n| 00.040.005 | Added | RomM connection is remembered across library visits and app restarts, with explicit logout/deletion of the locally saved connection. Passwords are not stored. |"
-      }
+        "published_at": "2026-11-01T14:07:00Z",
+        "notes": "This update keeps the app in the edition-selection window, fixes remembered RomM access on PS5, and lets menu music continue while visiting the library. In-app music now uses a verified complete cycle generated from your own game instead of restarting a one-minute excerpt.\n\nDownload **ApricotGS-v00.040.006-PS5.zip** and check it with **SHA256SUMS.txt**. Corresponding source and required notices are available through the automatic Source code ZIP and TAR.GZ downloads. No games, extracted game music, saves or server credentials are included.\n\n| Version | Type | Change |\n| --- | --- | --- |\n| 00.040.006 | Fixed | Start in the edition-selection window even when no playable game is present. A centered message and Triangle prompt show how to open the library. |\n| 00.040.006 | Fixed | Return from an empty library to the start window with Circle. Unavailable selection/start actions are omitted when no game can be started. |\n| 00.040.006 | Fixed | Save and reopen the RomM connection on PS5 using supported private file operations, including the console runtime's missing link-count metadata. |\n| 00.040.006 | Improved | Explicitly open the saved RomM connection from its menu and retry a storage read without deleting the connection. |\n| 00.040.006 | Fixed | Preserve menu music playback and the selected edition during library visits when the installed editions are unchanged. |\n| 00.040.006 | Fixed | Replace the arbitrary 60-second in-app music cutoff with a validated complete cycle and intro/loop points, generated locally from the supported game. |\n| 00.040.006 | Improved | Update older verified title media through a transactional replacement while retaining the previous files and keeping saves unchanged. Failed music validation preserves existing media. |\n| 00.040.006 | Improved | Center visible footer text beside the original controller icons using the font's actual ink bounds. |\n\n**Updating:** 00.040.005 could fail to store the RomM login on PS5. If no connection is available, sign in or pair once; this version retains the connection for later app restarts. Updating older local title music can take additional preparation time. The separate PS5 Home-tile music excerpt remains limited to one minute.\n\nThe native RomM storage faults affected 00.040.005; introduction versions for the other corrected symptoms have not been established. No new regional compatibility or gameplay improvements are claimed. The app remains experimental and a complete playthrough has not been verified."
+      },
+      "pins": [
+        {
+          "tag": "v00.040.005",
+          "asset": "ApricotGS-v00.040.005-PS5.zip",
+          "size": 55415566,
+          "sha256": "4149b6a58ffc5948edf59918f05219a55c0deb33a25b52c92674490e07c83113",
+          "content_version": "00.040.005",
+          "title_name": "ApricotGS"
+        }
+      ]
     },
     {
       "id": "bedlam-2",
@@ -2739,7 +2821,7 @@
         "gamecube",
         "research"
       ],
-      "stars": 1,
+      "stars": 0,
       "release": {
         "tag": "v0.1.4",
         "asset": "FoxHollow-0.1.4-PPSA99573.zip",
@@ -2863,7 +2945,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 81,
+      "stars": 82,
       "release": {
         "tag": "build-131",
         "asset": "halo-ps5-release.zip",
@@ -3098,7 +3180,7 @@
         "xbox-360",
         "naruto"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99680.zip",
@@ -3337,7 +3419,7 @@
         "xbox",
         "prince-of-persia"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "01.004.001",
         "asset": "PPSA99023-01.004.001.zip",
@@ -3498,7 +3580,7 @@
         "half-life-2",
         "source-engine"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "v0.1.3-alpha",
         "asset": "PPSA20040.zip",
@@ -3624,7 +3706,7 @@
         "gamecube",
         "mario"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "v0.10.0",
         "asset": "Sunshine-PS5-v0.10.0.zip",
@@ -3908,7 +3990,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 48,
+      "stars": 49,
       "release": {
         "tag": "v0.13.0",
         "asset": "EVOPlayer-v0.13.0-PPSA99039.zip",
@@ -3970,7 +4052,7 @@
         "addons",
         "hdr"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v1.0.0.3-native-experimental",
         "asset": "PPSA99288.zip",
@@ -4034,16 +4116,24 @@
       ],
       "stars": 3,
       "release": {
-        "tag": "v2.0.0",
+        "tag": "v2.1.0",
         "asset": "prospero-hifi.zip",
-        "size": 20257827,
-        "sha256": "06c76e87b81ca40117ddfe565c0810fa198e950f6ad975baae2e15441c1c2c96",
-        "content_version": "02.000.000",
+        "size": 20286840,
+        "sha256": "00d03ac08e78faedfe9ccdf1a8664b7afbd27dc76bcf92e04fd5dfc26e18293c",
+        "content_version": "02.001.000",
         "title_name": "Prospero Hi-Fi",
-        "published_at": "2026-11-01T00:18:45Z",
-        "notes": "# Prospero Hi-Fi v2.0.0 – Major Update\n\nProspero Hi-Fi v2.0.0 is here!\n\nThis release brings one of the biggest updates yet, introducing a significantly improved interface, extensive appearance customization, new music management features, internet radio, expanded audio support, and performance optimizations.\n\nThe focus has been on making Prospero Hi-Fi more customizable, responsive, and enjoyable to use, whether you're listening directly on your PS5 or controlling it remotely.\n\n### New Features\n- **Playlists:** Create and manage custom playlists with artwork support.\n- **Internet Radio:** Stream stations with live ICY metadata, artwork, and automatic reconnection.\n- **Music Collections:** Improved album browsing, metadata retrieval, pagination, and selectable List/Grid layouts.\n- **Audio Support:** Added AAC-LC and ALAC playback for M4A files.\n- **Physical CDs:** Improved disc browsing, metadata handling, and added disc eject support.\n\n### Interface & Appearance\n- Added **Modern and Classic** interface styles, including translucent glass effects and traditional flat layouts.\n- Added animated backgrounds with **Ambient Drift, Aurora, and Gradient Waves**, plus adjustable animation speed (25–200%).\n- Added adjustable interface opacity (50–100%), improved background transparency, and refined OLED, Dark, and Light themes.\n- Added preset and custom accent colors, with independent visualizer color customization.\n- Redesigned the fullscreen player with improved alignment, spacing, optional shared background cards, and dynamically scaled artwork that maintains its aspect ratio.\n- Improved navigation, focus indicators, button styling, and visual consistency throughout the application.\n- Reorganized Settings, moving display-related options into Appearance and automatically disabling unavailable settings.\n- Improved Files, Collections, and Radio browsing with cleaner layouts, artwork handling, and pagination.\n- Redesigned the **web interface** with consistent margins, simplified navigation, responsive desktop/mobile layouts, and synchronized accent colors.\n- Removed Screen Control to simplify remote functionality.\n\n### Performance & Stability\n- Optimized playback initialization, track preloading, and gapless transitions.\n- Improved SMB playback initialization and network responsiveness.\n- Optimized artwork loading, visualizer rendering, and background processing.\n- Reduced interface overhead, including when the web interface is connected.\n- Various stability, navigation, and usability improvements.\n\n---\n\nThank you to everyone supporting the project and providing feedback. Enjoy v2.0.0!"
+        "published_at": "2026-11-01T12:22:19Z",
+        "notes": "## Prospero Hi-Fi v2.1.0\n\nThis update brings cleaner library management, artwork uploads and improved online radio support.\n\n### Library management\n\n- Added **Settings → Library** to manage SMB shares, Collections, Playlists and Online Radio.\n- Moved List/Grid settings into their respective Library sections.\n- Added **View: List/Grid** below Create/Add in the Triangle management menus.\n- Selected entry actions appear first, separated from Create/Add and View.\n- Removed the Add SMB share entry from Files; use Triangle or Library settings instead.\n- Collection, playlist and radio Add/Create entries now appear only when their main tabs are empty.\n\n### Web interface and artwork\n\n- Improved spacing, alignment and consistency across library cards and editors.\n- Added artwork previews for collections, playlists and radio stations.\n- Upload images directly from your PC or phone, alongside the existing image URL option.\n- Uploaded artwork is resized and stored on the PS5, shared by the app and web interface.\n- Added an option to remove custom artwork.\n\n### Online Radio\n\n- Added support for **PLS and standard M3U playlist links**, automatically following the contained audio stream.\n- Keeps the original playlist URL saved for future playback and reconnecting.\n- **Next and Previous now switch between saved radio stations**, following their list order and wrapping at either end.\n- Station switching works through controller shortcuts, player buttons and web controls, independently of music shuffle and repeat settings."
       },
       "pins": [
+        {
+          "tag": "v2.0.0",
+          "asset": "prospero-hifi.zip",
+          "size": 20257827,
+          "sha256": "06c76e87b81ca40117ddfe565c0810fa198e950f6ad975baae2e15441c1c2c96",
+          "content_version": "02.000.000",
+          "title_name": "Prospero Hi-Fi"
+        },
         {
           "tag": "v1.3.0",
           "asset": "prospero-hifi.zip",
@@ -4089,7 +4179,7 @@
         "jellyfin",
         "plex"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v0.8.0",
         "asset": "PPSA99520.zip",
@@ -4211,7 +4301,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "01.000.193",
         "asset": "SmartTube-PPSA98260.zip",
@@ -4606,7 +4696,7 @@
         "images",
         "video"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "v1.2.4",
         "asset": "PPSA99699.zip",
@@ -4635,18 +4725,26 @@
         "saves",
         "backup"
       ],
-      "stars": 27,
+      "stars": 30,
       "release": {
-        "tag": "v1.3.16",
+        "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
-        "size": 40310864,
-        "sha256": "a1eaeabcc3d9c87eacfab863909fead0c8b8d4423b6064bf2d21ff7976c5dba7",
-        "content_version": "01.044.000",
+        "size": 40312239,
+        "sha256": "30d70e746beddffa059945edec7f1ea61ed578dbf6e7a02edb2cb44c18584d58",
+        "content_version": "01.045.000",
         "title_name": "MacheteSaveGameManager",
-        "published_at": "2026-10-31T17:48:33Z",
-        "notes": "Release v1.3.16 (Build #90)\n\nChanges:\n- PS4 BC Save Integrity: Fixed an issue where the PS4 param.sfo resigner replaced the local PS4 user index (user_id=1) with the 32-bit PS5 OS user ID (0x105f615a), causing backwards compatibility runtimes to reject saves with 'Datos danados' (CE-108255-1 / corrupt save).\n- Metadata Isolation: Cleaned up and unlinked rogue param.sfo files from savedata_meta/user/<TitleID> on PS4 games, ensuring only presentation icon assets exist in the metadata folder as expected by the PS5 OS.\n- All 179 unit tests passing cleanly."
+        "published_at": "2026-11-01T07:55:47Z",
+        "notes": "Release v1.3.17 (Build #91)\n\nChanges:\n- PS4 BC Save Integrity & Hardened user_id Sanitization: Defensively enforce PS4 local user index bounds (0 < uid < 0x10000, defaulting to 1) across all PS4 SFO patching paths (sfo_resigner, pfs_mount_manager, save_manager). Eliminates corrupt save errors (CE-108255-1) on backwards compatibility titles such as Dragon Quest XI S (CUSA18600).\n- Universality Audit: Verified zero hardcoded console user IDs in production executable code; runtime dynamic resolution for user directories and savedata.db account IDs.\n- Diagnostic Dump: Comprehensive container inspection and verification suite.\n- Store Packaging: Updated contentVersion to 01.045.000 for seamless automatic update via ProsperoStore.\n- All 183 unit tests passing cleanly."
       },
       "pins": [
+        {
+          "tag": "v1.3.16",
+          "asset": "PPSA99700.zip",
+          "size": 40310864,
+          "sha256": "a1eaeabcc3d9c87eacfab863909fead0c8b8d4423b6064bf2d21ff7976c5dba7",
+          "content_version": "01.044.000",
+          "title_name": "MacheteSaveGameManager"
+        },
         {
           "tag": "v1.3.15",
           "asset": "PPSA99700.zip",
@@ -4815,15 +4913,25 @@
       ],
       "stars": 20,
       "release": {
-        "tag": "01.000.038",
+        "tag": "01.000.039",
         "asset": "PPSA90210.zip",
-        "size": 9104756,
-        "sha256": "d9035950e6f593245ada7b886b15f8958cc63e72846451d5f702d58cd9a1bb26",
-        "content_version": "01.000.038",
+        "size": 9125272,
+        "sha256": "d05de23402359b492cce5cbd3ae9db3657cf8225b2e831e1d9afa4318d7a1be8",
+        "content_version": "01.000.039",
         "title_name": "Prospero Themes",
-        "published_at": "2026-10-27T22:02:16Z",
-        "notes": "## Changes\n\n- **Catalogs for 10.20, 11.00, 12.02 and 12.60.** Made from the firmware reports you sent, thank you. On these firmwares the app now knows the console's original files, so it tells them apart from a theme's and no longer asks for a report on the System tab.\n\nTested on FW 13.00.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `d9035950e6f593245ada7b886b15f8958cc63e72846451d5f702d58cd9a1bb26`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
-      }
+        "published_at": "2026-11-01T15:56:09Z",
+        "notes": "## Changes\n\n- **Originals without a backup.** A theme pack can now carry a firmware's original system icons and UI sounds, in a new `stock` layer. On a console whose backups are gone, such a pack brings the icon container back byte for byte when it has that firmware's files, and only then. On other firmware it puts back by name what a theme changed and says if anything could not be. A pack that holds a firmware's own file also writes it at full volume and no longer reports it as having no original.\n- **Theme details name them.** A pack with the original icons and sounds says so on the detail page and in the Library.\n- **Better detection of old backups.** A main background that shows the picture two or more system tiles share now counts as a theme's, so it is not kept as an original.\n\nTested on FW 13.00. Putting icons and sounds back by name was only tested in a simulation with 13.00's files, not on other firmware.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `d05de23402359b492cce5cbd3ae9db3657cf8225b2e831e1d9afa4318d7a1be8`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
+      },
+      "pins": [
+        {
+          "tag": "01.000.038",
+          "asset": "PPSA90210.zip",
+          "size": 9104756,
+          "sha256": "d9035950e6f593245ada7b886b15f8958cc63e72846451d5f702d58cd9a1bb26",
+          "content_version": "01.000.038",
+          "title_name": "Prospero Themes"
+        }
+      ]
     },
     {
       "id": "ps5lm-plus",
@@ -4844,7 +4952,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 490,
+      "stars": 492,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -4875,7 +4983,7 @@
         "stable-diffusion",
         "images"
       ],
-      "stars": 10,
+      "stars": 12,
       "release": {
         "tag": "v1.0.0",
         "asset": "PPSA99576.zip",
@@ -4935,7 +5043,7 @@
         "saves",
         "sync"
       ],
-      "stars": 102,
+      "stars": 104,
       "release": {
         "tag": "v1.4.0",
         "asset": "PPSA76677.zip",
@@ -5023,7 +5131,7 @@
       "tags": [
         "trophies"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "v0.1.1",
         "asset": "Trophy-Manager-v0.1.1-PPSA99842.zip",
