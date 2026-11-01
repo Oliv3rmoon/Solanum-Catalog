@@ -360,16 +360,24 @@
       ],
       "stars": 12,
       "release": {
-        "tag": "1.2.10",
-        "asset": "Emby5-1.2.10.zip",
-        "size": 32738639,
-        "sha256": "8245685e9139840fcb8e45e86e6fceb3fabb1264a27cebad5c407336674a8085",
-        "content_version": "01.002.010",
+        "tag": "1.2.11",
+        "asset": "Emby5-1.2.11.zip",
+        "size": 32785602,
+        "sha256": "282a27ce332022936873b2d668ce22f27714b86adad281a056fa4d936f106473",
+        "content_version": "01.002.011",
         "title_name": "Emby5",
-        "published_at": "2026-10-31T11:31:14Z",
-        "notes": "## What's new\n\n### Servers\n- Emby5 now connects to Emby- and Jellyfin-compatible servers that use their own name (unofficial builds and rebranded servers), instead of saying \"This is not an Emby or Jellyfin server\". It works out by itself whether such a server works like Emby or like Jellyfin.\n\n### Look\n- New background on the PS5 home screen when Emby5 is selected. Delete Emby5 from the Home UI and reload it with ShadowMountPlus.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.2.10.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.2.10** under **Settings > System > Installed version**."
+        "published_at": "2026-10-31T21:55:10Z",
+        "notes": "## What's new\n\n### Upscaling\n- Two new upscalers, both small neural networks that double the picture: **Film (FSRCNNX)** for live action and **Anime (ArtCNN)** for anime and other drawn pictures. They are in **Settings › Playback › Upscaling** and on the player's upscaling button, next to **Fast (FSR 1)** (until now just \"FSR 1\") and **Anime4K**.\n- **Auto** now goes by what is playing: **Anime** when the genres include Anime or Animation (for an episode, its series' genres), **Film** for other films and episodes, and **Fast** for Live TV. If the console can't keep up, it still steps down to Fast and then Off.\n- Your upscaling choice from earlier versions is kept.\n- Fixed upscaling turning off during playback with \"Off (GPU scratch … retrying)\" when the next video had a different size. Emby5 now sets aside the graphics memory it needs for upscaling once (106 MiB) and keeps it, instead of changing it for each video. **GPU scratch** under **L3** shows it.\n- Videos larger than 1080p now play at their own size without upscaling (the player says \"Off (source above 1080p)\"). They are already close to the TV's 4K.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.2.11.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.2.11** under **Settings > System > Installed version**."
       },
       "pins": [
+        {
+          "tag": "1.2.10",
+          "asset": "Emby5-1.2.10.zip",
+          "size": 32738639,
+          "sha256": "8245685e9139840fcb8e45e86e6fceb3fabb1264a27cebad5c407336674a8085",
+          "content_version": "01.002.010",
+          "title_name": "Emby5"
+        },
         {
           "tag": "1.2.9",
           "asset": "Emby5-1.2.9.zip",
@@ -399,15 +407,23 @@
       ],
       "stars": 6,
       "release": {
-        "tag": "v1.5.2",
-        "asset": "MediaPlayerClassicPS5-v1.5.2-PPSA99015.zip",
-        "size": 45512102,
-        "sha256": "3d214273c33ca01b1b3bbf85290064741cafb27e9a6857f4e768f57d8ae48190",
-        "content_version": "01.052.000",
-        "published_at": "2026-10-30T14:33:07Z",
-        "notes": "## Media Player Classic PS5 1.5.2\n\nFixes from a full code review. Nothing changes in how you use the player.\n\n### Fixed\n\n- **C++ exceptions inside the app.**\n  - Up to 1.5.1 the app's C++ runtime was half its own and half the console's. A C++ error thrown inside the app would have crashed it; Stella PS5 1.0 crashed that way starting any game.\n  - The whole runtime is now the app's own, and the build refuses an eboot that takes any of it from the console.\n  - A memory request that fails is now an error the code can handle, instead of stopping the app.\n  - With Debug logs on, `boot.log` says `[boot] exceptions: ok` at the start, and a SIGSYS crash is in the crash log.\n- **A thread the console refuses** (it caps how many an app has) ended the app. Now that file fails to open with a message, or plays with less (no sound, no disc read-ahead, tone mapping on fewer threads), and the app runs on.\n- **Blu-ray `.sup` and VobSub (`.idx` + `.sub`) subtitle files** beside a film, or opened with File > Load Subtitle, never loaded. They load now. VobSub works from the console's own storage only, not from a share or a disc.\n- **Bitmap subtitles (Blu-ray PGS, DVD, DVB) used too much memory.** Every picture of every bitmap track was kept for the whole film: gigabytes by the end of a Blu-ray remux with many PGS tracks.\n  - Over 256 MB, pictures of lines more than 30 s away are dropped and decoded again when needed.\n  - A subtitle line replayed after seeking back ends at the right time again.\n- **Updates.**\n  - `update.journal` now checks each replaced file's whole SHA-256, not its first MB. A journal left by 1.5.1 is still understood.\n  - The \"a newer version is available\" notification no longer holds up the window.\n- **Passwords on the screen.** Network passwords no longer show in:\n  - File > Open File...'s list of recent files;\n  - the title bar;\n  - Recent Files;\n  - failure messages and notifications.\n\n  The addresses still open with their passwords.\n- **Damaged or made-up files.**\n  - A font with absurd glyph sizes isn't drawn at gigabyte sizes.\n  - An audio file's cover over 8192 pixels a side isn't decoded; the logo shows instead.\n  - File > Save Image of a file with `%2F` in its name keeps the picture in the screenshots folder.\n- **Building.** Changed assets and a new version number are rebuilt without a `make clean`. The unused CRT shaders left over from the emulator ports are out of the app.\n\n### Updating\n\n- **From 1.5.1:** Help > Check for updates offers 1.5.2. Or send `MediaPlayerClassicPS5-v1.5.2.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload when you can: it carries the new helper.\n\n### Files"
+        "tag": "v1.5.3",
+        "asset": "MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip",
+        "size": 45521590,
+        "sha256": "ce4c8abf398538b52fde5095e1d5179455c80a3324aa99b531cae1f4e9cb7193",
+        "content_version": "01.053.000",
+        "title_name": "Media Player Classic PS5",
+        "published_at": "2026-10-31T22:51:48Z",
+        "notes": "## Media Player Classic PS5 1.5.3\n\nWhat [@Sulfurico-One64](https://github.com/Sulfurico-One64) asked for on [#3](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/3).\n\n### New\n\n- **Square with another action now does that action with the pointer showing too.**\n  - The action is set in Options > Player > Keys, for example Next audio track. Up to 1.5.2, Square was always the right-click while the pointer showed.\n  - With Square at its default action, nothing changes.\n  - **The right-click** is the touchpad pressed with two fingers. The context menu's commands are also in the menu bar (the Options button).\n  - **With \"The touchpad as the pointer\" off**, Square stays the right-click while the pointer shows, so a right-click is always there.\n  - **In menus, dialogs and the on-screen keyboard**, Square keeps its usual meaning.\n- **Fullscreen controls can wait for the pointer to reach them.** Under Options > Fullscreen > Hide controls in fullscreen there is now MPC-HC's choice:\n  - **Show when the pointer moves**: the default, as before.\n  - **Show when the pointer is over them**: the seek bar and the buttons appear only when the pointer is at the bottom of the screen, and hide a second after it leaves. Moving the pointer in a window over the film, such as Options while you style the subtitles, no longer brings them up over the subtitles.\n- **The picture follows when you hold a jump button.**\n  - This covers holding D-pad Left/Right, the right stick, L2/R2 with Left/Right, or any button given a jump.\n  - Up to 1.5.2 each repeat restarted the seek before it could show anything, so on a 4K film from a hard disk the picture hardly moved until you let go. Now the player goes from keyframe to keyframe and shows each picture before the next.\n  - When you let go, playback goes on exactly from the time shown. A single press is still exact.\n  - Dragging the seek bar works the same way.\n\n### Fixed\n\n- A held jump or a seek-bar drag no longer carries over into the next file, or into a window that opens while you hold it.\n- Dragging the volume slider when a window opened over it no longer sets the volume to 0.\n\n### Updating\n\n- **From 1.5.2:** Help > Check for updates offers 1.5.3. Or send `MediaPlayerClassicPS5-v1.5.3.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload when you can.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.5.3.elf`: send it to your payload loader (port 9021). It installs the app, then stays as the helper that unlocks it.\n- `MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip`: the app folder, used by Help > Check for updates. You don't need to download it yourself.\n- `mpc-ps5-v1.5.3-src.zip`: the source.\n\n### Status"
       },
       "pins": [
+        {
+          "tag": "v1.5.2",
+          "asset": "MediaPlayerClassicPS5-v1.5.2-PPSA99015.zip",
+          "size": 45512102,
+          "sha256": "3d214273c33ca01b1b3bbf85290064741cafb27e9a6857f4e768f57d8ae48190",
+          "content_version": "01.052.000"
+        },
         {
           "tag": "v1.5.1",
           "asset": "MediaPlayerClassicPS5-v1.5.1-PPSA99015.zip",
@@ -657,7 +673,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 182,
+      "stars": 183,
       "release": {
         "tag": "v1.5.5",
         "asset": "PPSA99810.zip",
@@ -696,7 +712,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 97,
+      "stars": 98,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -725,7 +741,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 23,
+      "stars": 25,
       "release": {
         "tag": "v1.0.17",
         "asset": "Crux2-v1.0.17.zip",
@@ -766,14 +782,24 @@
       ],
       "stars": 39,
       "release": {
-        "tag": "v1.3.4",
-        "asset": "PSFlyCast-v1.3.4.zip",
-        "size": 21993843,
-        "sha256": "610c4f853eb1c9e8a47115acb5e653943baa2ec02cdc7f4186bd5ab5a8d4dcb0",
-        "published_at": "2026-10-27T20:49:31Z",
-        "notes": "## New in v1.3.4\n\n**Added**\n\n- **Stick directions added to a control** (quick menu > Controls): push a\n  stick while setting a control and that direction is added to it, keeping\n  its button, for one game. Each direction of the right stick can be any\n  Dreamcast control, for a camera on buttons. A right-stick axis with a\n  control on it no longer also moves the triggers, the second stick or the\n  mouse.\n- **Motion aiming speed and smoothing**, and **Mouse movement: Right stick,\n  Motion or Both**: turning the controller moves the Dreamcast mouse.\n- **Original look** (Video): the console's own texture filtering and\n  mipmaps, 16-bit colour with dither and the flicker filter, in one switch.\n  Off by default.\n- **Sound output: Stereo or Mono** (Audio), in the console's own settings,\n  which games follow.\n- **Swap memory card** in the quick menu, while a game runs, as a card is\n  pulled out of a controller.\n- **Insert disc** lists the other discs of the game's set first.\n- **Peripherals: As the game says** (Controls, off by default): the light\n  gun, keyboard, microphone or vibration pack the disc says the game uses.\n- **Memory cards:** copy all of a game's saves at once; a save of the same\n  name asks to be overwritten.\n- **Fast forward speed** (2x to 8x, or Unlimited) and **sound while fast\n  forwarding**.\n- **The game's graphics modes in `flycast-boot.log`.**\n\n**Changed**\n\n- **Widescreen game patches are off by default** again, also on a console\n  that already has PSFlyCast: with them a patched game's picture is\n  stretched to 16:9 while Widescreen says 4:3.\n- **Broadcast and Language \"Follow the game\"** work: a PAL disc starts in\n  PAL, with its own 50/60 Hz screen, and the console's language follows the\n  disc's region.\n- **Render-to-texture effects** (reflections, mirrors) in the game's 16-bit\n  colour with dither, the mipmap level right at a higher resolution, and\n  the per-texture sharpening at angles, with Original look.\n- **Sound:** the volume of a fading voice reads back as the hardware gives\n  it (busy music no longer loses notes), mono ignores pan, the vibrato reset\n  holds.\n- **Copy-protected saves** are copied like any other.\n- **Open disc lid** is offered only for a game on several discs.\n- **Flycast** is its `dev` branch at 23d212f4f (27 October 2026): the flash\n  and saves are written safely, the sound chip's DMA at its real rate.\n\n**Fixed**\n\n- **The built-in BIOS:** reading a CD's subcode could stop the emulator;\n  streamed reads, whole-sector reads, the old table of contents, abort and\n  the reset and exit calls now work as on the console. A game going back to\n  the console's menu returns to the library.\n- **A disc swapped in** is read again, so a wrong disc is noticed.",
-        "content_version": "01.003.092"
-      }
+        "tag": "v1.3.5",
+        "asset": "PSFlyCast-v1.3.5.zip",
+        "size": 21969724,
+        "sha256": "70ab96b021731af85a948dcba71bc701c2883e11694c4a89dda8c3ecdf38e09c",
+        "content_version": "01.003.094",
+        "title_name": "PSFlyCast",
+        "published_at": "2026-11-01T05:12:07Z",
+        "notes": "<html><body>\n<!--StartFragment--><html><head></head><body><h2>New in v1.3.5</h2>\n<p><strong>Added</strong></p>\n<ul>\n<li><strong>Threads on cores of their own</strong> (Settings &gt; System, on), as Crux2 has\nthem: the emulator on a processor of its own with its core's second thread\nleft empty, the renderer and the interface on another core, and everything\nelse on the cores left over. With the graphics driver on its own thread,\n<strong>Graphics driver on a core of its own</strong> (on) gives that thread a third.</li>\n\n<p><strong>Changed</strong></p>\n<ul>\n<li><strong>Flycast</strong> is its <code>dev</code> branch at 2c83abc (28 October 2026): the sound chip's DMA at its real rate.</li>\n<li><strong>The graphics driver</strong> is built from Crux2's newest driver patches: Mesa\nmain of 31 October 2026, with fixes to the shader compiler and to how\npipelines are kept in the shader cache.</li>\n</ul>\n<p><strong>Fixed</strong></p>\n<ul>\n<li><strong>PSFlyCast could not start on a firmware without variable refresh:</strong> it\nasked the console for a function (<code>sceVideoOutVrrUnpegFromFixedRate</code>) that\nnot every firmware has, and a title asking for one the console lacks does\nnot start. It is now looked for while PSFlyCast runs; without it, variable\nrefresh is simply refused.</li>\n<li><strong>A spurious wake-up</strong> between the emulator's and the renderer's threads\nno longer passes for a frame handed over.</li>\n</ul>\n<p>Your settings, saves and games are kept when this version is installed over an earlier one. Two new settings are on: Threads on cores of their own and Graphics driver on a core of its own (Settings &gt; System); turn the first off if a game runs worse.</p>\n\n<h2>Install or update</h2>\n<ol>\n<li>Copy the <code>PPSA99247</code> folder from the ZIP to your homebrew folder on the console (<code>/data/homebrew/</code>), over an older one if you have it, or update from Settings &gt; About &gt; Check for updates.</li>\n<li>Your own games in <code>games/</code> (or on a USB drive or a network share), your own BIOS in <code>bios/</code>. None included, none ever will be.</li>\n<li>Read <code>LEGAL.txt</code> and <code>README.md</code> in the folder. Shaders are compiled again once after the update.</li>\n</ol>\n<h2>Reporting problems</h2>\n<p>Open an issue with <code>flycast-boot.log</code> from the title folder, copied before PSFlyCast is started again. Never attach games, BIOS files, firmware or keys.</p>\n<h2>Source</h2>"
+      },
+      "pins": [
+        {
+          "tag": "v1.3.4",
+          "asset": "PSFlyCast-v1.3.4.zip",
+          "size": 21993843,
+          "sha256": "610c4f853eb1c9e8a47115acb5e653943baa2ec02cdc7f4186bd5ab5a8d4dcb0",
+          "content_version": "01.003.092"
+        }
+      ]
     },
     {
       "id": "porpoise",
@@ -1066,7 +1092,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 429,
+      "stars": 430,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1433,7 +1459,7 @@
         "llm",
         "chat"
       ],
-      "stars": 67,
+      "stars": 68,
       "release": {
         "tag": "01.006.000",
         "asset": "PPSA99004.zip",
@@ -1462,7 +1488,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 762,
+      "stars": 769,
       "release": {
         "tag": "v0.9.1",
         "asset": "ps5lm-app-v0.9.1.zip",
@@ -1491,16 +1517,26 @@
         "ps1",
         "swanstation"
       ],
-      "stars": 37,
+      "stars": 38,
       "release": {
-        "tag": "build25",
-        "asset": "PSSwanStation-PS5-PPSA99248-build25.zip",
-        "size": 37187277,
-        "sha256": "9d48802af24b29b956f919ebc2e9b684e2f1890ded11aa6ed32926442a59a99d",
-        "published_at": "2026-10-25T13:19:15Z",
-        "notes": "# PSSwanStation build 25\n\n## Added\n\n- **GameShark codes typed in.** \"Add a GameShark code\" in a game's Cheats asks for a name, then the code on a keypad; it is switched on at once and kept in the game's own `cheats/<serial>.cht`.\n- **Cloud saves** (Settings, Games and saving): memory cards, and save states if wanted, kept in Google Drive or Dropbox too, both ways. Signing in takes a phone and a code.\n- **Sound delay** (Settings, Sound): the game's sound kept 60, 32 or 16 ms ahead of the speakers.\n- **MMPX**, a scaling filter for pixel art.\n- **The PlayStation Mouse**: the touch pad (or the right stick) moves it; the touch pad pressed, Cross or R1 is its left button, Circle or L1 its right.\n- **\"Differs from the original\"** (Settings, Picture; \"Look\" in the menu over a game): every setting in force that is not as the PlayStation had it, put back one by one or all at once.\n- **Console tuning** (Settings, System): sound and the USB controllers ahead of the emulator and background jobs after it, the graphics driver on its own thread, and how long the driver checks and sleeps while it waits for the GPU. All off, or the driver's own, unless chosen.\n- **The boot log measures the game**: with \"Measure the game in the boot log\", a line every five seconds of play (speed, worst frame, what each part of a frame took, draws, render passes and barriers per frame); always, a line when a game has run under 95 % for two seconds, and its average speed when it closes.\n\n## Changed\n\n- **A new install looks and runs as the PlayStation did**: the software renderer at the console's resolution, its interlacing, the cracks between polygons, the edges a television hid cropped, no texture pack, the CPU's instruction cache. An install from before keeps its settings.\n- **Picture presets**: Original, Original on a TV (composite signal, curved picture tube), Fast (2x), Normal (4x), Enhanced (6x), Beautiful (8x) and Speedrun.\n- **The CPU's instruction cache as the PlayStation has it**: a line takes 4 to 7 cycles to fill from RAM (it took 1 cycle a word), and the same code reached through either of its addresses is cached once.\n- **The graphics driver is Mesa 27's RADV** with Crux2's fixes for this console: the GPU's GFX10.1 hardware workarounds (against wrong shader results and GPU hangs), memory kept until the GPU is done with it (against a whole-console hang), a shader cache that stays on, cheaper draw calls.\n- **While a game falls behind the screen** a third frame may wait to be shown, so a late frame no longer holds the next one back.\n- Newer parts: SwanStation's newest (libretro/swanstation 631f0fb), libsmb2 (727feaa) and libnfs (371333f).\n\n## Fixed",
-        "content_version": "01.025.000"
-      }
+        "tag": "build26",
+        "asset": "PSSwanStation-PS5-PPSA99248-build26.zip",
+        "size": 37201334,
+        "sha256": "f625f9af19abdbfb99e3135c81e7e6aa509cc8c9607b857e0e158fbe3ffba9bf",
+        "content_version": "01.026.000",
+        "title_name": "PSSwanStation",
+        "published_at": "2026-11-01T05:17:37Z",
+        "notes": "# PSSwanStation build 26\n\n## Added\n\n- **The renderer changes while a game runs.** Software and Vulkan, both ways: the game goes on where it was, with no restart. The picture presets that change the renderer apply at once too.\n- **Multi-disc games as one** (Settings, Interface, View; on): the discs of a game are one entry, sharing one memory card. Discs are now also found when each is in a folder of its own named after the disc (`Game (Disc 1)/...`), in folders named only `CD1`, `CD2` (`Game/CD1/...`), and by \"CD2\" or \"Disc 2\" at the end of a name. Off: each disc is an entry of its own.\n- **Variable refresh, really asked for**: \"120 Hz, variable refresh rate\" (Display output) now asks the output to leave its fixed rate, so on a TV with VRR each frame is shown as soon as it is ready, where the console's firmware offers it (the boot log says whether it does).\n\n## Changed\n\n- **The graphics driver is Mesa main of 31 October 2026** (27.0.0-devel, as Crux2 1.0.17 builds it): fixes to the shader compiler and to how graphics pipelines are found in the shader cache.\n- Newer parts: libsmb2 (c6e4997) and libnfs (affe4c8).\n\n## Fixed\n\n- **120 Hz fell back to 60 Hz on TVs with VRR**: before the first frame such a TV refreshes at 48 Hz, which was taken for a TV still at 60 Hz.\n- **Cover downloads could stop for the rest of a run** when a cover downloaded but could not be saved (a full or read-only drive); the boot log now says why it was not saved (bobrass, pull request #5).\n\n## Source\n\nThis ZIP was built from PSSwanStation commit `fb1b4f861762d93a4b0c3766589a82256fedc164`, this release's tag. The title is distributed under the GNU General Public License, version 3, as a whole; the source of every part is public at the revision it was built from:\n\n- PSSwanStation: SwanStation (the emulator, with the libraries in its tree: libchdr with LZMA and zstd, xxHash, Xbyak, stb, libretro-common, OpenBIOS) and the PS5 frontend in ps5/ (with miniz, stb_vorbis, stb_truetype, pugixml and nanosvg (ES-DE themes), dr_mp3, AMD's FSR 1 and CAS headers, NVIDIA Image Scaling, AMD FidelityFX SDK's FSR3 optical flow through swordpdf's ps5-framegen and Mihawk's MihawkGen frame generation with its network, and PS5SX2's USB pad decoder, an HTTPS client of its own on mbedTLS, Crux2's clock and pacing wait, the disc drive after DuckStation's (GPL) and 5S2CD's disc readers, Project Nayuki's QR Code generator, the sandbox elevation client and Font Awesome Free's icons): [`fb1b4f861762`](https://github.com/Press5elect/PSSwanStation/tree/fb1b4f861762d93a4b0c3766589a82256fedc164)"
+      },
+      "pins": [
+        {
+          "tag": "build25",
+          "asset": "PSSwanStation-PS5-PPSA99248-build25.zip",
+          "size": 37187277,
+          "sha256": "9d48802af24b29b956f919ebc2e9b684e2f1890ded11aa6ed32926442a59a99d",
+          "content_version": "01.025.000"
+        }
+      ]
     },
     {
       "id": "xpsemu",
@@ -1587,7 +1623,7 @@
         "screenshots",
         "capture"
       ],
-      "stars": 28,
+      "stars": 29,
       "release": {
         "tag": "1.0",
         "asset": "PPSA99773.zip",
@@ -1855,7 +1891,7 @@
         "arcade",
         "fbneo"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "v2.1",
         "asset": "FBNeoPS5-v2.1-PPSA99924.zip",
@@ -1951,7 +1987,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 341,
+      "stars": 347,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -1994,18 +2030,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 79,
+      "stars": 87,
       "release": {
-        "tag": "v2.0.7",
+        "tag": "v2.0.8",
         "asset": "PPSA11018.zip",
-        "size": 312221196,
-        "sha256": "60201f19788fab9fa23fa573198c2761141c35bc9745d84fa919f374da6e59cf",
-        "content_version": "02.000.007",
+        "size": 317667596,
+        "sha256": "591278b7a0ebf16d2f764326647c0c438d09a0de721d4977d3d036632cc7123d",
+        "content_version": "02.000.008",
         "title_name": "PC5",
-        "published_at": "2026-10-31T19:39:30Z",
-        "notes": "PC5 2.0.7 fixes big games running out of memory and makes updates finish sooner.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **Updates finish sooner**: the last step of an update, deleting the files it no longer needs, no longer keeps you waiting. PC5 does it in the background after it restarts.\n\n### Fixes from your reports\n\n- **\"Failed to allocate memory\" in big Direct3D 11 and 12 games**: the console's memory is shared between a game and its graphics, but games were told they had 8 GB of video memory of their own. One that filled its textures to that ran the rest of the console out of memory, often at a cutscene or a new area. **Video memory** (△ › Graphics) is now offered for 64-bit Direct3D 10, 11 and 12 games too, and its **Auto** tells them 4 GB. **Full** tells them all 8 GB, as before.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n- Changing a game's controller mode, resolution or aspect ratio while it runs.\n- Updating a PC5 installed as a package (`.pkg`): it updates from a folder only."
+        "published_at": "2026-10-31T23:16:00Z",
+        "notes": "PC5 2.0.8 speaks your language, keeps your own button mapping for every game, and installs games already on a USB drive at once.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **PC5 in your language**: PC5's screens and its web page now follow the PS5's language, in 27 of the console's languages (Arabic and Thai to follow). **Settings › System › Language** picks another. The translations are new: if something reads wrong in yours, see [Translations](https://github.com/bornaradusin/PC5/wiki/Translations) for how to send a fix.\n- **Your own button mapping**: in a game's **Button mapping**, **Save as my mapping** keeps the layout for every game. Games set up from then on start with it, and **Use my mapping** puts it on any game. It stays when a game is uninstalled.\n- **More Video memory choices**: for a 64-bit Direct3D 10, 11 or 12 game, **△ › Graphics › Video memory** now has **5 GB** and **6 GB** between **Auto** (4 GB) and **Full** (8 GB), for a game that warns there is too little video memory on Auto. If it then runs out of memory, go back a step.\n\n### Fixes from your reports\n\n- **Installing to a USB drive copied a game that was already on it**: a game anywhere on the USB drive, not only in its `PC5/INSTALL` folder, is now moved into the drive's `PC5` folder at once instead of copied, so it doesn't take the time or the space twice.\n- **A game closed at once because PC5 started its crash reporter in its place**: a game that starts an error monitor as it boots now carries on without it.\n- **A mouse pointer stuck in a corner while playing with the controller**: the pointer now hides when it hasn't been moved or clicked for 5 seconds, and shows again as soon as you move it (a stick, the touchpad or a mouse) or click.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself."
       },
       "pins": [
+        {
+          "tag": "v2.0.7",
+          "asset": "PPSA11018.zip",
+          "size": 312221196,
+          "sha256": "60201f19788fab9fa23fa573198c2761141c35bc9745d84fa919f374da6e59cf",
+          "content_version": "02.000.007",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.0.3",
           "asset": "PPSA11018.zip",
@@ -2074,7 +2118,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 912,
+      "stars": 919,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2105,7 +2149,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 243,
+      "stars": 244,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2135,7 +2179,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1603,
+      "stars": 1609,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2247,7 +2291,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 19,
+      "stars": 20,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99621.zip",
@@ -2527,7 +2571,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "v1.0.0",
         "asset": "Dusklight-PS5-v1.0.0.zip",
@@ -2590,7 +2634,7 @@
         "tactics",
         "final-fantasy"
       ],
-      "stars": 0,
+      "stars": 1,
       "release": {
         "tag": "ps5-v1.0.0",
         "asset": "PPSA98512.zip",
@@ -2819,7 +2863,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 80,
+      "stars": 81,
       "release": {
         "tag": "build-131",
         "asset": "halo-ps5-release.zip",
@@ -2899,7 +2943,7 @@
         "amiga",
         "platformer"
       ],
-      "stars": 20,
+      "stars": 21,
       "release": {
         "tag": "v1.0.2",
         "asset": "JamesPond2-PS5-1.0.2.zip",
@@ -2961,7 +3005,7 @@
         "zelda",
         "adventure"
       ],
-      "stars": 14,
+      "stars": 15,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99670.zip",
@@ -3422,7 +3466,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "01.000.001",
         "asset": "PPSA99320.zip",
@@ -3771,7 +3815,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "v1.0.3",
         "asset": "WindWaker-PS5-v1.0.3.zip",
@@ -3990,16 +4034,24 @@
       ],
       "stars": 3,
       "release": {
-        "tag": "v1.3.0",
+        "tag": "v2.0.0",
         "asset": "prospero-hifi.zip",
-        "size": 19446913,
-        "sha256": "9df62d5c1128af0d92aa20957a3d6166fc798a765ac1a4eb26a9b3293957261f",
-        "content_version": "01.030.000",
+        "size": 20257827,
+        "sha256": "06c76e87b81ca40117ddfe565c0810fa198e950f6ad975baae2e15441c1c2c96",
+        "content_version": "02.000.000",
         "title_name": "Prospero Hi-Fi",
-        "published_at": "2026-10-31T11:48:33Z",
-        "notes": "## Prospero Hi-Fi v1.3.0\n\n- Added 11 full-width visualizer styles with transparent backgrounds and theme colors, plus dedicated palettes for selected styles.\n- Added an edge-to-edge fullscreen visualizer. Press Cross while highlighting the visualizer to expand it, and Circle to return.\n- D-pad Left/Right cycles through visualizers while highlighted or expanded and saves your selection.\n- Added GPU rendering for smoother visuals and improved fullscreen performance.\n- Improved music response with continuous audio analysis, wider frequency coverage, stereo handling and playback-aligned timing.\n- Added an Equalizer/Visualizer dialog to the fullscreen player, with controller icons, first-entry focus and L1/R1 tab switching.\n- Moved Equalizer into Settings and added visualizer settings to the web interface.\n- Moved the track counter directly beside **NOW PLAYING**.\n- Mini-player, web and remote interfaces retain the stock visualizer.\n- Fixed a crash when starting playback caused by audio-analysis buffers exceeding the decoder thread’s stack."
+        "published_at": "2026-11-01T00:18:45Z",
+        "notes": "# Prospero Hi-Fi v2.0.0 – Major Update\n\nProspero Hi-Fi v2.0.0 is here!\n\nThis release brings one of the biggest updates yet, introducing a significantly improved interface, extensive appearance customization, new music management features, internet radio, expanded audio support, and performance optimizations.\n\nThe focus has been on making Prospero Hi-Fi more customizable, responsive, and enjoyable to use, whether you're listening directly on your PS5 or controlling it remotely.\n\n### New Features\n- **Playlists:** Create and manage custom playlists with artwork support.\n- **Internet Radio:** Stream stations with live ICY metadata, artwork, and automatic reconnection.\n- **Music Collections:** Improved album browsing, metadata retrieval, pagination, and selectable List/Grid layouts.\n- **Audio Support:** Added AAC-LC and ALAC playback for M4A files.\n- **Physical CDs:** Improved disc browsing, metadata handling, and added disc eject support.\n\n### Interface & Appearance\n- Added **Modern and Classic** interface styles, including translucent glass effects and traditional flat layouts.\n- Added animated backgrounds with **Ambient Drift, Aurora, and Gradient Waves**, plus adjustable animation speed (25–200%).\n- Added adjustable interface opacity (50–100%), improved background transparency, and refined OLED, Dark, and Light themes.\n- Added preset and custom accent colors, with independent visualizer color customization.\n- Redesigned the fullscreen player with improved alignment, spacing, optional shared background cards, and dynamically scaled artwork that maintains its aspect ratio.\n- Improved navigation, focus indicators, button styling, and visual consistency throughout the application.\n- Reorganized Settings, moving display-related options into Appearance and automatically disabling unavailable settings.\n- Improved Files, Collections, and Radio browsing with cleaner layouts, artwork handling, and pagination.\n- Redesigned the **web interface** with consistent margins, simplified navigation, responsive desktop/mobile layouts, and synchronized accent colors.\n- Removed Screen Control to simplify remote functionality.\n\n### Performance & Stability\n- Optimized playback initialization, track preloading, and gapless transitions.\n- Improved SMB playback initialization and network responsiveness.\n- Optimized artwork loading, visualizer rendering, and background processing.\n- Reduced interface overhead, including when the web interface is connected.\n- Various stability, navigation, and usability improvements.\n\n---\n\nThank you to everyone supporting the project and providing feedback. Enjoy v2.0.0!"
       },
       "pins": [
+        {
+          "tag": "v1.3.0",
+          "asset": "prospero-hifi.zip",
+          "size": 19446913,
+          "sha256": "9df62d5c1128af0d92aa20957a3d6166fc798a765ac1a4eb26a9b3293957261f",
+          "content_version": "01.030.000",
+          "title_name": "Prospero Hi-Fi"
+        },
         {
           "tag": "v1.2.0",
           "asset": "prospero-hifi.zip",
@@ -4066,7 +4118,7 @@
         "music",
         "spotify"
       ],
-      "stars": 22,
+      "stars": 23,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99061.zip",
@@ -4583,7 +4635,7 @@
         "saves",
         "backup"
       ],
-      "stars": 26,
+      "stars": 27,
       "release": {
         "tag": "v1.3.16",
         "asset": "PPSA99700.zip",
@@ -4661,7 +4713,7 @@
         "jailbreak",
         "pldmgr"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v00.001.001",
         "asset": "PPSA67670.zip",
@@ -4761,7 +4813,7 @@
         "themes",
         "home-screen"
       ],
-      "stars": 19,
+      "stars": 20,
       "release": {
         "tag": "01.000.038",
         "asset": "PPSA90210.zip",
@@ -4792,7 +4844,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 489,
+      "stars": 490,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -4892,7 +4944,7 @@
         "content_version": "01.004.000",
         "title_name": "RommPS",
         "published_at": "2026-10-30T05:19:40Z",
-        "notes": "Another significant update packing a plethora of features. I've spent a good amount of time optimizing connection handling as well as loading of covers and information, especially for larger libraries. This update also brings significant overhaul of save sync support for those consoles that are a bit more involved, like the Switch and 3DS.\n\n### New\n\n- RomM collections support (Thanks @matschi95)\n- Native notifications support.\n- Direct emulator profile updates in app, no more waiting for a new app version.\n- Proper PS2 per-game memory card support. (Thanks to @herobeniyoutube).\n- Additional animations during library and cover loading.\n- Different versions, discs, update files, or DLCs are now properly shown under a single game and individually downloadable.\n- Additional game information displayed in details view.\n- Emulator support: GBCXY (Game Boy / Color), Mupen64Plus PS5, Snes9x PS5, Genesis Plus GX PS5, Beetle PCE PS5, FBNeo PS5, PSP5, Crux2, Seedee5, and PS5-ECAM\n- Fixed: PSP games that install data to the memory stick no longer fail to sync.\n- PS2 per-game saves corrected and syncing as expected. ([#32](https://github.com/s0liton/RommPS/issues/32))\n\n### Fixed\n\n- DS saves sync in PS5CEMU-HAR ([#30](https://github.com/s0liton/RommPS/issues/30)).\n- Multiple emulators per game platform are now mounted instead of copied.\n- Resting the console with a game open no longer counts as closing it.\n- Covers stay on screen when a game is downloaded or removed.\n- PS4: less memory used with big emulator setups.\n- Renamed game consoles in settings to reflect their proper brand names.\n- Various UI improvements since 1.2.1 (Thanks @jheyneman) \n\n### Good to know\n\n- Pair RommPS with RomM again to see collections. RommPS tells you when.\n- Switch saves sync for one Switch user per emulator, the one mapped to the first PS5 user.\n- Xbox saves move only while XPSemu is closed.\n- Crux2 and CD-i save states only load in the emulator that made them."
+        "notes": "Another significant update packing a plethora of features. I've spent a good amount of time optimizing connection handling as well as loading of covers and information, especially for larger libraries. This update also brings significant overhaul of save sync support for those consoles that are a bit more involved, like the Switch and 3DS.\n\nAn extra special thank you to @jheyneman for his extensive testing since the beginning.\n\n### New\n\n- RomM collections support (Thanks @matschi95)\n- Native notifications support.\n- Direct emulator profile updates in app, no more waiting for a new app version.\n- Proper PS2 per-game memory card support. (Thanks to @herobeniyoutube).\n- Additional animations during library and cover loading.\n- Different versions, discs, update files, or DLCs are now properly shown under a single game and individually downloadable.\n- Additional game information displayed in details view.\n- Emulator support: GBCXY (Game Boy / Color), Mupen64Plus PS5, Snes9x PS5, Genesis Plus GX PS5, Beetle PCE PS5, FBNeo PS5, PSP5, Crux2, Seedee5, and PS5-ECAM\n- Fixed: PSP games that install data to the memory stick no longer fail to sync.\n- PS2 per-game saves corrected and syncing as expected. ([#32](https://github.com/s0liton/RommPS/issues/32))\n\n### Fixed\n\n- DS saves sync in PS5CEMU-HAR ([#30](https://github.com/s0liton/RommPS/issues/30)).\n- Multiple emulators per game platform are now mounted instead of copied.\n- Resting the console with a game open no longer counts as closing it.\n- Covers stay on screen when a game is downloaded or removed.\n- PS4: less memory used with big emulator setups.\n- Renamed game consoles in settings to reflect their proper brand names.\n- Various UI improvements since 1.2.1 (Thanks @jheyneman) \n\n### Good to know\n\n- Pair RommPS with RomM again to see collections, which gives you the needed collections permissions.\n- Switch saves sync for one Switch user per emulator, the one mapped to the first PS5 user. I'll work on multiple profile support."
       }
     },
     {
@@ -4913,7 +4965,7 @@
         "startup-tune",
         "payloads"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "v00.005.000",
         "asset": "PPSA69426.zip",
