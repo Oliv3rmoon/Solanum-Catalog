@@ -72,16 +72,24 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "01.002.004",
+        "tag": "01.002.005",
         "asset": "PPSA99003.zip",
-        "size": 40737537,
-        "sha256": "f951fd494c0627dd6c8f5be9dd1573e4ce828cc0be2ee4eab6998a8ac1ed84a1",
-        "content_version": "01.002.004",
+        "size": 40809810,
+        "sha256": "28cafa9a69fa7a3cc264a08260b76eae70d78dd3eb441b17b53165563b46ceac",
+        "content_version": "01.002.005",
         "title_name": "Physalis",
-        "published_at": "2026-11-01T09:04:16Z",
-        "notes": "**Physalis v1.002.004: long lists, faster.** Scroll faster, jump to a letter in On demand, and why a channel didn't open in plain words.\n\n## What changed\n\n- **Faster scrolling.** Hold Up or Down and the focus goes faster the longer you hold it: two rows a step after about a second, then four, then eight. In Live TV, Favorites, On demand, Sources and the provider's categories. L2 and R2 still turn a page; held for 3, 5 and 7 seconds they turn two, four and eight pages at a time, and they now turn pages of the provider's categories too (Touchpad on Live TV).\n- **Letters in On demand.** In Movies, TV shows and their categories, press Right to reach the letters beside the list, # and A to Z as on Live TV. Up and Down jump to the next letter that has titles, and Left, Cross or Circle go back to the list. Going onto the letters sorts the list Title A–Z. Ported from ProsperoTV, by JMU Technologies.\n- **Network errors in plain words.** A channel that doesn't open says why in your language, such as \"the channel's server could not be reached in time; it may be offline or blocked on this network (curl 28)\", instead of \"connection failed (native error 0xFFFFD8D4)\". When a channel's server can't be reached, it is no longer asked three times over (about thirty seconds for some channels); Physalis says so after the first try. Some of the public list's channels are on servers that no longer take connections. A channel list that can't be downloaded says why the same way.\n\n## Install\n\n- `PPSA99003.zip`: choose **Update now** when Physalis offers this release, or extract the ZIP and copy its `PPSA99003` folder over your current one (usually `/data/homebrew/PPSA99003`). Your sources, favorites and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99003.zip -R Oliv3rmoon/Physalis` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoTV, to **JMU Technologies**, whose letters for ProsperoTV's On demand these are, and to **ThatGuyKalvin** and everyone who carries it on and tests it."
+        "published_at": "2026-11-01T21:04:56Z",
+        "notes": "**Physalis v1.002.005: MPEG-2 channels.** Channels in MPEG-2 play, a channel that can't play says what it is, and a new version is found while Physalis stays on.\n\n## What changed\n\n- **MPEG-2 channels.** Channels and videos in MPEG-2, as many standard-definition broadcast channels are, now play, and so does the older MPEG-1. The PS5's video decoder has no MPEG-2, so Physalis decodes it on the console's processor, up to 1920 × 1080. Interlaced channels are shown field by field to keep their motion, and a 4:3 or 16:9 picture is shown at the shape the channel gives it. In MPEG-TS, HLS, MP4 and Matroska. With **Stats line** on, it says MPEG2.\n- **Why a channel didn't play.** A live channel whose video Physalis can't decode said only \"The channel uses an unsupported media format.\" It now says what the channel sent, such as \"The channel uses an unsupported media format: the programme has no supported video (stream type 0x10).\", and the failure report saved to USB keeps the stream types.\n- **New versions while it stays on.** Physalis looked for a new version only when it started. It now looks again every four hours while it stays on, only while you're in the menu, never while a channel or video plays: a check that comes due while you watch waits until you're back. A version you put off with **Later** isn't offered again until Physalis is started again.\n\n## Install\n\n- `PPSA99003.zip`: choose **Update now** when Physalis offers this release, or extract the ZIP and copy its `PPSA99003` folder over your current one (usually `/data/homebrew/PPSA99003`). Your sources, favorites and settings stay.\n- `SHA256SUMS`: the checksum of the download. `gh attestation verify PPSA99003.zip -R Oliv3rmoon/Physalis` checks that this repository's workflow built it.\n\n## Thanks\n\nTo **BlackBearReloaded**, who created ProsperoTV, and to **ThatGuyKalvin** and everyone who carries it on and tests it."
       },
       "pins": [
+        {
+          "tag": "01.002.004",
+          "asset": "PPSA99003.zip",
+          "size": 40737537,
+          "sha256": "f951fd494c0627dd6c8f5be9dd1573e4ce828cc0be2ee4eab6998a8ac1ed84a1",
+          "content_version": "01.002.004",
+          "title_name": "Physalis"
+        },
         {
           "tag": "01.002.003",
           "asset": "PPSA99003.zip",
@@ -1542,7 +1550,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 779,
+      "stars": 782,
       "release": {
         "tag": "v0.10.0",
         "asset": "ps5lm-app-v0.10.0.zip",
@@ -2094,18 +2102,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 94,
+      "stars": 95,
       "release": {
-        "tag": "v2.1.1",
+        "tag": "v2.1.2",
         "asset": "PPSA11018.zip",
-        "size": 318077798,
-        "sha256": "c539a06396c003e39cfffa5c75014c1e45d884a1999813816f518760436deb6d",
-        "content_version": "02.001.001",
+        "size": 319977026,
+        "sha256": "168358bd05202cf41c7eb877ed9039759872d426465a102a78787b1d3eadaabe",
+        "content_version": "02.001.002",
         "title_name": "PC5",
-        "published_at": "2026-11-01T12:51:48Z",
-        "notes": "PC5 2.1.1 lets you choose which drive a game installs on, brings memory and crash fixes from prospero-win's newest work, gives Grand Theft Auto IV the options it was tested with, adds texture packs for Direct3D 9 games, and two fixes from Mihawk OS.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **Grand Theft Auto IV: The Complete Edition's options**: PC5 starts `GTAIV.exe` with the options the game was tested with on the console, so a copy that starts without the Rockstar Games Launcher no longer limits its settings to the video memory it finds, starts full screen at the game's **Resolution** and 60 Hz, and plays more smoothly through DXVK. **Current Steam and Rockstar copies still check for the Rockstar Games Launcher as they start and stop with a message that it's needed: like every game that needs a store's launcher, they don't run in PC5.** A `launch.txt` beside `GTAIV.exe` replaces PC5's options (see [Launch options](https://github.com/bornaradusin/PC5/wiki/Launch-options)).\n\n- **Choose the drive to install on**: with more than one USB drive (or a USB drive and extended storage) plugged in, left and right in the install question now go through the console and every drive, not just one of them ([#249](https://github.com/bornaradusin/PC5/issues/249)).\n\n- **Texture packs for Direct3D 9 games**: DXVK can save a game's textures and show your own sharper pictures in their place, set in the game's `env.txt` (see [Launch options](https://github.com/bornaradusin/PC5/wiki/Launch-options#texture-packs-direct3d-9-games)).\n\n### Fixes\n\n- **Stuck at \"Closing\" after leaving a game**: a game's last frames were still on their way to the screen as PC5 closed it, which could leave the console at its \"Closing\" screen until a reboot. PC5 now waits for them, leaving to PC5 or to the home screen.\n- **OpenGL games slowing to a few fps and crashing after a while**: Wine's own memory now comes from the console's main memory, with room kept for the game, instead of the small pool that ran out.\n- **Games that make thousands of threads or fibers ran out of memory**: their stacks now take only what they use, as on Windows, not their whole size at once.\n- **Emulators that recompile code ran stale code** (black screen, 0 fps): a page made read-only beside a writable one now faults as on a PC, and accesses beside a protected page stop being slowed down once they come often (Unity games)."
+        "published_at": "2026-11-01T19:32:08Z",
+        "notes": "PC5 2.1.2 brings 120 Hz output with frame generation up to 120 fps, lets you change a game's text files on the console and from the web page, a new loading screen, and keeps the last games in view on Home.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **120 Hz output**: **Settings › In games › 120 Hz output** (off by default). On, with a TV or monitor that takes 120 Hz and the PS5's own **Settings › Screen and Video › Video Output › Enable 120 Hz Output** set to **Automatic**, games show up to 120 fps instead of 60, and Windows tells them the screen is 120 Hz. Off, or with a TV without it, everything stays at 60 Hz as before.\n\n- **Frame generation up to 120 fps**: with 120 Hz output on, a game's **△ › Graphics › Frame generation** has three choices, changed with left and right:\n  - **Off**.\n  - **60 → 120 fps**: the game held at 60 with a frame made between each two (PC5's frame generation, as before).\n  - **40 → 120 fps**: the game held at 40 with two frames made between each two, for a game that can't hold 60 (MihawkGen, from Mihawk OS).\n\n  With 120 Hz output off it's **Off** or **30 → 60 fps** as before; a game set to 40 → 120 uses 30 → 60 until 120 Hz output is on again.\n\n- **Change a game's text files** ([#263](https://github.com/bornaradusin/PC5/discussions/263)):\n  - **On the console**: in the **File manager** (or a game's **△ › Manage › Game files**), **✕** on a text file (`.ini`, `.cfg`, `.txt` and the like) opens it as lines. **✕** changes a line with the PS5's keyboard; **△** adds a line below or above, deletes one, or saves. Back asks before leaving changes unsaved. In a read-only place the file is only shown.\n  - **On the web page**: each game's **Files** opens its folder, or its **Windows** (the registry's `.reg` files, and `drive_c` with saves and settings), and a text file in a box with your computer's or phone's keyboard.\n  - Both save the file as it was: the same encoding (UTF-8, UTF-16 or the older one-byte-a-letter kind) and the same line ends, so Windows games read it as before. Change `.reg` files only when no game is running.\n\n- **A new loading screen**: a gaming PC glowing blue, **LAUNCHING GAME** and a bar filling while the game starts, in place of the falling green code and the game's name."
       },
       "pins": [
+        {
+          "tag": "v2.1.1",
+          "asset": "PPSA11018.zip",
+          "size": 318077798,
+          "sha256": "c539a06396c003e39cfffa5c75014c1e45d884a1999813816f518760436deb6d",
+          "content_version": "02.001.001",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.0.8",
           "asset": "PPSA11018.zip",
@@ -2190,7 +2206,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 930,
+      "stars": 932,
       "release": {
         "tag": "v0.8.0",
         "asset": "playden-ps5-0.8.0.zip",
@@ -2251,7 +2267,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1614,
+      "stars": 1615,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2292,7 +2308,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 421,
+      "stars": 422,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3897,7 +3913,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 17,
+      "stars": 18,
       "release": {
         "tag": "v1.0.3",
         "asset": "WindWaker-PS5-v1.0.3.zip",
@@ -4052,7 +4068,7 @@
         "addons",
         "hdr"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v1.0.0.3-native-experimental",
         "asset": "PPSA99288.zip",
@@ -4450,7 +4466,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 19,
+      "stars": 20,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -4514,16 +4530,26 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "v0.0.4",
-        "asset": "codex-ps5-0.0.4-Folder.zip",
-        "size": 185616734,
-        "sha256": "b6f8952b72eaa4806baab21634aae950f69a365bee4215a373d750e8f652364b",
-        "content_version": "00.000.004",
+        "tag": "v0.0.5",
+        "asset": "codex-ps5-0.0.5-Folder.zip",
+        "size": 185727822,
+        "sha256": "b753329c05f89d1ae295981ce9d8d3aa4e90badf5253e2ecd3b31e76563ae5c2",
+        "content_version": "00.000.005",
         "title_name": "Codex PS5 - Prototype",
         "prerelease": true,
-        "published_at": "2026-10-07T23:53:07Z",
-        "notes": "Codex PS5 is a native homebrew assistant for a jailbroken PS5, with controller input and local voice transcription. This is an early prototype, independent of OpenAI and Sony.\n\n## Install or update\n\nDownload **codex-ps5-0.0.4-Folder.zip** and **assistant-service.elf** below. Both are required. The ZIP includes the complete Whisper Small Q5_1 model; no separate model download or build is needed.\n\nReplace both components from the same release. Preserve `/data/codex-ps5/home`, `/data/codex-ps5/workspace`, and `/download0/codex-ps5-conversation` when updating.\n\n[Installation, updates and rollback guide](https://github.com/Portablelle/Codex-PS5/blob/d428828439776d30a20eef7928890a93e71dcec2/INSTALL.md) · [README](https://github.com/Portablelle/Codex-PS5/blob/d428828439776d30a20eef7928890a93e71dcec2/README.md)\n\n## What's new since 0.0.3\n\n### Conversations\n\n- Resume the last conversation after closing the app or reconnecting, restoring a bounded history of up to 20 turns, 64 messages, or 1 MiB.\n- Keep the remembered conversation when resuming fails, show the engine's reason, and fall back to a new conversation without automatically resending a prompt.\n- Start a fresh conversation between turns by entering `/new` and pressing Options.\n- Retry a failed conversation start by sending a prompt again instead of leaving the interface unable to send.\n\n### Approvals\n\n- Summarize command and file-change approval requests in plain language while retaining their technical details and keeping Decline selected by default.\n- Keep approval details for running items until completion, with oldest-first eviction when the cache limit is reached.\n- Record each approval decision in the conversation as an allowed or declined action, translated into the interface language.\n\nThe experimental in-game companion is not included in the downloads. Prompts interrupted by a disconnect are never automatically resent.\n\n## Build validation\n\n- Host test suite passed on macOS, including release packaging tests.\n- Full native and backend PS5 builds passed on the Linux Docker build host.\n- Packaging verified the model checksum, native title version, and current backend build identity. All release download SHA-256 checksums passed locally.\n- Built from commit `d428828439776d30a20eef7928890a93e71dcec2` ([PR #33](https://github.com/Portablelle/Codex-PS5/pull/33)).\n- No new end-to-end console test is claimed. Runtime execution and firmware compatibility remain unverified for these builds.\n\nSHA256SUMS covers every accompanying download. The Folder ZIP includes its notices; licenses.zip supplies notices alongside the standalone ELF."
-      }
+        "published_at": "2026-11-01T20:23:44Z",
+        "notes": "Codex PS5 is a native homebrew assistant for a jailbroken PS5, with controller input and local voice transcription. This is an early prototype, independent of OpenAI and Sony.\n\n## Install or update\n\nDownload **codex-ps5-0.0.5-Folder.zip** and **assistant-service.elf** below. Both are required. The ZIP includes the complete Whisper Small Q5_1 model; no separate model download or build is needed.\n\nReplace both components from the same release: the UTC fix is in the ELF, the model picker in the app. Preserve `/data/codex-ps5/home`, `/data/codex-ps5/workspace`, `/download0/codex-ps5-conversation` and `/download0/codex-ps5-model` when updating.\n\n[Installation, updates and rollback guide](https://github.com/Portablelle/Codex-PS5/blob/8e7f8874cf711684e104646f51760d4b4a166851/INSTALL.md) · [README](https://github.com/Portablelle/Codex-PS5/blob/8e7f8874cf711684e104646f51760d4b4a166851/README.md)\n\n## What's new since 0.0.4\n\n- **Choose the model and reasoning effort** (#37): press **L2**, or enter `/model` and press Options, while Codex is idle. The list comes from the engine for your account; up/down picks the model, left/right the effort. The choice applies from the next prompt, is shown in the header, and is kept for the next launch. GPT-6.1 SOL with low effort stays the default, and the in-game companion keeps it.\n- **Conversations start on consoles that cannot report their local UTC offset** (#36): Codex now dates the session folder in UTC instead of failing with \"The system's UTC offset could not be determined\".\n\nThe experimental in-game companion is not included in the downloads. Prompts interrupted by a disconnect are never automatically resent.\n\n## Build validation\n\n- Host test suite passed on macOS and in CI (Linux, macOS), and the PS5 `-Werror` compile checks passed in CI.\n- Full native and backend PS5 builds passed in the isolated `codex-runner` toolchain image on the dedicated build server, from a clean checkout; the host test suite also passed there.\n- Packaging verified the model checksum, native title version (`00.000.005`), and current backend build identity (`880aa318…`, matching the commit). All release download SHA-256 checksums passed on the build server and again locally.\n- Built from commit `8e7f8874cf711684e104646f51760d4b4a166851` ([PR #40](https://github.com/Portablelle/Codex-PS5/pull/40)).\n- No new end-to-end console test is claimed. Runtime execution and firmware compatibility remain unverified for these builds, and the UTC fix could not be reproduced on the validation console.\n\nSHA256SUMS covers every accompanying download. The Folder ZIP includes its notices; licenses.zip supplies notices alongside the standalone ELF."
+      },
+      "pins": [
+        {
+          "tag": "v0.0.4",
+          "asset": "codex-ps5-0.0.4-Folder.zip",
+          "size": 185616734,
+          "sha256": "b6f8952b72eaa4806baab21634aae950f69a365bee4215a373d750e8f652364b",
+          "content_version": "00.000.004",
+          "title_name": "Codex PS5 - Prototype"
+        }
+      ]
     },
     {
       "id": "estante",
@@ -4725,7 +4751,7 @@
         "saves",
         "backup"
       ],
-      "stars": 30,
+      "stars": 31,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
