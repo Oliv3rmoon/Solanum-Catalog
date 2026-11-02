@@ -707,7 +707,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 183,
+      "stars": 184,
       "release": {
         "tag": "v1.5.5",
         "asset": "PPSA99810.zip",
@@ -862,7 +862,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 218,
+      "stars": 219,
       "release": {
         "tag": "v4.0",
         "asset": "Porpoise-4.0.zip",
@@ -1114,7 +1114,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 397,
+      "stars": 398,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1144,7 +1144,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 430,
+      "stars": 431,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1550,7 +1550,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 782,
+      "stars": 787,
       "release": {
         "tag": "v0.10.0",
         "asset": "ps5lm-app-v0.10.0.zip",
@@ -1994,7 +1994,7 @@
         "switch",
         "eden"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "v6.000.000",
         "asset": "ProsperoEden-v6.000.000.zip",
@@ -2059,7 +2059,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 351,
+      "stars": 352,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2102,18 +2102,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 95,
+      "stars": 98,
       "release": {
-        "tag": "v2.1.2",
+        "tag": "v2.1.4",
         "asset": "PPSA11018.zip",
-        "size": 319977026,
-        "sha256": "168358bd05202cf41c7eb877ed9039759872d426465a102a78787b1d3eadaabe",
-        "content_version": "02.001.002",
+        "size": 320031373,
+        "sha256": "bd0b65035f23c52f61224a09a8092c959b3b3fec08d5655eaf8d2fd5eccf1efa",
+        "content_version": "02.001.004",
         "title_name": "PC5",
-        "published_at": "2026-11-01T19:32:08Z",
-        "notes": "PC5 2.1.2 brings 120 Hz output with frame generation up to 120 fps, lets you change a game's text files on the console and from the web page, a new loading screen, and keeps the last games in view on Home.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **120 Hz output**: **Settings › In games › 120 Hz output** (off by default). On, with a TV or monitor that takes 120 Hz and the PS5's own **Settings › Screen and Video › Video Output › Enable 120 Hz Output** set to **Automatic**, games show up to 120 fps instead of 60, and Windows tells them the screen is 120 Hz. Off, or with a TV without it, everything stays at 60 Hz as before.\n\n- **Frame generation up to 120 fps**: with 120 Hz output on, a game's **△ › Graphics › Frame generation** has three choices, changed with left and right:\n  - **Off**.\n  - **60 → 120 fps**: the game held at 60 with a frame made between each two (PC5's frame generation, as before).\n  - **40 → 120 fps**: the game held at 40 with two frames made between each two, for a game that can't hold 60 (MihawkGen, from Mihawk OS).\n\n  With 120 Hz output off it's **Off** or **30 → 60 fps** as before; a game set to 40 → 120 uses 30 → 60 until 120 Hz output is on again.\n\n- **Change a game's text files** ([#263](https://github.com/bornaradusin/PC5/discussions/263)):\n  - **On the console**: in the **File manager** (or a game's **△ › Manage › Game files**), **✕** on a text file (`.ini`, `.cfg`, `.txt` and the like) opens it as lines. **✕** changes a line with the PS5's keyboard; **△** adds a line below or above, deletes one, or saves. Back asks before leaving changes unsaved. In a read-only place the file is only shown.\n  - **On the web page**: each game's **Files** opens its folder, or its **Windows** (the registry's `.reg` files, and `drive_c` with saves and settings), and a text file in a box with your computer's or phone's keyboard.\n  - Both save the file as it was: the same encoding (UTF-8, UTF-16 or the older one-byte-a-letter kind) and the same line ends, so Windows games read it as before. Change `.reg` files only when no game is running.\n\n- **A new loading screen**: a gaming PC glowing blue, **LAUNCHING GAME** and a bar filling while the game starts, in place of the falling green code and the game's name."
+        "published_at": "2026-11-02T00:13:57Z",
+        "notes": "PC5 2.1.4 shows Unity games' cutscenes, gives AMD-sponsored games a driver version, and fixes Blade & Sword, Spider-Man, Gears Tactics, AltGr and the on-screen keyboard.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **Unity games' cutscenes play**: Unity decodes its movies on a graphics device of its own and hands each picture to the game through a shared texture, which the PS5's driver can't share. The two now share the picture inside the game, so cutscenes show instead of staying black with their sound (Ruined King: A League of Legends Story).\n\n- **A driver version for AMD-sponsored games**: games that ask AMD's driver library for the graphics driver's version now get a current one (Proton's library), so Marvel's Spider-Man Remastered no longer says the driver is below its requirements.\n\n### Fixes\n\n- **Blade & Sword shows its picture again**: its opening movie's window no longer takes the screen from the game.\n- **Marvel's Spider-Man Remastered, Miles Morales and Ratchet & Clank: Rift Apart** start with DirectX 12 on **Graphics API › Auto**, instead of \"DirectX 12 support not detected\".\n- **Gears Tactics** gets DirectX 12 instead of crashing after its title screen.\n- **AltGr on a USB keyboard** types the keys' third characters again (**AltGr+0** gives **@** on a French keyboard).\n- **The on-screen keyboard** (two fingers on the touchpad) opens over a game again.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for."
       },
       "pins": [
+        {
+          "tag": "v2.1.2",
+          "asset": "PPSA11018.zip",
+          "size": 319977026,
+          "sha256": "168358bd05202cf41c7eb877ed9039759872d426465a102a78787b1d3eadaabe",
+          "content_version": "02.001.002",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.1.1",
           "asset": "PPSA11018.zip",
@@ -2144,14 +2152,6 @@
           "size": 311322947,
           "sha256": "ee5a32f3bbb11ec199fa312f56653afc3f916223a7f2e8817a8d7bfd91b96a10",
           "content_version": "02.000.003",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.0.2",
-          "asset": "PPSA11018.zip",
-          "size": 406843064,
-          "sha256": "bd4dfc335ecd616cfbb1c9362347e32887e3c00b462f6a11317ebb835c0e18ce",
-          "content_version": "02.000.002",
           "title_name": "PC5"
         }
       ]
@@ -2206,17 +2206,27 @@
         "windows",
         "pc-games"
       ],
-      "stars": 932,
+      "stars": 942,
       "release": {
-        "tag": "v0.8.0",
-        "asset": "playden-ps5-0.8.0.zip",
-        "size": 39466574,
-        "sha256": "4758ca04ba1b35a15bb31b406c20dede2d4bbd70165d24f7e6ac9feb059dbfec",
-        "content_version": "00.008.000",
+        "tag": "v0.9.0",
+        "asset": "playden-ps5-0.9.0.zip",
+        "size": 40054647,
+        "sha256": "f32823bc927ff7788da9620f14b9f2aa57646d71afd06cd9f66d3bb107c1d6f3",
+        "content_version": "00.009.000",
         "title_name": "Playden",
-        "published_at": "2026-10-28T14:01:35Z",
-        "notes": "Games shared by your Steam family now show in your Library, downloads can use the fastest Steam server, and leftover PS5 titles can be deleted from Storage. Saved sign-ins no longer expire about a day after a QR sign-in, and covers stay available offline. Same runtime kit as 0.7.0 (0.13).\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.8.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.13.zip` | Runtime kit 0.13, the same as in 0.7.0, 0.7.1 and 0.7.2. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its kit. You don't need to download it. |\n\n**Updating from 0.7.2, 0.7.1, 0.7.0, 0.8.0-beta.1 or a 0.7.1 beta:** Playden offers the update the next time it starts, or from Settings › Updates › Check now (39 MB, app only). Your sign-in, games, saves and Game settings are kept.\n\n**Updating from 0.6.0:** Playden offers the update the next time it starts, or from Settings › About › Playden updates › Check now. It updates the app and, if it isn't installed yet, kit 0.13. Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage).\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself to 0.8.0.\n\n**New install:** unzip `playden-ps5-0.8.0.zip` into a folder of its own and copy the `FAKE77031` folder to `/data/homebrew/` (see the [README](https://github.com/leolobato/playden-ps5#install)). On its first start Playden offers to download the runtime kit; you can sign in while it downloads.\n\n## What's new\n\n- **Steam Families.** Games another member of your Steam family shares with you now show in the Library with a \"Family\" badge and install like your own. When you also own a game, your own license is used. Sort and filters › Family sharing hides them (on by default, like Demos). Playden does not take Steam's one-player-at-a-time lock for a shared game. ([#9](https://github.com/leolobato/playden-ps5/issues/9), [#80](https://github.com/leolobato/playden-ps5/issues/80))\n- **Faster downloads: choose the download server.** Settings › Downloads › Download server:"
-      }
+        "published_at": "2026-11-02T00:05:51Z",
+        "notes": "More Direct3D 12 games start, The Witcher 3 among them, and Unreal Engine 5 games use Direct3D 12 by default. Choose a game's language and version when installing, get its DLC and updates, and move or uninstall installed games from one screen. Frame generation shows up to four times the frames a game draws. New runtime kit 0.17 brings the latest prospero-win: rumble, the PS5 keyboard in games, USB mouse wheel and fixes for games that ran out of memory or file handles.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.9.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.17.zip` | Runtime kit 0.17. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.17 (470 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept.\n\n**Updating from 0.9.0-beta.4:** the same way, but only the app downloads (40 MB), as you already have kit 0.17.\n\n**After the update:** games set up with an earlier kit show \"Kit update available\" on their page. Play updates their runtime first, then starts the game. Until then they keep running on their old kit from PS5 Home.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself.\n\n**New install:** unzip `playden-ps5-0.9.0.zip` into a folder of its own and copy the `FAKE77031` folder to `/data/homebrew/` (see the [README](https://github.com/leolobato/playden-ps5#install)). On its first start Playden offers to download the runtime kit; you can sign in while it downloads.\n\n## What's new\n\n- **More Direct3D 12 games start**, such as The Witcher 3 (next-gen) and WheelMates. Unreal Engine 5 games now use Direct3D 12 by default. ([#118](https://github.com/leolobato/playden-ps5/issues/118), [#148](https://github.com/leolobato/playden-ps5/issues/148), [#135](https://github.com/leolobato/playden-ps5/issues/135))"
+      },
+      "pins": [
+        {
+          "tag": "v0.8.0",
+          "asset": "playden-ps5-0.8.0.zip",
+          "size": 39466574,
+          "sha256": "4758ca04ba1b35a15bb31b406c20dede2d4bbd70165d24f7e6ac9feb059dbfec",
+          "content_version": "00.008.000",
+          "title_name": "Playden"
+        }
+      ]
     },
     {
       "id": "prospero-win",
@@ -2267,7 +2277,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1615,
+      "stars": 1616,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2308,7 +2318,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 422,
+      "stars": 423,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2961,7 +2971,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 82,
+      "stars": 84,
       "release": {
         "tag": "build-131",
         "asset": "halo-ps5-release.zip",
@@ -3258,7 +3268,7 @@
         "pokemmo",
         "java"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA98001.zip",
@@ -3629,7 +3639,7 @@
         "racing",
         "need-for-speed"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "01.000.001",
         "asset": "PPSA90505.zip",
@@ -4070,15 +4080,25 @@
       ],
       "stars": 11,
       "release": {
-        "tag": "v1.0.0.3-native-experimental",
+        "tag": "v1.0.0.5-native-experimental",
         "asset": "PPSA99288.zip",
-        "size": 44024078,
-        "sha256": "03618aed0b53c48695db23ffeff1dea5ee99f8c8c215f1c9265ef887a83700b2",
-        "content_version": "06.000.003",
+        "size": 44067420,
+        "sha256": "f97a8e722e71a6ac257b58674d7f78893ab7a218cbc359892c0fa2edcb2eea7d",
+        "content_version": "06.000.005",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-10-29T20:39:01Z",
-        "notes": "# Max’d 1.0.0.3\n\n## IPTV Library\n\n- Added A–Z navigation for movie and series catalogs, with common accented letters grouped under their base letter and numbers/other scripts under #.\n- Added search across saved movie and series catalogs from the active profile’s imported providers. Results identify the provider and content type; playback and episode lookup use the selected provider.\n- Kept search offline-capable, bounded and cancellable, with duplicate removal and protection against stale replies after switching profiles or providers.\n- Kept long provider badges inside their poster cards. IPTV titles and resume progress remain separate from addon catalogs and tracker history.\n\n## Playback\n\n- Added embedded chapter navigation and timeline markers for supported Native, EVO and VLC files. Open Options/Up, select the Chapters column, then press Cross to jump. The column appears only when at least two valid chapters exist.\n- Improved recovery of the selected audio/subtitle track, pause state, audio sync and PCM gain after playback reopens. Explicit subtitles Off and downloaded external cues are preserved where supported.\n- Added a bounded HEVC SPS/VUI fallback for missing colour metadata, while preserving explicit container tags. This does not add Dolby Vision output or change whether the console accepts HDR10 output.\n- Limited artwork queues, decoded-image staging and cache metadata to reduce memory pressure during browsing and release resources on shutdown.\n\n- Prevented VLC from retrying failed or canceled Nuvio-owned requests through an unauthenticated HTTP handler. Private stream headers and cancellation remain authoritative.\n\n## Maintenance\n\n- Updated libass to 0.17.5, curl to 8.23.0, OpenSSL to 3.5.9 and nlohmann/json to 3.12.0.\n- Adjusted startup ordering to preload VideoDec2 before graphics initialization; decoder queries remain deferred until playback.\n- Added checksum-verified dependency builds and refreshed VLC’s dependency links so older libraries cannot silently remain in the build.\n- Updated the in-app changelog for this release. Existing automatic update reminders remain available under Settings → App updates.\n\nSaved IPTV search covers catalogs already cached for the active profile; it does not download every provider catalog or search the Live TV guide. Open other categories or All categories to save more titles. Episodes keep their normal season order.\n\nHost regressions and PS5 compile/link/import checks passed. Physical-console playback, old-firmware startup, HDMI/HDR and receiver behavior still need testing. Existing optional/experimental player, HDR and four-screen features retain their limitations."
-      }
+        "published_at": "2026-11-01T23:13:53Z",
+        "notes": "# Max’d 1.0.0.5\n\n- **Search your Library:** Press Triangle/Options or choose Search to find titles already loaded from the active profile’s selected Library source. Search works alongside type and sorting filters. Clear Search or Circle restores the list.\n- **Live TV Now/Next:** Channel cards show current and upcoming programmes when the provider supplies guide data. Supports Xtream short EPG, XMLTV links in M3U playlists and an optional XMLTV URL. Live TV → Options includes guide URL, refresh and on/off controls.\n- **New-episode badges:** Series in your Library can show labels such as “New: S2 E3” when synchronized watched history and dated episode metadata identify an aired, unwatched update. Future, unknown, special and in-progress episodes are excluded.\n- **Larger external subtitles:** Playback and preview share their size scale, with Extra large (150%) and Largest (200%) options. Existing preferences are retained. [Reporter confirmed #12](https://github.com/HandshakeHackin/Nuvio-maxd-releases/issues/12#issuecomment-6560822122).\n- **Missing Library covers fixed:** Library titles request their own missing metadata instead of depending on Board browsing. [Reporter confirmed #13](https://github.com/HandshakeHackin/Nuvio-maxd-releases/issues/13#issuecomment-6560101332).\n\nSearch and guide/episode caches stay within the active profile/source. Guide requests run in the background; XMLTV documents are bounded and reused across channel pages. Missing guide data leaves channels playable. Episode metadata requests are bounded and do not change watched marks or Library membership.\n\nLibrary search covers loaded titles; normal Library synchronization continues independently. Guides require matching provider channel IDs and programme data. Episode badges require reliable history and release dates; date-only releases wait until the UTC day has ended. Authored ASS and bitmap subtitles retain their existing behavior.\n\nAutomated provider/session, navigation and rendering regressions and PS5 compile/link/import checks passed. The two reported fixes are console-confirmed; the new features still need physical-console/provider acceptance. Existing optional player, HDR and four-screen limitations remain.\n\nTitle ID: **PPSA99288**. Package contentVersion: **06.000.005**. Close the app before updating and preserve saved user data. Homebrew Store availability follows catalog approval and deployment."
+      },
+      "pins": [
+        {
+          "tag": "v1.0.0.3-native-experimental",
+          "asset": "PPSA99288.zip",
+          "size": 44024078,
+          "sha256": "03618aed0b53c48695db23ffeff1dea5ee99f8c8c215f1c9265ef887a83700b2",
+          "content_version": "06.000.003",
+          "title_name": "Nuvio Max'd"
+        }
+      ]
     },
     {
       "id": "nuvio-ps5",
@@ -4319,15 +4339,25 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.193",
+        "tag": "01.000.195",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33540005,
-        "sha256": "0a2cbcd055f5621d26599af7666afc52d50ff796321430fb2f51813694b8c259",
-        "content_version": "01.000.193",
+        "size": 33560358,
+        "sha256": "4607ff761385b0a75a4d97637e4188c50110229f8f760270bbcf9499850fe405",
+        "content_version": "01.000.195",
         "title_name": "SmartTube",
-        "published_at": "2026-10-30T03:58:04Z",
-        "notes": "Home rows play through; autoplay and shuffle stop repeating\n\n- A video opened from a Home row (Puppets, Mario Kart, Continue watching, Subscriptions...) plays that row next, in order, and the row under the player is that row; at its end autoplay goes on with the suggestions\n- Autoplay never picks a video already played this session, and prefers ones not watched to the end before; YouTube's suggestions often lead straight back to the video just left\n- Shuffle, once its section has played, moves on to suggestions that have not played instead of starting the same videos over"
-      }
+        "published_at": "2026-11-02T04:16:40Z",
+        "notes": "Who's watching at start, and choose the player's buttons\n\n- At start, as on YouTube for TV: with no account saved the sign-in QR code shows (Circle carries on without signing in); with accounts, \"Who's watching?\" picks one or adds another. Settings > General > Start screen turns it off. This replaces the welcome box from 1.0.194\n- Settings > Player > Player buttons: show or hide each button under the seek bar, or pick \"Show every button\", \"Just a few\" or \"Hide them all\". Screen dimming and Stats for nerds are hidden by default\n- The buttons no longer run into the video times: when many are shown they sit closer together"
+      },
+      "pins": [
+        {
+          "tag": "01.000.193",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33540005,
+          "sha256": "0a2cbcd055f5621d26599af7666afc52d50ff796321430fb2f51813694b8c259",
+          "content_version": "01.000.193",
+          "title_name": "SmartTube"
+        }
+      ]
     },
     {
       "id": "youtube-maxd",
@@ -4466,7 +4496,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 20,
+      "stars": 22,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -4601,15 +4631,25 @@
       ],
       "stars": 25,
       "release": {
-        "tag": "00.001.005",
+        "tag": "00.001.006",
         "asset": "PPSA99930.zip",
-        "size": 24178488,
-        "sha256": "1cc330e293243b74886cb85e9bbf2a2e78bf69c268bc60a5dfb92cfd8c7afb3c",
-        "content_version": "00.001.005",
+        "size": 24197916,
+        "sha256": "986eb9bce653f4cc30864d897b9da151030f41423ba7d9b870a97d8155c89a1d",
+        "content_version": "00.001.006",
         "title_name": "Forwarder Manager",
-        "published_at": "2026-10-21T20:09:20Z",
-        "notes": "Pick ProsperoEden games with their names and covers, including games kept in their own folders.\n\n### Added\n\n- **ProsperoEden game picker.** The Game row lists ROMs from ProsperoEden's game files folder, with their cached titles and covers. Selecting a game fills an empty display name and uses its cover as the tile icon, while keeping an icon you already chose. (#27)\n- **Follow ProsperoEden's settings.** Reads `game_files` from `/data/prosperoeden/config/prosperoeden.json`, defaulting to `/data/prosperoeden`. Finds loose ROMs and games one folder down in `roms/`. Relative paths appear under the titles so games with the same name can be told apart. A file browser remains available for other ROMs. (#27)\n- **ROM formats.** The picker recognizes `.nsp`, `.xci`, `.nsz` and `.xcz`. Compressed games require a ProsperoEden version that supports them. Recognizable update/DLC filenames and title-ID tags are excluded; encrypted package contents are not inspected, so add-ons with ambiguous names may still appear. (#27)\n\n### Fixed\n\n- **Forwarders for nested ProsperoEden games.** A game such as `roms/Mario Kart 8 Deluxe/Mario Kart 8 Deluxe.nsp` now keeps `Mario Kart 8 Deluxe/Mario Kart 8 Deluxe.nsp` in its launch arguments. Tiles keep working when the configured game files folder moves; ROMs selected outside that folder use their full path. Fixes #26. (#27)\n  - To repair a tile created with a missing folder, edit it, select its game again, and save.\n- **Reproducible builds.** Restored the pinned OpenGL SDK download through a mirror after the original repository became unavailable. Both original SHA-256 checks remain enforced. CI also runs the ProsperoEden library regression tests. (#27)\n\n### Changed\n\n- **SwanStationPS5 target name.** The target picker and home-screen tab now use the emulator's full name, SwanStationPS5. Its title ID and existing tiles are unchanged. (#25, by @darkxex)\n\n### Thanks\n\n- @Oliv3rmoon for reporting #26 and documenting ProsperoEden's game files setting, cover hashes and cached names.\n\n### Requirements\n\n- A jailbroken PS5 with elfldr on port 9021.\n- ShadowMountPlus, to register the app and the forwarders it creates.\n\n### Install\n\nUnzip `PPSA99930.zip` and copy the `PPSA99930` folder to `/data/homebrew/`, replacing the old one. Your forwarders are kept. `SHA256SUMS` contains the ZIP's checksum."
-      }
+        "published_at": "2026-11-01T23:06:58Z",
+        "notes": "Accept ProsperoEden's second title ID, and move the OpenGL SDK to a maintained mirror.\n\n### Added\n\n- **ProsperoEden ( Mirror ) target.** ProsperoEden ships under two title IDs; the target picker now offers `PPSA99016` as \"ProsperoEden ( Mirror )\" alongside the original `PPSA99008`. Both follow the same rules for launch arguments and the game list, so a forwarder can target whichever ProsperoEden is installed. (#35)\n\n### Fixed\n\n- **Reproducible builds.** The pinned OpenGL SDK download moved to the maintained darkxex/ps5-opengl mirror (SDK 1.0.2) after the previous mirror became unavailable. Both the archive and manifest SHA-256 checks remain enforced; the SDK layout and 1920x1080x60 display profile are unchanged. (#35)\n\n### Requirements\n\n- A jailbroken PS5 with elfldr on port 9021.\n- ShadowMountPlus, to register the app and the forwarders it creates.\n\n### Install\n\nUnzip `PPSA99930.zip` and copy the `PPSA99930` folder to `/data/homebrew/`, replacing the old one. Your forwarders are kept. `SHA256SUMS` contains the ZIP's checksum."
+      },
+      "pins": [
+        {
+          "tag": "00.001.005",
+          "asset": "PPSA99930.zip",
+          "size": 24178488,
+          "sha256": "1cc330e293243b74886cb85e9bbf2a2e78bf69c268bc60a5dfb92cfd8c7afb3c",
+          "content_version": "00.001.005",
+          "title_name": "Forwarder Manager"
+        }
+      ]
     },
     {
       "id": "gyroaim",
@@ -4751,7 +4791,7 @@
         "saves",
         "backup"
       ],
-      "stars": 31,
+      "stars": 33,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
@@ -4937,7 +4977,7 @@
         "themes",
         "home-screen"
       ],
-      "stars": 20,
+      "stars": 19,
       "release": {
         "tag": "01.000.039",
         "asset": "PPSA90210.zip",
@@ -4978,7 +5018,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 492,
+      "stars": 493,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5129,7 +5169,7 @@
         "llm",
         "tailscale"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "01.004.001",
         "asset": "PPSA99555.zip",
