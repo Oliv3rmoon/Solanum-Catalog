@@ -723,7 +723,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 185,
+      "stars": 187,
       "release": {
         "tag": "v1.5.5",
         "asset": "PPSA99810.zip",
@@ -1160,7 +1160,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 432,
+      "stars": 434,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1566,7 +1566,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 796,
+      "stars": 798,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2018,7 +2018,7 @@
         "switch",
         "eden"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "v6.000.000",
         "asset": "ProsperoEden-v6.000.000.zip",
@@ -2083,7 +2083,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 355,
+      "stars": 356,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2126,7 +2126,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 107,
+      "stars": 111,
       "release": {
         "tag": "v2.2.2",
         "asset": "PPSA11018.zip",
@@ -2230,7 +2230,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 966,
+      "stars": 971,
       "release": {
         "tag": "v0.9.0",
         "asset": "playden-ps5-0.9.0.zip",
@@ -2301,7 +2301,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1619,
+      "stars": 1620,
       "release": {
         "tag": "vk-285-182",
         "asset": "PS5SX2-vk-285-182.zip",
@@ -2342,7 +2342,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 425,
+      "stars": 424,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2995,18 +2995,26 @@
         "xbox",
         "fps"
       ],
-      "stars": 85,
+      "stars": 86,
       "release": {
-        "tag": "build-132",
+        "tag": "build-134",
         "asset": "halo-ps5-release.zip",
-        "size": 56727433,
-        "sha256": "41c938ee516346ba35bb739fe2e2679b74ab3bfc8db726af16684e5810fc4c07",
-        "content_version": "01.000.132",
+        "size": 56800421,
+        "sha256": "c3ff433c420990492795fd72f5af866b8eb30bd277b70116097f7aa7c202e53a",
+        "content_version": "01.000.134",
         "title_name": "Halo: Combat Evolved",
-        "published_at": "2026-11-02T07:07:22Z",
-        "notes": "Build 132: Faster Vulkan and compatibility with older phones!\n\n- Vulkan: phones whose own Vulkan driver lacks dynamic rendering (Samsung's Mali phones, older Adreno phones such as the Nokia 8) now run the Vulkan renderer on that driver instead of falling back to OpenGL ES. A 48-bot match on a Galaxy S21 FE (Exynos 2100) runs at about 71 fps, where the open-source PanVK driver managed 33 to 39. (thelinkin3000)\n- Vulkan: the renderer no longer makes the GPU finish all its work at every change of render target, which phone GPUs pay for most; on a Galaxy S21 FE with its own driver that took about a tenth off the GPU's time in a busy frame. (thelinkin3000)\n- Vulkan: Video Setup's VULKAN DRIVER lists STOCK and then every driver archive in the freedreno_drivers folder by its name, including the Turnip build the app downloads for Adreno phones. TURNIP is gone from the list, and a vk_driver = \"auto\" left in config.toml becomes STOCK. (thelinkin3000)\n- Vulkan: IMPORT DRIVER in Video Setup (Android, with VULKAN chosen) adds Vulkan driver archives (.zip) from your phone's files, checking each one is a driver first; it's listed the next time you open Video Setup. (thelinkin3000)\n- Vulkan: if Vulkan can't start on your phone, the game sets GRAPHICS BACKEND to OPENGL, so Video Setup shows what's actually running. (thelinkin3000)\n- Android: on phones whose CPU timer reports the wrong speed (the Galaxy S21 FE's Exynos 2100), the game no longer freezes: the main menu's background moves, a campaign loads after Choose Difficulty, and the menus keep responding after you create a profile. (thelinkin3000)\n- Theater: on Android, IMPORT adds replays from your phone's files. (thelinkin3000)\n- Mods: on Android, IMPORT adds a mod from a .zip of its folder, and DELETE deletes the selected mod after asking. (thelinkin3000)\n- Saved games: checkpoints are kept in memory instead of written to storage, so a checkpoint no longer holds up the game's other reads and writes for seconds (most noticeable on Switch in co-op). (thelinkin3000)\n- Replays and logs: the replay recording and debug.txt are written in the background, so writing them no longer drops frames (on Switch, a dropped frame every five seconds while recording). The overlay menu's System folder can turn off Write debug.txt and Write halo.log, on every platform. (thelinkin3000)\n- Switch: a large write to the SD card no longer keeps the game's other reads and writes waiting until it finishes. (thelinkin3000)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n\nCommit: https://github.com/thelinkin3000/halo-ce-universal/commit/72084314d9645ce6e968602dd263db8fe89c3cad\nBuild: https://github.com/thelinkin3000/halo-ce-universal/actions/runs/41403093808"
+        "published_at": "2026-11-03T00:29:37Z",
+        "notes": "Build 134: Vulkan runs faster, and long replays play on Switch!\n\n- Custom Edition maps: on phones where Android already uses the memory Custom Edition maps are made for (a Galaxy Z Fold, for one), the maps now load somewhere else and play, instead of never showing up in the map lists. Where they can't run at all, IMPORT says so instead of importing maps you would never see. (thelinkin3000)\n- Vulkan: the renderer now records and presents its frames on its own thread, so the game's thread no longer waits on the graphics driver. A frame's work goes to the GPU before the game waits for a screen image, so the GPU starts sooner. (thelinkin3000)\n- Vulkan: a map's walls and floors are copied to the GPU once when the map loads, instead of being sent again every frame. Small effects (HUD, text, particles) send only what changed. This takes a large share of the CPU's per-frame work off. (thelinkin3000)\n- Vulkan: the GPU waits less between drawing a picture and reading it back, and the finished picture is shown with a draw instead of a copy, which is cheaper on phone GPUs. (thelinkin3000)\n- Android: the on-screen touch controls are redrawn only when something on them changes. Before, they were redrawn every frame, so the game ran faster with them hidden. (thelinkin3000)\n- Maps: on Android, IMPORT on the level lists copies .map files, and the maps inside .zip files, into custom_maps. (thelinkin3000)\n- Theater: long replays play on every platform. A 22-minute match's replay (46 MB, 152 MB unpacked) used to fail with \"The replay cannot be read.\" It's now kept in the app's own memory instead of the game's. (thelinkin3000)\n- Switch: a map's mod textures are read from the SD card ahead of time, so the game no longer pauses to read each one the first time it shows up. In a 48-bot match the slowest 1% of frames went from 19 to 32 fps. (thelinkin3000)\n- Switch: a frame's work goes to the GPU before the game waits for a screen image, as on Vulkan. Looking up cached data now takes the game's thread less time. (thelinkin3000)\n- Benchmark: `debug.benchmark` accepts `replay:<file>:<seconds>` to measure a replay as it plays, and `debug.benchmark_manual` lets you play the benchmark match yourself. (thelinkin3000)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n\nCommit: https://github.com/thelinkin3000/halo-ce-universal/commit/8ab7acc93101d88ca68e00d9c912d1395bbce05f\nBuild: https://github.com/thelinkin3000/halo-ce-universal/actions/runs/41551904317\n\nThe release builds are for playing; the debug builds stop at the first failed assertion and log it."
       },
       "pins": [
+        {
+          "tag": "build-132",
+          "asset": "halo-ps5-release.zip",
+          "size": 56727433,
+          "sha256": "41c938ee516346ba35bb739fe2e2679b74ab3bfc8db726af16684e5810fc4c07",
+          "content_version": "01.000.132",
+          "title_name": "Halo: Combat Evolved"
+        },
         {
           "tag": "build-131",
           "asset": "halo-ps5-release.zip",
@@ -3542,7 +3550,7 @@
         "blur",
         "racing"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "01.008.000",
         "asset": "PPSA99404.zip",
@@ -3640,16 +3648,26 @@
       ],
       "stars": 7,
       "release": {
-        "tag": "v0.1.3-alpha",
+        "tag": "v0.1.4-alpha",
         "asset": "PPSA20040.zip",
-        "size": 40501769,
-        "sha256": "5e542610a5b979105812fa66dc4e53bd47a6463ec064e47683c29c1f9461255d",
-        "content_version": "01.000.050",
+        "size": 40507836,
+        "sha256": "eff70bcdbfd1d7a36186cec3f96d2b194e9f67605c97acb372db0581b626a236",
+        "content_version": "01.000.062",
         "title_name": "Source Port (alpha)",
         "prerelease": true,
-        "published_at": "2026-10-28T21:42:34Z",
-        "notes": "## Source Port v0.1.3-alpha\n\nThe proper fix for the freeze when scripted scenes start, without the loading hitches of v0.1.2.\n\n### Fixed\n- **Freeze when a scripted scene starts** (Barney's checkpoint, Dr. Kleiner's lab, Combine cameras and scanners): when a scene starts it loads all its voice lines at once, and the engine read them on 16 background threads simultaneously, which made the PS5 stop the game. Files are now loaded by a single background thread, one at a time.\n- **No more hitches from v0.1.2's workaround:** loading happens in the background again, so new sounds no longer pause the game for a moment.\n\n### Notes\n- If you added `-noasync` to `args.txt` for v0.1.2, remove it to get the hitch-free loading back.\n- The freeze recorder (`-ps5_freeze_recorder` in `args.txt`) now also follows the background loading thread.\n\n### Known issues\n- Short hitches the first time an area loads.\n- Only Half-Life 2 has been tested; no online play.\n- The 20th-anniversary game files show a black menu; use `steam_legacy`.\n\n### Install / update\n- Unzip `PPSA20040.zip` and copy the `PPSA20040` folder over your existing install in `/data/homebrew/` (your `game` folder, settings and saves are kept).\n- New install: create `PPSA20040/game/` and copy your Half-Life 2 `hl2` and `platform` folders (Steam, `steam_legacy` beta) into it, then let ShadowMountPlus register the folder.\n\nNo game content is included. This is an unofficial fan project, not affiliated with Valve or Sony."
-      }
+        "published_at": "2026-11-03T06:01:39Z",
+        "notes": "## Source Port v0.1.4-alpha\n\nFixes the Vortigaunt's eyes and a slow quit.\n\n### Fixed\n- **Vortigaunt eyes facing the wrong way** (the Vortigaunt in the canals): its eye looked white or black and only looked right from below. The game aimed the eye correctly, but the graphics chip turned the eye mesh. Eyes are now drawn the way they're meant to move, with the head, at no extra cost.\n- **Slow quit to the home screen** when capturing the log on a PC: the game no longer waits more than 2 seconds to send the rest of the log before closing. The log file on the PS5 is always complete.\n\n### Notes\n- New eye tests under **Developer tests** in the command menu. They're only for troubleshooting; **Eye test: off (default)** restores normal eyes.\n\n### Known issues\n- Short hitches the first time an area loads.\n- Only Half-Life 2 has been tested; no online play.\n- The 20th-anniversary game files show a black menu; use `steam_legacy`.\n\n### Install / update\n- Unzip `PPSA20040.zip` and copy the `PPSA20040` folder over your existing install in `/data/homebrew/` (your `game` folder, settings and saves are kept).\n- New install: create `PPSA20040/game/` and copy your Half-Life 2 `hl2` and `platform` folders (Steam, `steam_legacy` beta) into it, then let ShadowMountPlus register the folder.\n\nNo game content is included. This is an unofficial fan project, not affiliated with Valve or Sony."
+      },
+      "pins": [
+        {
+          "tag": "v0.1.3-alpha",
+          "asset": "PPSA20040.zip",
+          "size": 40501769,
+          "sha256": "5e542610a5b979105812fa66dc4e53bd47a6463ec064e47683c29c1f9461255d",
+          "content_version": "01.000.050",
+          "title_name": "Source Port (alpha)"
+        }
+      ]
     },
     {
       "id": "speedbreaker",
@@ -4317,15 +4335,25 @@
       ],
       "stars": 7,
       "release": {
-        "tag": "0.5.20",
+        "tag": "0.6.00",
         "asset": "PPSA74126.zip",
-        "size": 38278146,
-        "sha256": "95f24d39bb4466cffa3873e43131d56e4c834fc91b833460df3362763935ee3a",
-        "content_version": "00.070.000",
+        "size": 38315867,
+        "sha256": "dd3156a660abf15f4ceea299c4e439765cce5a2a0b97e79284c2793ce5f453b0",
+        "content_version": "00.600.000",
         "title_name": "Stremio Plus",
-        "published_at": "2026-10-24T14:15:09Z",
-        "notes": "## Changes since 0.5.18\n\n- **Stable Home loading.** Fixed the repeated flashing and repositioning of shelves during startup. The loading screen now stays visible until the first shelves and their artwork are ready, with bounded waits for slow add-ons. Later catalog updates preserve the current selection and scroll position.\n\n- **Persistent PS5 sign-in.** Corrected phone pairing to exchange the approval credential for a PS5 device session and save it immediately. Failed exchanges and expired or cancelled approvals can no longer complete a stale sign-in attempt.\n\n- **Smoother 1080p playback.** Removed the expensive per-frame texture upload path that caused dropped frames and reduced playback speed. Improved late-frame handling and removed an unnecessary video-output copy.\n\n- **Right-stick volume control.** Move the right stick up or down to adjust playback volume in 5% steps. Added a dead zone, controlled repeat, a temporary volume indicator and a saved volume level. Audio passthrough displays TV/receiver volume guidance. L2/R2 keep their existing controls.\n\n- **Consistent start and resume choices.** Every playback request now asks before starting, including online streams, downloads and the next episode. A saved position offers **Start from the beginning** or **Resume**; choosing the beginning starts at zero, and cancelling preserves the bookmark. Invalid or repeated confirmations cannot launch playback, and incomplete downloads retain their verified-data checks."
-      }
+        "published_at": "2026-11-02T23:14:12Z",
+        "notes": "Stremio Plus 0.6.00 improves 4K playback, HDR and HDMI audio on PS5.\n\n- Fixed HEVC hardware decoder startup for 4K playback, including recovery of missing colour metadata from the video stream.\n- Added HDR10 output on compatible displays. HDR10-compatible Dolby Vision 7/8 content plays its HDR10 base layer.\n- Added 48 kHz Dolby TrueHD passthrough, including Atmos on compatible HDMI audio setups, with corrected framing and pause/resume handling.\n- Improved playback-bar seeking: repeated torrent seeks settle on the latest position and cancel blocked reads before restarting playback.\n- Show one confirmation when adding a film or episode to Downloads.\n\nPS5 testing confirmed 4K hardware decoding with HDR10 and AC-3/E-AC-3 audio. TrueHD/Atmos was confirmed separately on a Sonos Arc setup during 0.6.00 testing. Seek times depend on the stream and available data."
+      },
+      "pins": [
+        {
+          "tag": "0.5.20",
+          "asset": "PPSA74126.zip",
+          "size": 38278146,
+          "sha256": "95f24d39bb4466cffa3873e43131d56e4c834fc91b833460df3362763935ee3a",
+          "content_version": "00.070.000",
+          "title_name": "Stremio Plus"
+        }
+      ]
     },
     {
       "id": "symphonystation5",
@@ -4379,16 +4407,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.195",
+        "tag": "01.000.196",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33560358,
-        "sha256": "4607ff761385b0a75a4d97637e4188c50110229f8f760270bbcf9499850fe405",
-        "content_version": "01.000.195",
+        "size": 33550853,
+        "sha256": "aad313ad4fa8c72e14efff203a4f79ea2b0ec45faf3af2d37568b876c9ed799a",
+        "content_version": "01.000.196",
         "title_name": "SmartTube",
-        "published_at": "2026-11-02T04:16:40Z",
-        "notes": "Who's watching at start, and choose the player's buttons\n\n- At start, as on YouTube for TV: with no account saved the sign-in QR code shows (Circle carries on without signing in); with accounts, \"Who's watching?\" picks one or adds another. Settings > General > Start screen turns it off. This replaces the welcome box from 1.0.194\n- Settings > Player > Player buttons: show or hide each button under the seek bar, or pick \"Show every button\", \"Just a few\" or \"Hide them all\". Screen dimming and Stats for nerds are hidden by default\n- The buttons no longer run into the video times: when many are shown they sit closer together"
+        "published_at": "2026-11-03T02:38:11Z",
+        "notes": "Smoother playback: a much deeper read-ahead; the app's own keyboard only\n\n- Video now buffers 32 MB ahead (was 3 MB, about one second of 4K) and fetches it in 4 MB requests instead of 1 MB ones. When that small buffer ran dry the picture waited on the network, which is the stutter seen at 4K and sometimes at 1080p\n- yt.log records each stream's download speed, how far ahead it is, and how often it ran dry, every 15 seconds\n- The PlayStation keyboard is gone: Search types with the app's own keys"
       },
       "pins": [
+        {
+          "tag": "01.000.195",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33560358,
+          "sha256": "4607ff761385b0a75a4d97637e4188c50110229f8f760270bbcf9499850fe405",
+          "content_version": "01.000.195",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.193",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4476,7 +4512,7 @@
         "geforce-now",
         "cloud-gaming"
       ],
-      "stars": 20,
+      "stars": 21,
       "release": {
         "tag": "0.3.0",
         "asset": "OpenNOW-PS5-0.3.0.zip",
@@ -4669,7 +4705,7 @@
         "home-screen",
         "emulators"
       ],
-      "stars": 25,
+      "stars": 26,
       "release": {
         "tag": "00.001.006",
         "asset": "PPSA99930.zip",
@@ -4831,7 +4867,7 @@
         "saves",
         "backup"
       ],
-      "stars": 33,
+      "stars": 35,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
@@ -5068,7 +5104,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 496,
+      "stars": 498,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5159,7 +5195,7 @@
         "saves",
         "sync"
       ],
-      "stars": 105,
+      "stars": 106,
       "release": {
         "tag": "v1.4.0",
         "asset": "PPSA76677.zip",
