@@ -345,7 +345,7 @@
         "emby",
         "video"
       ],
-      "stars": 41,
+      "stars": 42,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -431,16 +431,24 @@
       ],
       "stars": 7,
       "release": {
-        "tag": "v1.5.3",
-        "asset": "MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip",
-        "size": 45521590,
-        "sha256": "ce4c8abf398538b52fde5095e1d5179455c80a3324aa99b531cae1f4e9cb7193",
-        "content_version": "01.053.000",
+        "tag": "v1.5.4",
+        "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
+        "size": 45564262,
+        "sha256": "a75a14887c8dd2eeeca08cfcb53bc0dda37e0f7519a019ceb386970be84ac5fb",
+        "content_version": "01.054.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-10-31T22:51:48Z",
-        "notes": "## Media Player Classic PS5 1.5.3\n\nWhat [@Sulfurico-One64](https://github.com/Sulfurico-One64) asked for on [#3](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/3).\n\n### New\n\n- **Square with another action now does that action with the pointer showing too.**\n  - The action is set in Options > Player > Keys, for example Next audio track. Up to 1.5.2, Square was always the right-click while the pointer showed.\n  - With Square at its default action, nothing changes.\n  - **The right-click** is the touchpad pressed with two fingers. The context menu's commands are also in the menu bar (the Options button).\n  - **With \"The touchpad as the pointer\" off**, Square stays the right-click while the pointer shows, so a right-click is always there.\n  - **In menus, dialogs and the on-screen keyboard**, Square keeps its usual meaning.\n- **Fullscreen controls can wait for the pointer to reach them.** Under Options > Fullscreen > Hide controls in fullscreen there is now MPC-HC's choice:\n  - **Show when the pointer moves**: the default, as before.\n  - **Show when the pointer is over them**: the seek bar and the buttons appear only when the pointer is at the bottom of the screen, and hide a second after it leaves. Moving the pointer in a window over the film, such as Options while you style the subtitles, no longer brings them up over the subtitles.\n- **The picture follows when you hold a jump button.**\n  - This covers holding D-pad Left/Right, the right stick, L2/R2 with Left/Right, or any button given a jump.\n  - Up to 1.5.2 each repeat restarted the seek before it could show anything, so on a 4K film from a hard disk the picture hardly moved until you let go. Now the player goes from keyframe to keyframe and shows each picture before the next.\n  - When you let go, playback goes on exactly from the time shown. A single press is still exact.\n  - Dragging the seek bar works the same way.\n\n### Fixed\n\n- A held jump or a seek-bar drag no longer carries over into the next file, or into a window that opens while you hold it.\n- Dragging the volume slider when a window opened over it no longer sets the volume to 0.\n\n### Updating\n\n- **From 1.5.2:** Help > Check for updates offers 1.5.3. Or send `MediaPlayerClassicPS5-v1.5.3.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload when you can.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.5.3.elf`: send it to your payload loader (port 9021). It installs the app, then stays as the helper that unlocks it.\n- `MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip`: the app folder, used by Help > Check for updates. You don't need to download it yourself.\n- `mpc-ps5-v1.5.3-src.zip`: the source.\n\n### Status"
+        "published_at": "2026-11-03T10:38:36Z",
+        "notes": "## Media Player Classic PS5 1.5.4\n\nWhat [@Sulfurico-One64](https://github.com/Sulfurico-One64) found on [#3](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/3) after updating to 1.5.3 from the app.\n\n### Fixed\n\n- **Restart App after an update now opens the app again.** Up to 1.5.3, choosing Restart App after Help > Check for updates went back to the PS5 home screen, and you had to open the app by hand.\n  - Now the app asks its helper to open it again, then closes the normal way. The helper waits for the app to close, then gives the console a few seconds before opening Media Player Classic PS5 again, once.\n  - **When it applies:** only from 1.5.4 on. Updating *to* 1.5.4 still uses 1.5.3's restart, so the first time to see it is the update to the next version.\n  - **The helper:** it must be 1.5.4's, so put `MediaPlayerClassicPS5-v1.5.4.elf` in your autoload in place of an older one. With an older helper, the app says to close it and open it again, as before.\n  - **If it can't open the app,** a notice says to open it from the home screen.\n  - **If you open the app yourself meanwhile,** the helper leaves it alone.\n- **The version shown in App Information** (the home screen's information on the app) still shows an older version after an update made from the app.\n  - The version that runs is the new one: Help > About shows it.\n  - That number comes from the console's own app databases. Changing them isn't safe, so the app doesn't touch them.\n  - **To refresh it:** uninstall the app from the home screen and let ShadowMount+ add it again. If you listed it in `/data/shadowmount/manual.lst`, add its line back first.\n  - The README's Updates section explains this.\n- A message that said running ShadowMount+ again \"registers the app again\" now says what it does: it mounts the app's folder again.\n\n### Updating\n\n- **From 1.5.3:** Help > Check for updates offers 1.5.4. Or send `MediaPlayerClassicPS5-v1.5.4.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload: the new restart needs its helper.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.5.4.elf`: send it to your payload loader (port 9021). It installs the app, then stays as the helper that unlocks it.\n- `MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip`: the app folder, used by Help > Check for updates. You don't need to download it yourself.\n- `mpc-ps5-v1.5.4-src.zip`: the source.\n\n### Status\n\nIt passes its host tests (613; one timing check depends on the test machine's load)."
       },
       "pins": [
+        {
+          "tag": "v1.5.3",
+          "asset": "MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip",
+          "size": 45521590,
+          "sha256": "ce4c8abf398538b52fde5095e1d5179455c80a3324aa99b531cae1f4e9cb7193",
+          "content_version": "01.053.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.5.2",
           "asset": "MediaPlayerClassicPS5-v1.5.2-PPSA99015.zip",
@@ -477,16 +485,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.000.070",
-        "asset": "Mediathek-PPSA66120-01.000.070.zip",
-        "size": 31995579,
-        "sha256": "d3d7de3a51a62bc2b73f7ec7dba5588f17e56b98d7062e86f95e685a58cd55d4",
-        "content_version": "01.000.070",
+        "tag": "01.000.080",
+        "asset": "Mediathek-PPSA66120-01.000.080.zip",
+        "size": 31999745,
+        "sha256": "d0e9620a4c50b38cf9273a467bc8fe6dfe20643bc14da6d70f8bcd5979158c1a",
+        "content_version": "01.000.080",
         "title_name": "Mediathek",
-        "published_at": "2026-11-02T21:20:12Z",
-        "notes": "## Mediathek 0.7.0 (`01.000.070`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.7.0\n\n- **4K on the console's video decoder.** Films beyond 1080p (H.264, HEVC Main and Main10, up to 3840 x 2176) now play on the PS5's hardware video decoder instead of the CPU, which could not keep up with 4K. FFmpeg still reads the file, decodes the sound and plays everything up to 1080p, and it takes over if the hardware will not take a film. `HW_DECODE=0` in `mediathek.env` turns the hardware decoder off.\n- **HDR that looks right.** HDR films (HDR10 and HLG) on the hardware decoder are tone-mapped for an ordinary screen instead of looking grey and washed out, and their wide colours are mapped to the screen's. The conversion runs on the graphics chip. Dolby Vision profile 7 films play their HDR10 base layer.\n- **A steadier decoder.** After a stream error it starts again at the next key frame instead of giving up, it is set up once while the app starts, and the picture no longer stands still after a seek or a resume.\n- **More places for films.** Films are also found in a `mediathek/movies` folder (or `mediathek/Movies`) on every drive, beside the `movies` folder as before.\n- **Settings:** Appearance comes first, and the author moved to a row under Developer.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, then shelves: Continue Watching, Recently Added, collections, one per TMDB genre, decades and All Movies. A setting limits them to your own collections, genres or decades.\n- **Movies:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between films.\n- **Player:** scrubber, seeking (hold left/right to seek faster, up to 5 minutes per step), pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched. 4K and HDR on the hardware decoder.\n- **Settings:** categories on the left, their settings on the right: UI sounds, fixed billboard, details wallpaper, shelves on Home, app language, reload all covers and infos, debug info, version and build time.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n\n### Good to know"
+        "published_at": "2026-11-03T09:02:09Z",
+        "notes": "## Mediathek 0.8.0 (`01.000.080`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.8.0\n\n- **HDR up to 1080p is tone-mapped.** HDR films that FFmpeg decodes (up to 1080p, VP9, or anything the hardware decoder will not take) no longer look grey and washed out: their pictures go to the graphics chip and are tone-mapped like the 4K ones on the hardware decoder.\n- **Subtitle settings.** *Force subtitles* (off by default) starts a film that has subtitles with them on; *Subtitle language* (None, German, English) picks which ones, also when you switch them on with Triangle.\n- **Films start without subtitles** unless *Force subtitles* is on. Before, the first subtitle file was always shown.\n- **Settings, regrouped:** Appearance (fixed billboard, shelves on Home, details wallpaper), Playback (the subtitle settings), General (app language, UI sounds), Library (reload all covers and infos) and About (version, author, debug info).\n- **A calmer Home:** one shelf at a time, with a d-pad hint for the others; the billboard gives only the year, and the shelf has no title of its own while the billboard is fixed.\n- **Details page:** the red line shows only the genres, the drive moved next to the file size (\"FILE · USB 1 · 7.7 GB\"), and a counter at the top right says which film of the shelf or grid you are on (\"2 / 4\").\n- The button hints sit a little lower on every screen.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, and one shelf at a time: Continue Watching, Recently Added, collections, one per TMDB genre, decades and All Movies. A setting limits them to your own collections, genres or decades.\n- **Movies:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between films.\n- **Player:** scrubber, seeking (hold left/right to seek faster, up to 5 minutes per step), pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched. 4K on the hardware decoder, and HDR tone-mapped at every size.\n- **Settings:** categories on the left, their settings on the right, saved as you change them.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n\n### Good to know"
       },
       "pins": [
+        {
+          "tag": "01.000.070",
+          "asset": "Mediathek-PPSA66120-01.000.070.zip",
+          "size": 31995579,
+          "sha256": "d3d7de3a51a62bc2b73f7ec7dba5588f17e56b98d7062e86f95e685a58cd55d4",
+          "content_version": "01.000.070",
+          "title_name": "Mediathek"
+        },
         {
           "tag": "01.000.064",
           "asset": "Mediathek-PPSA66120-01.000.064.zip",
@@ -684,7 +700,7 @@
         "video",
         "streaming"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "v1.6.0.5",
         "asset": "wiliwili-PS5-v1.6.0.5.zip",
@@ -878,16 +894,26 @@
         "wii",
         "dolphin"
       ],
-      "stars": 220,
+      "stars": 221,
       "release": {
-        "tag": "v4.0",
-        "asset": "Porpoise-4.0.zip",
-        "size": 31289022,
-        "sha256": "bce438cc8f436e177ae33b47a43aba82a7020e9db9b2b94c14055b4b7db2328e",
-        "published_at": "2026-10-21T22:11:17Z",
-        "notes": "<p align=\"center\"><img src=\"https://github.com/elripalda/Porpoise-Dolphin-Emulator-for-PS5/raw/Main/docs/images/banner.png\" alt=\"Porpoise\" width=\"100%\"></p>\n\n**Porpoise 4.0**\n\n### New\n- **Frame Generation (beta)** in Settings → Video and the in-game menu: a 30 fps game shown at 60, and with the PS5 at 120 Hz a 60 fps game at 120. Off by default; needs V-Sync\n- **Steady 30 FPS**, under Frame Generation, for games that swing between 30 and 60\n- **Simpler Settings**: just what most players need, with **Show All Settings** for everything\n- **Auto Boost** in a game's settings: the settings that run it best on PS5, with one press\n- **A calmer Porpoise theme**: fainter grid, no light beams, cleaner glass\n- **Star Cube** redone after the GameCube's own menu\n- **Smooth Edges (FXAA)** screen filter\n- **Player 1's Port** for games that want your controller in another port\n- **Change Disc** in the in-game menu, for two-disc games and expansion discs\n- **GameCube Menu**, **Wii Menu**, **Wii Channels** and **Wii System Update** in Settings → Console\n- **Add a Code** in a game's Cheats and Patches\n\n### Fixes and speed\n- Smoother quick saves and screenshots, lighter input and logging work while you play\n- Games with a big shader cache no longer stall on a black screen before they start\n- Luigi's Mansion (PAL) and other games start with cheats on\n- NFS shares with version 3 turned off now connect\n- Rumble no longer sets off Wii Remote and Nunchuk shakes\n- Several rare crashes and hangs\n\n> [!NOTE]\n> Found a bug? **Settings → About → Report a Bug** saves Porpoise's logs. Send them with the game's name on the **[RIPALDA Discord](https://discord.gg/GgDE5Vynyu)**.\n\n## Install or update\n\n**Use ShadowMountPlus 1.7 beta 4 or newer.** With older versions, Porpoise can close the moment it opens on some setups (firmware 12.x with the Lapy JB Daemon or LegacyJB).\n\n**From 2.0 or later:** **Settings → About → Updates**.\n\n**By hand:** download **`Porpoise-4.0.zip`**, delete `/data/homebrew/PPSA99764/` on the PS5, and copy the **`PPSA99764`** folder into **`/data/homebrew/`**. With FTP, use binary transfers (FileZilla: Transfer → Transfer type → Binary), or some text files won't copy. Your games, saves and settings in `/data/porpoise/` are kept.\n\nPorpoise contains no games, BIOS or firmware. Play only games you own. Not affiliated with Nintendo, Sony or RetroAchievements. Licenses are in `licenses/README.txt` inside the zip.\n\n`Porpoise-4.0.zip` SHA-256: `bce438cc8f436e177ae33b47a43aba82a7020e9db9b2b94c14055b4b7db2328e`",
-        "content_version": "04.000.000"
-      }
+        "tag": "v4.5",
+        "asset": "Porpoise-4.5.zip",
+        "size": 27286409,
+        "sha256": "e772faa79b9e9609d23ff0e82ebc7a8b2156594e97f34aed7d6ac3cbb3f8caeb",
+        "content_version": "04.500.000",
+        "title_name": "Porpoise",
+        "published_at": "2026-11-03T19:07:50Z",
+        "notes": "<p align=\"center\"><img src=\"https://github.com/elripalda/Porpoise-Dolphin-Emulator-for-PS5/raw/Main/docs/images/banner.png\" alt=\"Porpoise\" width=\"100%\"></p>\n\n**Porpoise 4.5**\n\nA new look, PlayStation Move motion controls, up to four players in Wii games, Triforce arcade games, and VRR.\n\n### The new look\n- **A new Porpoise look** built around your collection: real disc cases you move through with the stick, in **Light**, **Dark** or **OLED**\n- **The side menu:** press **Triangle**, or swipe in from the right edge of the touch pad, to reach Settings and everything else from anywhere\n- **The island**, top right: your controllers, their batteries, the camera and the time. Swipe down on the touch pad to open it\n- **New menu music**, \"Soundscape\" by LOiME, and a new boot animation\n- The classic look is still here as **Porpoise Legacy**, along with **Revolution** and **Star Cube**\n\n### PlayStation Move\n- **Play Wii games with a PlayStation Move as the Wii Remote:** aiming, swings and rumble on the Move\n- **Both Move models work**, the original and the newer one\n- **A PS3 Eye camera keeps your aim from drifting.** Pick the ball color it tracks in the Controller Hub\n- **Point at Porpoise's menus with the Move:** hold Start for a second\n\n### Controller Hub\n- **The Wii controller setup, rebuilt:** pick what you're holding, then what it plays as. Also in the in-game menu\n- **Up to four players:** each player gets a page (tap **L1 / R1**). Pick what they hold (DualSense, PlayStation Move, Move + Navigation, Move + DualSense) and what their DualSense plays as. Saved for every Wii game\n- **The Navigation controller** as the Nunchuk, and Moves for players 2 to 4, through **Move Management by REXCRAFT88**\n- The pointer follows a tilted controller all the way round\n\n### Triforce arcade games (beta)\n- Your own Triforce dumps show in the library with your GameCube games, marked **Triforce**\n- **Touch pad** inserts a coin, **L1** opens the test menu, **L3 + R3** is the service button\n- Put your own **`segaboot.gcm`** in `/data/porpoise/bios/` for the test menu. Some games need it to get past their startup checks; if a game still won't start, use a patched copy of it\n\n### Display\n- **Refresh Rate** in Settings → Video: **Fixed 120 Hz**, or **VRR (beta)**, where each frame shows the moment it's ready, up to 120 Hz\n- **Frame Generation works with VRR on**, 60 to 120 included\n- **Display** in Settings → Video shows what your TV is running at\n- **The menus run at 120 Hz** on a 120 Hz screen\n- Frame Generation now says when your setup keeps it from running\n\n### Faster and steadier\n- Several games run faster or steadier, and Auto Boost's tested picks now apply by themselves\n- Less stutter in games that stream from virtual memory\n- Snappier menus and controller setup"
+      },
+      "pins": [
+        {
+          "tag": "v4.0",
+          "asset": "Porpoise-4.0.zip",
+          "size": 31289022,
+          "sha256": "bce438cc8f436e177ae33b47a43aba82a7020e9db9b2b94c14055b4b7db2328e",
+          "content_version": "04.000.000"
+        }
+      ]
     },
     {
       "id": "psp5",
@@ -1413,14 +1439,24 @@
       ],
       "stars": 10,
       "release": {
-        "tag": "v1.1",
-        "asset": "chiral-ftp-ps5-1.1.zip",
-        "size": 2500981,
-        "sha256": "ff5dcee48e4c853c039af444bb3d16172b1b14dd6a71e948d0715d55f4c9e067",
-        "published_at": "2026-10-22T07:02:41Z",
-        "notes": "# chiral-ftp 1.1\n\n[![Downloads](https://img.shields.io/github/downloads/Herbrax/chiral-ftp/v1.1/total?color=D9B65E&label=downloads)](https://github.com/Herbrax/chiral-ftp/releases/tag/v1.1) [![Stars](https://img.shields.io/github/stars/Herbrax/chiral-ftp?color=D9B65E&label=stars)](https://github.com/Herbrax/chiral-ftp/stargazers)\n\nchiral-ftp now has downloads for **Windows**, **Mac** and **Linux**, next to\nthe **PS5** and the **Nintendo Switch**. And every copy of chiral-ftp on\nyour network can now find and open the others in two presses: **Quick\nconnect**.\n\n### New: Quick connect\n\n![Quick connect on a Mac: the devices nearby](https://raw.githubusercontent.com/Herbrax/chiral-ftp/main/docs/screenshots/quick-connect-devices.png)\n\n- **Every copy of chiral-ftp on your network shows up**, whatever it is\n  doing: no server has to be running, and nothing has to be set up.\n- **Ask one to share.** It shows your request with a 4-digit code; check\n  it's the same code on both screens and press **Allow**. The other device\n  starts its server, and you are connected and browsing it.\n- **The login it hands out works only from the device that asked**, and only\n  while that server runs. Deny, or let the request time out, and nothing is\n  shared.\n- On a console, Quick connect is on the start screen (press **Up**) and runs\n  while chiral-ftp is open there. On a computer it's in the sidebar (or\n  **⌘K** on a Mac) and runs whenever the app is open.\n- The list stays current even on Wi-Fi that drops broadcasts.\n\n### New: Windows, Mac and Linux\n\n- **Windows**: one `.exe` (x64; it runs on Windows on ARM too), nothing to\n  install. **Mac**: `chiral-ftp.app`. Double-click it, or drag it to\n  Applications; it carries its own libraries. **Linux**: one `.AppImage`\n  file.\n- **Made for a computer** (Windows, Mac and Linux alike): a sidebar with\n  the server, the web app, Quick connect, the message log and Settings, each\n  a page with ordinary switches, fields and buttons; on a Mac the menu bar\n  has everything, with shortcuts.\n- **The mouse works everywhere**: hover, click, right-click, scroll, and\n  click outside a panel to close it.\n- **Sharp text**: the layout follows the window instead of scaling a fixed\n  screen, and text is rendered with hinting.\n- **SFTP server** (encrypted, the default) or FTP, on the same screen.\n- **Shares your home folder** by default. **Whole computer** shares\n  everything, after a confirmation. chiral-ftp's own settings (saved\n  passwords, the server's login and its private key) are never shared,\n  whatever folder is.\n- **The web app opens in your browser.** By default only this computer can\n  reach it; switch \"Reachable from\" to your home network to use it from a\n  phone or another device.",
-        "content_version": "01.001.000"
-      }
+        "tag": "v1.2",
+        "asset": "chiral-ftp-ps5-1.2.zip",
+        "size": 5332956,
+        "sha256": "725603652736190688cbd37fa99759d023507d4442a93b1744821f210c6f69f2",
+        "content_version": "01.002.000",
+        "title_name": "Chiral-FTP",
+        "published_at": "2026-11-03T16:08:39Z",
+        "notes": "# chiral-ftp 1.2\n\n[![Downloads](https://img.shields.io/github/downloads/Herbrax/chiral-ftp/v1.2/total?color=D9B65E&label=downloads)](https://github.com/Herbrax/chiral-ftp/releases/tag/v1.2) [![Stars](https://img.shields.io/github/stars/Herbrax/chiral-ftp?color=D9B65E&label=stars)](https://github.com/Herbrax/chiral-ftp/stargazers)\n\nchiral-ftp now runs on **Android**: phones, tablets, foldables and\n**Android TV**, from one APK. That makes six platforms: Windows, Mac, Linux,\nAndroid, Nintendo Switch and PS5. All of them find each other with Quick\nconnect, and from this version on, all of them **update themselves**.\n\n**Thank you**: chiral-ftp has already passed **1,500 downloads**. Every bug\nreport, idea and kind word since 1.0 has gone into making it better.\n\n### New: chiral-ftp.com\n\nchiral-ftp now has its own website, **[chiral-ftp.com](https://chiral-ftp.com)**,\nwith the downloads for every platform in one place\n([chiral-ftp.com/download](https://chiral-ftp.com/download)).\n\n### New: Android phones, tablets and foldables\n\n| Files | Client | Quick connect |\n|---|---|---|\n| ![The file manager on an Android device](https://raw.githubusercontent.com/Herbrax/chiral-ftp/main/docs/screenshots/android-files.png) | ![An Android device and a NAS, both in Movies](https://raw.githubusercontent.com/Herbrax/chiral-ftp/main/docs/screenshots/android-client.png) | ![A TV, a Switch and a PS5 nearby, and where to get chiral-ftp](https://raw.githubusercontent.com/Herbrax/chiral-ftp/main/docs/screenshots/android-quick-connect.png) |\n\n- **Everything the other versions do**: the **SFTP or FTP server**, the\n  **web app**, the **file manager** and the **FTP / SFTP client** with\n  saved sites, resume and up to 30 transfers at once.\n- **Made for a touch screen**: tabs for Files, Client, Server, Quick\n  connect, Transfers and Settings. Tap to open, long-press to mark, drag\n  to scroll.\n- **Fits any screen and follows it as it changes.** A phone shows one pane\n  at a time. An unfolded foldable or a tablet shows two side by side. A\n  cover screen gets a compact layout. Sideways, the tabs slide in from the\n  edge. Folding, unfolding or turning the phone keeps your folders, marks\n  and scroll positions.\n- **File manager**: cut, copy and paste, rename, delete, new folder,\n  mark all, and copy to the other side.\n- **Open files in other apps**: Open, Open with… and Share hand a file to\n  the app that opens it. An APK opens in the system installer.\n- **Sort by** name (A–Z or Z–A), date (newest or oldest first), size\n  (largest or smallest first) or type, in the file manager and the client.\n  The choice is remembered.\n- **SFTP server** (encrypted) or FTP, on the same screen, with the server's\n  key fingerprint so you can check it when you connect."
+      },
+      "pins": [
+        {
+          "tag": "v1.1",
+          "asset": "chiral-ftp-ps5-1.1.zip",
+          "size": 2500981,
+          "sha256": "ff5dcee48e4c853c039af444bb3d16172b1b14dd6a71e948d0715d55f4c9e067",
+          "content_version": "01.001.000"
+        }
+      ]
     },
     {
       "id": "screentester5",
@@ -1566,7 +1602,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 798,
+      "stars": 802,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1652,7 +1688,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 204,
+      "stars": 205,
       "release": {
         "tag": "Alpha-2.1",
         "asset": "PPSA97358.zip",
@@ -1989,15 +2025,25 @@
       ],
       "stars": 17,
       "release": {
-        "tag": "v2.1",
-        "asset": "FBNeoPS5-v2.1-PPSA99924.zip",
-        "size": 63900308,
-        "sha256": "b56ca7ca56d942f3e1855cfd9ed3f9112a0758f8b9313882824d1d817dd48622",
-        "content_version": "02.010.000",
+        "tag": "v2.2",
+        "asset": "FBNeoPS5-v2.2-PPSA99924.zip",
+        "size": 64677972,
+        "sha256": "54ebe9511368c9600b4aa1c1403ae73413c4863f806842423a496a93445802a3",
+        "content_version": "02.020.000",
         "title_name": "FBNeo PS5",
-        "published_at": "2026-10-25T23:52:46Z",
-        "notes": "## FBNeo PS5 2.1\n\n### New\n\n**Choose which arcade player each controller plays** ([#3](https://github.com/MisterTemaki/fbneo-ps5/issues/3)). Thanks to [gitloth](https://github.com/gitloth) for the request.\n\n- **The simple way: Choose players.** It's in the pause menu, or at the top of Settings > CONTROLS > CONTROLLERS on the shelf. The screen asks \"Player 1: press ✕ on your controller\", then Player 2, and so on. Whoever presses ✕ gets that player, as in many PS5 games.\n  - Controller 1 can finish early (OPTIONS), start again (Square) or cancel (Circle).\n  - A 4-player game that ties each character to its cabinet's slot (The Simpsons, Sunset Riders...) can be played by three people on the slots they want.\n- **The advanced way: the CONTROLLERS rows.** Each controller has its own row, showing its light bar's colour, whether it is connected, and the player it plays (Player 1 to 4, or none).\n  - Choosing a player another controller already has swaps them, so nobody is left without one.\n  - A single controller can play player 2 (the 2-player editions).\n- **Per game or for every game:** as with the button layout, a change made from a game's pause menu is kept for that game and its clones. A change made from the shelf's Settings applies to every game.\n- **Default controls** (formerly Default button layout) puts both the buttons and the players back.\n- **A message at game start** says so for a few seconds when a controller plays another player, including when the game doesn't have that player.\n- **The pause menu** (L3 + R3) stays on controller 1, whatever player it plays.\n- **Signing in or out during a game:** the message appears again, and a controller that moves up a slot keeps working. Before, it could stop responding for a few seconds.\n\nTo play with 3 or 4 people, start the game's 4-player version (e.g. `simpsons`, not `simpsons2p`). On some boards you also need to set the cabinet type in Pause menu > DIP switches.\n\n### Files\n\n- `FBNeoPS5-v2.1.elf`: send it to your payload loader (port 9021).\n- `FBNeoPS5-v2.1-PPSA99924.zip`: the app folder, used by Settings > Updates. You don't need to download it yourself.\n\n### Status\n\nIt passes 530 host tests (the same code on Linux, the PS5 calls simulated, with up to four simulated controllers). **It has not been run on a PS5 yet**, in particular with several signed-in users. Please report what works and what doesn't, with Settings > Debug logs on (the logs are in `/data/fbneo/logs/`).\n\nLicences: FBNeo's licence (non-commercial); libsmb2 and libnfs LGPL-2.1-or-later; the LZMA SDK public domain. Port by [MisterTemaki](https://github.com/MisterTemaki)."
-      }
+        "published_at": "2026-11-03T11:55:57Z",
+        "notes": "## FBNeo PS5 2.2\n\n### New: Killer Instinct and Killer Instinct 2\n\n- **Ten sets:** `kinst`, `kinst14`, `kinst13`, `kinstp47`, `kinst15ai` (Killer Instinct) and `kinst2`, `kinst213`, `kinst211`, `kinst210`, `kinst214ai` (Killer Instinct 2). They come from upstream FBNeo: its new MIPS III core, its hard disk module and its Killer Instinct fixes, up to `892a35c8f` of 2026-10-20.\n- **They need their hard disk image,** a MAME CHD, in a folder named after the set, next to the ROM zip, as MAME keeps them:\n  - `kinst/kinst.chd` next to `kinst.zip`;\n  - `kinst2/kinst2.chd` next to `kinst2.zip`.\n  - A clone uses its parent's CHD, so one `kinst/kinst.chd` serves every Killer Instinct set.\n- **Without the CHD,** the shelf still lists the game and says \"needs kinst/kinst.chd next to the ROM zip\". Copy the CHD there and press Cross: it starts.\n- **The CHD is never written.** The game's own writes to its disk (its audits and settings) go to `/data/fbneo/saves/<set>.diff` and come back at the next start. Delete that file to reset them.\n- **Keep the CHD on the console or a USB drive.** On a network share it's read while the game runs, so a slow network can make it stutter; the shelf says so.\n- The [README](https://github.com/MisterTemaki/fbneo-ps5#killer-instinct-hard-disk-images) has the details.\n\n### Also in 2.2\n\n- **Revolution X's parent changed upstream:** `revx` is the parent now, `revx1` and `revxp5` its clones. Split sets made with 2.1's DAT show `revx` as incomplete: rebuild them with 2.2's DAT (`FBNeoPS5-v2.2-arcade.dat`, with the Killer Instinct CHDs as `<disk>` entries).\n- **Updates go where ShadowMount+ runs the app** (a USB drive's folder, an extended drive's, another folder ShadowMount+ mounted), instead of a second copy in `/data/homebrew`. When the place can't be told for sure, the update goes to `/data/homebrew/PPSA99924` as in 2.1.\n- **Sturdier on the console:**\n  - The app uses its own C++ runtime, and every build checks what it imports from the system and that it makes no raw system call.\n  - Running out of memory no longer stops the app: a game that can't start says \"Not enough memory to start the game.\" and the shelf goes on.\n  - A thread the system refuses no longer ends the app.\n- **Debug logs turned on while the app runs** now start a new `boot.log`, whose first line names the version (the old one is kept as `boot.prev.log`). Debug logs are still off by default.\n\n### Updating\n\n- **From 2.1:** Settings > SYSTEM > Updates offers 2.2. Or send `FBNeoPS5-v2.2.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload in place of the old one.\n\n### Files\n\n- `FBNeoPS5-v2.2.elf`: send it to your payload loader (port 9021). It installs the app, then stays as its helper."
+      },
+      "pins": [
+        {
+          "tag": "v2.1",
+          "asset": "FBNeoPS5-v2.1-PPSA99924.zip",
+          "size": 63900308,
+          "sha256": "b56ca7ca56d942f3e1855cfd9ed3f9112a0758f8b9313882824d1d817dd48622",
+          "content_version": "02.010.000",
+          "title_name": "FBNeo PS5"
+        }
+      ]
     },
     {
       "id": "forgenx",
@@ -2083,7 +2129,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 356,
+      "stars": 361,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2126,18 +2172,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 111,
+      "stars": 116,
       "release": {
-        "tag": "v2.2.2",
+        "tag": "v2.2.5",
         "asset": "PPSA11018.zip",
-        "size": 323794514,
-        "sha256": "06110e30db715251b043335b194aa9632f10d55eaf39f8a32d51d82a58cc4389",
-        "content_version": "02.002.002",
+        "size": 323867158,
+        "sha256": "a76fcbd49ef77c198893c8deb8f14d267c804169e00c08607ebf75804d9c5482",
+        "content_version": "02.002.004",
         "title_name": "PC5",
-        "published_at": "2026-11-02T20:09:59Z",
-        "notes": "PC5 2.2.2 makes the loading screen simple, with your own picture if you like, brings back the mouse pointer in games whose menus only draw when something changes, and puts 2D only games' picture where the game draws it.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### What's new\n\n- **A simpler loading screen**: while a game starts, PC5 shows a picture with **LAUNCHING GAME** and a spinning circle in the bottom right corner, until the game shows its first picture. It fades in when you press Play. The bar that followed the start is gone.\n- **Your own loading picture**: make a folder `/data/prospero-win/loading/` and put a `.jpg` or `.png` in it: `loading.png` for every game, or a picture named after a game (its folder name, its name in PC5 or its id) for that game. See [Loading screen](https://github.com/bornaradusin/PC5/wiki/Covers#loading-screen).\n\n### Fixes from your reports\n\n- **The mouse pointer gone in some menus**: since 2.2.0, a game whose menus only draw a new picture when something changes lost its mouse pointer there. The pointer now follows every move.\n- **120 Hz output and VRR**: with the PS5's own VRR on, the console stays at 60 Hz with VRR instead of switching to 120 Hz. **Settings › In games › 120 Hz output** now says to turn VRR off.\n- **2D only: the picture cut off on the left**: with **Graphics mode › 2D only**, a game at a smaller resolution than the TV's showed its picture shifted to the left and cut off, with black on the right. It now shows where the game draws it.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in."
+        "published_at": "2026-11-03T17:11:21Z",
+        "notes": "PC5 2.2.5 fixes a freeze when some games load a new level, a .NET game that stopped at start, and a missing sun-glow effect in older games.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixes from your reports\n\n- **DirectX 12 games freezing as a new level loads**: a game that loads a big level in one go (thousands of textures and models) could freeze for good at the end of a chapter, its graphics stopped by the console. The loading work is now handed to the console in smaller parts.\n- **.NET games that clear their console at start**: a game that clears its console window as it starts stopped with \"The handle is invalid\", as games run without a console window on the PS5. Clearing now just works, with nothing to clear.\n- **Older games' sun glow**: a game that builds its shaders as it starts, and reads them back with its own tools, refused one of them and drew the sun's glow without it. That shader is now written the way the game's tools take it.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.2.4 -->"
       },
       "pins": [
+        {
+          "tag": "v2.2.2",
+          "asset": "PPSA11018.zip",
+          "size": 323794514,
+          "sha256": "06110e30db715251b043335b194aa9632f10d55eaf39f8a32d51d82a58cc4389",
+          "content_version": "02.002.002",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.1.4",
           "asset": "PPSA11018.zip",
@@ -2168,14 +2222,6 @@
           "size": 317667596,
           "sha256": "591278b7a0ebf16d2f764326647c0c438d09a0de721d4977d3d036632cc7123d",
           "content_version": "02.000.008",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.0.7",
-          "asset": "PPSA11018.zip",
-          "size": 312221196,
-          "sha256": "60201f19788fab9fa23fa573198c2761141c35bc9745d84fa919f374da6e59cf",
-          "content_version": "02.000.007",
           "title_name": "PC5"
         }
       ]
@@ -2230,7 +2276,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 971,
+      "stars": 979,
       "release": {
         "tag": "v0.9.0",
         "asset": "playden-ps5-0.9.0.zip",
@@ -2271,7 +2317,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 247,
+      "stars": 248,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2301,18 +2347,26 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1620,
+      "stars": 1623,
       "release": {
-        "tag": "vk-285-182",
-        "asset": "PS5SX2-vk-285-182.zip",
-        "size": 24454104,
-        "sha256": "739c652acab11fc4eb79a7e20a67d22183ee97ea5292d3b8330bf5dbca412076",
-        "content_version": "02.200.000",
+        "tag": "vk-285-187",
+        "asset": "PS5SX2-vk-285-187.zip",
+        "size": 30218649,
+        "sha256": "de9feb7e1c0b600bb22776988b99a731ee2c22662c1f3516e95625d68eedfb60",
+        "content_version": "02.300.000",
         "title_name": "PS5SX2",
-        "published_at": "2026-10-30T20:47:26Z",
-        "notes": "**PS5SX2 2.20** (build vk-285-182)\n\nEverything from the test builds since 2.15 (178 to 181) plus the fixes from your reports, in one version.\n\n**New**\n- **Updates inside the app.** Square on the shelf > All games > PS5SX2 > **System update**: press Cross to check, Cross again to install. PS5SX2 closes, installs the new version and starts again by itself.\n- **Nothing to load by hand.** PS5SX2 now starts its own disc helper and installer. You only need your jailbreak (with its ELF loader), kstuff and ShadowMount+.\n- **Open-source BIOS built in.** No PS2 BIOS? Before a game starts, PS5SX2 asks: use **OpenPS2BIOS** (experimental, by Tamariba Devs, MIT licence: some games don't work yet) or put your own BIOS in `/data/PCSX2/bios`. Your own BIOS always wins. The open BIOS can't start PS1 discs, audio CDs or DVD video.\n- **BIOS check before every start** (shelf, discs, tiles): most failed starts were a missing BIOS, now you're told what to do.\n- **PS5SX2 and PS5SX3 work side by side.** A PS2 disc goes to PS5SX2, any other disc is left to PS5SX3 (use PS5SX3 TB19.1 or newer).\n- **Game database built in.** If `/data/PCSX2/resources` is missing (store installs, eboot copied by hand), the app uses its own copy, so games keep their fixes (Black, Need for Speed: Carbon, Burnout Revenge and many more were running without them).\n- **Game tiles on by default.**\n\n**Faster**\n- **Texture packs install much faster**: big packs no longer crawl at 2-3 MB/s after the first ~2 GB.\n- **Big CHD libraries:** no more long black screen before the shelf. CHDs are read only as far as needed, results are remembered, and new games show a \"Looking at new games\" screen. Covers for games on USB drives download after the shelf opens (the empty file `flags/prefetchusb` brings back the old way).\n- **PS5 drive:** tries 8x first when playing or copying a disc, falls back to 3.2x.\n\n**Fixed**\n- **Google Drive texture packs:** when Google's download limit is used up you get a clear message (try later or pick the archive.org pack) instead of a download stuck for good.\n- **L1 + R1 + touch pad** always brings you back to the shelf (the home screen shows for a moment).\n- **PS2 disc tile:** never asks any more. It starts your dump of that game if you have one, otherwise the disc.\n- **Back from a disc game** the shelf lands on that disc or its dump.\n- **Disc games use their own per-game settings.**\n- **RetroAchievements:** \"Could not read or protect account storage\" fixed; you stay signed in.\n- **Online (DEV9):** the emulation no longer freezes when a game server is slow to take data (Killzone dropped out of matches); a manual DNS is applied and DNS2 is read."
+        "published_at": "2026-11-03T10:47:42Z",
+        "notes": "**PS5SX2 2.30** (build vk-285-187)\n\nEverything from the test builds since 2.20 (183 to 187) in one version. After updating, **restart your console once** so the new disc helper (171p) loads.\n\n**Frame generation and display**\n- **60 → 120 fps on original PS5s below firmware 9.00** (it was stuck at 40/80 there). On a 4K TV on that firmware the extra frames are made at 1080p and scaled up (the empty file `flags/fgfullres` keeps the TV's size).\n- Lower delay with frame generation: frames go to the screen straight from the CPU. Lower input delay without frame generation too.\n- No more 30-230 ms freeze each time frame generation starts (after loading screens and pause menus).\n- Frame generation keeps up after you change the upscale; faster motion search at 4K.\n\n**Speed**\n- EE recompiler: cheaper code checks and memory accesses, in every game.\n- GPU timing that nothing used is off: one less GPU step per readback, which should help readback-heavy games, most on firmware below 9.00 (the empty file `flags/gputiming` turns it back on).\n- Games start about 0.4 s sooner; disc games another 0.5-2 s sooner (the drive's speed is no longer measured at every start).\n- Games that flood the log (God of War, Harry Potter and the Chamber of Secrets, Mercenaries, Midnight Club 3) no longer stall writing it.\n\n**Shelf and app**\n- **L1 + R1 + touch pad** goes straight back to the shelf again, without the home screen in between.\n- The launch picture is in the release again (starting from the home screen showed black), and the shelf comes up sooner.\n- The old front covers are back.\n- Starting a game while the shelf is still reading new games no longer waits for the scan (it could take up to 5 minutes).\n- Big libraries: a game file whose read hangs is skipped and remembered, even after a console crash, so the scan never gets stuck on it again.\n- System update fetches the installer when it's missing.\n- The Reload PS2 Disc tile is gone (the empty file `flags/disctile_reload` brings it back).\n\n**Saves and stability**\n- .mc2 / .bin memory cards are written to disk 2-3 s after each save, and a killed session's saves are recovered at the next start.\n- An emulation error no longer freezes the game for good: a message says what happened, and L1 + R1 + touch pad goes back to the shelf with your memory cards written.\n- A rare wrong-thread bug right after loading a savestate is fixed.\n\n**Discs, ISOs and the disc helper**\n- ISO on a USB drive: a failed read is retried (and the file opened again) before the game gets a read error, and the cause is logged.\n- Scratched discs: one bad read no longer slows loading for the rest of the disc.\n- PS5 drive: the 8x speed patch runs only on firmware 11.40, where it was tested."
       },
       "pins": [
+        {
+          "tag": "vk-285-182",
+          "asset": "PS5SX2-vk-285-182.zip",
+          "size": 24454104,
+          "sha256": "739c652acab11fc4eb79a7e20a67d22183ee97ea5292d3b8330bf5dbca412076",
+          "content_version": "02.200.000",
+          "title_name": "PS5SX2"
+        },
         {
           "tag": "vk-285-177",
           "asset": "PS5SX2-vk-285-177.zip",
@@ -2342,7 +2396,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 424,
+      "stars": 423,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2995,18 +3049,26 @@
         "xbox",
         "fps"
       ],
-      "stars": 86,
+      "stars": 88,
       "release": {
-        "tag": "build-134",
+        "tag": "build-135",
         "asset": "halo-ps5-release.zip",
-        "size": 56800421,
-        "sha256": "c3ff433c420990492795fd72f5af866b8eb30bd277b70116097f7aa7c202e53a",
-        "content_version": "01.000.134",
+        "size": 56800869,
+        "sha256": "4890a9ddeabcc82b30b35f638d5f3dded18fb137356feced5e50aa7feca8b6bb",
+        "content_version": "01.000.135",
         "title_name": "Halo: Combat Evolved",
-        "published_at": "2026-11-03T00:29:37Z",
-        "notes": "Build 134: Vulkan runs faster, and long replays play on Switch!\n\n- Custom Edition maps: on phones where Android already uses the memory Custom Edition maps are made for (a Galaxy Z Fold, for one), the maps now load somewhere else and play, instead of never showing up in the map lists. Where they can't run at all, IMPORT says so instead of importing maps you would never see. (thelinkin3000)\n- Vulkan: the renderer now records and presents its frames on its own thread, so the game's thread no longer waits on the graphics driver. A frame's work goes to the GPU before the game waits for a screen image, so the GPU starts sooner. (thelinkin3000)\n- Vulkan: a map's walls and floors are copied to the GPU once when the map loads, instead of being sent again every frame. Small effects (HUD, text, particles) send only what changed. This takes a large share of the CPU's per-frame work off. (thelinkin3000)\n- Vulkan: the GPU waits less between drawing a picture and reading it back, and the finished picture is shown with a draw instead of a copy, which is cheaper on phone GPUs. (thelinkin3000)\n- Android: the on-screen touch controls are redrawn only when something on them changes. Before, they were redrawn every frame, so the game ran faster with them hidden. (thelinkin3000)\n- Maps: on Android, IMPORT on the level lists copies .map files, and the maps inside .zip files, into custom_maps. (thelinkin3000)\n- Theater: long replays play on every platform. A 22-minute match's replay (46 MB, 152 MB unpacked) used to fail with \"The replay cannot be read.\" It's now kept in the app's own memory instead of the game's. (thelinkin3000)\n- Switch: a map's mod textures are read from the SD card ahead of time, so the game no longer pauses to read each one the first time it shows up. In a 48-bot match the slowest 1% of frames went from 19 to 32 fps. (thelinkin3000)\n- Switch: a frame's work goes to the GPU before the game waits for a screen image, as on Vulkan. Looking up cached data now takes the game's thread less time. (thelinkin3000)\n- Benchmark: `debug.benchmark` accepts `replay:<file>:<seconds>` to measure a replay as it plays, and `debug.benchmark_manual` lets you play the benchmark match yourself. (thelinkin3000)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n\nCommit: https://github.com/thelinkin3000/halo-ce-universal/commit/8ab7acc93101d88ca68e00d9c912d1395bbce05f\nBuild: https://github.com/thelinkin3000/halo-ce-universal/actions/runs/41551904317\n\nThe release builds are for playing; the debug builds stop at the first failed assertion and log it."
+        "published_at": "2026-11-03T16:00:52Z",
+        "notes": "Build 135: Hotfix for the Turnip crash, and mod packs import!\n\n- Vulkan: on some phones with the Turnip driver (an Adreno 750 phone, for one), the game crashed a moment after it started drawing at the screen's size. It was a bug in the driver, which the game no longer runs into. (thelinkin3000)\n- Mods: on Android, IMPORT takes a .zip with a whole pack of mods, each in a folder of its own at the .zip's top, as well as a .zip of one mod. Mods you already have are skipped and named, and a .zip that can't be imported no longer stops the others. (thelinkin3000)\n- Android: how an import or an export went (maps, mods, drivers, replays) is written to the log as well as shown on screen, so a log you send in says what happened. (thelinkin3000)\n- Vulkan: the renderer's counts, two long lines every second, are only written with `debug.gpu_stats`. Without it, a line is written only when draws were skipped. They were most of the log. (thelinkin3000)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n\nCommit: https://github.com/thelinkin3000/halo-ce-universal/commit/b89d29754fb6f2b2f95377844eacf20b7bdb4d80\nBuild: https://github.com/thelinkin3000/halo-ce-universal/actions/runs/41663754028\n\nThe release builds are for playing; the debug builds stop at the first failed assertion and log it."
       },
       "pins": [
+        {
+          "tag": "build-134",
+          "asset": "halo-ps5-release.zip",
+          "size": 56800421,
+          "sha256": "c3ff433c420990492795fd72f5af866b8eb30bd277b70116097f7aa7c202e53a",
+          "content_version": "01.000.134",
+          "title_name": "Halo: Combat Evolved"
+        },
         {
           "tag": "build-132",
           "asset": "halo-ps5-release.zip",
@@ -3091,7 +3153,7 @@
         "amiga",
         "platformer"
       ],
-      "stars": 23,
+      "stars": 22,
       "release": {
         "tag": "v1.0.2",
         "asset": "JamesPond2-PS5-1.0.2.zip",
@@ -3246,7 +3308,7 @@
         "xbox-360",
         "naruto"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99680.zip",
@@ -3341,16 +3403,24 @@
       ],
       "stars": 49,
       "release": {
-        "tag": "01.000.179",
+        "tag": "01.000.204",
         "asset": "PPSA99874.zip",
-        "size": 124180315,
-        "sha256": "7381b0746b178785b303f7486a0533aa6acce3d25167634b9ce849e0546b648a",
-        "content_version": "01.000.179",
+        "size": 127056881,
+        "sha256": "89167d01c7da0ece733b0dd8b7871a05ee38ff5f79ee45b4ce9beefc5d4c14a0",
+        "content_version": "01.000.204",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-10-31T18:24:48Z",
-        "notes": "# ProsperoCraft 01.000.179\n\nThe exact179 package is confirmed on PS5 for automatic SVC microphone input, the\nphysical mic mute/unmute button, removal of the launcher microphone menu and\nleaving/rejoining. Published bytes are unchanged from that tested package.\n\n## Changes\n\n- Add working PS5 system microphone input for compatible Simple Voice Chat,\n  following the user's successful178 and179 microphone tests. Prepare input automatically\n  when launching gameplay; remove the launcher microphone menu and toggle.\n- Use the DualSense physical mic button or PS5 system mute to mute input. The app\n  does not unmute the system microphone or change the selected route.\n- Retain the input port across healthy SVC stop/reopen cycles, with conservative\n  ownership when native cleanup fails. Preserve game/voice output and the socket\n  lifecycle repair for leaving worlds.\n- Keep Browser uploads in instance settings and Done/Delete at the bottom.\n- Include launcher-style browser uploads, case-insensitive auto-hyphen pairing,\n  mods/resource packs/shaders/schematics handling and the existing runtime fixes\n  developed since167. Original game/mod JARs and saved data stay intact.\n\n## Scope and credits\n\nMinecraft26.2/26.3 Vanilla/Fabric support is retained; actual mod compatibility\ndepends on matching upstream versions. No universal mod/native-code compatibility,\nnew supported-version expansion, formal endurance or per-device claim. Exact179\nacceptance is the user's functional confirmation, not a formal ALL PASS matrix.\n\nGUI: mihawk-99/PS5_VKHomebrewUI, based on BlackBearReloaded's ps5-homebrew-ui.\nInstance icons: MultiMC/Prism contributors with original attribution/licenses.\nRuntime: Native Java25/OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft. GPL-3.0-or-later\nand upstream rights/notices remain unchanged; matching OpenAL corresponding\nsource/relink material and checksums accompany authorized binary publication.\nJava Edition ownership is required. ProsperoCraft is unofficial and not affiliated\nwith Mojang, Microsoft or Sony."
+        "published_at": "2026-11-03T15:13:59Z",
+        "notes": "# ProsperoCraft 01.000.204\n\n## Changes\n\n- Add normal launcher support for Minecraft 26.1, 26.1.1 and 26.1.2, both Vanilla and Fabric. These entries now use the regular Play and Ready states.\n- Repair shader startup/rendering and Quit Game cleanup for the 26.1.x graphics path, including genuine runtime management support and main-thread SDL finalization.\n- Reduce retained immutable archive handles to give world saving more file-descriptor headroom after reported 26.3 save failures. Add a larger read-only handle report for troubleshooting.\n- Retain 26.2/26.3 play, launcher uploads, Microsoft sign-in, controller controls, themes and automatic Simple Voice Chat microphone preparation. Use the controller's physical mic button or PS5 system mute.\n\n## Validation and compatibility\n\nThe physical tester reports that the exact 204 package works very well and explicitly authorizes this release. Published app bytes are unchanged from that package. Earlier 202 testing explicitly confirmed shader rendering and Quit Game; the implementation is retained in 204. Host and package checks pass, with matching OpenAL corresponding source/relink materials and checksums.\n\nCompatibility still depends on matching game, loader, mod and shader versions. This is functional acceptance, not an exhaustive shader/device/version or endurance matrix. The archive-handle budget is not a universal file-descriptor cap; long-session save behavior and world-creation performance remain areas to test. Already failed saves are not recovered by the update.\n\nJava Edition ownership is required. Original game/mod JARs and game asset objects are not included; the launcher downloads verified originals. ProsperoCraft is unofficial and is not affiliated with Mojang, Microsoft or Sony.\n\n## Credits and source\n\nGUI: mihawk-99/PS5_VKHomebrewUI, based on BlackBearReloaded's ps5-homebrew-ui. Instance icons: MultiMC/Prism contributors, with original attribution and licenses. Native Java 25/OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft retain their upstream notices and rights. ProsperoCraft is GPL-3.0-or-later. Exact corresponding source and OpenAL relink/replacement materials accompany this release."
       },
       "pins": [
+        {
+          "tag": "01.000.179",
+          "asset": "PPSA99874.zip",
+          "size": 124180315,
+          "sha256": "7381b0746b178785b303f7486a0533aa6acce3d25167634b9ce849e0546b648a",
+          "content_version": "01.000.179",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.167",
           "asset": "PPSA99874.zip",
@@ -3487,15 +3557,25 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.004.001",
-        "asset": "PPSA99023-01.004.001.zip",
-        "size": 17505932,
-        "sha256": "5188e6ff44e78a2339adadb6fe7e6b9acdf907de8df38782cc598348dafd3af9",
-        "content_version": "01.004.001",
+        "tag": "01.005.000",
+        "asset": "PPSA99023-01.005.000.zip",
+        "size": 18283160,
+        "sha256": "d2e9b34eb8f292ae77f62562fbaec10fe9d36bd43d8028aa88fb12cdb1011db2",
+        "content_version": "01.005.000",
         "title_name": "reSOT - The Sands of Time",
-        "published_at": "2026-10-29T03:13:20Z",
-        "notes": "Bug fixes\n\n- Fixed: when no game files are found, the app now shows its screen with where to copy the disc and why a folder was not used, instead of a black screen."
-      }
+        "published_at": "2026-11-03T14:06:56Z",
+        "notes": "Based on upstream [reSOT v0.5.0](https://github.com/FulGerNet/rePOP/releases/tag/reSOTv0.5.0), which includes v0.4.4.\n\n**Performance**\n- The direct renderer is on by default: the game's Direct3D routines hand the renderer its draws instead of Xbox GPU commands that had to be decoded first.\n- The retail game's recorded command buffers are replayed from geometry already on the GPU, and the game runs up to two frames ahead of the renderer.\n- On the console the first level ran at 59.7-60.0 fps at 2160p with the Full preset, with less time spent encoding draws than in 01.004.001.\n\n**Languages**\n- reSOT Options › Language now lists English, French, Spanish, Deutsch and Italiano. German and Italian need a disc with those language files; without them the game uses English.\n\n**Fixes from upstream**\n- Light halos no longer turn green or flash white at raised internal resolutions.\n\n**Known limits**\n- Only the USA retail disc is accepted. The European disc that upstream v0.5.0 supports is not yet supported on PS5."
+      },
+      "pins": [
+        {
+          "tag": "01.004.001",
+          "asset": "PPSA99023-01.004.001.zip",
+          "size": 17505932,
+          "sha256": "5188e6ff44e78a2339adadb6fe7e6b9acdf907de8df38782cc598348dafd3af9",
+          "content_version": "01.004.001",
+          "title_name": "reSOT - The Sands of Time"
+        }
+      ]
     },
     {
       "id": "rush-2-recompiled",
@@ -3691,15 +3771,25 @@
       ],
       "stars": 6,
       "release": {
-        "tag": "01.000.001",
+        "tag": "01.000.002",
         "asset": "PPSA90505.zip",
-        "size": 19038054,
-        "sha256": "4e27383705063e42d4fcc68ccd82659350d47e909b64cf0720de4b6d3f74d3c4",
-        "content_version": "01.000.001",
+        "size": 19037132,
+        "sha256": "96f50f7322fe747293de3d5d09e408c2a322fdc6c7ed99c9ad58036e4b2da4dc",
+        "content_version": "01.000.002",
         "title_name": "SpeedBreaker",
-        "published_at": "2026-10-29T02:15:35Z",
-        "notes": "Installing from your disc image now takes under a minute.\n\n### What's new\n\n- **Install from the disc image.** Copy the `.iso` you made from your own disc to `/data/speedbreaker/` and press Install: every file is checked against the USA disc in under a minute, and nothing is copied. The game is played from the image, so keep it where it is. \n- **The installer works on a clean console.** Install could be greyed out on a first start, and an install closed halfway blocked the next one.\n- **Free space** is no longer shown as a made-up 16 GB.\n\n### Install\n\n- Unpack PPSA90505.zip and copy the PPSA90505 folder to /data/homebrew/ on the console (or install it from RecompStore or ProsperoStore).\n- Copy the disc image (.iso) you made from your own USA disc to /data/speedbreaker/ over FTP, start the tile, choose the image and press Install.\n- Already installed the game files in /data/speedbreaker/game/? Nothing to do: just copy the new PPSA90505 folder over the old one. Saves and settings are kept.\n\n**No game files are included or distributed.** To play, you need your own legally obtained backup of your own Xbox 360 disc of Need for Speed: Most Wanted (2005), USA version. This project does not support piracy: please don't ask for, or share, game files or disc images.\n\nUnofficial fan project, not affiliated with project(u), Electronic Arts or Sony Interactive Entertainment. GPL-3.0-or-later; licenses are in the app's licenses/ folder."
-      }
+        "published_at": "2026-11-03T11:47:10Z",
+        "notes": "Two players on one console: split screen now takes a second DualSense.\n\n### What's new\n\n- **Two-player split screen** (Quick Race > Split Screen): each player gets their own half of the screen. The second DualSense has to be signed in as a second PS5 user; a guest will do. It joins at \"Player 2 press START\" with Options. Assist mode, which merges two controllers into one, doesn't add a player.\n\n### Install\n\n- Unpack PPSA90505.zip and copy the PPSA90505 folder to /data/homebrew/ on the console (or install it from RecompStore or ProsperoStore).\n- Copy the disc image (.iso) you made from your own USA disc to /data/speedbreaker/ over FTP, start the tile, choose the image and press Install.\n- Already installed? Just copy the new PPSA90505 folder over the old one. Saves, settings and game files are kept.\n\n**No game files are included or distributed.** To play, you need your own legally obtained backup of your own Xbox 360 disc of Need for Speed: Most Wanted (2005), USA version. This project does not support piracy: please don't ask for, or share, game files or disc images.\n\nUnofficial fan project, not affiliated with project(u), Electronic Arts or Sony Interactive Entertainment. GPL-3.0-or-later; licenses are in the app's licenses/ folder."
+      },
+      "pins": [
+        {
+          "tag": "01.000.001",
+          "asset": "PPSA90505.zip",
+          "size": 19038054,
+          "sha256": "4e27383705063e42d4fcc68ccd82659350d47e909b64cf0720de4b6d3f74d3c4",
+          "content_version": "01.000.001",
+          "title_name": "SpeedBreaker"
+        }
+      ]
     },
     {
       "id": "spider-man-edge-of-time",
@@ -4453,7 +4543,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v1.5.0",
         "asset": "PPSA99991.zip",
@@ -4512,7 +4602,7 @@
         "geforce-now",
         "cloud-gaming"
       ],
-      "stars": 21,
+      "stars": 22,
       "release": {
         "tag": "0.3.0",
         "asset": "OpenNOW-PS5-0.3.0.zip",
@@ -4572,7 +4662,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 28,
+      "stars": 29,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -4705,7 +4795,7 @@
         "home-screen",
         "emulators"
       ],
-      "stars": 26,
+      "stars": 27,
       "release": {
         "tag": "00.001.006",
         "asset": "PPSA99930.zip",
@@ -4867,7 +4957,7 @@
         "saves",
         "backup"
       ],
-      "stars": 35,
+      "stars": 36,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
@@ -4965,16 +5055,24 @@
       ],
       "stars": 10,
       "release": {
-        "tag": "v00.001.001",
+        "tag": "v00.001.002",
         "asset": "PPSA67670.zip",
-        "size": 19408761,
-        "sha256": "18cff33e98b967f711c69a6d9f3f49a616d150651770cf5b6f2c9ac540325e3e",
-        "content_version": "00.001.001",
+        "size": 19456401,
+        "sha256": "65c3016a588e35f847d1692281c26b36416293de0ddef71ba8926a799385a07b",
+        "content_version": "00.001.002",
         "title_name": "PayLoader",
-        "published_at": "2026-10-30T19:58:58Z",
-        "notes": "### Fixed\n\n- Repository screen: the \"Install the whole suite\" row counts only ps5-exporter, ps5-homeassistant and ps5-signal.\n  Another payload in the suite's repository no longer makes it read \"Update ready\" for good, or \"Installed\" while\n  one of the three is missing."
+        "published_at": "2026-11-03T10:51:32Z",
+        "notes": "### Added\n\n- Support screen, after Settings: a QR code to Ko-fi, for those who'd like to buy me a coffee or a beer. It works\n  without pldmgr as well."
       },
       "pins": [
+        {
+          "tag": "v00.001.001",
+          "asset": "PPSA67670.zip",
+          "size": 19408761,
+          "sha256": "18cff33e98b967f711c69a6d9f3f49a616d150651770cf5b6f2c9ac540325e3e",
+          "content_version": "00.001.001",
+          "title_name": "PayLoader"
+        },
         {
           "tag": "v00.001.000",
           "asset": "PPSA67670.zip",
@@ -5104,7 +5202,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 498,
+      "stars": 499,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5227,15 +5325,25 @@
       ],
       "stars": 4,
       "release": {
-        "tag": "v00.005.000",
+        "tag": "v00.006.000",
         "asset": "PPSA69426.zip",
-        "size": 17144458,
-        "sha256": "a49abe8408f93b65868889929c3d83b27522373073f56af64997394519d1cb60",
-        "content_version": "00.005.000",
+        "size": 17192599,
+        "sha256": "b8d03e1d96ed081d7edbd21c6bb7c392b8b1f4e72ac74821ab6900d916cf0343",
+        "content_version": "00.006.000",
         "title_name": "Signal Companion",
-        "published_at": "2026-10-23T15:26:48Z",
-        "notes": "### Added\n- With pldmgr running, the Payloads screen uses the Signal suite catalogue: it adds the catalogue to pldmgr and shows\n  its version (\"catalogue has 0.3.0\"). An \"Updates\" row says which source is used. ps5-autoloader's list keeps the\n  app's copy; the Status row says when a newer version runs.\n- An Update button per payload: enabled when something newer exists (\"To 0.3.0\", else \"Up to date\"); it installs the\n  newest through pldmgr (else the app's copy) and restarts the payload. Start and Restart start the version that is\n  there (pldmgr's copy, else the app's) without updating.\n\n### Changed\n- Carries ps5-homeassistant 0.3.0 (live events, payload status, starting a game)."
-      }
+        "published_at": "2026-11-03T10:51:44Z",
+        "notes": "### Added\n- Support screen, after Payloads: a QR code to Ko-fi, for those who'd like to buy me a coffee or a beer. It works\n  without ps5-signal as well."
+      },
+      "pins": [
+        {
+          "tag": "v00.005.000",
+          "asset": "PPSA69426.zip",
+          "size": 17144458,
+          "sha256": "a49abe8408f93b65868889929c3d83b27522373073f56af64997394519d1cb60",
+          "content_version": "00.005.000",
+          "title_name": "Signal Companion"
+        }
+      ]
     },
     {
       "id": "tokenstation5",
