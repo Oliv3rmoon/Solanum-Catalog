@@ -22,7 +22,7 @@
         "switch",
         "eden"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -230,7 +230,7 @@
         "store",
         "homebrew"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -485,16 +485,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.000.080",
-        "asset": "Mediathek-PPSA66120-01.000.080.zip",
-        "size": 31999745,
-        "sha256": "d0e9620a4c50b38cf9273a467bc8fe6dfe20643bc14da6d70f8bcd5979158c1a",
-        "content_version": "01.000.080",
+        "tag": "01.000.090",
+        "asset": "Mediathek-PPSA66120-01.000.090.zip",
+        "size": 32050036,
+        "sha256": "6a6599db02f474163504464182dfbd8debd411b5c54cbd6da95c75651bb1001e",
+        "content_version": "01.000.090",
         "title_name": "Mediathek",
-        "published_at": "2026-11-03T09:02:09Z",
-        "notes": "## Mediathek 0.8.0 (`01.000.080`)\n\nA Netflix-style movie library and player for the PS5. Put your films in a `movies` folder on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.8.0\n\n- **HDR up to 1080p is tone-mapped.** HDR films that FFmpeg decodes (up to 1080p, VP9, or anything the hardware decoder will not take) no longer look grey and washed out: their pictures go to the graphics chip and are tone-mapped like the 4K ones on the hardware decoder.\n- **Subtitle settings.** *Force subtitles* (off by default) starts a film that has subtitles with them on; *Subtitle language* (None, German, English) picks which ones, also when you switch them on with Triangle.\n- **Films start without subtitles** unless *Force subtitles* is on. Before, the first subtitle file was always shown.\n- **Settings, regrouped:** Appearance (fixed billboard, shelves on Home, details wallpaper), Playback (the subtitle settings), General (app language, UI sounds), Library (reload all covers and infos) and About (version, author, debug info).\n- **A calmer Home:** one shelf at a time, with a d-pad hint for the others; the billboard gives only the year, and the shelf has no title of its own while the billboard is fixed.\n- **Details page:** the red line shows only the genres, the drive moved next to the file size (\"FILE · USB 1 · 7.7 GB\"), and a counter at the top right says which film of the shelf or grid you are on (\"2 / 4\").\n- The button hints sit a little lower on every screen.\n\n### Features\n\n- **Home:** a billboard for the focused film, tinted by its colours, and one shelf at a time: Continue Watching, Recently Added, collections, one per TMDB genre, decades and All Movies. A setting limits them to your own collections, genres or decades.\n- **Movies:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between films.\n- **Player:** scrubber, seeking (hold left/right to seek faster, up to 5 minutes per step), pause, audio-track and `.srt` subtitle switching, a stream info panel. It remembers where you stopped; 92% counts as watched. 4K on the hardware decoder, and HDR tone-mapped at every size.\n- **Settings:** categories on the left, their settings on the right, saved as you change them.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for films that lack them. Pictures you put beside a film always win.\n\n### Good to know"
+        "published_at": "2026-11-04T19:21:33Z",
+        "notes": "## Mediathek 0.9.0 (`01.000.090`)\n\nA Netflix-style library and player for your movies and series on the PS5. Put your films in a `movies` folder and your series in `tvshows` on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 0.9.0\n\n- **Series.** A *Series* tab between Movies and Settings, with search and sorting, and series mixed into Home: *Continue Watching* (with the episode up next), *Recently Added*, the genre and decade shelves, and an *All Series* shelf. Put them in a `tvshows` or `series` folder, one folder per series, with or without season folders (`Season 1`, `Staffel 1`, `S01`, `Specials`, ...). Episodes are found by their mark (`S01E02`, `1x02`) or, in a season folder, by their number.\n- **Seasons and episodes on the details page:** *Season* and *Episode* rows, the season's description above the episode's. Play starts or resumes the episode up next.\n- **Binge-friendly player:** R1 starts the next episode, a card counts down the last 40 seconds, and the next episode starts when one ends.\n- **TMDB for series:** season and episode names and descriptions, one request per season; TV genres share the shelves with film genres.\n- **Media folders** (Settings > Library): add up to eight folders of your own, by path or by a name looked for on every drive, and choose what each holds: *Automatic*, *Movies* or *Series*.\n- **Titles from TMDB**, with colons, commas and dashes, instead of the one read from the file name. Search still finds the file name's.\n- **Recently Added** now goes by the day a scan first found a film, not the file's date, which a copy keeps.\n- **Empty pages** say \"No media found\" (or \"No movies found\", \"No series found\") and lead to Settings > Library.\n- Fixed: long titles on the billboard lost their end; captions showed lower-case umlauts (\"KOMöDIE\"); the German *Abspielen* button was too narrow. Cards without a poster wrap the title over up to three lines.\n- The controller's light bar is red (it showed the accent as pink).\n\n### Features\n\n- **Home:** a billboard for the focused title, tinted by its colours, and one shelf at a time: Continue Watching, Recently Added, collections, one per genre, decades, All Movies and All Series.\n- **Movies and Series:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle).\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between titles."
       },
       "pins": [
+        {
+          "tag": "01.000.080",
+          "asset": "Mediathek-PPSA66120-01.000.080.zip",
+          "size": 31999745,
+          "sha256": "d0e9620a4c50b38cf9273a467bc8fe6dfe20643bc14da6d70f8bcd5979158c1a",
+          "content_version": "01.000.080",
+          "title_name": "Mediathek"
+        },
         {
           "tag": "01.000.070",
           "asset": "Mediathek-PPSA66120-01.000.070.zip",
@@ -526,13 +534,6 @@
           "sha256": "93dc2a0d7658d27eff97e8c1e90856670085c6bb2e95ad78b21083871cd34094",
           "content_version": "01.000.040",
           "title_name": "Mediathek"
-        },
-        {
-          "tag": "01.000.030",
-          "asset": "Mediathek-PPSA66120-01.000.030.zip",
-          "size": 24366744,
-          "sha256": "dd211d806269368f6f0efe0fbc889677366cc2a75823aee885783ae028568252",
-          "content_version": "01.000.030"
         }
       ]
     },
@@ -700,7 +701,7 @@
         "video",
         "streaming"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v1.6.0.5",
         "asset": "wiliwili-PS5-v1.6.0.5.zip",
@@ -739,18 +740,26 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 187,
+      "stars": 188,
       "release": {
-        "tag": "v1.5.5",
+        "tag": "v1.6.0",
         "asset": "PPSA99810.zip",
-        "size": 19571291,
-        "sha256": "ea61fbb4b4207fd96946c64fa4552e9ad0d7960b9f80ef3d66c951be373ffc76",
-        "content_version": "01.505.000",
+        "size": 19633132,
+        "sha256": "dae7c3830a06018a6fb2b3cf5055fe1fef32549dfa9aa6de342a42983f3228a2",
+        "content_version": "01.600.000",
         "title_name": "PSBox Cloud Gaming",
-        "published_at": "2026-10-30T22:02:01Z",
-        "notes": "# PSBox Cloud Gaming v1.5.5\n\n[English](#english) | [Português](#português)\n\n---\n\n<a name=\"english\"></a>\n## 🌐 English\n\nPSBox Cloud Gaming **v1.5.5** introduces instant boot and background catalog sync, automated Xbox Game Pass shelf feeds, a fully consolidated native PlayStation 4 port with hardware video acceleration, and essential stability and quality-of-life fixes across all platforms (**PlayStation 5**, **PlayStation 4**, and **Linux / Steam Deck**).\n\n---\n\n### ✨ Highlights & New Features\n\n#### ⚡ Instant Boot & Zero Splash Retention\n- **Immediate Dashboard Access**: The application no longer retains users on the initial splash screen waiting for network catalog hydration. Users transition directly into the Home screen (`showHome()`) while catalog differences are synchronized non-blockingly in the background.\n- **Eliminated False \"46 New Games\" Notification**: Resolved a bug where every cold boot incorrectly announced 46 new titles. Known products are now persisted across runs in `library_cache.json` (`knownProducts_`), ensuring notifications only trigger when actual new titles are added.\n\n#### 📚 Automatic Xbox Game Pass Shelf Updates\n- **Seamless Feed Refresh**: Game Pass curated shelves (*\"Recently added\"*, *\"Most popular\"*, *\"Free to play\"*, *\"Leaving soon\"*) are now automatically synchronized in the background via differential delta sync without requiring manual intervention (<kbd>L3</kbd>).\n\n#### 🎮 Consolidated PlayStation 4 Port (`PSBX00001`)\n- **Native Hardware Decoding**: Full H.264 video decoding using Sony's `libSceVideodec2` hardware decoder with Onion/Garlic direct memory mapping.\n- **Multithreaded 2D Software Renderer**: Low-latency 4-thread SIMD SSE4.2 rendering engine with zero-copy overlay sharing.\n- **Native Orbis WebRTC & Audio**: Customized ICE/STUN socket stack for FreeBSD/Orbis OS, MbedTLS certificate handshakes, and clean DMA audio draining.\n- **DualShock 4 & GoldHEN Support**: Out-of-the-box support for DualShock 4 (lightbar, rumble, touchpad) packaged as a clean FPKG (`PSBoxCloudGaming[PS4]-v1.5.5.pkg`).\n\n#### 🖱️ Desktop & Steam Deck Fixes\n- **No More Duplicate Cursors**: Fixed an issue where the operating system's hardware cursor was rendered simultaneously with the in-game vector software cursor on Linux / Steam Deck / Windows via SDL3 (`SDL_HideCursor()`).\n\n#### 🛠️ General Stability & Bug Fixes\n- **Graceful Shutdown During Active Gameplay (#290)**: Installed system signal handlers (`SIGTERM`, `SIGINT`, `SIGHUP`) to ensure a clean teardown when closing the app from the console dashboard or system switcher during an active cloud stream, preventing hangs or crashes."
+        "published_at": "2026-11-04T17:40:20Z",
+        "notes": "<!-- LANG:EN -->\n# PSBox Cloud Gaming v1.6.0\n\n## 🎮 Native USB Controllers Support on PS5\n- **Native Local Multiplayer (P1..P4)**: Added direct multi-controller USB support via `/dev/ugen` and `USB_FS` ioctls (`src/input/pad_usb_ps5.cpp`), bypassing `libScePad` limitations.\n- **Expanded Hardware Compatibility**:\n  - **Xbox Series X|S** controllers on a USB cable (GIP). Xbox One pads use the same protocol but were not tested yet.\n  - **XInput** pads and dongles (e.g., **8BitDo Ultimate 2.4G** in X-Input mode).\n- **Not supported yet**: DualShock 4, generic HID pads and fightsticks, and the Xbox Wireless Adapter.\n- **Visual Status Indicators**: Connected controller slot badges (1..4) displayed on the home menu footer.\n\n## ⏱️ Cloud Playtime Quota & In-Game Warnings (#342)\n- **Playtime Meter**: Real-time display of monthly remaining cloud stream allowance directly on the top header bar.\n- **In-Game Warnings**: Automatic on-screen notifications at 15 minutes and 5 minutes of remaining game time.\n- **Graceful Quota Handling**: User-friendly dialog with QR code if a session ends due to playtime limits (`KickForOutOfStreamingTime`).\n\n## 🎙️ Low-Latency Microphone (10 ms) (#187)\n- **10 ms Opus Framing**: Microphone audio capture frames reduced from 20 ms to 10 ms, halving voice transmission latency (~10.5 ms).\n- **Telemetry & Diagnostics**: Comprehensive timing and packet delivery metrics added to logging.\n\n## 🚀 Stream Performance & Audio Stability (#317)\n- **Reduced Skipped Frames**: Up to 75% reduction in frame drops via enhanced frame pacing and presentation synchronization.\n- **Adaptive Audio Queue**: The audio delay follows the connection (target 40–100 ms; from ~98 to ~60 ms on average in Fortnite tests), and the sound fades back in after a gap instead of crackling.\n- **Lost Packets on High Ping**: The app waits longer for resent video packets when the round trip is high (it used to give up too early).\n- **Stall Diagnostics**: If the stream loop stops for more than 5 seconds, the log records where it got stuck (to track down the freeze reported in #317).\n\n## 🎨 UI Alignment & Documentation Polish\n- **UI Alignment**: PSBox brand logo centered vertically at Y=72 alongside compound title and cloud playtime progress meter.\n- **Revamped Documentation**: Streamlined `README.md` prioritizing PS5, with direct install links for **RecompStore** and **ProsperoStore**, plus simplified build instructions.\n\n---\n**Installation on PS5**:\n- Install directly from **ProsperoStore** or **RecompStore**, or download the signed `PPSA99810.zip` and install manually via Homebrew / FTP.\n\n**Installation on PS4**:"
       },
       "pins": [
+        {
+          "tag": "v1.5.5",
+          "asset": "PPSA99810.zip",
+          "size": 19571291,
+          "sha256": "ea61fbb4b4207fd96946c64fa4552e9ad0d7960b9f80ef3d66c951be373ffc76",
+          "content_version": "01.505.000",
+          "title_name": "PSBox Cloud Gaming"
+        },
         {
           "tag": "v1.5.4",
           "asset": "PPSA99810.zip",
@@ -778,7 +787,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 98,
+      "stars": 99,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -894,7 +903,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 223,
+      "stars": 224,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1156,7 +1165,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 401,
+      "stars": 402,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1437,7 +1446,7 @@
         "file-manager",
         "tool"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v1.2",
         "asset": "chiral-ftp-ps5-1.2.zip",
@@ -1602,7 +1611,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 804,
+      "stars": 805,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2129,7 +2138,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 365,
+      "stars": 373,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2172,18 +2181,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 119,
+      "stars": 126,
       "release": {
-        "tag": "v2.2.5",
+        "tag": "v2.3.0",
         "asset": "PPSA11018.zip",
-        "size": 323867158,
-        "sha256": "a76fcbd49ef77c198893c8deb8f14d267c804169e00c08607ebf75804d9c5482",
-        "content_version": "02.002.004",
+        "size": 325217050,
+        "sha256": "7d851d5c24de3dcc53e5185725b47c2c976bfd32f12c6c6708559c6749404648",
+        "content_version": "02.003.000",
         "title_name": "PC5",
-        "published_at": "2026-11-03T17:11:21Z",
-        "notes": "PC5 2.2.5 fixes a freeze when some games load a new level, a .NET game that stopped at start, and a missing sun-glow effect in older games.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixes from your reports\n\n- **DirectX 12 games freezing as a new level loads**: a game that loads a big level in one go (thousands of textures and models) could freeze for good at the end of a chapter, its graphics stopped by the console. The loading work is now handed to the console in smaller parts.\n- **.NET games that clear their console at start**: a game that clears its console window as it starts stopped with \"The handle is invalid\", as games run without a console window on the PS5. Clearing now just works, with nothing to clear.\n- **Older games' sun glow**: a game that builds its shaders as it starts, and reads them back with its own tools, refused one of them and drew the sun's glow without it. That shader is now written the way the game's tools take it.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? [Add it](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.2.4 -->"
+        "published_at": "2026-11-04T13:47:00Z",
+        "notes": "PC5 2.3.0 offers **settings that worked for others** from the game compatibility list, says what likely went wrong when a game closes, and fixes Unreal Engine games that asked to install Visual C++ and old OpenGL games that closed before showing anything.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Settings that worked for others**: when a player has reported a game working (**Report it works**) with settings different from yours, the game's **△ › Graphics** has **Settings that worked**. It shows what they changed (Graphics mode, Controller, Frame generation, Game memory, Stutter fix, Steam emulator, Sound output) and its launch options, and uses them for you; your other settings stay. PC5 also asks once when you first press **Play**. **Report it works** now includes the game's launch options too.\n- **What likely went wrong**: when a game closes, PC5's message now says why when its log shows it: an installer it tried to start (which can't run on the console), files in the copy that aren't the game's as its store ships it, OpenGL that never started, or what the game's own crash report says. The same goes in the report's **What PC5 saw** and the log's about.txt.\n- **Test versions**: **Settings › System › Check when PC5 opens** has a third choice, **Test versions too**: PC5 then also offers test versions, fixes to try before everyone gets them. They may have new problems; set it back to **On** to get only releases.\n- **A copy with another program's files**: when a game's folder has files that aren't the game's as its store ships it (OnlineFix, steam_api_o.dll), **Install** says so before you install it, as games with them often close before starting.\n- **More in the logs** for reports: keys still held when a game closes, quick button taps, system files a game looked for and didn't find, and the console's free memory once a minute.\n- **Issues**: the form asks where your copy is from, a log attached to an issue gets a first look straight away, and a new issue lists the other issues about the same game, with what fixed them.\n\n### Fixes from your reports"
       },
       "pins": [
+        {
+          "tag": "v2.2.5",
+          "asset": "PPSA11018.zip",
+          "size": 323867158,
+          "sha256": "a76fcbd49ef77c198893c8deb8f14d267c804169e00c08607ebf75804d9c5482",
+          "content_version": "02.002.004",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.2.2",
           "asset": "PPSA11018.zip",
@@ -2214,14 +2231,6 @@
           "size": 318077798,
           "sha256": "c539a06396c003e39cfffa5c75014c1e45d884a1999813816f518760436deb6d",
           "content_version": "02.001.001",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.0.8",
-          "asset": "PPSA11018.zip",
-          "size": 317667596,
-          "sha256": "591278b7a0ebf16d2f764326647c0c438d09a0de721d4977d3d036632cc7123d",
-          "content_version": "02.000.008",
           "title_name": "PC5"
         }
       ]
@@ -2276,7 +2285,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 984,
+      "stars": 987,
       "release": {
         "tag": "v0.9.0",
         "asset": "playden-ps5-0.9.0.zip",
@@ -2347,7 +2356,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1627,
+      "stars": 1632,
       "release": {
         "tag": "vk-285-187",
         "asset": "PS5SX2-vk-285-187.zip",
@@ -2396,7 +2405,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 425,
+      "stars": 426,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2854,17 +2863,25 @@
       ],
       "stars": 17,
       "release": {
-        "tag": "01.000.023",
+        "tag": "01.000.024",
         "asset": "PPSA99030.zip",
-        "size": 390140465,
-        "sha256": "c2867e71abf7d716f8acd4770448770132a537fdb35895de47f68313257b937d",
-        "content_version": "01.000.023",
+        "size": 390141016,
+        "sha256": "c09d43d0c84d9fc1bc976a1691ef22f0ebdcda7539f45af34fe1abdcb4ff4fdb",
+        "content_version": "01.000.024",
         "title_name": "Forever Launcher",
         "prerelease": true,
-        "published_at": "2026-10-31T12:30:23Z",
-        "notes": "### Forever Launcher 01.000.023\n\n**The write helper now recovers by itself.**\n\n- Forever checks its write helper every 30 seconds and starts it again if it\n  stops answering.\n- After a reset or deleted Forever data folder, the helper takes over the new\n  key instead of blocking until a PS5 restart, so Battle.net keeps fast disk\n  writes and sees the real free space instead of 16 GB.\n\nAlso in this release, from 01.000.022: faster Battle.net downloads (larger\nnetwork buffers and merged archive writes), a fix for a Battle.net crash on the\nWoW Forever page, Battle.net opening on the WoW Forever page, and a fix for\nAdd-ons error 61 when another homebrew helper uses port 9142.\n\n### Forever Launcher 01.000.022\n\n**Faster Battle.net downloads, and fixes for a Battle.net crash and Add-ons error 61.**\n\n- Download connections get a larger network receive buffer (the PS5 stopped\n  growing it at 128 KB), and Battle.net's archive writes are merged into fewer,\n  larger disk writes. A WoW Forever update on one PS5 went from 6-7 MB/s to\n  11-14 MB/s; the gain depends on the line and on Blizzard's servers.\n- Chromium's audio service now runs inside Battle.net, so opening the WoW\n  Forever page during an update no longer crashes Battle.net.\n- Battle.net opens on the WoW Forever page when it starts.\n- The Add-ons helper moves to port 9143, so another homebrew helper on port\n  9142 (for example Savage Wind's) no longer causes Add-ons error 61.\n\n### Forever Launcher 01.000.021\n\n**Adds PS5 VRR support for WoW at up to 120 Hz.**\n\n- The game title now declares the retail VRR and high-frame-rate metadata\n  instead of the older combination that disabled system VRR.\n- Before the first frames, a VRR display may idle at its 48 Hz floor. Forever\n  now keeps the accepted 119.88 Hz mode instead of misreading that idle rate as\n  failed 120 Hz and restoring 59.94 Hz.\n- On a compatible display, set PS5 **VRR** to **Automatic**. If VideoOut does\n  not offer or accept the 119.88 Hz mode, Forever continues at 59.94 Hz.\n\n### Forever Launcher 01.000.020\n\n**Repairs Battle.net signature setup and completes large add-on installs.**\n\n- Incomplete Wine Trust and PE signature-provider registration is repaired\n  through normal Wine setup before Battle.net starts. Verification now fails\n  closed if no provider is registered.\n- Continuously progressing add-on archives may download for up to 15 minutes,\n  with a 30-second idle timeout. Errors identify body-transfer versus JSON\n  failures.\n- Polestar's full package includes all 24 folders, including the requested\n  Brazilian Portuguese and database/navigation modules; Recorder remains a\n  separate optional package.\n- A bounded native worker hashes, extracts, synchronizes and activates add-ons"
+        "published_at": "2026-11-04T17:21:10Z",
+        "notes": "### Forever Launcher 01.000.024\n\n**Fixes Add-ons \"The add-on service did not answer in time\" / error 61 after a PS5 restart.**\n\n- The write helper's startup permission repair also opened up the Add-ons\n  helper's private staging folder, which the Add-ons helper refuses to use. The\n  write helper now leaves that folder alone.\n- The Add-ons helper locks a folder that was opened up back down by itself, so\n  affected consoles recover without any manual step.\n\nAlso in this release, from 01.000.022 and 01.000.023: faster Battle.net\ndownloads, a fix for a Battle.net crash on the WoW Forever page, Battle.net\nopening on the WoW Forever page, Add-ons on its own port (9143), and a write\nhelper that recovers by itself.\n\n### Forever Launcher 01.000.023\n\n**The write helper now recovers by itself.**\n\n- Forever checks its write helper every 30 seconds and starts it again if it\n  stops answering.\n- After a reset or deleted Forever data folder, the helper takes over the new\n  key instead of blocking until a PS5 restart, so Battle.net keeps fast disk\n  writes and sees the real free space instead of 16 GB.\n\nAlso in this release, from 01.000.022: faster Battle.net downloads (larger\nnetwork buffers and merged archive writes), a fix for a Battle.net crash on the\nWoW Forever page, Battle.net opening on the WoW Forever page, and a fix for\nAdd-ons error 61 when another homebrew helper uses port 9142.\n\n### Forever Launcher 01.000.022\n\n**Faster Battle.net downloads, and fixes for a Battle.net crash and Add-ons error 61.**\n\n- Download connections get a larger network receive buffer (the PS5 stopped\n  growing it at 128 KB), and Battle.net's archive writes are merged into fewer,\n  larger disk writes. A WoW Forever update on one PS5 went from 6-7 MB/s to\n  11-14 MB/s; the gain depends on the line and on Blizzard's servers.\n- Chromium's audio service now runs inside Battle.net, so opening the WoW\n  Forever page during an update no longer crashes Battle.net.\n- Battle.net opens on the WoW Forever page when it starts.\n- The Add-ons helper moves to port 9143, so another homebrew helper on port\n  9142 (for example Savage Wind's) no longer causes Add-ons error 61.\n\n### Forever Launcher 01.000.021\n\n**Adds PS5 VRR support for WoW at up to 120 Hz.**\n\n- The game title now declares the retail VRR and high-frame-rate metadata\n  instead of the older combination that disabled system VRR.\n- Before the first frames, a VRR display may idle at its 48 Hz floor. Forever\n  now keeps the accepted 119.88 Hz mode instead of misreading that idle rate as\n  failed 120 Hz and restoring 59.94 Hz.\n- On a compatible display, set PS5 **VRR** to **Automatic**. If VideoOut does\n  not offer or accept the 119.88 Hz mode, Forever continues at 59.94 Hz.\n\n### Forever Launcher 01.000.020"
       },
       "pins": [
+        {
+          "tag": "01.000.023",
+          "asset": "PPSA99030.zip",
+          "size": 390140465,
+          "sha256": "c2867e71abf7d716f8acd4770448770132a537fdb35895de47f68313257b937d",
+          "content_version": "01.000.023",
+          "title_name": "Forever Launcher"
+        },
         {
           "tag": "01.000.021",
           "asset": "PPSA99030.zip",
@@ -3049,7 +3066,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 88,
+      "stars": 87,
       "release": {
         "tag": "build-135",
         "asset": "halo-ps5-release.zip",
@@ -3215,7 +3232,7 @@
         "zelda",
         "adventure"
       ],
-      "stars": 15,
+      "stars": 16,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99670.zip",
@@ -3401,7 +3418,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 49,
+      "stars": 50,
       "release": {
         "tag": "01.000.204",
         "asset": "PPSA99874.zip",
@@ -4158,15 +4175,25 @@
       ],
       "stars": 49,
       "release": {
-        "tag": "v0.13.0",
-        "asset": "EVOPlayer-v0.13.0-PPSA99039.zip",
-        "size": 32594529,
-        "sha256": "d9f8b664191b651c45b403ac842352671f72595a65f5d5c06342c28aef1dd470",
-        "content_version": "01.013.000",
+        "tag": "v0.13.5",
+        "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
+        "size": 28270642,
+        "sha256": "c4a60ffa4c364cc4990a5bf637e004289b3de95dd9b538cb88372321b52cb256",
+        "content_version": "01.013.050",
         "title_name": "EVO Player",
-        "published_at": "2026-10-25T06:36:51Z",
-        "notes": "![](https://img.shields.io/badge/Release-v0.13.0-blueviolet?style=flat-square) ![](https://img.shields.io/badge/PS5%20Hardware-Verified-0070d1?style=flat-square&logo=playstation&logoColor=white) ![](https://img.shields.io/badge/Firmware-below%2013.60-blue?style=flat-square)\n\n**EVO updates itself, and every provider gets shelves.** 0.13.0 adds an in-app updater, chapter navigation, a richer playback panel, volume boost and audio delay, one shelves home with a details block for Jellyfin, Emby, Stremio, Nuvio and Plex, an Xtream TV guide, and a long list of playback fixes. The changelog screen now scrolls: use the right stick to scroll a long release.\n\nDownload **`PPSA99039.ffpfsc`** and deploy it with ShadowMountPlus, or the folder-title **`.zip`**, then launch EVO from the Games row. Or install it straight from the console with **[ProsperoStore](https://github.com/blackbearreloaded/ProsperoStore)**, the native PS5 app store for [homebrew.page](https://homebrew.page). Runs on any jailbroken PS5 below firmware 13.60. PS5 Pro owners can use the `-pro` package for the larger memory mode.\n\nQuestions, bugs or ideas? Join the **[EVO Player Discord](https://discord.gg/MyNnCWNU5)**.\n\n### ![](https://img.shields.io/badge/UPDATES-9c27b0?style=flat-square) Updater\n\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **In-app updater.** A side card offers the new version, downloads it, verifies it, installs it with one rename, and closes EVO so the next launch runs the new build.\n\n### ![](https://img.shields.io/badge/PLAYBACK-e91e63?style=flat-square) Playback\n\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Chapters.** Jump between chapters with L1 / R1, see chapter ticks on the seek bar, and pick one from the R3 chapter list.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Ends-at and time remaining** on the playback OSD.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Volume boost** and an **audio delay** of -500 to +500 ms that shifts the video against the audio clock.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Network buffer** setting: 30 seconds, 1, 2 or 5 minutes. The rings scale with it and grow when idle.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Playback diagnostics panel** showing HDR, the audio output mode, dropped frames and the source. It stays on or off as you left it.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Picture subtitles (PGS)** decode and draw."
-      }
+        "published_at": "2026-11-04T13:00:23Z",
+        "notes": "![](https://img.shields.io/badge/Release-v0.13.5-blueviolet?style=flat-square) ![](https://img.shields.io/badge/PS5%20Hardware-Verified-0070d1?style=flat-square&logo=playstation&logoColor=white) ![](https://img.shields.io/badge/Firmware-below%2013.60-blue?style=flat-square)\n\n**Network shares, a detail page, a Stremio account, and a log viewer on your phone.** 0.13.5 adds SMB shares with a proper Add Server flow, read-only NTFS drives, a movie and show detail page, skip intro and credits, native Stremio sign-in with a ranked automatic stream, true HDR colour, TLS certificate checks, and a phone and PC log viewer that can file a bug report for you.\n\nDownload **`PPSA99039.ffpfsc`** and deploy it with ShadowMountPlus, or the folder-title **`.zip`**, then launch EVO from the Games row. Or install it straight from the console with **[ProsperoStore](https://github.com/blackbearreloaded/ProsperoStore)**. Runs on any jailbroken PS5 on firmware 13.60 and below. PS5 Pro owners can use the `-pro` package for the larger memory mode.\n\nQuestions, bugs or ideas? Join the **[EVO Player Discord](https://discord.gg/47Nc8WtXh)**.\n\n### ![](https://img.shields.io/badge/STORAGE-4caf50?style=flat-square) Storage & Network\n\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Samba / Windows Share (SMB) support.** Connect directly to Windows shared folders, Samba servers and NAS devices (`smb://host/Share` or `user:pass@host/Share`) with direct streaming via `libsmb2`.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Add Server in steps.** Enter the address (or paste an `smb://` or `ftp://` link), pick Guest or Account, and EVO tests the login before saving. A wrong address, a wrong login and a missing share each give their own message. On a Samba server, tick which of its shares to show; the browser lists only those.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Online, Offline or Checking** on every server card, probed off the UI thread, with the round-trip time in ms.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Server options menu.** Press **OPTIONS** on a network server to Open, **Edit Server** or **Remove Server** (TRIANGLE opens Remove directly). Edit never shows the saved password; leave it empty to keep it.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **NTFS USB drives** open read-only: browse, play, view pictures and load subtitles.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Cover art on FTP and SMB.** Files show `poster.jpg`, `folder.jpg`, `<name>.jpg` and similar images from the same folder, with a disk cache and a per-source Cover Art switch."
+      },
+      "pins": [
+        {
+          "tag": "v0.13.0",
+          "asset": "EVOPlayer-v0.13.0-PPSA99039.zip",
+          "size": 32594529,
+          "sha256": "d9f8b664191b651c45b403ac842352671f72595a65f5d5c06342c28aef1dd470",
+          "content_version": "01.013.000",
+          "title_name": "EVO Player"
+        }
+      ]
     },
     {
       "id": "mortalfin",
@@ -4553,15 +4580,25 @@
       ],
       "stars": 5,
       "release": {
-        "tag": "v1.5.0",
+        "tag": "v1.6.0",
         "asset": "PPSA99991.zip",
-        "size": 101821490,
-        "sha256": "6687af734b1a102a00938cdaf3c81d18da6874245237eaafc85d764f6cabdf0c",
-        "content_version": "01.005.000",
+        "size": 101847298,
+        "sha256": "3f7a8833e724f0a9d6bd2ad95f94f38c18e57c9e6e6deb3f356a470f4abb5f0f",
+        "content_version": "01.006.000",
         "title_name": "YouTube Max’d",
-        "published_at": "2026-10-29T20:28:49Z",
-        "notes": "# YouTube Max’d 1.5.0\n\n- **Your feed, your way:** mute title phrases and put locally followed channels first.\n- **Playback rescue:** check playback health and try a lower quality or AVC format without losing your place.\n- **Smoother phone remote:** better reconnect, timeouts, queue focus and protection against repeated taps.\n- **Better bookmarks and menus:** cleaner names, fewer duplicates, clearer save errors and improved Back navigation.\n- **Update notices:** background checks for new stable releases, with manual checks and a download QR in About.\n\nApp data is preserved. Picture-in-picture stays off by default.\n\n**Install/update:** download **PPSA99991.zip**, close the app, extract it and replace the complete **PPSA99991** app folder in your ShadowMount+ location. Keep your separate app data folder. The source ZIP is for developers.\n\nIntended for PS5 firmware 11.00 with ShadowMount+. Automated checks, PS5 cross-compilation and ZIP validation are recorded with the release; physical PS5 acceptance remains pending. This version adds update notifications, rather than automatic installation. Older builds need this update installed first.\n\nBuilt on [ProsperoTube](https://github.com/LedyBacer/ProsperoTube) by BlackBearReloaded and contributors, and [EVO Player](https://github.com/sainsaji/EVO-PLAYER-PS5). Matching source, licenses and checksums are included."
-      }
+        "published_at": "2026-11-04T18:50:39Z",
+        "notes": "# YouTube Max’d 1.6.0\n\n- Continue Watching and subscription catch-up queues.\n- Better phone keyboard search, sleep timers, playback presets and accessibility options.\n- Per-channel quality, speed, captions and volume leveling.\n- Interrupted-session recovery with saved positions and queue review.\n- Playback diagnostics and hold-Touchpad Quick Switch.\n- Thumbnail RAM cleanup, temporary-caption cleanup and offline backup previews.\n\nInstall `PPSA99991.zip`: close the app, extract it and replace the complete app folder. Keep the separate app data folder. Picture-in-picture remains off by default.\n\nIntended for firmware 11.00 with ShadowMount+. Automated tests and PS5 cross-compilation are separate from physical console testing, which remains pending. Channel leveling requires available loudness metadata; recovery does not autoplay. Google-linked profile import remains research.\n\nBased on ProsperoTube and EVO Player. Thanks to their contributors; credits, licenses and corresponding source are included."
+      },
+      "pins": [
+        {
+          "tag": "v1.5.0",
+          "asset": "PPSA99991.zip",
+          "size": 101821490,
+          "sha256": "6687af734b1a102a00938cdaf3c81d18da6874245237eaafc85d764f6cabdf0c",
+          "content_version": "01.005.000",
+          "title_name": "YouTube Max’d"
+        }
+      ]
     },
     {
       "id": "cloud-play",
@@ -4670,7 +4707,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 29,
+      "stars": 30,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5030,7 +5067,7 @@
         "library",
         "box-art"
       ],
-      "stars": 49,
+      "stars": 50,
       "release": {
         "tag": "01.107.000",
         "asset": "PPSA99062.zip",
