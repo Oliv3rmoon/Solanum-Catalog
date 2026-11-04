@@ -429,7 +429,7 @@
         "video",
         "ffmpeg"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v1.5.4",
         "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
@@ -854,7 +854,7 @@
         "dreamcast",
         "flycast"
       ],
-      "stars": 39,
+      "stars": 40,
       "release": {
         "tag": "v1.3.5",
         "asset": "PSFlyCast-v1.3.5.zip",
@@ -894,7 +894,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 221,
+      "stars": 223,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -933,7 +933,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 49,
+      "stars": 51,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1156,7 +1156,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 399,
+      "stars": 401,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1186,7 +1186,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 434,
+      "stars": 435,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1602,7 +1602,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 802,
+      "stars": 804,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1649,7 +1649,7 @@
         "ps1",
         "swanstation"
       ],
-      "stars": 39,
+      "stars": 40,
       "release": {
         "tag": "build26",
         "asset": "PSSwanStation-PS5-PPSA99248-build26.zip",
@@ -2129,7 +2129,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 361,
+      "stars": 365,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2172,7 +2172,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 116,
+      "stars": 119,
       "release": {
         "tag": "v2.2.5",
         "asset": "PPSA11018.zip",
@@ -2276,7 +2276,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 979,
+      "stars": 984,
       "release": {
         "tag": "v0.9.0",
         "asset": "playden-ps5-0.9.0.zip",
@@ -2317,7 +2317,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 248,
+      "stars": 251,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2347,7 +2347,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1623,
+      "stars": 1627,
       "release": {
         "tag": "vk-285-187",
         "asset": "PS5SX2-vk-285-187.zip",
@@ -2396,7 +2396,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 423,
+      "stars": 425,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3555,7 +3555,7 @@
         "xbox",
         "prince-of-persia"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "01.005.000",
         "asset": "PPSA99023-01.005.000.zip",
@@ -4392,7 +4392,7 @@
         "music",
         "spotify"
       ],
-      "stars": 23,
+      "stars": 24,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99061.zip",
@@ -4423,7 +4423,7 @@
         "addons",
         "torrent"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "0.6.00",
         "asset": "PPSA74126.zip",
@@ -4497,16 +4497,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.196",
+        "tag": "01.000.197",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33550853,
-        "sha256": "aad313ad4fa8c72e14efff203a4f79ea2b0ec45faf3af2d37568b876c9ed799a",
-        "content_version": "01.000.196",
+        "size": 33554845,
+        "sha256": "8dc125ed097ab092941e3d8e3e4d63e673ac9aa6aeb3ced255a085b63a7a6999",
+        "content_version": "01.000.197",
         "title_name": "SmartTube",
-        "published_at": "2026-11-03T02:38:11Z",
-        "notes": "Smoother playback: a much deeper read-ahead; the app's own keyboard only\n\n- Video now buffers 32 MB ahead (was 3 MB, about one second of 4K) and fetches it in 4 MB requests instead of 1 MB ones. When that small buffer ran dry the picture waited on the network, which is the stutter seen at 4K and sometimes at 1080p\n- yt.log records each stream's download speed, how far ahead it is, and how often it ran dry, every 15 seconds\n- The PlayStation keyboard is gone: Search types with the app's own keys"
+        "published_at": "2026-11-04T02:28:00Z",
+        "notes": "Updating in the app keeps ProsperoStore managing TubeBlock\n\n- An update installed from TubeBlock's own updater moved the app past the version ProsperoStore had recorded, so the store marked it \"installed outside ProsperoStore\" and stopped offering its updates. The updater now moves ProsperoStore's record along with the app, so both ways of updating keep working\n- Copies already marked that way: press \"Manage with ProsperoStore\" once on TubeBlock's store page (it keeps the installed version, nothing is downloaded); from the next update on the record stays in step by itself"
       },
       "pins": [
+        {
+          "tag": "01.000.196",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33550853,
+          "sha256": "aad313ad4fa8c72e14efff203a4f79ea2b0ec45faf3af2d37568b876c9ed799a",
+          "content_version": "01.000.196",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.195",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4602,7 +4610,7 @@
         "geforce-now",
         "cloud-gaming"
       ],
-      "stars": 22,
+      "stars": 23,
       "release": {
         "tag": "0.3.0",
         "asset": "OpenNOW-PS5-0.3.0.zip",
@@ -4632,7 +4640,7 @@
         "streaming",
         "pc"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99350.zip",
@@ -4835,7 +4843,7 @@
         "dualsense",
         "controls"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA99510.zip",
@@ -4868,16 +4876,25 @@
       ],
       "stars": 0,
       "release": {
-        "tag": "v0.1.0-beta.1",
+        "tag": "v0.1.1",
         "asset": "PPSA99541.zip",
-        "size": 104371163,
-        "sha256": "4cca4e0c05b58b74733f8bc4392ba5b26bbd05232dde41932be11093a4ab91d6",
-        "content_version": "00.100.023",
+        "size": 126438551,
+        "sha256": "4e3ee2b5932f72c01ffe267a3e333d447a8e49f13be53ce08446b31cd165cc5b",
+        "content_version": "00.110.111",
         "title_name": "isShelf",
-        "prerelease": true,
-        "published_at": "2026-10-26T00:14:51Z",
-        "notes": "isShelf by Iswebro is a native PS5 library front end for your existing games and emulators. This first public beta was tested on firmware **12.20**.\n\n## Download and install\n\nDownload **PPSA99541.zip** to install the app. Compare its full SHA-256 with **SHA256SUMS.txt**, then follow **INSTALL.md**. The **MANIFEST.json** attachment lists every app file. **ROOM.md** explains TV displays and personal intro clips.\n\nThe separately named **Source-and-Relink.zip** is the complete matching source, application objects, replaceable libraries, build instructions and license notices; it is not the installable app.\n\n## What is included\n\n- Native C++/SDL interface with Grid, a curved Swipe carousel and a furnished Shelf play room.\n- 52 system categories, real library discovery, search, sorting, favourites and individual console visibility. A category or illustration does not imply an emulator is available.\n- Saved settings and preferred emulators; Vector, Gaming, Classic mint and Jade logos; optional monochrome artwork for missing emulators.\n- Customisable TV displays, original silent isShelf intros and personal media overrides.\n- Controller navigation and a three-second Circle hold to close. No PC preview or Node.js is needed to run the installed app.\n\n## Requirements and verified launch scope\n\nUse your existing homebrew enabler, ShadowMountPlus, console-local ELF loader on port 9021 and ftpsrv on port 2121. Discovery currently needs the console FTP service available on your trusted local network. This download does not set up a jailbreak or change your firmware, network settings or payload order.\n\nIn our tests I've verified a normal restart, saved settings, all three layouts, foreground opening of the **PSXS5, PS5SX2 and PS5SX3 emulator libraries**, and a selected **Nintendo 64 game through RetroArch**. Standalone emulators open their own library; the launch panel explains this before selection. See **HARDWARE-CHECKS.json** for the accepted scope.\n\n## Known limits\n\nOpening can still show a black screen before the interface. Other dedicated-emulator and native-title routes remain experimental. Only firmware 12.20 is currently verified. No emulators, games, BIOS files, disc keys, console firmware or personal startup videos are included.\n\n## Source and credits\n\nThe executable is unchanged from compiled source [5c34e67](https://github.com/Iswebro/console-shelf-ps5/tree/5c34e67aba3e51ca209d56215f97b586ff58c1e5). All 242 installed files were verified by raw readback; matching source cold-relink and clean rebuild checks are recorded in the repository. Only the installation document changes for publication."
-      }
+        "published_at": "2026-11-03T22:26:18Z",
+        "notes": "> **☕ Buy Iswebro a Coffee! Only if you’d like to.** If isShelf is useful to you, you can [support the next update on Ko-fi](https://ko-fi.com/iswebro). There is no pressure: sharing the project, testing it and sending feedback help just as much.\n\nisShelf by **Iswebro** is a native PS5 library front end for your existing games and emulators. This stable beta release was tested on firmware **12.20**.\n\n## Download and install\n\nDownload **PPSA99541.zip** to install or update isShelf. Compare its SHA-256 with **SHA256SUMS.txt**, then follow **INSTALL.md**. Existing isShelf settings, personal media, emulators, games, ROMs, BIOS files and saves are preserved by the update process.\n\nThe separately named **isShelf-v0.1.1-Source-and-Relink.zip** contains the complete matching source, application objects, replaceable libraries, build instructions and license notices. It is not the installable app.\n\n## What is new\n\n- Create, update and remove the complete supported emulator-tile set from isShelf. Removal explains that ShadowMount applies the Home-screen change after isShelf closes.\n- New polished tile artwork for all supported systems, with no redundant platform-name tags in the artwork.\n- Faster, smoother navigation and emulator handoff, including selected-system routing for shared RetroArch libraries.\n- Restored **L3 + R3** owner support without exposing the private test bridge in public builds.\n- A resumable in-app updater with visible download/install progress, safe recovery after an interrupted transfer, a ShadowMount settle period and automatic relaunch.\n- Updates preserve user settings and personal content; only isShelf-owned program files are replaced.\n- The startup cover now remains visible until the collection is ready, avoiding an empty collection flash during normal loading.\n\n## Requirements and verified launch scope\n\nUse your existing homebrew enabler, ShadowMountPlus, console-local ELF loader on port 9021 and ftpsrv on port 2121. Discovery needs the console FTP service on your trusted local network. This release does not install a jailbreak or change firmware, network settings or payload order.\n\nThe accepted hardware checks cover normal restart and reopening, saved settings, controller navigation, L3 + R3 owner support, resumable update/relaunch, full emulator-tile creation and removal, standalone PSXS5/PS5SX2/PS5SX3 library opening, shared RetroArch routing and a selected Nintendo 64 game launch. See **HARDWARE-CHECKS.json** for the exact checked scope.\n\n## Known limits"
+      },
+      "pins": [
+        {
+          "tag": "v0.1.0-beta.1",
+          "asset": "PPSA99541.zip",
+          "size": 104371163,
+          "sha256": "4cca4e0c05b58b74733f8bc4392ba5b26bbd05232dde41932be11093a4ab91d6",
+          "content_version": "00.100.023",
+          "title_name": "isShelf"
+        }
+      ]
     },
     {
       "id": "jewel-case",
@@ -5053,7 +5070,7 @@
         "jailbreak",
         "pldmgr"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v00.001.002",
         "asset": "PPSA67670.zip",
