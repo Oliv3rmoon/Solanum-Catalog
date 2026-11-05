@@ -429,7 +429,7 @@
         "video",
         "ffmpeg"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "v1.5.4",
         "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
@@ -787,7 +787,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 99,
+      "stars": 98,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -903,7 +903,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 224,
+      "stars": 225,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1195,7 +1195,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 435,
+      "stars": 437,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1611,7 +1611,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 805,
+      "stars": 808,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1884,7 +1884,7 @@
         "3d",
         "image-to-3d"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "v0.2.4",
         "asset": "PPSA99577.zip",
@@ -2138,7 +2138,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 373,
+      "stars": 377,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2183,16 +2183,24 @@
       ],
       "stars": 126,
       "release": {
-        "tag": "v2.3.0",
+        "tag": "v2.3.1",
         "asset": "PPSA11018.zip",
-        "size": 325217050,
-        "sha256": "7d851d5c24de3dcc53e5185725b47c2c976bfd32f12c6c6708559c6749404648",
-        "content_version": "02.003.000",
+        "size": 325268603,
+        "sha256": "e15c7afe092e449b20f8a74e7dbf36cd6ce6aa883efaa6c5c0cac01011ceb6fe",
+        "content_version": "02.003.001",
         "title_name": "PC5",
-        "published_at": "2026-11-04T13:47:00Z",
-        "notes": "PC5 2.3.0 offers **settings that worked for others** from the game compatibility list, says what likely went wrong when a game closes, and fixes Unreal Engine games that asked to install Visual C++ and old OpenGL games that closed before showing anything.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Settings that worked for others**: when a player has reported a game working (**Report it works**) with settings different from yours, the game's **△ › Graphics** has **Settings that worked**. It shows what they changed (Graphics mode, Controller, Frame generation, Game memory, Stutter fix, Steam emulator, Sound output) and its launch options, and uses them for you; your other settings stay. PC5 also asks once when you first press **Play**. **Report it works** now includes the game's launch options too.\n- **What likely went wrong**: when a game closes, PC5's message now says why when its log shows it: an installer it tried to start (which can't run on the console), files in the copy that aren't the game's as its store ships it, OpenGL that never started, or what the game's own crash report says. The same goes in the report's **What PC5 saw** and the log's about.txt.\n- **Test versions**: **Settings › System › Check when PC5 opens** has a third choice, **Test versions too**: PC5 then also offers test versions, fixes to try before everyone gets them. They may have new problems; set it back to **On** to get only releases.\n- **A copy with another program's files**: when a game's folder has files that aren't the game's as its store ships it (OnlineFix, steam_api_o.dll), **Install** says so before you install it, as games with them often close before starting.\n- **More in the logs** for reports: keys still held when a game closes, quick button taps, system files a game looked for and didn't find, and the console's free memory once a minute.\n- **Issues**: the form asks where your copy is from, a log attached to an issue gets a first look straight away, and a new issue lists the other issues about the same game, with what fixed them.\n\n### Fixes from your reports"
+        "published_at": "2026-11-04T20:37:34Z",
+        "notes": "PC5 2.3.1 gives OpenGL to games that load it while they run, so more games made with SDL, FNA, MonoGame or Java start, with a **Windows only** choice in Graphics mode for any game that does worse.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **OpenGL ready for more games**: a game that draws as ordinary Windows programs do now starts with OpenGL ready, in case it asks for it while it runs, as games made with SDL, FNA, MonoGame or Java do. Before, such a game found no OpenGL and closed at once. A game that never asks for OpenGL draws as before.\n- **Graphics mode for those games**: their **△ › Graphics** now has **Graphics mode**, with **Auto** (OpenGL ready) and **Windows only** (without OpenGL, as before). If such a game starts or draws worse than before, set it to **Windows only**.\n- **After a test version**: on a test version, PC5 now offers the release it led up to when it comes out.\n\n### Fixes from your reports\n\n- **Games made with FNA, or with MonoGame's OpenGL version**, closed at once with \"OpenGL 2.1 support is required!\": nothing in their folder named OpenGL, so PC5 started them without it. PC5 now recognises them as OpenGL games when they're installed, and puts right one installed before the next time it starts.\n- **What likely went wrong** no longer calls a game's crash handler (one started beside the game, as Unity games do) an installer.\n- **Install's warning** about files in a copy that aren't the game's as its store ships it fits on the screen.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in."
       },
       "pins": [
+        {
+          "tag": "v2.3.0",
+          "asset": "PPSA11018.zip",
+          "size": 325217050,
+          "sha256": "7d851d5c24de3dcc53e5185725b47c2c976bfd32f12c6c6708559c6749404648",
+          "content_version": "02.003.000",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.2.5",
           "asset": "PPSA11018.zip",
@@ -2223,14 +2231,6 @@
           "size": 319977026,
           "sha256": "168358bd05202cf41c7eb877ed9039759872d426465a102a78787b1d3eadaabe",
           "content_version": "02.001.002",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.1.1",
-          "asset": "PPSA11018.zip",
-          "size": 318077798,
-          "sha256": "c539a06396c003e39cfffa5c75014c1e45d884a1999813816f518760436deb6d",
-          "content_version": "02.001.001",
           "title_name": "PC5"
         }
       ]
@@ -2285,7 +2285,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 987,
+      "stars": 990,
       "release": {
         "tag": "v0.9.0",
         "asset": "playden-ps5-0.9.0.zip",
@@ -2326,7 +2326,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 251,
+      "stars": 252,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2356,7 +2356,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1632,
+      "stars": 1636,
       "release": {
         "tag": "vk-285-187",
         "asset": "PS5SX2-vk-285-187.zip",
@@ -2405,7 +2405,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 426,
+      "stars": 427,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2861,7 +2861,7 @@
         "battle-net",
         "world-of-warcraft"
       ],
-      "stars": 17,
+      "stars": 18,
       "release": {
         "tag": "01.000.024",
         "asset": "PPSA99030.zip",
@@ -3420,16 +3420,24 @@
       ],
       "stars": 50,
       "release": {
-        "tag": "01.000.204",
+        "tag": "01.000.212",
         "asset": "PPSA99874.zip",
-        "size": 127056881,
-        "sha256": "89167d01c7da0ece733b0dd8b7871a05ee38ff5f79ee45b4ce9beefc5d4c14a0",
-        "content_version": "01.000.204",
+        "size": 127488343,
+        "sha256": "d97e530ea67838ef806e8fa88731d399aa9ce1ae661b091daff5eaacfe3f75a7",
+        "content_version": "01.000.212",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-03T15:13:59Z",
-        "notes": "# ProsperoCraft 01.000.204\n\n## Changes\n\n- Add normal launcher support for Minecraft 26.1, 26.1.1 and 26.1.2, both Vanilla and Fabric. These entries now use the regular Play and Ready states.\n- Repair shader startup/rendering and Quit Game cleanup for the 26.1.x graphics path, including genuine runtime management support and main-thread SDL finalization.\n- Reduce retained immutable archive handles to give world saving more file-descriptor headroom after reported 26.3 save failures. Add a larger read-only handle report for troubleshooting.\n- Retain 26.2/26.3 play, launcher uploads, Microsoft sign-in, controller controls, themes and automatic Simple Voice Chat microphone preparation. Use the controller's physical mic button or PS5 system mute.\n\n## Validation and compatibility\n\nThe physical tester reports that the exact 204 package works very well and explicitly authorizes this release. Published app bytes are unchanged from that package. Earlier 202 testing explicitly confirmed shader rendering and Quit Game; the implementation is retained in 204. Host and package checks pass, with matching OpenAL corresponding source/relink materials and checksums.\n\nCompatibility still depends on matching game, loader, mod and shader versions. This is functional acceptance, not an exhaustive shader/device/version or endurance matrix. The archive-handle budget is not a universal file-descriptor cap; long-session save behavior and world-creation performance remain areas to test. Already failed saves are not recovered by the update.\n\nJava Edition ownership is required. Original game/mod JARs and game asset objects are not included; the launcher downloads verified originals. ProsperoCraft is unofficial and is not affiliated with Mojang, Microsoft or Sony.\n\n## Credits and source\n\nGUI: mihawk-99/PS5_VKHomebrewUI, based on BlackBearReloaded's ps5-homebrew-ui. Instance icons: MultiMC/Prism contributors, with original attribution and licenses. Native Java 25/OpenJDK, Mesa/RADV, SDL, LWJGL and OpenAL Soft retain their upstream notices and rights. ProsperoCraft is GPL-3.0-or-later. Exact corresponding source and OpenAL relink/replacement materials accompany this release."
+        "published_at": "2026-11-04T20:03:16Z",
+        "notes": "# ProsperoCraft 01.000.212\n\n## Changes\n\n- Add Minecraft1.21.10 and1.21.11 Vanilla play with matched native libraries. Earlier1.21 releases and all1.21Fabric remain unavailable.\n- Make the launcher smoother with a120Hz presentation target, animated horizontal page/tab changes, themed navigation arrows and continuous selector scrolling.\n- Open instances with an expanding card animation and a matching return transition. Remove the extra dark transition layer reported as a brief black flash.\n- Open selectors over their dimmed original screen. Preview themes immediately on hover/controller focus, save on confirmation, and restore on Cancel.\n- Show all32 instance icons in a larger grid. Replace Modrinth and CurseForge logos with original Amethyst and Compass artwork while preserving saved icon IDs.\n- Add stronger localized adaptive L2/R2 page detents, respecting Vibration preference and releasing effects on handoff/exit.\n- Honor the selected game resolution for Zink instances, make launcher keyboard action buttons reachable, and preserve navigation/startup notices during saved-account refresh.\n- Retain existing26.x Vanilla/Fabric paths, shader/quit/save repairs, Microsoft sign-in, content browsing, uploads, controls and game audio.\n\n## Validation and compatibility\n\nThe physical tester accepts the exact212 launcher and explicitly requests this release. Published app bytes match the tested212-final package; no rebuild. Local host checks, native sanitizer/JNI tests, rendered previews, signed integrity and independent package audits pass. Matching OpenAL corresponding source/relink materials and checksums accompany the app.\n\n120Hz is a presentation target; numeric FPS was not measured on console. This acceptance does not establish an exhaustive game, shader, mod, device or endurance matrix. Earlier202 shader/quit confirmation and204 functional acceptance remain scoped historical evidence; no new212 shader pack/profile measurement is claimed.1.21Fabric remains deferred until the Vanilla series is validated. Compatibility depends on matching game, loader, mod and shader versions.\n\nJava Edition ownership is required. Original game/mod JARs and game asset objects are not included; verified originals download on console. Existing instances, settings and worlds remain in writable storage. Client and server share a title ID, so installing one replaces the other. ProsperoCraft is unofficial and is not affiliated with Mojang, Microsoft or Sony.\n\n## Credits and source"
       },
       "pins": [
+        {
+          "tag": "01.000.204",
+          "asset": "PPSA99874.zip",
+          "size": 127056881,
+          "sha256": "89167d01c7da0ece733b0dd8b7871a05ee38ff5f79ee45b4ce9beefc5d4c14a0",
+          "content_version": "01.000.204",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.179",
           "asset": "PPSA99874.zip",
@@ -3786,7 +3794,7 @@
         "racing",
         "need-for-speed"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "01.000.002",
         "asset": "PPSA90505.zip",
@@ -4247,16 +4255,24 @@
       ],
       "stars": 11,
       "release": {
-        "tag": "v1.0.0.5-native-experimental",
+        "tag": "v1.0.0.8-native-experimental",
         "asset": "PPSA99288.zip",
-        "size": 44067420,
-        "sha256": "f97a8e722e71a6ac257b58674d7f78893ab7a218cbc359892c0fa2edcb2eea7d",
-        "content_version": "06.000.005",
+        "size": 44258510,
+        "sha256": "ca8e22dcde1695b4a5239dc9dacaf1863f3aefee65366818620aa3a6424f156b",
+        "content_version": "07.000.008",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-01T23:13:53Z",
-        "notes": "# Max’d 1.0.0.5\n\n- **Search your Library:** Press Triangle/Options or choose Search to find titles already loaded from the active profile’s selected Library source. Search works alongside type and sorting filters. Clear Search or Circle restores the list.\n- **Live TV Now/Next:** Channel cards show current and upcoming programmes when the provider supplies guide data. Supports Xtream short EPG, XMLTV links in M3U playlists and an optional XMLTV URL. Live TV → Options includes guide URL, refresh and on/off controls.\n- **New-episode badges:** Series in your Library can show labels such as “New: S2 E3” when synchronized watched history and dated episode metadata identify an aired, unwatched update. Future, unknown, special and in-progress episodes are excluded.\n- **Larger external subtitles:** Playback and preview share their size scale, with Extra large (150%) and Largest (200%) options. Existing preferences are retained. [Reporter confirmed #12](https://github.com/HandshakeHackin/Nuvio-maxd-releases/issues/12#issuecomment-6560822122).\n- **Missing Library covers fixed:** Library titles request their own missing metadata instead of depending on Board browsing. [Reporter confirmed #13](https://github.com/HandshakeHackin/Nuvio-maxd-releases/issues/13#issuecomment-6560101332).\n\nSearch and guide/episode caches stay within the active profile/source. Guide requests run in the background; XMLTV documents are bounded and reused across channel pages. Missing guide data leaves channels playable. Episode metadata requests are bounded and do not change watched marks or Library membership.\n\nLibrary search covers loaded titles; normal Library synchronization continues independently. Guides require matching provider channel IDs and programme data. Episode badges require reliable history and release dates; date-only releases wait until the UTC day has ended. Authored ASS and bitmap subtitles retain their existing behavior.\n\nAutomated provider/session, navigation and rendering regressions and PS5 compile/link/import checks passed. The two reported fixes are console-confirmed; the new features still need physical-console/provider acceptance. Existing optional player, HDR and four-screen limitations remain.\n\nTitle ID: **PPSA99288**. Package contentVersion: **06.000.005**. Close the app before updating and preserve saved user data. Homebrew Store availability follows catalog approval and deployment."
+        "published_at": "2026-11-05T01:20:10Z",
+        "notes": "# Nuvio Max'd 1.0.0.8 experimental\n\n- Fix authenticated Media Servers artwork and verify saved connections after writing. Connections and private caches stay separate for each profile.\n- Include the issue #14 password-keyboard fix with masked Basic Latin input. The reporter confirmed that keyboard fix on firmware 7.00; connection persistence after a real console restart still needs confirmation.\n- Add experimental Plex, Jellyfin and Emby browsing, search, playback and server watch progress under Settings → Account & Services → Media servers.\n- Include dependency maintenance, Native/EVO HEVC base-layer filtering, PCM Night Mode, guide clock correction, chapter controls and optional subtitle auto-sync.\n\nReplace the existing PPSA99288 app folder with the ZIP contents, or replace the old FFPFSC image. Keep user data to preserve profiles and saved connections. Use one install format at a time.\n\nThis is an experimental prerelease. Host and package verification do not establish PS5 firmware compatibility, real server persistence, HDR output or live service interoperability. Test on console and retain the previous installer for rollback. Do not include account tokens or playable URLs in bug reports."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.5-native-experimental",
+          "asset": "PPSA99288.zip",
+          "size": 44067420,
+          "sha256": "f97a8e722e71a6ac257b58674d7f78893ab7a218cbc359892c0fa2edcb2eea7d",
+          "content_version": "06.000.005",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.3-native-experimental",
           "asset": "PPSA99288.zip",
@@ -4524,16 +4540,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.197",
+        "tag": "01.000.199",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33554845,
-        "sha256": "8dc125ed097ab092941e3d8e3e4d63e673ac9aa6aeb3ced255a085b63a7a6999",
-        "content_version": "01.000.197",
+        "size": 33554682,
+        "sha256": "804ec076338064dca8426ac4fef0871ec18357292781989f6ec204d38df1ecf1",
+        "content_version": "01.000.199",
         "title_name": "SmartTube",
-        "published_at": "2026-11-04T02:28:00Z",
-        "notes": "Updating in the app keeps ProsperoStore managing TubeBlock\n\n- An update installed from TubeBlock's own updater moved the app past the version ProsperoStore had recorded, so the store marked it \"installed outside ProsperoStore\" and stopped offering its updates. The updater now moves ProsperoStore's record along with the app, so both ways of updating keep working\n- Copies already marked that way: press \"Manage with ProsperoStore\" once on TubeBlock's store page (it keeps the installed version, nothing is downloaded); from the next update on the record stays in step by itself"
+        "published_at": "2026-11-05T05:11:41Z",
+        "notes": "L2 / R2 no longer jump chapters by accident\n\n- The triggers skipped to the previous / next chapter while watching, and they are easy to press by accident. They now do nothing in the player unless Settings > Player > Triggers jump chapters is turned on"
       },
       "pins": [
+        {
+          "tag": "01.000.197",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33554845,
+          "sha256": "8dc125ed097ab092941e3d8e3e4d63e673ac9aa6aeb3ced255a085b63a7a6999",
+          "content_version": "01.000.197",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.196",
           "asset": "SmartTube-PPSA98260.zip",
@@ -5256,7 +5280,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 499,
+      "stars": 503,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
