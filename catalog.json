@@ -230,7 +230,7 @@
         "store",
         "homebrew"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -285,7 +285,7 @@
         "music",
         "vlc"
       ],
-      "stars": 76,
+      "stars": 75,
       "release": {
         "tag": "v0.6.0",
         "asset": "PPSA85300.zip",
@@ -345,7 +345,7 @@
         "emby",
         "video"
       ],
-      "stars": 43,
+      "stars": 44,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -795,7 +795,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 98,
+      "stars": 97,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -871,7 +871,7 @@
         "dreamcast",
         "flycast"
       ],
-      "stars": 40,
+      "stars": 39,
       "release": {
         "tag": "v1.3.5",
         "asset": "PSFlyCast-v1.3.5.zip",
@@ -950,7 +950,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 51,
+      "stars": 50,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -979,7 +979,7 @@
         "n64",
         "mupen64plus"
       ],
-      "stars": 37,
+      "stars": 36,
       "release": {
         "tag": "0.7.5",
         "asset": "Mupen64PlusPS5.zip",
@@ -1009,7 +1009,7 @@
         "turbografx",
         "mednafen"
       ],
-      "stars": 3,
+      "stars": 2,
       "release": {
         "tag": "v1.1.1",
         "asset": "BeetlePCEPS5-v1.1.1-PPSA99925.zip",
@@ -1076,7 +1076,7 @@
         "cd-i",
         "mame"
       ],
-      "stars": 5,
+      "stars": 4,
       "release": {
         "tag": "v1.24",
         "asset": "Seedee5-1.24.zip",
@@ -1144,7 +1144,7 @@
         "flash",
         "ruffle"
       ],
-      "stars": 21,
+      "stars": 20,
       "release": {
         "tag": "v1.3.0",
         "asset": "PPSA68091.zip",
@@ -1173,7 +1173,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 405,
+      "stars": 404,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1203,7 +1203,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 442,
+      "stars": 459,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1454,7 +1454,7 @@
         "file-manager",
         "tool"
       ],
-      "stars": 11,
+      "stars": 10,
       "release": {
         "tag": "v1.2",
         "asset": "chiral-ftp-ps5-1.2.zip",
@@ -1705,7 +1705,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 205,
+      "stars": 204,
       "release": {
         "tag": "Alpha-2.1",
         "asset": "PPSA97358.zip",
@@ -1801,7 +1801,7 @@
         "capture",
         "usb"
       ],
-      "stars": 10,
+      "stars": 9,
       "release": {
         "tag": "v1.0.0",
         "asset": "PPSA17035.zip",
@@ -2040,7 +2040,7 @@
         "arcade",
         "fbneo"
       ],
-      "stars": 17,
+      "stars": 16,
       "release": {
         "tag": "v2.3",
         "asset": "FBNeoPS5-v2.3-PPSA99924.zip",
@@ -2121,7 +2121,7 @@
         "sega-cd",
         "master-system"
       ],
-      "stars": 15,
+      "stars": 14,
       "release": {
         "tag": "v2.2.1",
         "asset": "GenesisPlusGXPS5-v2.2.1-PPSA99921.zip",
@@ -2154,7 +2154,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 379,
+      "stars": 377,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2197,7 +2197,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 127,
+      "stars": 129,
       "release": {
         "tag": "v2.3.4",
         "asset": "PPSA11018.zip",
@@ -2269,7 +2269,7 @@
         "pico-8",
         "fantasy-console"
       ],
-      "stars": 6,
+      "stars": 5,
       "release": {
         "tag": "v0.1.2",
         "asset": "PPSA99808.zip",
@@ -2301,7 +2301,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1002,
+      "stars": 1009,
       "release": {
         "tag": "v0.9.0",
         "asset": "playden-ps5-0.9.0.zip",
@@ -2342,7 +2342,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 252,
+      "stars": 251,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2372,7 +2372,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1637,
+      "stars": 1638,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2429,7 +2429,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 428,
+      "stars": 427,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2759,7 +2759,7 @@
         "diablo",
         "rpg"
       ],
-      "stars": 5,
+      "stars": 4,
       "release": {
         "tag": "v0.1.0",
         "asset": "DevilutionX-PS5-v0.1.0.zip",
@@ -2790,7 +2790,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 17,
+      "stars": 16,
       "release": {
         "tag": "v1.0.0",
         "asset": "Dusklight-PS5-v1.0.0.zip",
@@ -3092,16 +3092,24 @@
       ],
       "stars": 88,
       "release": {
-        "tag": "build-135",
+        "tag": "build-138",
         "asset": "halo-ps5-release.zip",
-        "size": 56800869,
-        "sha256": "4890a9ddeabcc82b30b35f638d5f3dded18fb137356feced5e50aa7feca8b6bb",
-        "content_version": "01.000.135",
-        "title_name": "Halo: Combat Evolved",
-        "published_at": "2026-11-03T16:00:52Z",
-        "notes": "Build 135: Hotfix for the Turnip crash, and mod packs import!\n\n- Vulkan: on some phones with the Turnip driver (an Adreno 750 phone, for one), the game crashed a moment after it started drawing at the screen's size. It was a bug in the driver, which the game no longer runs into. (thelinkin3000)\n- Mods: on Android, IMPORT takes a .zip with a whole pack of mods, each in a folder of its own at the .zip's top, as well as a .zip of one mod. Mods you already have are skipped and named, and a .zip that can't be imported no longer stops the others. (thelinkin3000)\n- Android: how an import or an export went (maps, mods, drivers, replays) is written to the log as well as shown on screen, so a log you send in says what happened. (thelinkin3000)\n- Vulkan: the renderer's counts, two long lines every second, are only written with `debug.gpu_stats`. Without it, a line is written only when draws were skipped. They were most of the log. (thelinkin3000)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n\nCommit: https://github.com/thelinkin3000/halo-ce-universal/commit/b89d29754fb6f2b2f95377844eacf20b7bdb4d80\nBuild: https://github.com/thelinkin3000/halo-ce-universal/actions/runs/41663754028\n\nThe release builds are for playing; the debug builds stop at the first failed assertion and log it."
+        "size": 57145729,
+        "sha256": "6b81d73a8f6f665031f4b1e3a1ae927272a869f978c02a20789f8554411f608e",
+        "content_version": "01.000.138",
+        "title_name": "SlipstreamCE",
+        "published_at": "2026-11-06T05:52:50Z",
+        "notes": "Build 138: Hotfix for input lag\n\n- Switch: much less input lag. In our tests, the time from the stick moving to the view turning went from about 102 ms to about 67 ms. In first person on foot, the view now follows your stick on the frame you move it, and the game reads your input later, just before it's needed. To go back, set `display.direct_camera` to `false` or `debug.frame_pace_ahead` to `true` in `config.toml`. (thelinkin3000)\n- Android: in first person on foot, the view now follows your aim on the frame you move it, instead of up to two game ticks later. To go back, set `display.direct_camera` to `false` in `config.toml`. (thelinkin3000)\n- Android: Build 136 left out the new SlipstreamCE app, so the old Halo app said \"The new game could not be found.\" The app is included now. Open the old Halo app and it downloads the new one. Your saves and settings are still in the old app until the new one copies them, so don't remove the old app before that. (thelinkin3000)\n- SlipstreamCE: this fork of OpenCE has a new name and a new logo, by puginatux, on Android, Switch and PS5. The project is now at github.com/thelinkin3000/SlipstreamCE, and old links redirect there. Your saves and settings stay yours on every platform. (thelinkin3000)\n- Switch: because the game's name and icon are changing, rebuild your forwarder if you start the game from one on your homescreen. Until you do, it keeps the old name and icon. The game stays at `/switch/halo/halo.nro`. (thelinkin3000)\n- Switch: builds older than v94 can no longer update themselves. If you're on one, install this release by hand. (thelinkin3000)\n- PS5: because the game's name and icon are changing, uninstall the game from the home screen after this update. ShadowMountPlus then loads it again with the correct name and icon. (thelinkin3000)\n- Android: the game is now a new app, SlipstreamCE (`ar.com.slipstreamce`), because Android can't change an installed app's package name. Your update to the old Halo app downloads the new one and offers to install it. The first time it starts, the new app copies your saves, settings, mods, replays, maps and touch layouts. Don't remove the old app until the new one offers to remove it. (thelinkin3000)\n- Multiplayer Color: your Spartan is now the game's real model in your color, holding the assault rifle, the plasma rifle and the skull in turn. The right stick turns him, the north button changes what he holds, and he walks when left alone. Select Profile shows him too. Without `wizard.map`, the screens keep their picture. (thelinkin3000)"
       },
       "pins": [
+        {
+          "tag": "build-135",
+          "asset": "halo-ps5-release.zip",
+          "size": 56800869,
+          "sha256": "4890a9ddeabcc82b30b35f638d5f3dded18fb137356feced5e50aa7feca8b6bb",
+          "content_version": "01.000.135",
+          "title_name": "Halo: Combat Evolved"
+        },
         {
           "tag": "build-134",
           "asset": "halo-ps5-release.zip",
@@ -3132,14 +3140,6 @@
           "size": 56697129,
           "sha256": "57c4afa8b8f195854d9ec3417f2ebbf30e43701f588fbf129931dcf8bcb7d660",
           "content_version": "01.000.130",
-          "title_name": "Halo: Combat Evolved"
-        },
-        {
-          "tag": "build-129",
-          "asset": "halo-ps5-release.zip",
-          "size": 56470837,
-          "sha256": "5b39232124fc2d88081b4f7365f6d0e057d44110102387c8c42f4fca8711a4d9",
-          "content_version": "01.000.129",
           "title_name": "Halo: Combat Evolved"
         }
       ]
@@ -3442,7 +3442,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 50,
+      "stars": 51,
       "release": {
         "tag": "01.000.212",
         "asset": "PPSA99874.zip",
@@ -4205,7 +4205,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 52,
+      "stars": 54,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4539,7 +4539,7 @@
         "navidrome",
         "subsonic"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "v0.1.0",
         "asset": "SymphonyStation5-v0.1.0.zip",
@@ -4572,16 +4572,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.200",
+        "tag": "01.000.201",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33555156,
-        "sha256": "fde09a311cc55d5ccac27d4d38172d78979903f86d4e76cfa4629cd87092a9e3",
-        "content_version": "01.000.200",
+        "size": 33556102,
+        "sha256": "492bf6563d55dd06498ebc5f77e254dfd68c3c27ef659002a1d0b258fb1090ae",
+        "content_version": "01.000.201",
         "title_name": "SmartTube",
-        "published_at": "2026-11-05T14:45:54Z",
-        "notes": "yt.log records where a crash happens\n\n- When the app crashes, yt.log now gets \"crash:\" lines with the signal and the place in the app's code, so a crash like the one on Topic-channel songs can be traced to its cause\n- The build keeps its symbols for 90 days to read those lines"
+        "published_at": "2026-11-06T03:02:11Z",
+        "notes": "The crash log names the cause of a crash\n\n- The Topic-song crash ended the app with abort(), and the crash recorder from 1.0.200 then crashed while reading the stack, so it could not say where. It now stays inside the crashed thread's stack and never touches the heap\n- When the C++ library ends the app (it does so instead of throwing), its message now goes to yt.log as a \"crash:\" line\n- ffmpeg's own errors, which went nowhere, now go to yt.log too, and a failed ffmpeg assertion is logged before it ends the app"
       },
       "pins": [
+        {
+          "tag": "01.000.200",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33555156,
+          "sha256": "fde09a311cc55d5ccac27d4d38172d78979903f86d4e76cfa4629cd87092a9e3",
+          "content_version": "01.000.200",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.199",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4612,14 +4620,6 @@
           "size": 33560358,
           "sha256": "4607ff761385b0a75a4d97637e4188c50110229f8f760270bbcf9499850fe405",
           "content_version": "01.000.195",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.193",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33540005,
-          "sha256": "0a2cbcd055f5621d26599af7666afc52d50ff796321430fb2f51813694b8c259",
-          "content_version": "01.000.193",
           "title_name": "SmartTube"
         }
       ]
@@ -4771,7 +4771,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 30,
+      "stars": 31,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5016,7 +5016,7 @@
         "roms",
         "emulators"
       ],
-      "stars": 14,
+      "stars": 13,
       "release": {
         "tag": "v1.1.1",
         "asset": "PPSA75837.zip",
@@ -5320,7 +5320,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 507,
+      "stars": 508,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5411,7 +5411,7 @@
         "saves",
         "sync"
       ],
-      "stars": 106,
+      "stars": 107,
       "release": {
         "tag": "v1.4.0",
         "asset": "PPSA76677.zip",
