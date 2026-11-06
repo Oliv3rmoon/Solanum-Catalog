@@ -253,6 +253,33 @@ class PinTest(unittest.TestCase):
         self.assertEqual(github.downloads, 1)
         self.assertEqual(pin_catalog.sharing([entry(id='a'), entry(id='b', shares='a'), entry(id='c')]), {'a', 'b'})
 
+    def test_a_new_pin_keeps_the_apps_icon_where_it_is(self):
+        """The workflow rewrites catalog.json with each new pin: an app's icon (and every other field it doesn't
+        write) comes back as it was, in its place among the entry's fields."""
+        body = app_zip('ABCD12345')
+        icon = {'path': 'icons/thing.png', 'sha256': 'e' * 64, 'size': 1234}
+        app = entry(tags=['tool'], icon=dict(icon), stars=1,
+                    release={'tag': 'v1.0.0', 'asset': 'Thing-1.0.0.zip', 'size': 10, 'sha256': 'c' * 64})
+        catalog = {'schema': 1, 'name': 'Solanum', 'apps': [app]}
+        github = FakeGitHub('v1.1.0', {'Thing-1.1.0.zip': body})
+        with tempfile.TemporaryDirectory() as work:
+            path = Path(work) / 'catalog.json'
+            path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+            with mock.patch.object(pin_catalog, 'CATALOG', path), \
+                    mock.patch.object(pin_catalog, 'get_json', github.get_json), \
+                    mock.patch.object(pin_catalog, 'download', github.download), \
+                    mock.patch.object(pin_catalog, 'request', github.request), \
+                    mock.patch.object(sys, 'argv', ['pin_catalog.py']), \
+                    mock.patch('builtins.print'), self.assertRaises(SystemExit) as end:
+                pin_catalog.main()
+            self.assertEqual(end.exception.code, 0)
+            pinned = json.loads(path.read_text(encoding='utf-8'))['apps'][0]
+        self.assertEqual(pinned['release']['tag'], 'v1.1.0')
+        self.assertEqual(pinned['icon'], icon)
+        keys = list(pinned)
+        self.assertEqual(keys[keys.index('tags') + 1], 'icon')
+        self.assertEqual(keys[keys.index('icon') + 1], 'stars')
+
     def test_title_names(self):
         self.assertEqual(pin_catalog.title_name({'localizedParameters': {'defaultLanguage': 'ja-JP', 'en-US': {
             'titleName': 'Thing'}, 'ja-JP': {'titleName': 'シング'}}}), 'シング')

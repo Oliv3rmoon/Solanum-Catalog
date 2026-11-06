@@ -22,6 +22,11 @@
         "switch",
         "eden"
       ],
+      "icon": {
+        "path": "icons/nightshade.png",
+        "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
+        "size": 16357
+      },
       "stars": 6,
       "release": {
         "tag": "v1.010.007",
@@ -70,6 +75,11 @@
         "live-tv",
         "plex"
       ],
+      "icon": {
+        "path": "icons/physalis.png",
+        "sha256": "4005ee2bc5997c8a3b08225e921c87b88dcf2775390b4dbd4d23cd1b295a01d3",
+        "size": 46498
+      },
       "stars": 1,
       "release": {
         "tag": "01.002.005",
@@ -127,6 +137,11 @@
         "moonlight",
         "game-streaming"
       ],
+      "icon": {
+        "path": "icons/datura.png",
+        "sha256": "164a4435ea36c1ac57be09f1598825c2965590c4c9773739fe570e97f4561bc8",
+        "size": 57795
+      },
       "stars": 1,
       "release": {
         "tag": "01.001.002",
@@ -168,6 +183,11 @@
         "ps1",
         "swanstation"
       ],
+      "icon": {
+        "path": "icons/mandrake.png",
+        "sha256": "8a1b2ed7cdfc388d6e7e9ede1dabba9014b1a0bb3bc6dd5618340f1639cd04ec",
+        "size": 62343
+      },
       "stars": 1,
       "release": {
         "tag": "1.6.1",
@@ -200,6 +220,11 @@
         "easyrpg"
       ],
       "data": "/data/dulcamara",
+      "icon": {
+        "path": "icons/dulcamara.png",
+        "sha256": "c5e1548ab7f5574d36f9a436945f159a9b437452922994bd14dc920cbf69b1f7",
+        "size": 47327
+      },
       "stars": 0,
       "release": {
         "tag": "0.1.0",
@@ -230,6 +255,11 @@
         "store",
         "homebrew"
       ],
+      "icon": {
+        "path": "icons/solanum.png",
+        "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
+        "size": 55093
+      },
       "stars": 3,
       "release": {
         "tag": "0.4.0",

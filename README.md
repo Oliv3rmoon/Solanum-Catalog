@@ -16,7 +16,8 @@
 The site's [Submit your app](https://oliv3rmoon.github.io/Solanum-Catalog/submit/) page says the same. Add an entry to `catalog.json`'s `apps` and open a pull request; leave out `release`, `pins` and `stars`, which the pin workflow writes. CI runs `tools/check_catalog.py --online`, which checks that:
 - the title ID is four letters and five digits, used by no other app, unless the entry `shares` it with the app listed first (a fork that kept its original's title ID: a console holds one of the two, and Solanum says so before installing either over the other);
 - the repository's latest release (for a `newest` channel, its newest release with the app's file) has the file the entry's `asset` names, and Solanum can check it: the release's checksum file names it, GitHub keeps a digest of it, or it is pinned;
-- every pinned release is the file the pattern names for its tag, and the file GitHub lists for a pinned tag is still the pinned one.
+- every pinned release is the file the pattern names for its tag, and the file GitHub lists for a pinned tag is still the pinned one;
+- an app's `icon`, when it has one, is a PNG in `icons/` of at most 256x256 pixels and under 128 KiB, and its SHA-256 and size are the file's.
 
 | Field | What it is |
 |---|---|
@@ -37,6 +38,7 @@ The site's [Submit your app](https://oliv3rmoon.github.io/Solanum-Catalog/submit
 | `needs_game_files` | optional: `true` for a port or launcher that runs the files of a game the player owns; it ships none |
 | `channel` | optional: `newest` when the app's release is the newest one that has its file, pre-releases included (an app that publishes only pre-releases, or other platforms' releases between its own); leave it out for GitHub's latest release |
 | `shares` | optional: the `id` of the app listed before it whose title ID it has too |
+| `icon` | optional: `{"path": "icons/<id>.png", "sha256": "...", "size": ...}`, the app's icon in this repository's `icons/` folder: a PNG of at most 256x256 pixels and under 128 KiB, with its lowercase SHA-256 and its size in bytes. Solanum shows it on the app's tile and page, downloads it from this repository only when the tile is on screen, checks it against both, and keeps it under its SHA-256 so it shows offline (Solanum 0.4.0 and earlier ignore it). Leave it out and the tile shows the app's initial |
 | `release`, `pins`, `stars` | written by the pin workflow: the newest release's tag, file, size, SHA-256, content version, the name in its `param.json`, whether it is a pre-release, date and notes; the ones pinned before it; the repository's stars |
 
 ## Pinning
