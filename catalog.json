@@ -347,14 +347,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "22.000.000",
+        "tag": "22.000.001",
         "asset": "PPSA99420.zip",
-        "size": 66797960,
-        "sha256": "68d409b6ce7f3766354bd70603b1d3ea651512624034385f670450a3c06d1f15",
-        "published_at": "2026-10-28T17:33:57Z",
-        "notes": "Binary addons logic has been re-written to be able to support these type of addons better. It now loads native SPRX modules as addons. \nFurthermore, all binary addons from the PS5 Test repository have been recompiled and uploaded again to support the new way of loading these type of addons. \n\nBackwards compatibility has **NOT** been taken into consideration so you **MUST** update any previously installed addons from the test repository.\n\nYou may need to update the PS5 Kodi Test repository by going to My addons --> Add-on Repository --> Kodi PS5 Testing Add-ons --> Press Triangle button --> Check for updates. When checking Information --> Versions, you should see version 2.0.0. The newly updated addons will have a postfix version \"PS5+2\".\n\n**New binary PVR Client TVHeadend has been added!**\n\n**Full Changelog**: https://github.com/Notedop/xbmc-ps5/compare/PS5-22.0-RC1-20261021-8285ee937a...PS5-22.0-RC1-20261028",
-        "content_version": "22.000.000"
-      }
+        "size": 68186327,
+        "sha256": "a9c94114ff47cc2c7bb185c7e84bc7879bdc0cdf0cb7151ae0e0a243fa9407fb",
+        "content_version": "22.000.001",
+        "title_name": "Kodi",
+        "published_at": "2026-11-06T18:08:55Z",
+        "notes": "# Release notes\n\nChanges since (release tag `22.000.000`).\n\n## PS5-specific changes\n\n- **Improved controller support:** Added a DualSense controller profile with PlayStation button labels, automatic button mapping and optional remapping. Supports controllers for up to four signed-in users, analog sticks and triggers, and standard vibration. Existing media controls are preserved, with right-stick volume control added.\n- **Controller settings:** Fixed missing vibration settings. Adaptive triggers and advanced DualSense haptics are not supported.\n- **USB storage:** Improved detection of connected and removed drives, and added safe removal through Kodi.\n- **Disc eject:** Added support for ejecting discs through Kodi.\n- **More useful system information:** Added storage capacity and usage reporting, live CPU usage, and more accurate available-memory information.\n- **Increased memory allowance:** Kodi can use a larger memory budget.\n- **New experimental add-ons:** Added NextPVR support for watching live TV and accessing recordings from a NextPVR server, plus FFmpeg Direct support for compatible streaming and timeshifting setups. Both remain in the **Kodi PS5 Testing Add-ons** repository.\n- **Add-ons promoted to stable:** InputStream Adaptive, the TVHeadend client, music decoders and screensavers previously offered through testing are now included in the stable PS5 add-on catalogue.\n\n## Upstream changes\n\nThese improvements were merged from Kodi's upstream **Piers** branch.\n\n### Playback and subtitles\n\n- Fixed subtitles not reappearing after being hidden and shown again.\n- Improved subtitle discovery alongside local `.strm` files.\n- Improved handling of streams whose aspect ratio or video format changes during playback.\n- Fixed some DTS-HD Master Audio tracks being incorrectly identified during playback.\n- Improved audio handling when seeking or switching streams.\n- Fixed playback of multi-part disc images being mistaken for games.\n\n### Media library and artwork\n\n- Library scans are more resilient: a failed lookup or problematic item no longer unnecessarily stops scanning other content.\n- Improved handling of episode filenames, local artwork and actor thumbnails.\n- Fixed issues with library cleaning and cancelled scans.\n- Improved watched-status updates when a remote-control app marks an entire TV show as watched.\n\n### Live TV and guide\n\n- Fixed channel up/down navigation after switching channel groups.\n- Fixed a guide-window crash triggered by add-ons accessing the selected item.\n- Improved programme-guide maintenance and Live TV shutdown.\n\n### Games\n\n- Added categories for browsing video filters.\n- Improved save-state thumbnails and their display during gameplay.\n- Added a game-manual button to the in-game menu."
+      },
+      "pins": [
+        {
+          "tag": "22.000.000",
+          "asset": "PPSA99420.zip",
+          "size": 66797960,
+          "sha256": "68d409b6ce7f3766354bd70603b1d3ea651512624034385f670450a3c06d1f15",
+          "content_version": "22.000.000"
+        }
+      ]
     },
     {
       "id": "jelly5",
@@ -733,16 +743,24 @@
       ],
       "stars": 10,
       "release": {
-        "tag": "v1.6.0.5",
-        "asset": "wiliwili-PS5-v1.6.0.5.zip",
-        "size": 63581194,
-        "sha256": "c754cde3684d426fcf17b6c96644b7c8efacaefe5cf17ea45d549961df444a59",
-        "content_version": "01.600.005",
+        "tag": "v1.6.0.6",
+        "asset": "wiliwili-PS5-v1.6.0.6.zip",
+        "size": 60946863,
+        "sha256": "f45aa1f66205b164da8611cad529480b76e0885ffe0ebf681ef544b6e9a77682",
+        "content_version": "01.600.006",
         "title_name": "wiliwili",
-        "published_at": "2026-11-01T07:23:09Z",
-        "notes": "# wiliwili PS5 v1.6.0.5\n\nNative homebrew title for PlayStation 5 (Title ID: PPSA99099).\nThis update brings Vulkan rendering for smoother playback, true 10-bit HDR output to your TV, full Dolby Vision and HLG color correction, high quality HDR-to-SDR tone mapping, and a new convenient ffpfsc image package.\n\n---\n\n## What's New\n\n### 1. Vulkan Rendering Engine\n- Switched to the native Vulkan rendering backend, making 4K video playback significantly smoother and reducing stutter.\n- Video buffer size now adjusts automatically to match the video resolution, saving memory bandwidth.\n- Smooth transition on startup: the splash screen now disappears cleanly as soon as the app loads.\n\n### 2. Real 10-bit HDR10 TV Output\n- Supports true 10-bit HDR10 output to compatible TVs.\n- Fixed the color inversion issue that previously caused purple video tints and yellow UI focus rings.\n- UI elements and subtitles are calibrated to standard reference brightness (203 nits) so menus won't look washed out.\n\n### 3. Dolby Vision and HLG Color Fixes\n- Fixed the green/purple color cast when playing Bilibili Dolby Vision videos, restoring accurate colors.\n- Supports Dolby Vision Profile 5 cinema streams as well as Profile 8.4 and HLG videos recorded from smartphones (such as iPhones).\n- Fixed video metadata syncing to prevent single-frame flickering.\n\n### 4. Better HDR on SDR Displays\n- Built-in color tone mapping allows HDR and Dolby Vision videos to look vivid and natural even on standard SDR displays, without blown-out highlights or dark, muddy scenes.\n\n---\n\n## Release Packages\n\n- wiliwili-PS5-v1.6.0.5.zip: Traditional zip archive containing the PPSA99099 folder. Suitable for manual installation via FTP.\n- wiliwili-PS5-v1.6.0.5.ffpfsc: Compressed PFS image file. Recommended for use with ShadowMountPlus or ItemzFlow for quick mounting without copying thousands of loose files.\n\n---\n\n## Requirements\n\n1. Jailbroken PlayStation 5 (compatible with kstuff)\n2. ShadowMountPlus 1.7beta6 or newer\n3. Latest kstuff payload\n\n---\n\n## Installation\n\n### Option 1: Using the .ffpfsc Image (Recommended)\n1. Download wiliwili-PS5-v1.6.0.5.ffpfsc.\n2. Transfer the file to your PS5 (via USB drive or FTP into /data/).\n3. Mount or install it directly using ShadowMountPlus or ItemzFlow, then launch from your home screen.\n\n### Option 2: Using the ZIP Folder (FTP)\n1. Download wiliwili-PS5-v1.6.0.5.zip and extract it to get the PPSA99099 folder.\n2. Upload the entire PPSA99099 folder to your PS5 under /data/homebrew/:\n   /data/homebrew/PPSA99099/\n   ├── eboot.bin\n   ├── imports.txt\n   ├── resources/\n   ├── sce_module/\n   └── sce_sys/\n3. Reload ShadowMountPlus or restart your console to see the app on your home screen.\n\n---\n---\n\n# wiliwili PS5 v1.6.0.5 (中文说明)"
+        "published_at": "2026-11-06T15:18:47Z",
+        "notes": "### What's New\n1. Added AV1 software decoding via libdav1d, supporting smooth playback up to 4K\n2. Improved live stream stability on PS5 by bypassing hardware decode to prevent black screens\n3. Added automatic protocol fallback and retry for live streams (smart FLV ⇋ HLS switching)\n4. Fixed followed-UP list loading failure in Dynamic tab\n\n### Known Issues\n• High-bitrate 4K AV1 videos may experience stuttering during playback\n\n---\n\n### 更新内容\n1. 新增 AV1 软解支持（基于 libdav1d），最高支持 4K 流畅播放\n2. 优化直播流播放稳定性，PS5 直播强制走 CPU 软解彻底解决黑屏问题\n3. 增加直播流协议自动回退与重试机制（FLV 与 HLS 智能切换）\n4. 修复动态页面顶部“关注的 UP 主”列表无法加载的问题\n\n### 已知问题\n• AV1 4K 高码率视频可能存在播放卡顿现象\n\n**Full Changelog**: https://github.com/carlchina/wiliwili/compare/v1.6.0.1...v1.6.0.6"
       },
       "pins": [
+        {
+          "tag": "v1.6.0.5",
+          "asset": "wiliwili-PS5-v1.6.0.5.zip",
+          "size": 63581194,
+          "sha256": "c754cde3684d426fcf17b6c96644b7c8efacaefe5cf17ea45d549961df444a59",
+          "content_version": "01.600.005",
+          "title_name": "wiliwili"
+        },
         {
           "tag": "v1.6.0.1",
           "asset": "wiliwili-PS5-v1.6.0.1.zip",
@@ -854,7 +872,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 25,
+      "stars": 26,
       "release": {
         "tag": "v1.0.18",
         "asset": "Crux2-v1.0.18.zip",
@@ -941,7 +959,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 225,
+      "stars": 226,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1233,7 +1251,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 459,
+      "stars": 465,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1649,7 +1667,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 813,
+      "stars": 815,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1735,7 +1753,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 204,
+      "stars": 205,
       "release": {
         "tag": "Alpha-2.1",
         "asset": "PPSA97358.zip",
@@ -2184,7 +2202,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 377,
+      "stars": 379,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2227,18 +2245,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 129,
+      "stars": 130,
       "release": {
-        "tag": "v2.3.4",
+        "tag": "v2.3.5",
         "asset": "PPSA11018.zip",
-        "size": 325278128,
-        "sha256": "9f34dea5fed4102590e8c125c50ab99797a1238400641ff43c83b465b3c866be",
-        "content_version": "02.003.004",
+        "size": 325280237,
+        "sha256": "29463476de1af92ef72472a0fd2e3755db3b62e24298001772ff677810588fc4",
+        "content_version": "02.003.005",
         "title_name": "PC5",
-        "published_at": "2026-11-05T14:45:07Z",
-        "notes": "PC5 2.3.4 starts games whose copy lost Steam's library, shows movies that play in a window of their own, gives older Unity games their graphics modes, and lets games that start their own network server get going.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **A copy without Steam's library**: a Steam game whose `steam_api.dll` or `steam_api64.dll` is missing beside its program (an antivirus on a PC often deletes it) stopped at once. PC5 now puts its Steam emulator there for it, marked `.pc5-added`; the game's Steam emulator set to **Off** takes it away again.\n- **Movies in a window of their own**: some games play their opening movie in a small window over the game and wait for it to end. The console only showed the game's picture, so nothing appeared. The movie is now shown, and the game's picture comes back when it draws again.\n- **Older Unity games**: their program names OpenGL, but they draw with Direct3D, so PC5 didn't offer them **△ › Graphics › Graphics mode**. They're now set up as Direct3D games and get Auto, Alternative and Compatibility.\n- **Games that start their own network server**: some games start a small server of their own, even playing alone, and ask for bigger network buffers than the console allows. The console refused, and the game never finished loading. PC5 now gives them the most the console allows, as Windows and Linux do.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in."
+        "published_at": "2026-11-06T10:17:11Z",
+        "notes": "PC5 2.3.5 gets more Steam games going, saves where the save failed, plays more games' videos, labels newer Unity games right, and lets games use PC5's language.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Games in PC5's language**: a game now starts in the language set in **Settings › System › Language**; with **System default** it is the console's, as before. A game that doesn't have your language may show the names of its text instead of the text: set PC5 to English for it.\n- **Starting from a home-screen tile**: a tile start now puts PC5's Steam emulator in place and registers PhysX, as a start from PC5's library does. Steam games started from their tile closed straight away before.\n- **A copy without Steam's library beside its program**: PC5 now puts its Steam emulator there even when the copy keeps another Steam stand-in in a folder of its own. A game that only loads Steam's library if it wants Steam (one from another store) no longer gets one, and one 2.3.4 put there for it is taken away.\n- **Saving**: some games ask how much free space the drive has before they save, and the console answered that drive C: didn't exist, so the game stopped. Fixed.\n- **Videos**: an MP4 video's sound and picture are now listed as Windows lists them, sound first. A game that took the picture for the sound stopped at its first video.\n- **Newer Unity games**: they draw with Direct3D 11, but PC5 took them for OpenGL or Direct3D 12. They're now set up as Direct3D 11 games and get **△ › Graphics › Graphics mode**.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in."
       },
       "pins": [
+        {
+          "tag": "v2.3.4",
+          "asset": "PPSA11018.zip",
+          "size": 325278128,
+          "sha256": "9f34dea5fed4102590e8c125c50ab99797a1238400641ff43c83b465b3c866be",
+          "content_version": "02.003.004",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.1",
           "asset": "PPSA11018.zip",
@@ -2269,14 +2295,6 @@
           "size": 323794514,
           "sha256": "06110e30db715251b043335b194aa9632f10d55eaf39f8a32d51d82a58cc4389",
           "content_version": "02.002.002",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.1.4",
-          "asset": "PPSA11018.zip",
-          "size": 320031373,
-          "sha256": "bd0b65035f23c52f61224a09a8092c959b3b3fec08d5655eaf8d2fd5eccf1efa",
-          "content_version": "02.001.004",
           "title_name": "PC5"
         }
       ]
@@ -2331,18 +2349,26 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1009,
+      "stars": 1010,
       "release": {
-        "tag": "v0.9.0",
-        "asset": "playden-ps5-0.9.0.zip",
-        "size": 40054647,
-        "sha256": "f32823bc927ff7788da9620f14b9f2aa57646d71afd06cd9f66d3bb107c1d6f3",
-        "content_version": "00.009.000",
+        "tag": "v0.10.0",
+        "asset": "playden-ps5-0.10.0.zip",
+        "size": 40361734,
+        "sha256": "f9edfca65fc617c9805436e6c879771a330e5a28c35df8b3e03184ed0969e2e2",
+        "content_version": "00.010.000",
         "title_name": "Playden",
-        "published_at": "2026-11-02T00:05:51Z",
-        "notes": "More Direct3D 12 games start, The Witcher 3 among them, and Unreal Engine 5 games use Direct3D 12 by default. Choose a game's language and version when installing, get its DLC and updates, and move or uninstall installed games from one screen. Frame generation shows up to four times the frames a game draws. New runtime kit 0.17 brings the latest prospero-win: rumble, the PS5 keyboard in games, USB mouse wheel and fixes for games that ran out of memory or file handles.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.9.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.17.zip` | Runtime kit 0.17. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.17 (470 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept.\n\n**Updating from 0.9.0-beta.4:** the same way, but only the app downloads (40 MB), as you already have kit 0.17.\n\n**After the update:** games set up with an earlier kit show \"Kit update available\" on their page. Play updates their runtime first, then starts the game. Until then they keep running on their old kit from PS5 Home.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself.\n\n**New install:** unzip `playden-ps5-0.9.0.zip` into a folder of its own and copy the `FAKE77031` folder to `/data/homebrew/` (see the [README](https://github.com/leolobato/playden-ps5#install)). On its first start Playden offers to download the runtime kit; you can sign in while it downloads.\n\n## What's new\n\n- **More Direct3D 12 games start**, such as The Witcher 3 (next-gen) and WheelMates. Unreal Engine 5 games now use Direct3D 12 by default. ([#118](https://github.com/leolobato/playden-ps5/issues/118), [#148](https://github.com/leolobato/playden-ps5/issues/148), [#135](https://github.com/leolobato/playden-ps5/issues/135))"
+        "published_at": "2026-11-06T10:21:38Z",
+        "notes": "Up to four people can play on one PS5, each with their own DualSense, and games can show PlayStation buttons. A game's launcher can now start the game, Project Zomboid plays, and USB games keep starting from PS5 Home after your drives change places. A new Runtimes tab updates many games to the newest version of the runtime kit at once, and the web page gets a Files tab for a game's saves and files. New runtime kit 0.19 brings four controllers, NW.js games, better rumble, the USB drive search, and fixes for games that started only once.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.10.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.19.zip` | Runtime kit 0.19. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.19 (473 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept.\n\n**After the update:** Playden asks once whether to update your games to the new runtime kit, and says how many. This takes about 30 seconds per game and downloads nothing from Steam. If you choose Later, they stay on the Runtimes tab of Manage installed games, and Play updates a game's runtime kit first. Until then, games keep running on their old kit from PS5 Home.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself.\n\n**New install:** unzip `playden-ps5-0.10.0.zip` into a folder of its own and copy the `FAKE77031` folder to `/data/homebrew/` (see the [README](https://github.com/leolobato/playden-ps5#install)). On its first start Playden offers to download the runtime kit; you can sign in while it downloads.\n\n## What's new\n\n- **Up to four controllers.** Each signed-in PS5 user's DualSense is now its own controller, so couch co-op and split screen work. Sign in a PS5 user or a guest for each controller, then start the game. ([#221](https://github.com/leolobato/playden-ps5/issues/221))"
       },
       "pins": [
+        {
+          "tag": "v0.9.0",
+          "asset": "playden-ps5-0.9.0.zip",
+          "size": 40054647,
+          "sha256": "f32823bc927ff7788da9620f14b9f2aa57646d71afd06cd9f66d3bb107c1d6f3",
+          "content_version": "00.009.000",
+          "title_name": "Playden"
+        },
         {
           "tag": "v0.8.0",
           "asset": "playden-ps5-0.8.0.zip",
@@ -2372,7 +2398,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 251,
+      "stars": 253,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2402,7 +2428,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1638,
+      "stars": 1639,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2459,7 +2485,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 427,
+      "stars": 426,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2488,7 +2514,7 @@
         "emulator",
         "snes"
       ],
-      "stars": 65,
+      "stars": 66,
       "release": {
         "tag": "v2.11",
         "asset": "Snes9xPS5-v2.11-PPSA99922.zip",
@@ -3474,16 +3500,24 @@
       ],
       "stars": 51,
       "release": {
-        "tag": "01.000.212",
+        "tag": "01.000.256",
         "asset": "PPSA99874.zip",
-        "size": 127488343,
-        "sha256": "d97e530ea67838ef806e8fa88731d399aa9ce1ae661b091daff5eaacfe3f75a7",
-        "content_version": "01.000.212",
+        "size": 127912091,
+        "sha256": "433fddadd77068e324e2118cd1d47988f9f46e5201fcf41535475de8ec0e3b9f",
+        "content_version": "01.000.256",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-04T20:03:16Z",
-        "notes": "# ProsperoCraft 01.000.212\n\n## Changes\n\n- Add Minecraft1.21.10 and1.21.11 Vanilla play with matched native libraries. Earlier1.21 releases and all1.21Fabric remain unavailable.\n- Make the launcher smoother with a120Hz presentation target, animated horizontal page/tab changes, themed navigation arrows and continuous selector scrolling.\n- Open instances with an expanding card animation and a matching return transition. Remove the extra dark transition layer reported as a brief black flash.\n- Open selectors over their dimmed original screen. Preview themes immediately on hover/controller focus, save on confirmation, and restore on Cancel.\n- Show all32 instance icons in a larger grid. Replace Modrinth and CurseForge logos with original Amethyst and Compass artwork while preserving saved icon IDs.\n- Add stronger localized adaptive L2/R2 page detents, respecting Vibration preference and releasing effects on handoff/exit.\n- Honor the selected game resolution for Zink instances, make launcher keyboard action buttons reachable, and preserve navigation/startup notices during saved-account refresh.\n- Retain existing26.x Vanilla/Fabric paths, shader/quit/save repairs, Microsoft sign-in, content browsing, uploads, controls and game audio.\n\n## Validation and compatibility\n\nThe physical tester accepts the exact212 launcher and explicitly requests this release. Published app bytes match the tested212-final package; no rebuild. Local host checks, native sanitizer/JNI tests, rendered previews, signed integrity and independent package audits pass. Matching OpenAL corresponding source/relink materials and checksums accompany the app.\n\n120Hz is a presentation target; numeric FPS was not measured on console. This acceptance does not establish an exhaustive game, shader, mod, device or endurance matrix. Earlier202 shader/quit confirmation and204 functional acceptance remain scoped historical evidence; no new212 shader pack/profile measurement is claimed.1.21Fabric remains deferred until the Vanilla series is validated. Compatibility depends on matching game, loader, mod and shader versions.\n\nJava Edition ownership is required. Original game/mod JARs and game asset objects are not included; verified originals download on console. Existing instances, settings and worlds remain in writable storage. Client and server share a title ID, so installing one replaces the other. ProsperoCraft is unofficial and is not affiliated with Mojang, Microsoft or Sony.\n\n## Credits and source"
+        "published_at": "2026-11-06T19:17:57Z",
+        "notes": "# ProsperoCraft 01.000.256\n\n## What's new\n\n- Added Minecraft 1.21.9 Vanilla support.\n- Substantially improved gameplay performance.\n- Bug fixes.\n\nFabric 26.1 is marked Experimental.\n\nThe release includes the signed app ZIP, matching OpenAL source and relink\nkit, checksums and validation records. Minecraft files are downloaded from\nthe publisher during setup."
       },
       "pins": [
+        {
+          "tag": "01.000.212",
+          "asset": "PPSA99874.zip",
+          "size": 127488343,
+          "sha256": "d97e530ea67838ef806e8fa88731d399aa9ce1ae661b091daff5eaacfe3f75a7",
+          "content_version": "01.000.212",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.204",
           "asset": "PPSA99874.zip",
@@ -4602,16 +4636,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.201",
+        "tag": "01.000.202",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33556102,
-        "sha256": "492bf6563d55dd06498ebc5f77e254dfd68c3c27ef659002a1d0b258fb1090ae",
-        "content_version": "01.000.201",
+        "size": 33556546,
+        "sha256": "15192b807e2a9e1b14c1732c9fb932f53d375d36282626b000ca6c0882c9b084",
+        "content_version": "01.000.202",
         "title_name": "SmartTube",
-        "published_at": "2026-11-06T03:02:11Z",
-        "notes": "The crash log names the cause of a crash\n\n- The Topic-song crash ended the app with abort(), and the crash recorder from 1.0.200 then crashed while reading the stack, so it could not say where. It now stays inside the crashed thread's stack and never touches the heap\n- When the C++ library ends the app (it does so instead of throwing), its message now goes to yt.log as a \"crash:\" line\n- ffmpeg's own errors, which went nowhere, now go to yt.log too, and a failed ffmpeg assertion is logged before it ends the app"
+        "published_at": "2026-11-06T15:22:57Z",
+        "notes": "Likely fix for the crash on square \"Topic\" songs\n\n- Topic-channel songs are square 1080x1080 videos. Converting such a picture for the screen could write a few bytes past the end of its buffer (a 1080-pixel row is not a whole number of the converter's blocks), breaking memory the app used next: the crash a second in, or on leaving the song. Every picture buffer now has spare room after it\n- If the app still crashes, yt.log keeps the system's own message and a readable stack: the crash recorder now checks each stack page before reading it, and what the system prints on stderr goes to yt.log"
       },
       "pins": [
+        {
+          "tag": "01.000.201",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33556102,
+          "sha256": "492bf6563d55dd06498ebc5f77e254dfd68c3c27ef659002a1d0b258fb1090ae",
+          "content_version": "01.000.201",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.200",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4642,14 +4684,6 @@
           "size": 33550853,
           "sha256": "aad313ad4fa8c72e14efff203a4f79ea2b0ec45faf3af2d37568b876c9ed799a",
           "content_version": "01.000.196",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.195",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33560358,
-          "sha256": "4607ff761385b0a75a4d97637e4188c50110229f8f760270bbcf9499850fe405",
-          "content_version": "01.000.195",
           "title_name": "SmartTube"
         }
       ]
@@ -4831,7 +4865,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 31,
+      "stars": 29,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -4974,7 +5008,7 @@
         "dualsense",
         "controls"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA99510.zip",
@@ -5076,7 +5110,7 @@
         "images",
         "video"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v1.2.4",
         "asset": "PPSA99699.zip",
@@ -5441,7 +5475,7 @@
         "saves",
         "sync"
       ],
-      "stars": 107,
+      "stars": 108,
       "release": {
         "tag": "v1.4.0",
         "asset": "PPSA76677.zip",
@@ -5511,7 +5545,7 @@
         "llm",
         "tailscale"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "01.004.001",
         "asset": "PPSA99555.zip",
