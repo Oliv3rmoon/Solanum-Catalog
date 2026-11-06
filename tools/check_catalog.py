@@ -10,6 +10,9 @@ the tag as a content version); and what the pin workflow and the authors add: ta
 folder (one folder of its own directly in /data, none the console, the HEN, ShadowMountPlus or Solanum keeps), the
 release channel ("newest"), whether it needs the player's own game files, stars, and pinned releases (a tag, the file
 the pattern names for it, its size and a lowercase SHA-256, the name in its param.json, and notes Solanum can hold).
+An app's icon is optional: {"path": "icons/<name>.png", "sha256", "size"}, a PNG in this repository's icons/ folder of
+at most 256x256 pixels and under 128 KiB, whose size and SHA-256 are the ones the entry gives (Solanum checks the
+download against them, and keeps the icon under its SHA-256).
 
 Online (--online): for every app, the repository's latest release (not a draft or a pre-release; for a "newest"
 channel, the newest release that has the app's file, pre-releases included) has the app's file, and Solanum can check
@@ -19,12 +22,15 @@ keeps one): a file replaced after it was pinned fails. A newer release that has 
 warning (the pin workflow pins it on its next run; Solanum offers the pinned one meanwhile). Set GITHUB_TOKEN for
 GitHub's higher rate limit.
 """
+import hashlib
 import json
 import os
 import re
+import struct
 import sys
 import urllib.error
 import urllib.request
+import zlib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -45,6 +51,14 @@ SHA256 = re.compile(r'^[0-9a-f]{64}$')
 KEPT = {'homebrew', 'etahen', 'solanum', 'self-update', 'system', 'shadowmountplus', 'shadowmount', 'payloads', 'lapy',
         'user', 'app', 'apps', 'savedata', 'pkg', 'games', 'tmp', 'temp', 'data', 'mnt', 'usb', 'ext', 'ftp', 'elfldr',
         'ps5_autoloader', 'itemzflow', 'prosperostore', 'sandbox'}
+# An app's icon (optional): a PNG in icons/, as Solanum reads it (catalog.c): the path, at most 95 bytes; the file at
+# most 256x256 pixels and under 128 KiB.
+ICON_PATH = re.compile(r'^icons/[a-z0-9][a-z0-9._-]*\.png$')
+ICON_PATH_BYTES = 95
+ICON_PIXELS = 256
+ICON_BYTES = 128 * 1024
+ICON_KEYS = {'path', 'sha256', 'size'}
+PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
 warnings = []
 
 
@@ -72,7 +86,66 @@ def check_pin(app, pin, what):
              f'for {pin["tag"]}')
 
 
-def check_offline(catalog):
+def png_size(data):
+    """A PNG's (width, height), its chunks walked and their CRCs checked: IHDR first, IEND last. ValueError when it
+    isn't one."""
+    if not data.startswith(PNG_SIGNATURE):
+        raise ValueError('not a PNG')
+    at, size, first, ended = len(PNG_SIGNATURE), None, True, False
+    while at < len(data):
+        if ended or at + 12 > len(data):
+            raise ValueError('bytes after its end, or a chunk cut short')
+        length, kind = struct.unpack('>I4s', data[at:at + 8])
+        body = data[at + 8:at + 8 + length]
+        if len(body) != length or at + 12 + length > len(data):
+            raise ValueError(f'its {kind!r} chunk is cut short')
+        if struct.unpack('>I', data[at + 8 + length:at + 12 + length])[0] != zlib.crc32(kind + body):
+            raise ValueError(f'its {kind!r} chunk\'s CRC is wrong')
+        if first:
+            if kind != b'IHDR' or length != 13:
+                raise ValueError('its first chunk is not IHDR')
+            size = struct.unpack('>II', body[:8])
+            first = False
+        ended = kind == b'IEND'
+        at += 12 + length
+    if not ended:
+        raise ValueError('it has no IEND')
+    return size
+
+
+def check_icon(app, root):
+    """An app's icon: a PNG in icons/ of at most 256x256 pixels and under 128 KiB, of the entry's size and SHA-256."""
+    icon = app['icon']
+    if not isinstance(icon, dict) or set(icon) != ICON_KEYS:
+        fail(f'{app["id"]}: icon is {{"path", "sha256", "size"}} and nothing else')
+    path = icon['path']
+    if not isinstance(path, str) or not ICON_PATH.match(path) or '..' in path or \
+            len(path.encode('utf-8')) > ICON_PATH_BYTES:
+        fail(f'{app["id"]}: icon path {path!r} is not icons/<lowercase name>.png of at most {ICON_PATH_BYTES} bytes')
+    if not isinstance(icon['sha256'], str) or not SHA256.match(icon['sha256']):
+        fail(f'{app["id"]}: icon sha256 is not 64 lowercase hex digits')
+    if not isinstance(icon['size'], int) or isinstance(icon['size'], bool) or not 0 < icon['size'] < ICON_BYTES:
+        fail(f'{app["id"]}: icon size is not a size under {ICON_BYTES} bytes')
+    file = Path(root) / path
+    if not file.is_file():
+        fail(f'{app["id"]}: icon {path} is not in the repository')
+    data = file.read_bytes()
+    if len(data) >= ICON_BYTES:
+        fail(f'{app["id"]}: icon {path} is {len(data)} bytes; it must be under {ICON_BYTES}')
+    try:
+        width, height = png_size(data)
+    except ValueError as error:
+        fail(f'{app["id"]}: icon {path} is not a PNG Solanum can read: {error}')
+    if not (0 < width <= ICON_PIXELS and 0 < height <= ICON_PIXELS):
+        fail(f'{app["id"]}: icon {path} is {width}x{height}; at most {ICON_PIXELS}x{ICON_PIXELS}')
+    if len(data) != icon['size']:
+        fail(f'{app["id"]}: icon {path} is {len(data)} bytes, the entry says {icon["size"]}')
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != icon['sha256']:
+        fail(f'{app["id"]}: icon {path} hashes to {digest}, the entry says {icon["sha256"]}')
+
+
+def check_offline(catalog, root=ROOT):
     if catalog.get('schema') != 1:
         fail('schema must be 1')
     apps = catalog.get('apps')
@@ -130,6 +203,8 @@ def check_offline(catalog):
             name = app['data'][6:] if app['data'].startswith('/data/') else ''
             if not NAME.match(name) or name.lower() in KEPT or len(app['data']) > 70:
                 fail(f'{app["id"]}: data {app["data"]} is not a folder of its own directly in /data')
+        if 'icon' in app:
+            check_icon(app, root)
         if 'stars' in app and (not isinstance(app['stars'], int) or app['stars'] < 0):
             fail(f'{app["id"]}: stars is a count')
         if 'release' in app:
@@ -207,7 +282,8 @@ def main():
     catalog = json.loads((ROOT / 'catalog.json').read_text(encoding='utf-8'))
     apps = check_offline(catalog)
     pinned = sum(1 for app in apps if 'release' in app)
-    print(f'catalog: {len(apps)} apps ({pinned} pinned), {len(catalog.get("tips", []))} tips, '
+    icons = sum(1 for app in apps if 'icon' in app)
+    print(f'catalog: {len(apps)} apps ({pinned} pinned, {icons} with an icon), {len(catalog.get("tips", []))} tips, '
           f'{len(catalog.get("eggs", []))} hidden')
     if '--online' in sys.argv[1:]:
         check_online(apps)
