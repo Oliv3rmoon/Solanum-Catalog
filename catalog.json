@@ -1649,7 +1649,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 811,
+      "stars": 813,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
