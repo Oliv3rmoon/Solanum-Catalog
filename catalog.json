@@ -843,7 +843,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 97,
+      "stars": 98,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -959,7 +959,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 226,
+      "stars": 228,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -998,7 +998,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 50,
+      "stars": 52,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1251,7 +1251,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 465,
+      "stars": 467,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1638,7 +1638,7 @@
         "llm",
         "chat"
       ],
-      "stars": 68,
+      "stars": 66,
       "release": {
         "tag": "01.006.000",
         "asset": "PPSA99004.zip",
@@ -1667,7 +1667,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 815,
+      "stars": 814,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2202,7 +2202,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 379,
+      "stars": 380,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2349,7 +2349,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1010,
+      "stars": 1014,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2398,7 +2398,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 253,
+      "stars": 256,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2485,7 +2485,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 426,
+      "stars": 427,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -4269,7 +4269,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 54,
+      "stars": 55,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4636,16 +4636,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.202",
+        "tag": "01.000.203",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33556546,
-        "sha256": "15192b807e2a9e1b14c1732c9fb932f53d375d36282626b000ca6c0882c9b084",
-        "content_version": "01.000.202",
+        "size": 33557382,
+        "sha256": "8b11d5a1e8e442c5ffa3b144ec179a1077f922317890121f0c21fb1306ef90dd",
+        "content_version": "01.000.203",
         "title_name": "SmartTube",
-        "published_at": "2026-11-06T15:22:57Z",
-        "notes": "Likely fix for the crash on square \"Topic\" songs\n\n- Topic-channel songs are square 1080x1080 videos. Converting such a picture for the screen could write a few bytes past the end of its buffer (a 1080-pixel row is not a whole number of the converter's blocks), breaking memory the app used next: the crash a second in, or on leaving the song. Every picture buffer now has spare room after it\n- If the app still crashes, yt.log keeps the system's own message and a readable stack: the crash recorder now checks each stack page before reading it, and what the system prints on stderr goes to yt.log"
+        "published_at": "2026-11-07T00:41:54Z",
+        "notes": "Age-restricted songs in playlists play; captions stay with their video\n\n- Some age-restricted videos only came back from the TV client with signed (ciphered) streams and no player code named in the answer, so playback failed with \"Sign in to confirm your age\" even when signed in. The TV player's own signature code now signs them\n- A video without captions showed the previous video's captions on top of it. Each new video now starts without the last one's captions, and the chosen language comes back on when the new video has it"
       },
       "pins": [
+        {
+          "tag": "01.000.202",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33556546,
+          "sha256": "15192b807e2a9e1b14c1732c9fb932f53d375d36282626b000ca6c0882c9b084",
+          "content_version": "01.000.202",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.201",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4676,14 +4684,6 @@
           "size": 33554845,
           "sha256": "8dc125ed097ab092941e3d8e3e4d63e673ac9aa6aeb3ced255a085b63a7a6999",
           "content_version": "01.000.197",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.196",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33550853,
-          "sha256": "aad313ad4fa8c72e14efff203a4f79ea2b0ec45faf3af2d37568b876c9ed799a",
-          "content_version": "01.000.196",
           "title_name": "SmartTube"
         }
       ]
@@ -4940,15 +4940,25 @@
       ],
       "stars": 5,
       "release": {
-        "tag": "v0.5.5",
-        "asset": "Estante-v0.5.5-PPSA99841.zip",
-        "size": 7841979,
-        "sha256": "b34244490a5c65e2abf324b47f5dd6b6c441962fe8818f2c7486174968053c84",
-        "content_version": "01.005.005",
+        "tag": "v0.5.8",
+        "asset": "Estante-v0.5.8-PPSA99841.zip",
+        "size": 7843892,
+        "sha256": "26907f385288d675c07fdd70f1a113a2dc9cee31cbe26aa84c802d470913f8a4",
+        "content_version": "01.005.008",
         "title_name": "Estante",
-        "published_at": "2026-10-26T18:56:59Z",
-        "notes": "Estante now has its own home-screen backgrounds: one while it is selected on the home screen and one while it launches.\n\n### Added\n- Home-screen background (selected) and launch background.\n- README: Nintendo Switch games from ProsperoEden are listed, and the background note below.\n\n### Install\nUnzip Estante-v0.5.5-PPSA99841.zip and copy the PPSA99841 folder to /data/homebrew/ (ShadowMountPlus registers it).\n\n### Important if you are updating\nThe console only reads a home-screen background when an app is registered. If you update from an older version and the background does not show, uninstall Estante and install it again. A fresh install shows it right away.\n\nRequirements: jailbroken PS5 (only firmware 11.60 tested), Elf Arsenal and ShadowMountPlus.\n\n---\n\nO Estante agora tem plano de fundo próprio na tela inicial: um enquanto ele está selecionado e outro no lançamento.\n\n### Novo\n- Plano de fundo na tela inicial (selecionado) e no lançamento.\n\n### Se você está atualizando\nO console só lê o plano de fundo quando o app é registrado. Se você atualizou de uma versão anterior e o fundo não apareceu, desinstale o Estante e instale de novo. Uma instalação nova mostra o fundo na hora."
-      }
+        "published_at": "2026-11-07T02:55:35Z",
+        "notes": "## Estante 0.5.8: press Play and you are already inside the game\n\n**English**\n\n**One of the biggest improvements so far.** Until now, Play on an emulator game only opened the emulator, and you had to find the same game again in its own menu. Not anymore: pick the game in Estante, press **Play**, and the emulator opens **straight into that game**. One button, every system.\n\n- **One press for everything:** GameCube / Wii (Porpoise), Wii U, 3DS and DS (PS5-ECAM), PS1 (SwanStationPS5), Switch (ProsperoEden) and PS2 (PS5SX2). Estante becomes the one place you start every game from, whichever emulator it runs on.\n- **It finds the right file for you:** a PS1 game picks its disc from the game's folder (`.cue`, `.chd`, `.m3u`...), and a Switch game picks the base `.nsp` / `.xci` instead of the update.\n- **Nothing added to the PS5 home screen:** no tiles, no extra apps. The ELF loader (port 9021) runs the small launcher that Porpoise already ships for its tiles, with your game's path; PS5SX2 reads its image from `disc-launch.txt`, which Estante writes through Elf Arsenal's FTP.\n- **Safe fallback:** if the ELF loader does not answer or Porpoise is not installed, Play opens the emulator as before. Nothing breaks.\n\n**Needs:** Elf Arsenal, ShadowMountPlus and the ELF loader running. Porpoise installed (its launcher is used for every emulator). Each emulator must have been opened once. Tested on firmware 11.60.\n\n**Português**\n\n**Uma das maiores melhorias até hoje.** Até agora, o Jogar em um jogo de emulador só abria o emulador, e você tinha que procurar o mesmo jogo de novo no menu dele. Acabou: escolha o jogo no Estante, aperte **Jogar** e o emulador abre **direto nesse jogo**. Um botão, todos os sistemas.\n\n- **Um toque para tudo:** GameCube / Wii (Porpoise), Wii U, 3DS e DS (PS5-ECAM), PS1 (SwanStationPS5), Switch (ProsperoEden) e PS2 (PS5SX2). O Estante vira o lugar único de onde você começa qualquer jogo, em qualquer emulador.\n- **Ele acha o arquivo certo sozinho:** o jogo de PS1 escolhe o disco na pasta do jogo (`.cue`, `.chd`, `.m3u`...), e o de Switch escolhe o `.nsp` / `.xci` base em vez da atualização.\n- **Nada novo na tela inicial do PS5:** sem tiles e sem apps extras. O ELF loader (porta 9021) executa o pequeno launcher que o Porpoise já traz para os tiles dele, com o caminho do seu jogo; o PS5SX2 lê a imagem de `disc-launch.txt`, que o Estante grava pelo FTP do Elf Arsenal.\n- **Alternativa segura:** se o ELF loader não responder ou o Porpoise não estiver instalado, o Jogar abre o emulador como antes. Nada quebra.\n\n**Requer:** Elf Arsenal, ShadowMountPlus e o ELF loader ativo. Porpoise instalado (o launcher dele é usado para todos os emuladores). Abra cada emulador ao menos uma vez. Testado no firmware 11.60.\n\n**Español**"
+      },
+      "pins": [
+        {
+          "tag": "v0.5.5",
+          "asset": "Estante-v0.5.5-PPSA99841.zip",
+          "size": 7841979,
+          "sha256": "b34244490a5c65e2abf324b47f5dd6b6c441962fe8818f2c7486174968053c84",
+          "content_version": "01.005.005",
+          "title_name": "Estante"
+        }
+      ]
     },
     {
       "id": "forwarder-manager",
@@ -5286,15 +5296,25 @@
       ],
       "stars": 0,
       "release": {
-        "tag": "v0.1.1",
-        "asset": "photo-splat-vr-v0.1.1.zip",
-        "size": 31492847,
-        "sha256": "ec363d708aec0d841ce428f5f15b003eab041a5e79a2b8e2aa377633dffb0887",
-        "content_version": "01.001.000",
+        "tag": "v0.5.0",
+        "asset": "photo-splat-vr-v0.5.0.zip",
+        "size": 34337561,
+        "sha256": "167d4046869adfea812c869a9e716f49ceaffd8d4b1eb134656a8c65a3cc9afe",
+        "content_version": "01.005.000",
         "title_name": "Photo Splat VR",
-        "published_at": "2026-10-27T22:28:42Z",
-        "notes": "**Photo Splat VR v0.1.1** is a patch release: the app now starts on a fresh install instead of quitting, and a session no longer ends on its own after 30 minutes.\n\n**What's changed**\n- Starts on a fresh install. On the first launch the three sample scenes are copied in and the first one opens with the menu up, so there is something to look at straight away. v0.1 closed itself at this point with \"no scene folders\".\n- No 30-minute auto-quit. A session runs until you end it; v0.1 quit to the home screen after 30 minutes without warning.\n- Unloadable scenes are skipped instead of ending the app: if a scene cannot be read, the menu stays open and you can pick another one.\n- Photos and scenes are kept: the app's data folder is separate from the app, so installing over an earlier version does not touch your scenes, photos or downloaded models.\n\n**Install**\nUnzip `photo-splat-vr-v0.1.1.zip` and copy the `PPSA99770` folder to the console as described in the README (Install section). Title ID `PPSA99770`, content ID `IV0000-PPSA99770_00-PHOTOSPLATVR0001`.\n\n**Unchanged from v0.1**\n- Convert photos on the console: SHARP (best quality, ~25 s per photo) or Depth Anything V2 Small (fast, ~2 s; scene size is approximate).\n- Models are downloaded inside the app after you accept their licences; no model weights are shipped.\n- Photo sources: Inbox (FTP), console folders, USB, PS5 Captures.\n- Browsing, folders, rename and delete, VR viewing with DualSense or PS VR2 Sense controllers, comfort settings.\n- Three sample scenes (public-domain photos).\n\n**Known limitations**\n- Scaling a scene down (\"maquette\") still feels like moving through it; a redesign is planned for v0.2.\n- Fast-model scenes have no real-world size yet.\n- Photos: RAW (e.g. CR2) and HEIC files are not listed yet, and phone photos taken sideways may show rotated.\n- Menu edges can shimmer slightly in the headset.\n\nLicence: GPL-3.0-or-later. Third-party notices are in the repository."
-      }
+        "published_at": "2026-11-06T22:21:17Z",
+        "notes": "**Photo Splat VR v0.5.0** is the biggest update so far: many more photo formats including camera RAW, ready-made splat files you can import, photos and scenes on network shares, a rotate button, a passcode for scene folders, and a menu that works with the joystick.\n\n**What's new**\n- More photo formats. WebP, TIFF, HEIC/HEIF, AVIF, BMP, GIF (first frame), TGA and camera RAW (DNG, CR2, CR3, NEF, ARW, RAF, ORF, RW2, PEF, SRW) convert like JPEG and PNG. RAW files use the embedded preview when there is one. A photo that is too big to load (over 64 megapixels) is refused with a clear message instead of crashing.\n- Sideways photos stand upright. The camera's orientation is applied to the picture and its thumbnail, so a phone photo taken sideways becomes an upright scene.\n- Rotate left or right. Focus a photo or a scene on the shelf and press L3 (left) or R3 (right) to turn it by 90 degrees, like photos on Windows. The turned version replaces the old one. JPEG and baseline TIFF keep their quality (only the orientation tag changes); RAW, HEIC and other formats the app cannot write keep their file and remember the turn. The viewer itself no longer rotates a scene: turning, moving and scaling work as before.\n- Import splats. `.ply`, `.splat`, `.spz` and SuperSplat `.compressed.ply` files become normal scenes, no photo or model needed. A file with more than 2,000,000 splats is thinned to that limit with a notice, never refused.\n- Network locations. In Settings, add an SMB share (Windows, macOS shared folders, most NAS boxes) and use it for photos, for scenes, or both. NFS shares are supported too. The photo picker lists your locations as sources and has an \"Add network location\" tab. Scenes on a share open where they are. A scene converted to a share is built on the console, uploaded, and the local copy removed; if the upload fails the local copy is kept and named.\n- Visible folders. One passcode (4 to 32 characters) hides the scene folders you do not tick: albums, Unsorted and network scene libraries, in VR and on the TV. Settings > Visible folders. The photo picker is not filtered.\n- Thumbnail size. One Settings slider sizes every thumbnail grid. Thumbnails show the whole picture, and a scroll marker shows when there is more below.\n- Menu with the joystick. The joystick and d-pad move the menu focus. The Sense controller pointer stays off until you press R2 (that first press only shows the ray, the next R2 clicks); any joystick or d-pad input turns it off again, so the two no longer fight.\n- Menu window stays put. It stays where it opened instead of following your head. The recenter button brings it in front of you while the menu is open, and recenters the scene when the menu is closed."
+      },
+      "pins": [
+        {
+          "tag": "v0.1.1",
+          "asset": "photo-splat-vr-v0.1.1.zip",
+          "size": 31492847,
+          "sha256": "ec363d708aec0d841ce428f5f15b003eab041a5e79a2b8e2aa377633dffb0887",
+          "content_version": "01.001.000",
+          "title_name": "Photo Splat VR"
+        }
+      ]
     },
     {
       "id": "prospero-explorer",
@@ -5573,7 +5593,7 @@
       "tags": [
         "trophies"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v0.1.1",
         "asset": "Trophy-Manager-v0.1.1-PPSA99842.zip",
