@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -790,16 +790,24 @@
       ],
       "stars": 188,
       "release": {
-        "tag": "v1.6.1",
+        "tag": "v1.6.3",
         "asset": "PPSA99810.zip",
-        "size": 19817565,
-        "sha256": "06a0e4fcef6961f85e15c1feba6d3209c16f2c4ae20cdb2cb620c7b96757c820",
-        "content_version": "01.601.000",
+        "size": 20598332,
+        "sha256": "db4c21d9a825b9f499c18069a19547703867d8633ad24f958699b75082d2008e",
+        "content_version": "01.603.000",
         "title_name": "PSBox Cloud Gaming",
-        "published_at": "2026-11-05T08:07:14Z",
-        "notes": "<!-- LANG:EN -->\n# PSBox Cloud Gaming v1.6.1\n\n## 🏆 Xbox Achievements to Native PS5 Trophies Conversion\n- **Xbox to PS5 Trophy Synchronization**: Converts unlocked Xbox achievements directly into native PlayStation 5 Trophy 2 packages (`TRPTITLE.DAT` + `TROPHY.UCP` + database registration).\n- **Trophy Conversion Disclaimer Modal**: Explains local profile registration, warns about PSN ban/flag risk, and advises users to enable only on local/offline profiles or if they do not plan to connect to PSN again. Includes explicit \"Estou ciente\" (I understand) and \"Cancelar\" (Cancel) confirmation buttons.\n- **Remove Local PSBox Trophies Option**: New action in Settings allowing users to completely remove all trophies and metadata added by PSBox from their local PS5 account at any time, eliminating ban risks. Trophies can be safely re-synced from Xbox anytime.\n\n## 🐧 Linux Desktop Improvements & Input Bug Fixes\n- **Keyboard Typing Isolation**: Fixed keyboard text input triggering gamepad buttons in UI navigation and Search screens.\n- **Delete Key Fix**: Fixed `Delete` key triggering touchpad hold (signout) on desktop.\n- **Eliminated Ghost Phone Icon**: Fixed virtual gamepad detection so inactive WebUI connections do not display a phantom phone controller icon on desktop slot 0.\n- **Low-Latency Presentation & Handheld Detection**: Vulkan NV12 decode pipeline and mailbox presentation for Linux desktop and handheld devices (Steam Deck / ROG Ally / Legion Go).\n\n## 🎮 PS4 Native USB Controller Support (OneFamily Integration)\n- **Universal USB Controller Drivers**: Direct in-app support on PS4 (using `libSceUsbd`) for PS3 (DualShock 3), PS4 (wired/third-party), PS5 (DualSense), Xbox 360, Xbox One / Series X|S (GIP), 8BitDo adapters/controllers, Nintendo Switch Pro & Input-Only, Google Stadia, and generic DirectInput/HID gamepads.\n- **Autonomous & Zero-Dependency**: Works out of the box directly in the application without requiring background daemons or external GoldHEN payloads.\n\n### 📦 Attached Files (English)\n\n| File Name | Description |\n|---|---|\n| `PSBoxCloudGaming[PS5]-v1.6.1.zip` | Official standalone ZIP package for PlayStation 5 (manual install or homebrew manager). |\n| `PSBoxCloudGaming[PS5]-v1.6.1.zip.sig` | ECDSA cryptographic digital signature verifying package authenticity on PS5. |\n| `PSBoxCloudGaming[PS5]-v1.6.1.zip.sha256` | SHA256 checksum for the PS5 package. |\n| `PPSA99810.zip` | Canonical PS5 package required by the In-App Updater for consoles updating from previous versions. |\n| `PPSA99810.zip.sig` | Canonical cryptographic signature required by the In-App Updater. |\n| `PPSA99810.zip.sha256` | SHA256 checksum for the canonical PS5 package. |"
+        "published_at": "2026-11-07T08:31:58Z",
+        "notes": "<!-- LANG:EN -->\n# PSBox Cloud Gaming v1.6.3\n\n## ⚡ Streaming Stutter Elimination on PS5 (`g_trophyThread` Batch Pause)\n- **Zero Background Sync Interference**: The background trophy worker thread (`g_trophyThread`) now completely pauses batch catalog discovery and achievement queries (`TaskType::BatchTitle`) during active cloud streaming sessions (`ctx.isStreaming()`).\n- **Immediate Real-Time Polls**: Real-time achievement checks (`TaskType::RealtimePoll`) for the currently running game continue without disruption with 0ms preemption.\n- **Graceful Non-Dropping Resume**: Retains ongoing batch sync tasks in scope and resumes smoothly upon exiting the game or returning to the home screen.\n\n## 📖 Full Catalog Descriptions & Cache Migration (v3)\n- **Precedence Inversion**: Catalog entries now strictly prioritize the complete, rich game overview (`ProductDescription`) over brief marketing slogans (`ProductDescriptionShort`).\n- **Automated Cache Migration**: Bumped library cache version to `kCacheVersion = 3`. Cached entries with short or missing descriptions (< 80 chars) are automatically invalidated and rehydrated via Microsoft's `RemoteHighSapphire0` API in the background.\n\n## 💡 20 Dynamic Launching Tips Across 6 Languages\n- **Expanded Tips Catalog**: Increased loading screen tips from 8 to 20, providing useful insights on DualSense adaptive triggers & haptics, touchpad mouse emulation, in-game menu overlay, WebUI companion controllers, trophy synchronization, audio buffer tuning, and USB controllers.\n- **Dynamic 7-Second Rotation & Random Seeding**: Tips rotate dynamically every 7 seconds during launch, seeded pseudo-randomly per session based on launch timestamp and title hash.\n- **Complete 6-Language Localization**: Full translation parity across English, Brazilian Portuguese, Spanish, German, French, and Italian with verified string placeholders.\n\n## 🩺 Reactive Diagnostics Restoration (\"Verify Sign-In\" & \"Network Test\")\n- **Immediate Reactive State**: Diagnósticos modals now open with instant visual feedback, pre-populating test stages and ping regions with active spinners.\n- **Non-Dropping Command Dispatch**: Fixed command race conditions with a retry loop in `app_core.cpp`, ensuring diagnostic requests are never dropped during worker state transitions.\n- **Original Logic & Presentation Preserved**: 100% fidelity to the original diagnostic checks, STUN RFC 5389 UDP network probing, and Xbox Live authentication verification.\n\n---\n\n### 📦 Attached Files (English)\n\n| File Name | Description |\n|---|---|\n| `PSBoxCloudGaming[PS5]-v1.6.3.zip` | Official standalone ZIP package for PlayStation 5 (manual or homebrew manager installation). |"
       },
       "pins": [
+        {
+          "tag": "v1.6.1",
+          "asset": "PPSA99810.zip",
+          "size": 19817565,
+          "sha256": "06a0e4fcef6961f85e15c1feba6d3209c16f2c4ae20cdb2cb620c7b96757c820",
+          "content_version": "01.601.000",
+          "title_name": "PSBox Cloud Gaming"
+        },
         {
           "tag": "v1.6.0",
           "asset": "PPSA99810.zip",
@@ -1251,7 +1259,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 467,
+      "stars": 468,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1755,14 +1763,24 @@
       ],
       "stars": 205,
       "release": {
-        "tag": "Alpha-2.1",
+        "tag": "v3.1",
         "asset": "PPSA97358.zip",
-        "size": 21413061,
-        "sha256": "494682ff5073985422fd8961cc617b8e3bdbdb2dedd85b69dadbd06f709953e9",
-        "published_at": "2026-10-10T04:40:19Z",
-        "notes": "## XPSemu Update 2.1\n\n**Up to 4 players**\n- Every signed-in PS5 user's controller (or a guest's) now works in games. Before, only the first controller was seen.\n- Players 2-4 are plugged in within 2 seconds of signing in, even during a game, and unplugged when they sign out.\n- Only player 1 controls XPSemu's menus; the other controllers are for the games.\n\n**Game language** (#10)\n- New setting: Settings > Interface > Game language (English, Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese).\n- Games that include that language now start in it. Before, every game started in English.\n\n**Saves**\n- Saves are no longer lost when you leave a game. XPSemu now lets the Xbox finish writing before it stops the game.\n- Broken saves are repaired automatically. A save cut off while it was being made could stop a game from saving at all. \n- A backup of every change is kept in `/data/xemu/save-repair/`.\n- While the game finishes saving, the Now Playing bar burns away, and you can keep using the menu.\n\n**Fixes**\n- Crash after 15-20 minutes in playing games like Ninja Gaiden Black (#7).\n- Crash when a game makes lots of new shaders.\n- The Xbox hard disk survives a crash or closing XPSemu from the PS5 home screen. Before, games could hang on loading until `xbox_hdd.qcow2` was deleted.\n- Far fewer graphics pipelines built, so fewer hitches in effect-heavy scenes.\n- No needless ~8 MB cache save every time you leave a game.\n\n**Requirements**\n\n- [kstuff](https://github.com/EchoStretch/kstuff-lite) +`helper.elf`\n- [ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus)\n- Your own Xbox MCPX boot ROM, BIOS and XISO games (not included)\n\n**Installation**\n\n1. Download `PPSA97358.zip`, extract it, and copy `PPSA97358/` to `/data/homebrew/.`\n2. Load `helper.elf` with kstuff.\n3. Put `mcpx_1.0.bin`and your BIOS`Complex_4627.bin`in`/data/xemu/`.\n4. Put your games in `/data/xemu/games/`or in`xemu/games/`on a USB drive.\n5. Launch XPSemu from the home screen.\n\n**Note:** to use your own hard disk (for example with the original Xbox dashboard), put it at`/data/xemu/xbox_hdd.qcow2` before starting XPSemu.",
-        "content_version": "01.000.000"
-      }
+        "size": 13509694,
+        "sha256": "0fa4f1556b257317d5b38a8f5b9803b58e05b5ba0e63fb26492f7bea369bf558",
+        "content_version": "01.000.000",
+        "title_name": "XPSemu",
+        "published_at": "2026-11-07T06:32:02Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.1</h1>\n\n<p align=\"center\">\n  <strong>The original Xbox, and now Sega Chihiro arcade games, running natively on a PlayStation 5.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Sega Chihiro arcade games</strong></summary>\n<br>\n\nThanks to [XPSemu-Chihiro](https://github.com/tattoohanz/XPSemu-Chihiro) by tattoohanz for the base board, drive board and card reader work, and to [Cxbx-Reloaded](https://github.com/Cxbx-Reloaded/Cxbx-Reloaded) for the method of starting Chihiro games without a BIOS.\n\n- A new **Chihiro** tab for Sega's Xbox-based arcade board. The games run on the same native core as Xbox games.\n- **No Chihiro BIOS and no media board flash needed.** Only your game and the 3 base board files.\n- Games are read in place: nothing is unpacked first, and no extra space is used.\n- Controls made for each game: driving games on the sticks and triggers, gun games with a crosshair on the left stick.\n- Gun games also work with a USB mouse.\n- Steering wheel force feedback comes through as controller rumble.\n- After the first start, games skip the SEGA boot screen and start directly.\n\nPlayable so far:\n  - **OutRun 2** (with force feedback)\n  - **Crazy Taxi: High Roller**\n  - **Virtua Cop 3**\n  - **Ollie King**\n  - **Ghost Squad**\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Better dashboard</strong></summary>\n<br>\n\n- Each game shows its region and languages, for example \"USA - En, Fr\".\n- **Game language: Auto** (the new default): games use your PS5's language when the disc has it, else English.\n- The same disc in two places is marked **Duplicate**, with the other copy's path.\n- **Delete game saves** in a game's settings.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Vibration</strong></summary>\n<br>\n\n- Xbox games now rumble the DualSense, on all 4 controllers.\n- Turn it on or off in **Settings > Controller** (the button under the controller), or in the quick menu. One setting for every game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Updates from inside the app</strong></summary>\n<br>\n\n- **System > Check for updates** finds the newest XPSemu on GitHub, installs it by itself and restarts.\n- When a new version is out, XPSemu tells you when it starts.\n- 3.1 is the first version with this: from here on, there's no need to copy files by hand to update.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; New Anti-aliasing: SSAA + SMAA</strong></summary>\n<br>\n\n- A new top choice: SSAA draws at x6 and averages it down, then SMAA smooths the edges once more. The smoothest picture XPSemu has, and the heaviest."
+      },
+      "pins": [
+        {
+          "tag": "Alpha-2.1",
+          "asset": "PPSA97358.zip",
+          "size": 21413061,
+          "sha256": "494682ff5073985422fd8961cc617b8e3bdbdb2dedd85b69dadbd06f709953e9",
+          "content_version": "01.000.000"
+        }
+      ]
     },
     {
       "id": "ps64",
@@ -1849,7 +1867,7 @@
         "capture",
         "usb"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v1.0.0",
         "asset": "PPSA17035.zip",
@@ -2202,7 +2220,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 380,
+      "stars": 381,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2245,7 +2263,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 130,
+      "stars": 132,
       "release": {
         "tag": "v2.3.5",
         "asset": "PPSA11018.zip",
@@ -2349,7 +2367,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1014,
+      "stars": 1017,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -3146,7 +3164,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 88,
+      "stars": 89,
       "release": {
         "tag": "build-138",
         "asset": "halo-ps5-release.zip",
@@ -3250,7 +3268,7 @@
         "amiga",
         "platformer"
       ],
-      "stars": 22,
+      "stars": 23,
       "release": {
         "tag": "v1.0.2",
         "asset": "JamesPond2-PS5-1.0.2.zip",
@@ -3344,7 +3362,7 @@
         "mario",
         "libultraship"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v1.0.1",
         "asset": "Mario64-PS5-v1.0.1.zip",
@@ -3775,7 +3793,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 30,
+      "stars": 31,
       "release": {
         "tag": "v1.2.0",
         "asset": "PPSA99620.zip",
@@ -4634,7 +4652,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 9,
+      "stars": 8,
       "release": {
         "tag": "01.000.203",
         "asset": "SmartTube-PPSA98260.zip",
@@ -4706,7 +4724,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 5,
+      "stars": 4,
       "release": {
         "tag": "v1.6.0",
         "asset": "PPSA99991.zip",
@@ -5149,7 +5167,7 @@
         "saves",
         "backup"
       ],
-      "stars": 36,
+      "stars": 37,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
@@ -5296,16 +5314,24 @@
       ],
       "stars": 0,
       "release": {
-        "tag": "v0.5.0",
-        "asset": "photo-splat-vr-v0.5.0.zip",
-        "size": 34337561,
-        "sha256": "167d4046869adfea812c869a9e716f49ceaffd8d4b1eb134656a8c65a3cc9afe",
-        "content_version": "01.005.000",
+        "tag": "v0.6.0",
+        "asset": "photo-splat-vr-v0.6.0.zip",
+        "size": 34379610,
+        "sha256": "f085419db0d2d0f94998b3b89a1d96a681aa5f8fede2646ed7b2c39c2d16f67c",
+        "content_version": "01.006.000",
         "title_name": "Photo Splat VR",
-        "published_at": "2026-11-06T22:21:17Z",
-        "notes": "**Photo Splat VR v0.5.0** is the biggest update so far: many more photo formats including camera RAW, ready-made splat files you can import, photos and scenes on network shares, a rotate button, a passcode for scene folders, and a menu that works with the joystick.\n\n**What's new**\n- More photo formats. WebP, TIFF, HEIC/HEIF, AVIF, BMP, GIF (first frame), TGA and camera RAW (DNG, CR2, CR3, NEF, ARW, RAF, ORF, RW2, PEF, SRW) convert like JPEG and PNG. RAW files use the embedded preview when there is one. A photo that is too big to load (over 64 megapixels) is refused with a clear message instead of crashing.\n- Sideways photos stand upright. The camera's orientation is applied to the picture and its thumbnail, so a phone photo taken sideways becomes an upright scene.\n- Rotate left or right. Focus a photo or a scene on the shelf and press L3 (left) or R3 (right) to turn it by 90 degrees, like photos on Windows. The turned version replaces the old one. JPEG and baseline TIFF keep their quality (only the orientation tag changes); RAW, HEIC and other formats the app cannot write keep their file and remember the turn. The viewer itself no longer rotates a scene: turning, moving and scaling work as before.\n- Import splats. `.ply`, `.splat`, `.spz` and SuperSplat `.compressed.ply` files become normal scenes, no photo or model needed. A file with more than 2,000,000 splats is thinned to that limit with a notice, never refused.\n- Network locations. In Settings, add an SMB share (Windows, macOS shared folders, most NAS boxes) and use it for photos, for scenes, or both. NFS shares are supported too. The photo picker lists your locations as sources and has an \"Add network location\" tab. Scenes on a share open where they are. A scene converted to a share is built on the console, uploaded, and the local copy removed; if the upload fails the local copy is kept and named.\n- Visible folders. One passcode (4 to 32 characters) hides the scene folders you do not tick: albums, Unsorted and network scene libraries, in VR and on the TV. Settings > Visible folders. The photo picker is not filtered.\n- Thumbnail size. One Settings slider sizes every thumbnail grid. Thumbnails show the whole picture, and a scroll marker shows when there is more below.\n- Menu with the joystick. The joystick and d-pad move the menu focus. The Sense controller pointer stays off until you press R2 (that first press only shows the ray, the next R2 clicks); any joystick or d-pad input turns it off again, so the two no longer fight.\n- Menu window stays put. It stays where it opened instead of following your head. The recenter button brings it in front of you while the menu is open, and recenters the scene when the menu is closed."
+        "published_at": "2026-11-07T13:13:24Z",
+        "notes": "**Photo Splat VR v0.6.0** makes network libraries much easier to use: the photo picker browses folders on every source, new scenes can be saved straight to a network folder, the TV now shows its own picture and menu while you are in VR, and the model downloads about three times faster.\n\n**What's new**\n- Folders in the photo picker. Every source (Console, Inbox, USB and your network locations) is a folder browser like Finder or Windows Explorer: folders first, then the photos and splat files of the folder you are in. Cross opens a folder, Circle goes up. A network location is no longer one long list of every photo on the share.\n- Import splat files one by one. Square on a folder no longer imports every splat file below it. You pick the files yourself, and Cross on a splat file imports it, from any source.\n- Output folder. Settings > Output folder chooses where new scenes are saved: the console (default) or a folder on a network location, picked by browsing that location's folders (Square = \"Use this folder\"). Scenes are saved to `<output folder>/<album>/<scene>`, so your albums look the same as on the console. A splat import saves a converted copy there too. Choosing a folder switches that location's scene library on. Scenes you already have stay where they are.\n- Albums on network scene libraries. A network scene library shows the folders that hold scenes as albums, like the console does, and the scenes directly in the folder as Unsorted. An offline share shows its own error.\n- An offline share no longer loses a scene. If the network folder does not answer when a scene is ready, the scene waits (the row says \"Waiting for\" and the location's name), stays safe on the console, tries again by itself (every few seconds at first, later every 2 minutes, and when the app starts) and is saved when the share is back. Square on the row cancels it. A scene is saved under a hidden temporary name and only gets its real name once it is whole, so a share that drops never leaves a half-saved scene or a duplicate.\n- Much faster model download. The SHARP model (2.8 GB) downloads over four connections at once, about 3 times faster on the console, and the Models row shows \"about N min left\". A paused or interrupted download continues where it stopped, and the model is still checked after it arrives.\n- The TV has its own picture. In VR the TV shows the scene without the VR window or HUD and, while the menu is open, the same menu flat on the whole screen. Anyone holding a controller can drive it, so the person at the TV can pick a scene before the headset is on. If the console refuses the TV output or it stops working, the TV shows the headset's view as before."
       },
       "pins": [
+        {
+          "tag": "v0.5.0",
+          "asset": "photo-splat-vr-v0.5.0.zip",
+          "size": 34337561,
+          "sha256": "167d4046869adfea812c869a9e716f49ceaffd8d4b1eb134656a8c65a3cc9afe",
+          "content_version": "01.005.000",
+          "title_name": "Photo Splat VR"
+        },
         {
           "tag": "v0.1.1",
           "asset": "photo-splat-vr-v0.1.1.zip",
@@ -5404,7 +5430,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 508,
+      "stars": 509,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
