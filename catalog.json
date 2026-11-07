@@ -385,7 +385,7 @@
         "emby",
         "video"
       ],
-      "stars": 44,
+      "stars": 45,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -967,7 +967,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 228,
+      "stars": 229,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1229,7 +1229,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 404,
+      "stars": 403,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1259,7 +1259,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 468,
+      "stars": 470,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1675,7 +1675,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 814,
+      "stars": 816,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1761,7 +1761,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 205,
+      "stars": 206,
       "release": {
         "tag": "v3.1",
         "asset": "PPSA97358.zip",
@@ -1770,7 +1770,7 @@
         "content_version": "01.000.000",
         "title_name": "XPSemu",
         "published_at": "2026-11-07T06:32:02Z",
-        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.1</h1>\n\n<p align=\"center\">\n  <strong>The original Xbox, and now Sega Chihiro arcade games, running natively on a PlayStation 5.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Sega Chihiro arcade games</strong></summary>\n<br>\n\nThanks to [XPSemu-Chihiro](https://github.com/tattoohanz/XPSemu-Chihiro) by tattoohanz for the base board, drive board and card reader work, and to [Cxbx-Reloaded](https://github.com/Cxbx-Reloaded/Cxbx-Reloaded) for the method of starting Chihiro games without a BIOS.\n\n- A new **Chihiro** tab for Sega's Xbox-based arcade board. The games run on the same native core as Xbox games.\n- **No Chihiro BIOS and no media board flash needed.** Only your game and the 3 base board files.\n- Games are read in place: nothing is unpacked first, and no extra space is used.\n- Controls made for each game: driving games on the sticks and triggers, gun games with a crosshair on the left stick.\n- Gun games also work with a USB mouse.\n- Steering wheel force feedback comes through as controller rumble.\n- After the first start, games skip the SEGA boot screen and start directly.\n\nPlayable so far:\n  - **OutRun 2** (with force feedback)\n  - **Crazy Taxi: High Roller**\n  - **Virtua Cop 3**\n  - **Ollie King**\n  - **Ghost Squad**\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Better dashboard</strong></summary>\n<br>\n\n- Each game shows its region and languages, for example \"USA - En, Fr\".\n- **Game language: Auto** (the new default): games use your PS5's language when the disc has it, else English.\n- The same disc in two places is marked **Duplicate**, with the other copy's path.\n- **Delete game saves** in a game's settings.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Vibration</strong></summary>\n<br>\n\n- Xbox games now rumble the DualSense, on all 4 controllers.\n- Turn it on or off in **Settings > Controller** (the button under the controller), or in the quick menu. One setting for every game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Updates from inside the app</strong></summary>\n<br>\n\n- **System > Check for updates** finds the newest XPSemu on GitHub, installs it by itself and restarts.\n- When a new version is out, XPSemu tells you when it starts.\n- 3.1 is the first version with this: from here on, there's no need to copy files by hand to update.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; New Anti-aliasing: SSAA + SMAA</strong></summary>\n<br>\n\n- A new top choice: SSAA draws at x6 and averages it down, then SMAA smooths the edges once more. The smoothest picture XPSemu has, and the heaviest."
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.1</h1>\n\n<p align=\"center\">\n  <strong>The original Xbox, and now Sega Chihiro arcade games, running natively on a PlayStation 5.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Sega Chihiro arcade games</strong></summary>\n<br>\n\nThanks to [XPSemu-Chihiro](https://github.com/tattoohanz/XPSemu-Chihiro) by tattoohanz for the base board, drive board and card reader work, and to [Cxbx-Reloaded](https://github.com/Cxbx-Reloaded/Cxbx-Reloaded) for the method of starting Chihiro games without a BIOS.\n\n- A new **Chihiro** tab for Sega's Xbox-based arcade board. The games run on the same native core as Xbox games.\n- **No Chihiro BIOS and no media board flash needed.** Only your game and the 3 base board files.\n- Games are read in place: nothing is unpacked first, and no extra space is used.\n- Controls made for each game: driving games on the sticks and triggers, gun games with a crosshair on the left stick.\n- Steering wheel force feedback comes through as controller rumble.\n- After the first start, games skip the SEGA boot screen and start directly.\n\nPlayable so far:\n  - **OutRun 2** (with force feedback)\n  - **Crazy Taxi: High Roller**\n  - **Virtua Cop 3**\n  - **Ollie King**\n  - **Ghost Squad**\n\nEvery Chihiro game has its own controls: see [Chihiro controls](https://github.com/ZiZc3/XPSemu/blob/main/Chihiro-Controls.md) for each game's layout.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Better dashboard</strong></summary>\n<br>\n\n- Each game shows its region and languages, for example \"USA - En, Fr\".\n- **Game language: Auto** (the new default): games use your PS5's language when the disc has it, else English.\n- The same disc in two places is marked **Duplicate**, with the other copy's path.\n- **Delete game saves** in a game's settings.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Vibration</strong></summary>\n<br>\n\n- Xbox games now rumble the DualSense, on all 4 controllers.\n- Turn it on or off in **Settings > Controller** (the button under the controller), or in the quick menu. One setting for every game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Updates from inside the app</strong></summary>\n<br>\n\n- **System > Check for updates** finds the newest XPSemu on GitHub, installs it by itself and restarts.\n- When a new version is out, XPSemu tells you when it starts.\n- 3.1 is the first version with this: from here on, there's no need to copy files by hand to update.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; New Anti-aliasing: SSAA + SMAA</strong></summary>\n<br>"
       },
       "pins": [
         {
@@ -2220,7 +2220,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 381,
+      "stars": 383,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2263,7 +2263,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 132,
+      "stars": 133,
       "release": {
         "tag": "v2.3.5",
         "asset": "PPSA11018.zip",
@@ -2367,7 +2367,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1017,
+      "stars": 1026,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2446,7 +2446,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1639,
+      "stars": 1640,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2503,7 +2503,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 427,
+      "stars": 428,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2959,7 +2959,7 @@
         "battle-net",
         "world-of-warcraft"
       ],
-      "stars": 18,
+      "stars": 19,
       "release": {
         "tag": "01.000.024",
         "asset": "PPSA99030.zip",
@@ -3164,7 +3164,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 89,
+      "stars": 90,
       "release": {
         "tag": "build-138",
         "asset": "halo-ps5-release.zip",
@@ -3518,16 +3518,24 @@
       ],
       "stars": 51,
       "release": {
-        "tag": "01.000.256",
+        "tag": "01.000.265",
         "asset": "PPSA99874.zip",
-        "size": 127912091,
-        "sha256": "433fddadd77068e324e2118cd1d47988f9f46e5201fcf41535475de8ec0e3b9f",
-        "content_version": "01.000.256",
+        "size": 127928066,
+        "sha256": "321f17e96e25dcb39bce4f77d4cffa27935abf976af3db38ebd33b3e89e8ade1",
+        "content_version": "01.000.265",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-06T19:17:57Z",
-        "notes": "# ProsperoCraft 01.000.256\n\n## What's new\n\n- Added Minecraft 1.21.9 Vanilla support.\n- Substantially improved gameplay performance.\n- Bug fixes.\n\nFabric 26.1 is marked Experimental.\n\nThe release includes the signed app ZIP, matching OpenAL source and relink\nkit, checksums and validation records. Minecraft files are downloaded from\nthe publisher during setup."
+        "published_at": "2026-11-07T20:46:29Z",
+        "notes": "# ProsperoCraft 01.000.265\n\n## What's new\n\n- Added Vanilla support for Minecraft 1.21 through 1.21.8.\n- Added Fabric support for Minecraft 1.21.7 through 1.21.11.\n- Fabric 1.21 through 1.21.6 is available as Experimental.\n- Controlify is installed by default for new Fabric instances and can be uninstalled.\n- Improved Controlify compatibility and fixed YACL dependency selection for 1.21.9.\n- Bug fixes."
       },
       "pins": [
+        {
+          "tag": "01.000.256",
+          "asset": "PPSA99874.zip",
+          "size": 127912091,
+          "sha256": "433fddadd77068e324e2118cd1d47988f9f46e5201fcf41535475de8ec0e3b9f",
+          "content_version": "01.000.256",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.212",
           "asset": "PPSA99874.zip",
@@ -3558,14 +3566,6 @@
           "size": 123870351,
           "sha256": "3480ab817659c43e954ce89ba5933cb5181f2fe2f396b1321bfae51d274171de",
           "content_version": "01.000.167",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.158",
-          "asset": "PPSA99874.zip",
-          "size": 123159171,
-          "sha256": "22d2c4864e7d797d066337a973f7560e7e4e7f003f9b19991b6816d7e982a954",
-          "content_version": "01.000.158",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -3825,7 +3825,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "01.000.001",
         "asset": "PPSA99320.zip",
@@ -3900,7 +3900,7 @@
         "racing",
         "need-for-speed"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "01.000.002",
         "asset": "PPSA90505.zip",
@@ -4287,7 +4287,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 55,
+      "stars": 56,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4883,7 +4883,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 29,
+      "stars": 30,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5619,7 +5619,7 @@
       "tags": [
         "trophies"
       ],
-      "stars": 10,
+      "stars": 9,
       "release": {
         "tag": "v0.1.1",
         "asset": "Trophy-Manager-v0.1.1-PPSA99842.zip",
