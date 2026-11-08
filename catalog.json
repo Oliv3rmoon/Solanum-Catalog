@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 4,
+      "stars": 6,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -345,18 +345,26 @@
         "media-center",
         "video"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
-        "tag": "22.000.001",
+        "tag": "22.000.002",
         "asset": "PPSA99420.zip",
-        "size": 68186327,
-        "sha256": "a9c94114ff47cc2c7bb185c7e84bc7879bdc0cdf0cb7151ae0e0a243fa9407fb",
-        "content_version": "22.000.001",
+        "size": 68367301,
+        "sha256": "e4b3f7c8f0d9ee913db129825c7e4efdc555d4f77324a91783ba9817e79fc26f",
+        "content_version": "22.000.002",
         "title_name": "Kodi",
-        "published_at": "2026-11-06T18:08:55Z",
-        "notes": "# Release notes\n\nChanges since (release tag `22.000.000`).\n\n## PS5-specific changes\n\n- **Improved controller support:** Added a DualSense controller profile with PlayStation button labels, automatic button mapping and optional remapping. Supports controllers for up to four signed-in users, analog sticks and triggers, and standard vibration. Existing media controls are preserved, with right-stick volume control added.\n- **Controller settings:** Fixed missing vibration settings. Adaptive triggers and advanced DualSense haptics are not supported.\n- **USB storage:** Improved detection of connected and removed drives, and added safe removal through Kodi.\n- **Disc eject:** Added support for ejecting discs through Kodi.\n- **More useful system information:** Added storage capacity and usage reporting, live CPU usage, and more accurate available-memory information.\n- **Increased memory allowance:** Kodi can use a larger memory budget.\n- **New experimental add-ons:** Added NextPVR support for watching live TV and accessing recordings from a NextPVR server, plus FFmpeg Direct support for compatible streaming and timeshifting setups. Both remain in the **Kodi PS5 Testing Add-ons** repository.\n- **Add-ons promoted to stable:** InputStream Adaptive, the TVHeadend client, music decoders and screensavers previously offered through testing are now included in the stable PS5 add-on catalogue.\n\n## Upstream changes\n\nThese improvements were merged from Kodi's upstream **Piers** branch.\n\n### Playback and subtitles\n\n- Fixed subtitles not reappearing after being hidden and shown again.\n- Improved subtitle discovery alongside local `.strm` files.\n- Improved handling of streams whose aspect ratio or video format changes during playback.\n- Fixed some DTS-HD Master Audio tracks being incorrectly identified during playback.\n- Improved audio handling when seeking or switching streams.\n- Fixed playback of multi-part disc images being mistaken for games.\n\n### Media library and artwork\n\n- Library scans are more resilient: a failed lookup or problematic item no longer unnecessarily stops scanning other content.\n- Improved handling of episode filenames, local artwork and actor thumbnails.\n- Fixed issues with library cleaning and cancelled scans.\n- Improved watched-status updates when a remote-control app marks an entire TV show as watched.\n\n### Live TV and guide\n\n- Fixed channel up/down navigation after switching channel groups.\n- Fixed a guide-window crash triggered by add-ons accessing the selected item.\n- Improved programme-guide maintenance and Live TV shutdown.\n\n### Games\n\n- Added categories for browsing video filters.\n- Improved save-state thumbnails and their display during gameplay.\n- Added a game-manual button to the in-game menu."
+        "published_at": "2026-11-08T18:06:28Z",
+        "notes": "# Release Notes\n\n## PS5-Specific Changes\n\n- **PS5 Media Remote support:** Navigate Kodi, open playback controls, pause and resume, rewind, and fast-forward using the PS5 Media Remote.\n- **More reliable remote reconnection:** Playback controls recover after the remote disconnects, without interrupting controller input.\n- **Correct video pausing:** Pausing holds the displayed picture instead of allowing video frames to continue advancing. Frame-by-frame stepping remains available.\n- **Improved VP9 playback:** More reliable playback after seeking or recovering from an interruption.\n- **Improved video stability:** Safer transitions when hardware playback falls back to another playback method.\n- **Expanded optional add-on support:** Added PS5 support for RTMP streams, SFTP file access, RAR and other archive formats, and PDF viewing. These add-ons are intended for the PS5 testing repository, are not bundled, and still require on-console validation.\n\n## Upstream Changes\n\nThese changes were merged from Kodi's upstream Piers branch. Not all changes may apply to the PS5 platform.\n\n### Video Playback and Subtitles\n\n- Improved navigation between chapters, bookmarks, and scene markers, with large skips when no markers are available.\n- More accurate seeking and automatic commercial skipping, including avoiding brief glimpses of adverts when seeking into a marked commercial break.\n- Improved Blu-ray playback continuity and menu reliability, including keeping menus visible and separate from subtitles.\n- Improved audio/video synchronization when using audio passthrough.\n- Easier subtitle browsing, with direct access to the current video's folder and correctly listed local drives.\n\n### Movies, TV Shows, and Library Management\n\n- **Safer library refreshes:** Movies remain in the library when their details cannot be retrieved.\n- Improved handling of multi-disc movies, including grouping matching discs into one library entry when automatic grouping is enabled.\n- More reliable scanning and refreshing of disc images and Blu-ray/DVD folder backups.\n- Corrected matching of artwork, trailers, subtitles, and external audio to the appropriate movie version, extra, episode, or disc.\n- Improved local metadata discovery and reduced unnecessary rescanning after refreshing movies or episodes.\n- Fixed upgrades from older libraries that could incorrectly turn movie versions into extras or leave the movie library empty.\n\n### Pictures, Browsing, and Reliability\n\n- **Correct HEIF and AVIF photo display:** Large tiled photos, including many iPhone images, now display completely rather than showing only part of the picture. Image rotation is also handled correctly.\n- Reduced memory use when loading large JPEGs and browsing artwork."
       },
       "pins": [
+        {
+          "tag": "22.000.001",
+          "asset": "PPSA99420.zip",
+          "size": 68186327,
+          "sha256": "a9c94114ff47cc2c7bb185c7e84bc7879bdc0cdf0cb7151ae0e0a243fa9407fb",
+          "content_version": "22.000.001",
+          "title_name": "Kodi"
+        },
         {
           "tag": "22.000.000",
           "asset": "PPSA99420.zip",
@@ -788,7 +796,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 189,
+      "stars": 188,
       "release": {
         "tag": "v1.6.3",
         "asset": "PPSA99810.zip",
@@ -851,7 +859,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 99,
+      "stars": 98,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1229,7 +1237,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 405,
+      "stars": 406,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1259,7 +1267,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 473,
+      "stars": 474,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1675,7 +1683,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 816,
+      "stars": 817,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1722,7 +1730,7 @@
         "ps1",
         "swanstation"
       ],
-      "stars": 40,
+      "stars": 39,
       "release": {
         "tag": "build26",
         "asset": "PSSwanStation-PS5-PPSA99248-build26.zip",
@@ -1761,18 +1769,26 @@
         "xbox",
         "xemu"
       ],
-      "stars": 206,
+      "stars": 207,
       "release": {
-        "tag": "v3.1",
+        "tag": "v3.2",
         "asset": "PPSA97358.zip",
-        "size": 13509694,
-        "sha256": "0fa4f1556b257317d5b38a8f5b9803b58e05b5ba0e63fb26492f7bea369bf558",
+        "size": 13595727,
+        "sha256": "a10f6d7c60b30da94544684a8ab1d12f1117dd53471ab44d4dc1e4eb5441f98a",
         "content_version": "01.000.000",
         "title_name": "XPSemu",
-        "published_at": "2026-11-07T06:32:02Z",
-        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.1</h1>\n\n<p align=\"center\">\n  <strong>The original Xbox, and now Sega Chihiro arcade games, running natively on a PlayStation 5.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Sega Chihiro arcade games</strong></summary>\n<br>\n\nThanks to [XPSemu-Chihiro](https://github.com/tattoohanz/XPSemu-Chihiro) by tattoohanz for the base board, drive board and card reader work, and to [Cxbx-Reloaded](https://github.com/Cxbx-Reloaded/Cxbx-Reloaded) for the method of starting Chihiro games without a BIOS.\n\n- A new **Chihiro** tab for Sega's Xbox-based arcade board. The games run on the same native core as Xbox games.\n- **No Chihiro BIOS and no media board flash needed.** Only your game and the 3 base board files.\n- Games are read in place: nothing is unpacked first, and no extra space is used.\n- Controls made for each game: driving games on the sticks and triggers, gun games with a crosshair on the left stick.\n- Steering wheel force feedback comes through as controller rumble.\n- After the first start, games skip the SEGA boot screen and start directly.\n\nPlayable so far:\n  - **OutRun 2** (with force feedback)\n  - **Crazy Taxi: High Roller**\n  - **Virtua Cop 3**\n  - **Ollie King**\n  - **Ghost Squad**\n\nEvery Chihiro game has its own controls: see [Chihiro controls](https://github.com/ZiZc3/XPSemu/blob/main/Chihiro-Controls.md) for each game's layout.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Better dashboard</strong></summary>\n<br>\n\n- Each game shows its region and languages, for example \"USA - En, Fr\".\n- **Game language: Auto** (the new default): games use your PS5's language when the disc has it, else English.\n- The same disc in two places is marked **Duplicate**, with the other copy's path.\n- **Delete game saves** in a game's settings.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Vibration</strong></summary>\n<br>\n\n- Xbox games now rumble the DualSense, on all 4 controllers.\n- Turn it on or off in **Settings > Controller** (the button under the controller), or in the quick menu. One setting for every game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Updates from inside the app</strong></summary>\n<br>\n\n- **System > Check for updates** finds the newest XPSemu on GitHub, installs it by itself and restarts.\n- When a new version is out, XPSemu tells you when it starts.\n- 3.1 is the first version with this: from here on, there's no need to copy files by hand to update.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; New Anti-aliasing: SSAA + SMAA</strong></summary>\n<br>"
+        "published_at": "2026-11-08T16:58:11Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.2</h1>\n\n<p align=\"center\">\n  <strong>More Sega Chihiro games, your DualSense does more.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; All 8 Sega Chihiro arcade games are playable</strong></summary>\n<br>\n\nMore Sega Chihiro games runs on the same native core as Xbox games, at 60 FPS, each with controls made for its cabinet:\n\n- **OutRun 2** (with steering force feedback)\n- **Crazy Taxi: High Roller**\n- **Ollie King**\n- **Virtua Cop 3**\n- **Ghost Squad**\n- **The House of the Dead III**\n- **Wangan Midnight Maximum Tune**\n- **Wangan Midnight Maximum Tune 2**\n\n> Best format per game:\n> - **CHD** for the MAME GD-ROM games (smallest on disk).\n> - **Netboot `.bin`** for House of the Dead III, Virtua Cop 3 and Ghost Squad (already unlocked, opens fastest).\n> - **GD-ROM** for OutRun 2.\n>\n> Every game has its own layout: see **[Chihiro controls](https://github.com/ZiZc3/XPSemu/blob/main/Chihiro-Controls.md)**.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Your DualSense does more</strong></summary>\n<br>\n\n- **Adaptive triggers** — the L2/R2 triggers push back: a pedal feel in driving games, a trigger feel in shooters. set it per game (**Auto / Off / Heavy / Trigger**) in a game's settings > Controller.\n- **Gyro aim** — tilt the controller to aim, per game (Off by default, Low / Medium / High) in game settings > Controller.\n- **Per-game button mapping** — remap every Xbox button on its own screen (game settings > Controller), with swap-sticks and invert options.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Improved Picture</strong></summary>\n<br>\n\n- **Anisotropic filtering** (up to 16x, on by default) — ground and road textures stay sharp into the distance.\n- **AMD CAS sharpening** — a clean, adjustable sharpen pass, picked as an upscaler.\n- **CRT filter** — optional scanlines or a full CRT look (curve, mask and vignette).\n\nAll of these are per game and live in **Settings > Video** and the quick menu's **Picture** group.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Fast-forward</strong></summary>\n<br>\n\n- Run Xbox games at **double speed** x2.\n- Turn it on in **Settings > Advanced**, then flip it any time from the quick menu.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Trainers</strong></summary>\n<br>\n\n- Load a game's **`.etm`** trainer and pick its options per game; they're applied when the game starts.\n- Trainers live in `/data/xpsemu/trainers/` (or `xpsemu/trainers/` on a USB drive). **None are shipped** — add your own.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>"
       },
       "pins": [
+        {
+          "tag": "v3.1",
+          "asset": "PPSA97358.zip",
+          "size": 13509694,
+          "sha256": "0fa4f1556b257317d5b38a8f5b9803b58e05b5ba0e63fb26492f7bea369bf558",
+          "content_version": "01.000.000",
+          "title_name": "XPSemu"
+        },
         {
           "tag": "Alpha-2.1",
           "asset": "PPSA97358.zip",
@@ -2220,7 +2236,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 383,
+      "stars": 384,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2367,7 +2383,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1033,
+      "stars": 1036,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2416,7 +2432,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 257,
+      "stars": 259,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2446,7 +2462,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1645,
+      "stars": 1646,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2503,7 +2519,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 429,
+      "stars": 428,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3526,18 +3542,26 @@
         "java",
         "sandbox"
       ],
-      "stars": 52,
+      "stars": 54,
       "release": {
-        "tag": "01.000.267",
+        "tag": "01.000.279",
         "asset": "PPSA99874.zip",
-        "size": 127933009,
-        "sha256": "680e4342c974398158de1099249d0d83aae7cf778173863b484da65fa942cd28",
-        "content_version": "01.000.267",
+        "size": 127938217,
+        "sha256": "60a354e39a3a11b4bf0a4a4f62cba80220ea961781c846233929122197159cd2",
+        "content_version": "01.000.279",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-08T10:56:55Z",
-        "notes": "# ProsperoCraft 01.000.267\n\n## What's new\n\n- Automatically recover missing or invalid launch-cache metadata when pressing Play.\n- Add Quick refresh under Repair download, reusing local files and downloading only missing or damaged launch files.\n- Keep Full repair for checking every file, including asset checksums.\n- Improve cache recovery messages and progress reporting while preserving worlds, mods and settings.\n- Bug fixes."
+        "published_at": "2026-11-08T16:59:11Z",
+        "notes": "# ProsperoCraft 01.000.279\n\n## What's new\n\n- Increase Minecraft's background worker pool from three to five to improve chunk generation.\n- Apply the five-worker setting automatically when opening the launcher.\n- Replace decorative menu taglines with clear headings and simplify the startup introduction.\n- Keep the phone sign-in guidance on the Microsoft account screen.\n- Bug fixes."
       },
       "pins": [
+        {
+          "tag": "01.000.267",
+          "asset": "PPSA99874.zip",
+          "size": 127933009,
+          "sha256": "680e4342c974398158de1099249d0d83aae7cf778173863b484da65fa942cd28",
+          "content_version": "01.000.267",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.265",
           "asset": "PPSA99874.zip",
@@ -3568,14 +3592,6 @@
           "size": 127056881,
           "sha256": "89167d01c7da0ece733b0dd8b7871a05ee38ff5f79ee45b4ce9beefc5d4c14a0",
           "content_version": "01.000.204",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.179",
-          "asset": "PPSA99874.zip",
-          "size": 124180315,
-          "sha256": "7381b0746b178785b303f7486a0533aa6acce3d25167634b9ce849e0546b648a",
-          "content_version": "01.000.179",
           "title_name": "ProsperoCraft"
         }
       ]
