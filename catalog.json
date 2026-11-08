@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -851,7 +851,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 98,
+      "stars": 99,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -967,7 +967,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 229,
+      "stars": 230,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1229,7 +1229,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 404,
+      "stars": 405,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1259,7 +1259,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 471,
+      "stars": 473,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -2263,18 +2263,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 133,
+      "stars": 136,
       "release": {
-        "tag": "v2.3.5",
+        "tag": "v2.3.6",
         "asset": "PPSA11018.zip",
-        "size": 325280237,
-        "sha256": "29463476de1af92ef72472a0fd2e3755db3b62e24298001772ff677810588fc4",
-        "content_version": "02.003.005",
+        "size": 327845629,
+        "sha256": "fa55628a61a4378af1ced917097d95ca48df0b07b7647d616f7388f5f04e10f9",
+        "content_version": "02.003.006",
         "title_name": "PC5",
-        "published_at": "2026-11-06T10:17:11Z",
-        "notes": "PC5 2.3.5 gets more Steam games going, saves where the save failed, plays more games' videos, labels newer Unity games right, and lets games use PC5's language.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Games in PC5's language**: a game now starts in the language set in **Settings › System › Language**; with **System default** it is the console's, as before. A game that doesn't have your language may show the names of its text instead of the text: set PC5 to English for it.\n- **Starting from a home-screen tile**: a tile start now puts PC5's Steam emulator in place and registers PhysX, as a start from PC5's library does. Steam games started from their tile closed straight away before.\n- **A copy without Steam's library beside its program**: PC5 now puts its Steam emulator there even when the copy keeps another Steam stand-in in a folder of its own. A game that only loads Steam's library if it wants Steam (one from another store) no longer gets one, and one 2.3.4 put there for it is taken away.\n- **Saving**: some games ask how much free space the drive has before they save, and the console answered that drive C: didn't exist, so the game stopped. Fixed.\n- **Videos**: an MP4 video's sound and picture are now listed as Windows lists them, sound first. A game that took the picture for the sound stopped at its first video.\n- **Newer Unity games**: they draw with Direct3D 11, but PC5 took them for OpenGL or Direct3D 12. They're now set up as Direct3D 11 games and get **△ › Graphics › Graphics mode**.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in."
+        "published_at": "2026-11-08T11:02:28Z",
+        "notes": "PC5 2.3.6 fixes a freeze at start, black videos, and games that crashed without OpenAL, and says which DLL a game is missing.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Freeze at start**: a game that opened Windows' encryption over and over at start ran the console out of system resources and froze. Fixed (thanks to youss17x).\n- **Black videos**: Windows' video converter couldn't start the threads it asked for on the console, so every frame of a game's videos came out black. It now converts on one thread.\n- **OpenAL**: games made for OpenAL sound that don't bring their own OpenAL32.dll crashed at start. PC5 now has OpenAL Soft built in, and games installed before get it on their next start.\n\n### New\n\n- **A missing DLL is named**: when a game can't start because a DLL it needs isn't there, PC5's message says which one. For Microsoft's MFC (mfc100u.dll, mfc140u.dll and others) it also says which Visual C++ it comes from and where to copy it from on a Windows PC. A DLL of the wrong kind beside a game (32-bit for a 64-bit game) is named too.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI)."
       },
       "pins": [
+        {
+          "tag": "v2.3.5",
+          "asset": "PPSA11018.zip",
+          "size": 325280237,
+          "sha256": "29463476de1af92ef72472a0fd2e3755db3b62e24298001772ff677810588fc4",
+          "content_version": "02.003.005",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.4",
           "asset": "PPSA11018.zip",
@@ -2305,14 +2313,6 @@
           "size": 323867158,
           "sha256": "a76fcbd49ef77c198893c8deb8f14d267c804169e00c08607ebf75804d9c5482",
           "content_version": "02.002.004",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.2.2",
-          "asset": "PPSA11018.zip",
-          "size": 323794514,
-          "sha256": "06110e30db715251b043335b194aa9632f10d55eaf39f8a32d51d82a58cc4389",
-          "content_version": "02.002.002",
           "title_name": "PC5"
         }
       ]
@@ -2367,7 +2367,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1029,
+      "stars": 1033,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2416,7 +2416,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 256,
+      "stars": 257,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2446,7 +2446,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1644,
+      "stars": 1645,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2503,7 +2503,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 428,
+      "stars": 429,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3528,16 +3528,24 @@
       ],
       "stars": 52,
       "release": {
-        "tag": "01.000.265",
+        "tag": "01.000.267",
         "asset": "PPSA99874.zip",
-        "size": 127928066,
-        "sha256": "321f17e96e25dcb39bce4f77d4cffa27935abf976af3db38ebd33b3e89e8ade1",
-        "content_version": "01.000.265",
+        "size": 127933009,
+        "sha256": "680e4342c974398158de1099249d0d83aae7cf778173863b484da65fa942cd28",
+        "content_version": "01.000.267",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-07T20:46:29Z",
-        "notes": "# ProsperoCraft 01.000.265\n\n## What's new\n\n- Added Vanilla support for Minecraft 1.21 through 1.21.8.\n- Added Fabric support for Minecraft 1.21.7 through 1.21.11.\n- Fabric 1.21 through 1.21.6 is available as Experimental.\n- Controlify is installed by default for new Fabric instances and can be uninstalled.\n- Improved Controlify compatibility and fixed YACL dependency selection for 1.21.9.\n- Bug fixes."
+        "published_at": "2026-11-08T10:56:55Z",
+        "notes": "# ProsperoCraft 01.000.267\n\n## What's new\n\n- Automatically recover missing or invalid launch-cache metadata when pressing Play.\n- Add Quick refresh under Repair download, reusing local files and downloading only missing or damaged launch files.\n- Keep Full repair for checking every file, including asset checksums.\n- Improve cache recovery messages and progress reporting while preserving worlds, mods and settings.\n- Bug fixes."
       },
       "pins": [
+        {
+          "tag": "01.000.265",
+          "asset": "PPSA99874.zip",
+          "size": 127928066,
+          "sha256": "321f17e96e25dcb39bce4f77d4cffa27935abf976af3db38ebd33b3e89e8ade1",
+          "content_version": "01.000.265",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.256",
           "asset": "PPSA99874.zip",
@@ -3568,14 +3576,6 @@
           "size": 124180315,
           "sha256": "7381b0746b178785b303f7486a0533aa6acce3d25167634b9ce849e0546b648a",
           "content_version": "01.000.179",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.167",
-          "asset": "PPSA99874.zip",
-          "size": 123870351,
-          "sha256": "3480ab817659c43e954ce89ba5933cb5181f2fe2f396b1321bfae51d274171de",
-          "content_version": "01.000.167",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -4204,7 +4204,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 18,
+      "stars": 19,
       "release": {
         "tag": "v1.0.3",
         "asset": "WindWaker-PS5-v1.0.3.zip",
