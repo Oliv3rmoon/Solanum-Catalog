@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -788,7 +788,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 188,
+      "stars": 189,
       "release": {
         "tag": "v1.6.3",
         "asset": "PPSA99810.zip",
@@ -1229,7 +1229,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 403,
+      "stars": 404,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1259,7 +1259,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 470,
+      "stars": 471,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -2367,7 +2367,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1026,
+      "stars": 1029,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2446,7 +2446,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1640,
+      "stars": 1644,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -3166,16 +3166,24 @@
       ],
       "stars": 90,
       "release": {
-        "tag": "build-138",
+        "tag": "build-140",
         "asset": "halo-ps5-release.zip",
-        "size": 57145729,
-        "sha256": "6b81d73a8f6f665031f4b1e3a1ae927272a869f978c02a20789f8554411f608e",
-        "content_version": "01.000.138",
+        "size": 57275065,
+        "sha256": "61216505a14e5208e974661252ef132dbd9556d99d4968968a38565739442059",
+        "content_version": "01.000.140",
         "title_name": "SlipstreamCE",
-        "published_at": "2026-11-06T05:52:50Z",
-        "notes": "Build 138: Hotfix for input lag\n\n- Switch: much less input lag. In our tests, the time from the stick moving to the view turning went from about 102 ms to about 67 ms. In first person on foot, the view now follows your stick on the frame you move it, and the game reads your input later, just before it's needed. To go back, set `display.direct_camera` to `false` or `debug.frame_pace_ahead` to `true` in `config.toml`. (thelinkin3000)\n- Android: in first person on foot, the view now follows your aim on the frame you move it, instead of up to two game ticks later. To go back, set `display.direct_camera` to `false` in `config.toml`. (thelinkin3000)\n- Android: Build 136 left out the new SlipstreamCE app, so the old Halo app said \"The new game could not be found.\" The app is included now. Open the old Halo app and it downloads the new one. Your saves and settings are still in the old app until the new one copies them, so don't remove the old app before that. (thelinkin3000)\n- SlipstreamCE: this fork of OpenCE has a new name and a new logo, by puginatux, on Android, Switch and PS5. The project is now at github.com/thelinkin3000/SlipstreamCE, and old links redirect there. Your saves and settings stay yours on every platform. (thelinkin3000)\n- Switch: because the game's name and icon are changing, rebuild your forwarder if you start the game from one on your homescreen. Until you do, it keeps the old name and icon. The game stays at `/switch/halo/halo.nro`. (thelinkin3000)\n- Switch: builds older than v94 can no longer update themselves. If you're on one, install this release by hand. (thelinkin3000)\n- PS5: because the game's name and icon are changing, uninstall the game from the home screen after this update. ShadowMountPlus then loads it again with the correct name and icon. (thelinkin3000)\n- Android: the game is now a new app, SlipstreamCE (`ar.com.slipstreamce`), because Android can't change an installed app's package name. Your update to the old Halo app downloads the new one and offers to install it. The first time it starts, the new app copies your saves, settings, mods, replays, maps and touch layouts. Don't remove the old app until the new one offers to remove it. (thelinkin3000)\n- Multiplayer Color: your Spartan is now the game's real model in your color, holding the assault rifle, the plasma rifle and the skull in turn. The right stick turns him, the north button changes what he holds, and he walks when left alone. Select Profile shows him too. Without `wizard.map`, the screens keep their picture. (thelinkin3000)"
+        "published_at": "2026-11-08T00:04:15Z",
+        "notes": "Build 140: Dynamic lighting, and better Custom Edition maps!\n\n### Dynamic lighting\n\n- New: dynamic lighting, ported from GulchCE, on Vulkan (Android) and the Switch. Plasma bolts, rockets, muzzle flashes, held energy weapons, the Assault Rifle's ammo counter, Needlers, fuel rods, Jackal and Covenant shields, vehicles, powerups and teleporters can light what's around them, and energy shields glow onto their surroundings as they flare. Turn each one on in Video Setup > Dynamic Lighting; they're all off by default. (ported by thelinkin3000, thanks a lot Chester!)\n- Light Occlusion: dynamic lights stop at walls and vehicles instead of shining through them. On Android, Occluded Lights sets how many lights a frame get it (8, 6 or 4, 6 by default); fewer is faster on a slower phone. (thelinkin3000)\n- Dynamic lighting is tuned to keep big fights smooth: held weapons and moving lights trace far fewer rays, weapon lights always leave room for other lights, lights that can't reach your view or are far away stay as the game draws them, and a light on a moving object no longer rebuilds its place in the level every tick. (thelinkin3000)\n\n### Custom Edition maps\n\n- HUDs on Custom Edition maps now draw on Vulkan (Android) and the Switch as they do on OpenGL: ammo counters and health and shield meters drawn from sheets the map shares with other HUD art show correctly, and segmented high-res meters keep their steps sharp. With High-Res HUD on, the original HUD sheets that have no high-res redraw are drawn four times larger and smoother. (thelinkin3000, from chestahh's fix for OpenGL)\n- Android: DELETE on New Game's and the Map screen's map lists deletes the custom map or folder of maps chosen, after a second press to confirm. Only custom maps can be deleted. (thelinkin3000)\n- Android: on phones whose GPU can't use the game's compressed (DXT) textures, like the Nokia 8's Adreno 540 and Mali GPUs, most textures now take a quarter of the memory they did. Big Custom Edition maps such as the_Cage no longer run the phone out of memory while they load. To go back, set `display.dxt1_astc` to `false` in `config.toml`. (thelinkin3000)\n- Switch: very large textures (over 8 MB once unpacked) are drawn again. On the_Cage the pistol's zoom showed garbage instead of its scope, and the large 3D texture the game's own dynamic lights fade with was never drawn. (thelinkin3000)\n- Custom Edition maps: a custom_maps folder with no maps of its own, only folders of maps, no longer stops the game while it looks for maps. (thelinkin3000)\n\n### Theater and replays\n\n- Theater: once the player keeps moving, the cinematic camera now follows them at the left stick's distance, instead of chasing them in surges. It still stays put like a tripod while they stand or make short moves. (thelinkin3000)"
       },
       "pins": [
+        {
+          "tag": "build-138",
+          "asset": "halo-ps5-release.zip",
+          "size": 57145729,
+          "sha256": "6b81d73a8f6f665031f4b1e3a1ae927272a869f978c02a20789f8554411f608e",
+          "content_version": "01.000.138",
+          "title_name": "SlipstreamCE"
+        },
         {
           "tag": "build-135",
           "asset": "halo-ps5-release.zip",
@@ -3206,14 +3214,6 @@
           "size": 56710789,
           "sha256": "7e9dcf435720ae4196a855d66847b0c389db436b872fdd2edf38bd3afbf7d918",
           "content_version": "01.000.131",
-          "title_name": "Halo: Combat Evolved"
-        },
-        {
-          "tag": "build-130",
-          "asset": "halo-ps5-release.zip",
-          "size": 56697129,
-          "sha256": "57c4afa8b8f195854d9ec3417f2ebbf30e43701f588fbf129931dcf8bcb7d660",
-          "content_version": "01.000.130",
           "title_name": "Halo: Combat Evolved"
         }
       ]
@@ -3456,15 +3456,25 @@
       ],
       "stars": 6,
       "release": {
-        "tag": "01.000.000",
+        "tag": "01.000.010",
         "asset": "PPSA99403.zip",
-        "size": 327963187,
-        "sha256": "03a69011cfd999b0128799dfd15ae675a251ce79ae803c6230932619f40fe840",
-        "content_version": "01.000.000",
+        "size": 327963004,
+        "sha256": "1599e55076afe4cee55a364325df769ae304b3770f49d68e4c60df34a7fcc382",
+        "content_version": "01.000.010",
         "title_name": "NFS Most Wanted",
-        "published_at": "2026-10-18T19:43:22Z",
-        "notes": "## First release: Need for Speed: Most Wanted (2005)\n\n### What it does\n- Installs Most Wanted from your own copy of the PC game (1.2 from the disc, or 1.3), from the console or a USB drive, in one press. A 1.2 copy is brought up to 1.3. Your copy is never changed.\n- Adds Widescreen Fix, the ASI loader, XtendedInput (DualSense, touchpad as the cursor), the HUD Adapter, DSOAL and a console keyboard.\n- Optional Xbox 360 look: the Xbox 360 Stuff Pack 4.2, the converted Xbox 360 movies, HD Content Support, Front-End Shadows and HD Reflections (about 3.7 GB more).\n- Runs at 4K. PS5 Options in the game's Options menu: performance overlay, the Xbox 360 look, repair on next start; Triangle there restarts the game with them.\n- After the install, the tile starts the game directly.\n\n### You need\n- Your own copy of the game. Nothing in this release contains it.\n- A jailbroken PS5 that runs homebrew apps (tested on a PS5 Pro, firmware 13.60, etaHEN, kstuff, ShadowMount+).\n\n### Files\n- PPSA99403.zip, sha256 03a69011cfd999b0128799dfd15ae675a251ce79ae803c6230932619f40fe840\n- Its launcher (eboot.bin) is built from lavavex/nfs-blackbox-launcher, tag 01.000.000."
-      }
+        "published_at": "2026-11-08T01:06:04Z",
+        "notes": "## 01.000.010: install fix and better logs\n\n### Fixed\n- A fresh install no longer fails at the very end with `Can't write pb-nfsmw.profile: open: No such file or directory` (#1, #8). On a console that had never run another prospero-win game, the `profiles` folder didn't exist yet. The install now creates it. You no longer need to make `/data/prospero-win/profiles` by hand.\n\n### Changed\n- The session logs in `/data/prospero-win/logs/` are now saved to disk about once a second. If the game hangs and the console needs a hard reset (#4, #5, #12), the log now keeps everything up to the hang. If you report a freeze or crash, please attach the newest `session-N.log`.\n\n### You need\n- Your own copy of the game. Nothing in this release contains it.\n- A jailbroken PS5 that runs homebrew apps (tested on a PS5 Pro, firmware 13.60, etaHEN, kstuff, ShadowMount+).\n\n### Files\n- PPSA99403.zip, sha256 1599e55076afe4cee55a364325df769ae304b3770f49d68e4c60df34a7fcc382\n- Its launcher (eboot.bin) is built from lavavex/nfs-blackbox-launcher, tag 01.000.010."
+      },
+      "pins": [
+        {
+          "tag": "01.000.000",
+          "asset": "PPSA99403.zip",
+          "size": 327963187,
+          "sha256": "03a69011cfd999b0128799dfd15ae675a251ce79ae803c6230932619f40fe840",
+          "content_version": "01.000.000",
+          "title_name": "NFS Most Wanted"
+        }
+      ]
     },
     {
       "id": "pokemmo-prospero",
@@ -3516,7 +3526,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 51,
+      "stars": 52,
       "release": {
         "tag": "01.000.265",
         "asset": "PPSA99874.zip",
@@ -3686,7 +3696,7 @@
         "xbox",
         "prince-of-persia"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "01.005.000",
         "asset": "PPSA99023-01.005.000.zip",
@@ -5430,7 +5440,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 509,
+      "stars": 510,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
