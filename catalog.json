@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 6,
+      "stars": 9,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 75,
+      "stars": 74,
       "release": {
         "tag": "v0.6.0",
         "asset": "PPSA85300.zip",
@@ -479,16 +479,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "v1.5.4",
-        "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
-        "size": 45564262,
-        "sha256": "a75a14887c8dd2eeeca08cfcb53bc0dda37e0f7519a019ceb386970be84ac5fb",
-        "content_version": "01.054.000",
+        "tag": "v1.6.0",
+        "asset": "MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip",
+        "size": 72813867,
+        "sha256": "f12d9daf3542290a55fcbdd1ebf2fe0809cb4e8cc7a65b035f438e71600adc74",
+        "content_version": "01.060.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-11-03T10:38:36Z",
-        "notes": "## Media Player Classic PS5 1.5.4\n\nWhat [@Sulfurico-One64](https://github.com/Sulfurico-One64) found on [#3](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/3) after updating to 1.5.3 from the app.\n\n### Fixed\n\n- **Restart App after an update now opens the app again.** Up to 1.5.3, choosing Restart App after Help > Check for updates went back to the PS5 home screen, and you had to open the app by hand.\n  - Now the app asks its helper to open it again, then closes the normal way. The helper waits for the app to close, then gives the console a few seconds before opening Media Player Classic PS5 again, once.\n  - **When it applies:** only from 1.5.4 on. Updating *to* 1.5.4 still uses 1.5.3's restart, so the first time to see it is the update to the next version.\n  - **The helper:** it must be 1.5.4's, so put `MediaPlayerClassicPS5-v1.5.4.elf` in your autoload in place of an older one. With an older helper, the app says to close it and open it again, as before.\n  - **If it can't open the app,** a notice says to open it from the home screen.\n  - **If you open the app yourself meanwhile,** the helper leaves it alone.\n- **The version shown in App Information** (the home screen's information on the app) still shows an older version after an update made from the app.\n  - The version that runs is the new one: Help > About shows it.\n  - That number comes from the console's own app databases. Changing them isn't safe, so the app doesn't touch them.\n  - **To refresh it:** uninstall the app from the home screen and let ShadowMount+ add it again. If you listed it in `/data/shadowmount/manual.lst`, add its line back first.\n  - The README's Updates section explains this.\n- A message that said running ShadowMount+ again \"registers the app again\" now says what it does: it mounts the app's folder again.\n\n### Updating\n\n- **From 1.5.3:** Help > Check for updates offers 1.5.4. Or send `MediaPlayerClassicPS5-v1.5.4.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload: the new restart needs its helper.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.5.4.elf`: send it to your payload loader (port 9021). It installs the app, then stays as the helper that unlocks it.\n- `MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip`: the app folder, used by Help > Check for updates. You don't need to download it yourself.\n- `mpc-ps5-v1.5.4-src.zip`: the source.\n\n### Status\n\nIt passes its host tests (613; one timing check depends on the test machine's load)."
+        "published_at": "2026-11-09T15:42:11Z",
+        "notes": "## Media Player Classic PS5 1.6.0\n\nGPU rendering and console decoder startup fixes, with optional native HDR10 output. This release is based on the 1.6 test13 sources. The app's internal version remains 1.6 and its title ID remains PPSA99015.\n\n### New\n\n- **The GPU draws the video.** Vulkan scales and converts the decoder's pictures and lays the window, menus and subtitles over them. The controls are still drawn into a bitmap on the CPU before GPU composition.\n- **Optional native HDR10 output.** On a compatible TV, the player requests 10-bit PQ/BT.2020 output. PQ video is preserved; HLG is converted to PQ. The interface uses a 203-nit graphics white. Options > Output controls it, from the next start.\n- **SDR tone mapping remains available.** If HDR output is refused or not confirmed, the player returns to SDR. For an SDR TV, turn native HDR output off and restart.\n\n### Fixed\n\n- **Missing Vulkan functions in the player.** The RADV driver is now linked in full, with a build check for the implemented entry points.\n- **Repeated GPU startup attempts.** Recovery is saved before entering the driver. After an interrupted or failed start, the next launch uses software rendering. Options > Output > Retry GPU next start allows another attempt.\n- **Decoder memory queries after leaving the sandbox.** Successful queries made early are cached for matching H.264, HEVC and VP9 configurations up to 4K. Unsupported streams still use FFmpeg on the CPU.\n- **The app's HDR capability profile.** hdr2 rebuilds the installer with attribute 0x62000000. Its player binary is unchanged from the tested hdr1 build.\n- **Update recovery and build fixes.** Preserve incomplete rollback state, reject invalid update ZIP entries, fail closed on file hash errors, redact truncated URL credentials and fix dependency/header discovery.\n\n### Updating\n\n- **From 1.5.4:** choose Help > Check for updates, confirm the download and installation, then restart the app. Or send `MediaPlayerClassicPS5-v1.6.0.elf` to your payload loader (port 9021) and open the app from the home screen.\n- Put the new ELF in your autoload in place of the older one so the matching helper runs.\n- The in-app updater downloads `MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip`, verifies GitHub's SHA-256 and the embedded file manifest, then installs the app. The ELF remains available for manual installation and for updating the helper.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.6.0.elf`: the installer and helper, with the native player embedded.\n- `MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip`: the app folder and file manifest, used by Help > Check for updates. You do not need to download it manually.\n- `mpc-ps5-v1.6.0-src.zip`: the source, including third-party notices and build notes."
       },
       "pins": [
+        {
+          "tag": "v1.5.4",
+          "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
+          "size": 45564262,
+          "sha256": "a75a14887c8dd2eeeca08cfcb53bc0dda37e0f7519a019ceb386970be84ac5fb",
+          "content_version": "01.054.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.5.3",
           "asset": "MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip",
@@ -975,7 +983,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 231,
+      "stars": 232,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1237,7 +1245,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 407,
+      "stars": 408,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1267,7 +1275,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 476,
+      "stars": 480,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1654,7 +1662,7 @@
         "llm",
         "chat"
       ],
-      "stars": 66,
+      "stars": 67,
       "release": {
         "tag": "01.006.000",
         "asset": "PPSA99004.zip",
@@ -1683,7 +1691,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 818,
+      "stars": 823,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1769,18 +1777,26 @@
         "xbox",
         "xemu"
       ],
-      "stars": 208,
+      "stars": 209,
       "release": {
-        "tag": "v3.2",
+        "tag": "v3.3",
         "asset": "PPSA97358.zip",
-        "size": 13595727,
-        "sha256": "a10f6d7c60b30da94544684a8ab1d12f1117dd53471ab44d4dc1e4eb5441f98a",
+        "size": 13507307,
+        "sha256": "b006b17ff0ac256e32ea5f99e9852fd898586c667bda3ec323914510b2ad7cbd",
         "content_version": "01.000.000",
         "title_name": "XPSemu",
-        "published_at": "2026-11-08T16:58:11Z",
-        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.2</h1>\n\n<p align=\"center\">\n  <strong>More Sega Chihiro games, your DualSense does more.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; All 8 Sega Chihiro arcade games are playable</strong></summary>\n<br>\n\nMore Sega Chihiro games runs on the same native core as Xbox games, at 60 FPS, each with controls made for its cabinet:\n\n- **OutRun 2** (with steering force feedback)\n- **Crazy Taxi: High Roller**\n- **Ollie King**\n- **Virtua Cop 3**\n- **Ghost Squad**\n- **The House of the Dead III**\n- **Wangan Midnight Maximum Tune**\n- **Wangan Midnight Maximum Tune 2**\n\n> Best format per game:\n> - **CHD** for the MAME GD-ROM games (smallest on disk).\n> - **Netboot `.bin`** for House of the Dead III, Virtua Cop 3 and Ghost Squad (already unlocked, opens fastest).\n> - **GD-ROM** for OutRun 2.\n>\n> Every game has its own layout: see **[Chihiro controls](https://github.com/ZiZc3/XPSemu/blob/main/Chihiro-Controls.md)**.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Your DualSense does more</strong></summary>\n<br>\n\n- **Adaptive triggers** — the L2/R2 triggers push back: a pedal feel in driving games, a trigger feel in shooters. set it per game (**Auto / Off / Heavy / Trigger**) in a game's settings > Controller.\n- **Gyro aim** — tilt the controller to aim, per game (Off by default, Low / Medium / High) in game settings > Controller.\n- **Per-game button mapping** — remap every Xbox button on its own screen (game settings > Controller), with swap-sticks and invert options.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Improved Picture</strong></summary>\n<br>\n\n- **Anisotropic filtering** (up to 16x, on by default) — ground and road textures stay sharp into the distance.\n- **AMD CAS sharpening** — a clean, adjustable sharpen pass, picked as an upscaler.\n- **CRT filter** — optional scanlines or a full CRT look (curve, mask and vignette).\n\nAll of these are per game and live in **Settings > Video** and the quick menu's **Picture** group.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Fast-forward</strong></summary>\n<br>\n\n- Run Xbox games at **double speed** x2.\n- Turn it on in **Settings > Advanced**, then flip it any time from the quick menu.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Trainers</strong></summary>\n<br>\n\n- Load a game's **`.etm`** trainer and pick its options per game; they're applied when the game starts.\n- Trainers live in `/data/xpsemu/trainers/` (or `xpsemu/trainers/` on a USB drive). **None are shipped** — add your own.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>"
+        "published_at": "2026-11-09T07:36:40Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.3</h1>\n\n<p align=\"center\">\n  <strong>HD haptics, PAL games at 60 Hz, game fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; DualSense HD haptics</strong></summary>\n<br>\n\n- Xbox rumble now plays on the DualSense's **modern haptic motors** instead of the old-style rumble. Engines, crashes and gunfire feel detailed and precise.\n- Works on all 4 controllers, in every Xbox game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; PAL games at 60 Hz</strong></summary>\n<br>\n\n- **PAL 60 Hz is now on for every PAL (European) game**, so they run at 60 Hz like the US versions, with no setting to change.\n- If you want a game at 50 Hz, turn **PAL 60 Hz** off for just that game in its settings or the quick menu.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **Midtown Madness 3**: the crash is fixed ([#34](https://github.com/ZiZc3/XPSemu/issues/34)). It now unlocked at **60 FPS by default**.\n- **RalliSport Challenge 2**: fixed ([#33](https://github.com/ZiZc3/XPSemu/issues/33)), along with the game running too slow and getting stuck loading into a race.\n- **Thief: Deadly Shadows (Europe)**: the crash while loading is fixed.\n- **Updates** slow download fixed.\n\n</details>\n\n---\n\n## Installation\n\n1. Download `PPSA97358.zip`, extract it, and copy `PPSA97358/` to `/data/homebrew/`.\n2. Copy your Xbox games to `/data/xpsemu/games/` and your Chihiro games to `/data/xpsemu/chihiro/games/` (or `xpsemu/chihiro/games/` on a USB drive).\n3. Launch XPSemu from the home screen.\n\n## Updates\n\n1. System > Check for updates does it for you.\n\n> [!IMPORTANT]\n> run XPSemu with [kstuff lite](https://github.com/EchoStretch/kstuff-lite/releases), and at least [ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus/releases)."
       },
       "pins": [
+        {
+          "tag": "v3.2",
+          "asset": "PPSA97358.zip",
+          "size": 13595727,
+          "sha256": "a10f6d7c60b30da94544684a8ab1d12f1117dd53471ab44d4dc1e4eb5441f98a",
+          "content_version": "01.000.000",
+          "title_name": "XPSemu"
+        },
         {
           "tag": "v3.1",
           "asset": "PPSA97358.zip",
@@ -2236,7 +2252,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 385,
+      "stars": 386,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2279,18 +2295,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 136,
+      "stars": 138,
       "release": {
-        "tag": "v2.3.6",
+        "tag": "v2.3.7",
         "asset": "PPSA11018.zip",
-        "size": 327845629,
-        "sha256": "fa55628a61a4378af1ced917097d95ca48df0b07b7647d616f7388f5f04e10f9",
-        "content_version": "02.003.006",
+        "size": 327847522,
+        "sha256": "fc8a0a48fb1259d93160a3329c2430575ebfcd640c9cd5dbdaca6573217e9248",
+        "content_version": "02.003.007",
         "title_name": "PC5",
-        "published_at": "2026-11-08T11:02:28Z",
-        "notes": "PC5 2.3.6 fixes a freeze at start, black videos, and games that crashed without OpenAL, and says which DLL a game is missing.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Freeze at start**: a game that opened Windows' encryption over and over at start ran the console out of system resources and froze. Fixed (thanks to youss17x).\n- **Black videos**: Windows' video converter couldn't start the threads it asked for on the console, so every frame of a game's videos came out black. It now converts on one thread.\n- **OpenAL**: games made for OpenAL sound that don't bring their own OpenAL32.dll crashed at start. PC5 now has OpenAL Soft built in, and games installed before get it on their next start.\n\n### New\n\n- **A missing DLL is named**: when a game can't start because a DLL it needs isn't there, PC5's message says which one. For Microsoft's MFC (mfc100u.dll, mfc140u.dll and others) it also says which Visual C++ it comes from and where to copy it from on a Windows PC. A DLL of the wrong kind beside a game (32-bit for a 64-bit game) is named too.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI)."
+        "published_at": "2026-11-09T14:15:01Z",
+        "notes": "PC5 2.3.7 fixes a crash in videos and typing with the on-screen keyboard, gets more Steam copies going, gives games the processor's name, and says more in its logs.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **A crash during videos**: a game that handed Windows' video code an empty frame crashed in it. The empty frame is now refused instead.\n- **The on-screen keyboard**: PC5 typed a whole word into the game at once, and a game that takes one letter per frame kept only the first. It now types a letter at a time.\n- **The processor's name**: games found no name for the processor (Unity games showed \"Processor: Unknown\"), and a game that picks its first settings from it could stop loading. Games now find it, as on a PC.\n- **Copies with ColdClientLoader**: its loader starts the game as a second program, which the console can't do, so the game was left with Steam's own library and asked for Steam. PC5's Steam emulator now takes Steam's place in such a copy too.\n- **Programs a game starts**: on some consoles PC5 couldn't make the connection it needs to start them (\"Operation not supported\"). It now tries the console's other folders for it.\n\n### Logs\n\n- **What the log shows**: a report's `about.txt` now sums up what the game's log shows: what the crash was, a DLL the game needs that isn't there, programs the game tried to start, what it drew with, its memory, and the language it was given.\n- **The start of a big log**: of a game's own log larger than 2 MB, the start is kept as well as the end.\n- **Less noise**: two kinds of line some games write many times a second are counted instead of logged, which leaves room for the rest and takes a little less of the game's time.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself."
       },
       "pins": [
+        {
+          "tag": "v2.3.6",
+          "asset": "PPSA11018.zip",
+          "size": 327845629,
+          "sha256": "fa55628a61a4378af1ced917097d95ca48df0b07b7647d616f7388f5f04e10f9",
+          "content_version": "02.003.006",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.5",
           "asset": "PPSA11018.zip",
@@ -2321,14 +2345,6 @@
           "size": 325217050,
           "sha256": "7d851d5c24de3dcc53e5185725b47c2c976bfd32f12c6c6708559c6749404648",
           "content_version": "02.003.000",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.2.5",
-          "asset": "PPSA11018.zip",
-          "size": 323867158,
-          "sha256": "a76fcbd49ef77c198893c8deb8f14d267c804169e00c08607ebf75804d9c5482",
-          "content_version": "02.002.004",
           "title_name": "PC5"
         }
       ]
@@ -2383,7 +2399,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1044,
+      "stars": 1045,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2462,7 +2478,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1647,
+      "stars": 1652,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2519,7 +2535,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 429,
+      "stars": 431,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3284,7 +3300,7 @@
         "amiga",
         "platformer"
       ],
-      "stars": 23,
+      "stars": 24,
       "release": {
         "tag": "v1.0.2",
         "asset": "JamesPond2-PS5-1.0.2.zip",
@@ -3346,7 +3362,7 @@
         "zelda",
         "adventure"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99670.zip",
@@ -3470,7 +3486,7 @@
         "need-for-speed",
         "racing"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "01.000.010",
         "asset": "PPSA99403.zip",
@@ -3542,7 +3558,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 54,
+      "stars": 55,
       "release": {
         "tag": "01.000.279",
         "asset": "PPSA99874.zip",
@@ -3617,16 +3633,26 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "01.000.000",
-        "asset": "Pulse-01.000.000.zip",
-        "size": 12864692,
-        "sha256": "9103d3d61dfcd41f20b5646e42c7c47c3f0a72b422bb0f1ff6b983389dff14fb",
-        "content_version": "01.000.000",
+        "tag": "01.000.001",
+        "asset": "Pulse-01.000.001.zip",
+        "size": 12865813,
+        "sha256": "243fddf6375a961e3049ea636e66b39db6844c493a805fe15d339f7fb539b0e9",
+        "content_version": "01.000.001",
         "title_name": "Pulse",
         "prerelease": true,
-        "published_at": "2026-10-19T16:26:55Z",
-        "notes": "First public beta of Pulse, a Beat Saber-style rhythm game for the jailbroken PS5 with PS VR2 and Sense controllers (title ID `PPSA99993`).\n\nGive it any MP3 and it analyses the song on the console and cuts Easy, Medium, Hard and Extreme maps from it.\n\n**What is in it**\n- Four levels per song, neon fractal backgrounds with bloom, one-handed play (Hands), seated mode, smaller and easier play areas (1.7 m, 1.4 m), colour-blind palettes, saber glow off, hints off\n- Title DEMO: a random song and level plays itself\n- One generated demo song, \"Neon Run\" (no copyrighted music in the zip)\n- No network code and no extra privileges in this build\n\n**Known limits**\n- Sense controller haptics are not available yet (the calls return invalid handle); the headset rumbles on blade clashes instead\n- Tested on one PS5 with a PS VR2 only; the headset code uses firmware 13.60 offsets\n- The PS5 still needs both controllers connected and charged, even for one-handed play\n\n**Install**: unzip, copy the `PPSA99993` folder to your mounted app location (for example `/mnt/usb0/PPSA99993`), start the jailbreak, mount it and launch Pulse. Put your own MP3s in `assets/songs`.\n\nSHA-256 of `Pulse-01.000.000.zip`: `9103d3d61dfcd41f20b5646e42c7c47c3f0a72b422bb0f1ff6b983389dff14fb`"
-      }
+        "published_at": "2026-11-09T19:03:53Z",
+        "notes": "Fixes \"No songs found\" when Pulse is installed on the console's internal storage (issue #1). Internal storage is where ProsperoStore installs by default, and a USB drive is no longer needed.\n\n**Changes**\n- Songs are now found on internal installs (`/data/homebrew/PPSA99993`) as well as USB. Tested on one PS5 from both.\n- If the folder cannot be listed, the game now falls back to `index.txt` as intended.\n\n**Where to keep your own music**\nKeep it outside the game's folder. A store update replaces the whole `PPSA99993` folder (the old one is kept in `prosperostore/previous` only until the next update) and an uninstall deletes it. **If you have added songs to `assets/songs`, move them before updating.**\n- Running from USB: a `songs` folder at the top of the drive, for example `/mnt/usb0/songs`.\n- Running from internal storage: while Pulse is running, FTP them to `/mnt/sandbox/PPSA99993_000/download0/songs`. This space is limited to about 250 MB.\n\nThen choose **Options, Rescan Music**.\n\n**Known limits**\n- The headset code uses firmware 13.60 offsets only; on other firmware Pulse starts in the flat TV view\n- Sense controller haptics are not available yet\n- The PS5 still needs both controllers connected and charged, even for one-handed play\n\n**Install**: install from ProsperoStore, or unzip and copy the `PPSA99993` folder to `/data/homebrew/PPSA99993` (or a USB drive, for example `/mnt/usb0/PPSA99993`), start the jailbreak, mount it and launch Pulse.\n\nSHA-256 of `Pulse-01.000.001.zip`: `243fddf6375a961e3049ea636e66b39db6844c493a805fe15d339f7fb539b0e9`"
+      },
+      "pins": [
+        {
+          "tag": "01.000.000",
+          "asset": "Pulse-01.000.000.zip",
+          "size": 12864692,
+          "sha256": "9103d3d61dfcd41f20b5646e42c7c47c3f0a72b422bb0f1ff6b983389dff14fb",
+          "content_version": "01.000.000",
+          "title_name": "Pulse"
+        }
+      ]
     },
     {
       "id": "raptor",
@@ -4029,7 +4055,7 @@
         "gamecube",
         "mario"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "v0.10.0",
         "asset": "Sunshine-PS5-v0.10.0.zip",
@@ -5417,16 +5443,24 @@
       ],
       "stars": 19,
       "release": {
-        "tag": "01.000.039",
+        "tag": "01.000.040",
         "asset": "PPSA90210.zip",
-        "size": 9125272,
-        "sha256": "d05de23402359b492cce5cbd3ae9db3657cf8225b2e831e1d9afa4318d7a1be8",
-        "content_version": "01.000.039",
+        "size": 9137497,
+        "sha256": "70035f0c8d21216d78bb4acb82165bbab038a8b1e86ee1aef72fc75920b91640",
+        "content_version": "01.000.040",
         "title_name": "Prospero Themes",
-        "published_at": "2026-11-01T15:56:09Z",
-        "notes": "## Changes\n\n- **Originals without a backup.** A theme pack can now carry a firmware's original system icons and UI sounds, in a new `stock` layer. On a console whose backups are gone, such a pack brings the icon container back byte for byte when it has that firmware's files, and only then. On other firmware it puts back by name what a theme changed and says if anything could not be. A pack that holds a firmware's own file also writes it at full volume and no longer reports it as having no original.\n- **Theme details name them.** A pack with the original icons and sounds says so on the detail page and in the Library.\n- **Better detection of old backups.** A main background that shows the picture two or more system tiles share now counts as a theme's, so it is not kept as an original.\n\nTested on FW 13.00. Putting icons and sounds back by name was only tested in a simulation with 13.00's files, not on other firmware.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `d05de23402359b492cce5cbd3ae9db3657cf8225b2e831e1d9afa4318d7a1be8`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
+        "published_at": "2026-11-09T14:06:47Z",
+        "notes": "## Changes\n\n- **Catalogs from the store.** On a firmware the app carries no catalog for, it now loads the one the store has, checks it and keeps a copy in `/data/prospero-themes/catalogs/`. The System tab says where the catalog comes from. Firmware reports you send from the app are what these catalogs are made from.\n- **Media Gallery tile icon.** The catalogs for 11.60, 13.00, 13.20, 13.40, 13.42 and 13.60 now know the Media Gallery tile icon, which themes can change and Restore defaults puts back.\n- **Plain words for consoles another tool themed first.** When the app finds files another tool had already changed, with no original left to put back, it says once what Restore defaults cannot bring back (backgrounds, icons, sounds…), and the Restore defaults row and question keep saying it.\n\nTested on FW 13.00. The store catalogs were tested with the bundled 13.00 catalog in place, so loading one from the store was only tested on the PC.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `70035f0c8d21216d78bb4acb82165bbab038a8b1e86ee1aef72fc75920b91640`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
       },
       "pins": [
+        {
+          "tag": "01.000.039",
+          "asset": "PPSA90210.zip",
+          "size": 9125272,
+          "sha256": "d05de23402359b492cce5cbd3ae9db3657cf8225b2e831e1d9afa4318d7a1be8",
+          "content_version": "01.000.039",
+          "title_name": "Prospero Themes"
+        },
         {
           "tag": "01.000.038",
           "asset": "PPSA90210.zip",
@@ -5456,7 +5490,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 510,
+      "stars": 511,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5547,17 +5581,27 @@
         "saves",
         "sync"
       ],
-      "stars": 108,
+      "stars": 113,
       "release": {
-        "tag": "v1.4.0",
+        "tag": "v1.4.1",
         "asset": "PPSA76677.zip",
-        "size": 47175475,
-        "sha256": "c870b88e1299bd6f24ccc0b82a0e1bf0333d0091ec60519ec7480a686ba257fe",
-        "content_version": "01.004.000",
+        "size": 47185101,
+        "sha256": "e829034d66fae048c221580d2998f86380866bcfd33d80cdbbf754315ef1fbc0",
+        "content_version": "01.004.001",
         "title_name": "RommPS",
-        "published_at": "2026-10-30T05:19:40Z",
-        "notes": "Another significant update packing a plethora of features. I've spent a good amount of time optimizing connection handling as well as loading of covers and information, especially for larger libraries. This update also brings significant overhaul of save sync support for those consoles that are a bit more involved, like the Switch and 3DS.\n\nAn extra special thank you to @jheyneman for his extensive testing since the beginning.\n\n### New\n\n- RomM collections support (Thanks @matschi95)\n- Native notifications support.\n- Direct emulator profile updates in app, no more waiting for a new app version.\n- Proper PS2 per-game memory card support. (Thanks to @herobeniyoutube).\n- Additional animations during library and cover loading.\n- Different versions, discs, update files, or DLCs are now properly shown under a single game and individually downloadable.\n- Additional game information displayed in details view.\n- Emulator support: GBCXY (Game Boy / Color), Mupen64Plus PS5, Snes9x PS5, Genesis Plus GX PS5, Beetle PCE PS5, FBNeo PS5, PSP5, Crux2, Seedee5, and PS5-ECAM\n- Fixed: PSP games that install data to the memory stick no longer fail to sync.\n- PS2 per-game saves corrected and syncing as expected. ([#32](https://github.com/s0liton/RommPS/issues/32))\n\n### Fixed\n\n- DS saves sync in PS5CEMU-HAR ([#30](https://github.com/s0liton/RommPS/issues/30)).\n- Multiple emulators per game platform are now mounted instead of copied.\n- Resting the console with a game open no longer counts as closing it.\n- Covers stay on screen when a game is downloaded or removed.\n- PS4: less memory used with big emulator setups.\n- Renamed game consoles in settings to reflect their proper brand names.\n- Various UI improvements since 1.2.1 (Thanks @jheyneman) \n\n### Good to know\n\n- Pair RommPS with RomM again to see collections, which gives you the needed collections permissions.\n- Switch saves sync for one Switch user per emulator, the one mapped to the first PS5 user. I'll work on multiple profile support."
-      }
+        "published_at": "2026-11-09T08:20:05Z",
+        "notes": "A small one: RomM servers behind client certificates, faster downloads from far-away servers, and a few save sync fixes.\n\nUpdate RommPS and open it once. It updates everything else.\n\n### New\n\n- Client certificates (mTLS): RommPS reaches a RomM server behind Traefik, Pangolin or nginx that asks for one. Add your `.p12` file in the web UI, during setup or in Settings. Thanks to matschi95. ([#38](https://github.com/s0liton/RommPS/issues/38))\n\n### Fixed\n\n- Downloads from a distant RomM server are no longer held to about 2 MB/s. ([#39](https://github.com/s0liton/RommPS/issues/39))\n- A save that never synced from this console no longer replaces the one RomM already has. You get a conflict to settle instead.\n- PSP saves stored under another game's id (re-releases do this) stop downloading again on every sync.\n- An Xbox game that's incomplete on your RomM server is reported once, with what to do, instead of failing every sync.\n\n### Good to know\n\n- `.p12` files encrypted with RC2 don't load on the consoles. The README shows how to export one with AES."
+      },
+      "pins": [
+        {
+          "tag": "v1.4.0",
+          "asset": "PPSA76677.zip",
+          "size": 47175475,
+          "sha256": "c870b88e1299bd6f24ccc0b82a0e1bf0333d0091ec60519ec7480a686ba257fe",
+          "content_version": "01.004.000",
+          "title_name": "RommPS"
+        }
+      ]
     },
     {
       "id": "signal-companion",
