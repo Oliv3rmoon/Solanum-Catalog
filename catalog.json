@@ -975,7 +975,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 230,
+      "stars": 231,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1237,7 +1237,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 406,
+      "stars": 407,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1267,7 +1267,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 474,
+      "stars": 476,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1683,7 +1683,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 817,
+      "stars": 818,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1769,7 +1769,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 207,
+      "stars": 208,
       "release": {
         "tag": "v3.2",
         "asset": "PPSA97358.zip",
@@ -2236,7 +2236,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 384,
+      "stars": 385,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2383,7 +2383,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1036,
+      "stars": 1044,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2462,7 +2462,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1646,
+      "stars": 1647,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2519,7 +2519,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 428,
+      "stars": 429,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -4313,7 +4313,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 56,
+      "stars": 57,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4442,7 +4442,7 @@
         "video",
         "addons"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v0.1.0-alpha.7",
         "asset": "PPSA99997.zip",
