@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -317,14 +317,24 @@
       ],
       "stars": 74,
       "release": {
-        "tag": "v0.6.0",
+        "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
-        "size": 43106559,
-        "sha256": "10267b5df557c8eddda698bd5d225e03dabac8def8ed966b6c40b14caf05adf0",
-        "published_at": "2026-10-21T21:46:14Z",
-        "notes": "## v0.6.0\n\n### What's new\n- **Redesign by Juxtopposed**, a whole new look next to Modern and Classic (Settings › Interface › Look):\n  - **Dark and Light** themes (Settings › Interface › Theme)\n  - **Choose your look again**: the first time v0.6 starts, you can pick Modern, Redesign by Juxtopposed or Classic (once)\n- **Equalizer bands**: Preamp and 10 bands from 31 Hz to 16 kHz, −20 to +20 dB each. Pick a preset, then move any band: it becomes your own Custom sound, saved\n- **Volume on the player bar**: move to the speaker, \n  - ↑ ↓ change it, ✕ mutes\n- **Controller vibration**: when you switch tabs, change settings, change the volume,\n  -  Turn it off in Settings › Interface › Controller vibration\n\n### Changed\n- In Modern and Classic, the Audio button on the player bar has a new icon (the speaker is now the volume)",
-        "content_version": "01.000.008"
-      }
+        "size": 43138993,
+        "sha256": "7cbc702f18610fc09bd361813a83dd639353c3631b7f796e620539408f395d27",
+        "content_version": "01.000.009",
+        "title_name": "VLC",
+        "published_at": "2026-11-10T02:59:27Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/ZiZc3/VLC/main/assets/vlc-logo.png\" alt=\"VLC\" width=\"120\">\n</p>\n\n<h1 align=\"center\">VLC for PS5 v0.6.1</h1>\n\n<p align=\"center\">\n  <strong>Share files and folders in playlists, Playlists on Home.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; SMB files and folders in playlists</strong></summary>\n<br>\n\n- In Browse, highlight a video or song on a share, press **Options** and pick **Add to playlist**.\n- Highlight a folder, on the console or on a share, and pick **Add this folder to playlist** or **Add this folder + subfolders to playlist**.\n- Share files show their **name, length and picture** in the playlist.\n- Thanks to [ryancallstrom](https://github.com/ryancallstrom) ([#18](https://github.com/ZiZc3/VLC/pull/18)).\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Remove from playlist</strong></summary>\n<br>\n\n- Inside a playlist, highlight a video or song, press **Options** and pick **Remove from playlist**.\n- It only takes it out of the playlist: **the file itself is never deleted**.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Playlists on Home</strong></summary>\n<br>\n\n- A **Playlists** row on Home, under Videos.\n- **✕** opens a playlist, **△** plays it all.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Play a link sent by another app</strong></summary>\n<br>\n\n- For TorrServer, Lampa, launchers, or any app that has a video link ([#19](https://github.com/ZiZc3/VLC/issues/19)).\n- **`autoplay.txt`**: write a link in `/data/homebrew/PPSA85300/autoplay.txt` and VLC plays it, then deletes the file. Checked when VLC starts and every 2 seconds while it's open. **Works without the Helper.**\n  - Line 1: the link. Line 2: a title. Line 3: a subtitle link. Lines 2 and 3 are optional.\n- **`http://<PS5 IP>:8080/play?url=<link>&title=<name>&sub=<subtitle link>`**: plays the link right away. Needs the phone/PC page, so the Helper.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Phone/PC page: new Network tab</strong></summary>\n<br>\n\n- **Play on the TV**: paste a link (and a title and a subtitle link if you like) and VLC plays it.\n- **Add a network share**: type the address of a PC or NAS with its user name and password. It's saved in VLC and shows up in Browse.\n\n</details>\n\n---\n\n## Fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **Share files in playlists** lost their pictures when VLC started with the Helper after they were added without it, or the other way round.\n- **Opening a .zip or .rar in Browse** could read the list it had just replaced."
+      },
+      "pins": [
+        {
+          "tag": "v0.6.0",
+          "asset": "PPSA85300.zip",
+          "size": 43106559,
+          "sha256": "10267b5df557c8eddda698bd5d225e03dabac8def8ed966b6c40b14caf05adf0",
+          "content_version": "01.000.008"
+        }
+      ]
     },
     {
       "id": "kodi",
@@ -806,16 +816,24 @@
       ],
       "stars": 188,
       "release": {
-        "tag": "v1.6.3",
+        "tag": "v1.6.9",
         "asset": "PPSA99810.zip",
-        "size": 20598332,
-        "sha256": "db4c21d9a825b9f499c18069a19547703867d8633ad24f958699b75082d2008e",
-        "content_version": "01.603.000",
+        "size": 20728324,
+        "sha256": "5e45ba026bc2fd1168e096036db70a19b41bb73e87c5ea1d3465489da9d52a34",
+        "content_version": "01.609.000",
         "title_name": "PSBox Cloud Gaming",
-        "published_at": "2026-11-07T08:31:58Z",
-        "notes": "<!-- LANG:EN -->\n# PSBox Cloud Gaming v1.6.3\n\n## ⚡ Streaming Stutter Elimination on PS5 (`g_trophyThread` Batch Pause)\n- **Zero Background Sync Interference**: The background trophy worker thread (`g_trophyThread`) now completely pauses batch catalog discovery and achievement queries (`TaskType::BatchTitle`) during active cloud streaming sessions (`ctx.isStreaming()`).\n- **Immediate Real-Time Polls**: Real-time achievement checks (`TaskType::RealtimePoll`) for the currently running game continue without disruption with 0ms preemption.\n- **Graceful Non-Dropping Resume**: Retains ongoing batch sync tasks in scope and resumes smoothly upon exiting the game or returning to the home screen.\n\n## 📖 Full Catalog Descriptions & Cache Migration (v3)\n- **Precedence Inversion**: Catalog entries now strictly prioritize the complete, rich game overview (`ProductDescription`) over brief marketing slogans (`ProductDescriptionShort`).\n- **Automated Cache Migration**: Bumped library cache version to `kCacheVersion = 3`. Cached entries with short or missing descriptions (< 80 chars) are automatically invalidated and rehydrated via Microsoft's `RemoteHighSapphire0` API in the background.\n\n## 💡 20 Dynamic Launching Tips Across 6 Languages\n- **Expanded Tips Catalog**: Increased loading screen tips from 8 to 20, providing useful insights on DualSense adaptive triggers & haptics, touchpad mouse emulation, in-game menu overlay, WebUI companion controllers, trophy synchronization, audio buffer tuning, and USB controllers.\n- **Dynamic 7-Second Rotation & Random Seeding**: Tips rotate dynamically every 7 seconds during launch, seeded pseudo-randomly per session based on launch timestamp and title hash.\n- **Complete 6-Language Localization**: Full translation parity across English, Brazilian Portuguese, Spanish, German, French, and Italian with verified string placeholders.\n\n## 🩺 Reactive Diagnostics Restoration (\"Verify Sign-In\" & \"Network Test\")\n- **Immediate Reactive State**: Diagnósticos modals now open with instant visual feedback, pre-populating test stages and ping regions with active spinners.\n- **Non-Dropping Command Dispatch**: Fixed command race conditions with a retry loop in `app_core.cpp`, ensuring diagnostic requests are never dropped during worker state transitions.\n- **Original Logic & Presentation Preserved**: 100% fidelity to the original diagnostic checks, STUN RFC 5389 UDP network probing, and Xbox Live authentication verification.\n\n---\n\n### 📦 Attached Files (English)\n\n| File Name | Description |\n|---|---|\n| `PSBoxCloudGaming[PS5]-v1.6.3.zip` | Official standalone ZIP package for PlayStation 5 (manual or homebrew manager installation). |"
+        "published_at": "2026-11-10T01:52:00Z",
+        "notes": "<!-- LANG:EN -->\n# PSBox Cloud Gaming v1.6.9\n\n## 🎯 Overhauled DualSense Gyro: Natural & Precise Aiming\n- **Effortless Micro-Adjustments for Shooters**: Gyro aiming has been completely re-engineered for pinpoint precision on subtle wrist movements. No more needing exaggerated physical motions to register a small turn — fine aiming in games like *Fortnite* is now instant, smooth, and 1:1 responsive.\n- **Natural Player Space Rotation**: Horizontal aim strictly tracks room gravity and your physical body posture instead of controller tilt. Tilting your wrists or resting the controller on your lap keeps your aim fully aligned and natural.\n- **Virtual Steering Wheel with Auto-Centering**: Turn your DualSense into a real racing wheel! Tilting the gamepad turns your vehicle naturally, auto-centering when you release the triggers. Includes 4 driving presets: Casual, Normal, Aggressive, and Drift.\n- **Quick In-Game Calibration**: Fine-tune your horizontal/vertical sensitivity and wheel modes directly from the in-game stream menu with instant visual feedback.\n\n## 📱 SmartGlass WebUI & In-Game Companion Card\n- **Instant QR Code Access in In-Game Menu**: The in-game stream menu now features a dedicated side companion card with a crisp QR code pointing directly to `http://<console-ip>:8080`. Just scan with your phone to access settings and controls without leaving your game!\n- **Show/Hide QR Code Toggle**: Press <kbd>△</kbd> (Triangle on DualSense) or use the keyboard shortcut to hide or show the QR companion card at any time, with an indicator on the bottom bar.\n- **Enhanced Mobile Web Experience**: Restored full smartphone portrait orientation, fixed virtual thumbstick drag clipping, suppressed repetitive connection popups, and added live integer FPS and video quality (QP) telemetry.\n- **Multi-Device Support**: Connect multiple smartphones, tablets, or PC browsers simultaneously on your local network to monitor telemetry or adjust settings.\n\n## 🎨 Visual Redesign & Menu Refinement\n- **Two-Tab In-Game Navigation**: Stream menu reorganized into two distinct tabs: **General** (<kbd>L1</kbd>) and **Controls** (<kbd>R1</kbd>), with standardized badge sizes and pixel-perfect text centering.\n- **Smooth 13-Row Scrolling Viewport**: Long settings lists now scroll smoothly within a 13-row viewport, preventing text overlap, safe-area clipping, or cluttered screens.\n- **Interactive Testers & Wheel Calibration**: Added built-in visual dialogs to test analog stick deadzones, adaptive triggers, and a streamlined single-wheel gyro calibration modal.\n- **Unified Clean Toasts**: Replaced intrusive Sony OS dialog popups with clean, non-intrusive animated system toasts.\n\n## ⚡ Higher Performance & Lower Latency on PS5"
       },
       "pins": [
+        {
+          "tag": "v1.6.3",
+          "asset": "PPSA99810.zip",
+          "size": 20598332,
+          "sha256": "db4c21d9a825b9f499c18069a19547703867d8633ad24f958699b75082d2008e",
+          "content_version": "01.603.000",
+          "title_name": "PSBox Cloud Gaming"
+        },
         {
           "tag": "v1.6.1",
           "asset": "PPSA99810.zip",
@@ -1275,7 +1293,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 480,
+      "stars": 481,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1691,7 +1709,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 823,
+      "stars": 825,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1779,16 +1797,24 @@
       ],
       "stars": 209,
       "release": {
-        "tag": "v3.3",
+        "tag": "v3.4",
         "asset": "PPSA97358.zip",
-        "size": 13507307,
-        "sha256": "b006b17ff0ac256e32ea5f99e9852fd898586c667bda3ec323914510b2ad7cbd",
+        "size": 13729037,
+        "sha256": "ddcc21d4d12270e4d122278719d816529671aa3781cb74c04b6e1ce969779249",
         "content_version": "01.000.000",
         "title_name": "XPSemu",
-        "published_at": "2026-11-09T07:36:40Z",
-        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.3</h1>\n\n<p align=\"center\">\n  <strong>HD haptics, PAL games at 60 Hz, game fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; DualSense HD haptics</strong></summary>\n<br>\n\n- Xbox rumble now plays on the DualSense's **modern haptic motors** instead of the old-style rumble. Engines, crashes and gunfire feel detailed and precise.\n- Works on all 4 controllers, in every Xbox game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; PAL games at 60 Hz</strong></summary>\n<br>\n\n- **PAL 60 Hz is now on for every PAL (European) game**, so they run at 60 Hz like the US versions, with no setting to change.\n- If you want a game at 50 Hz, turn **PAL 60 Hz** off for just that game in its settings or the quick menu.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **Midtown Madness 3**: the crash is fixed ([#34](https://github.com/ZiZc3/XPSemu/issues/34)). It now unlocked at **60 FPS by default**.\n- **RalliSport Challenge 2**: fixed ([#33](https://github.com/ZiZc3/XPSemu/issues/33)), along with the game running too slow and getting stuck loading into a race.\n- **Thief: Deadly Shadows (Europe)**: the crash while loading is fixed.\n- **Updates** slow download fixed.\n\n</details>\n\n---\n\n## Installation\n\n1. Download `PPSA97358.zip`, extract it, and copy `PPSA97358/` to `/data/homebrew/`.\n2. Copy your Xbox games to `/data/xpsemu/games/` and your Chihiro games to `/data/xpsemu/chihiro/games/` (or `xpsemu/chihiro/games/` on a USB drive).\n3. Launch XPSemu from the home screen.\n\n## Updates\n\n1. System > Check for updates does it for you.\n\n> [!IMPORTANT]\n> run XPSemu with [kstuff lite](https://github.com/EchoStretch/kstuff-lite/releases), and at least [ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus/releases)."
+        "published_at": "2026-11-10T00:28:10Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.4</h1>\n\n<p align=\"center\">\n  <strong>MSAA, turbo buttons, box art for each region, more game fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; MSAA anti-aliasing</strong></summary>\n<br>\n\n- **MSAA 2x / 4x / 8x**, per game, its very heavy on big games.\n- **Off by default.**\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Turbo buttons</strong></summary>\n<br>\n\n- Hold a button instead of tapping it. With turbo on, holding a button works like tapping it very fast. For example, in a shooter, hold the fire button and the gun keeps shooting.\n- Per game: can be Activated on **Cross, Circle, Square, Triangle, R2**, two together, or all buttons.\n- In a game's settings > **Controller**, and in the quick menu's **Settings**.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Box art from your region, with spines</strong></summary>\n<br>\n\n- A European or Japanese disc now gets **its own region's cover**, front and back. if no covers find for a specific region they fallback to USA cover.\n\n</details>\n\n---\n\n## Fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **SSX 3**: the THX intro no longer freezes or crawls ([#36](https://github.com/ZiZc3/XPSemu/issues/36)).\n- **SSX On Tour**: no more black screen: it gets past loading into the game.\n- **FIFA 06** and **FIFA 07**: no longer stuck loading.\n- **Def Jam: Fight for NY (Europe)**: no longer crashes at start.\n- **Covers download error** ([#35](https://github.com/ZiZc3/XPSemu/issues/35)) fixed.\n\n</details>\n\n---\n\n## Installation\n\n1. Download `PPSA97358.zip`, extract it, and copy `PPSA97358/` to `/data/homebrew/`.\n2. Copy your Xbox games to `/data/xpsemu/games/` and your Chihiro games to `/data/xpsemu/chihiro/games/` (or `xpsemu/chihiro/games/` on a USB drive).\n3. Launch XPSemu from the home screen.\n\n## Updates\n\n1. System > Check for updates does it for you.\n\n> [!IMPORTANT]\n> run XPSemu with [kstuff lite](https://github.com/EchoStretch/kstuff-lite/releases), and at least [ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus/releases)."
       },
       "pins": [
+        {
+          "tag": "v3.3",
+          "asset": "PPSA97358.zip",
+          "size": 13507307,
+          "sha256": "b006b17ff0ac256e32ea5f99e9852fd898586c667bda3ec323914510b2ad7cbd",
+          "content_version": "01.000.000",
+          "title_name": "XPSemu"
+        },
         {
           "tag": "v3.2",
           "asset": "PPSA97358.zip",
@@ -2252,7 +2278,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 386,
+      "stars": 387,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2399,7 +2425,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1045,
+      "stars": 1046,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2478,7 +2504,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1652,
+      "stars": 1655,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -3198,16 +3224,24 @@
       ],
       "stars": 90,
       "release": {
-        "tag": "build-140",
+        "tag": "build-141",
         "asset": "halo-ps5-release.zip",
-        "size": 57275065,
-        "sha256": "61216505a14e5208e974661252ef132dbd9556d99d4968968a38565739442059",
-        "content_version": "01.000.140",
+        "size": 57307525,
+        "sha256": "8d3c30201a2cc283955b44ac9a7f3047a9f9beecabfc0fb9a7c73c53302c9298",
+        "content_version": "01.000.141",
         "title_name": "SlipstreamCE",
-        "published_at": "2026-11-08T00:04:15Z",
-        "notes": "Build 140: Dynamic lighting, and better Custom Edition maps!\n\n### Dynamic lighting\n\n- New: dynamic lighting, ported from GulchCE, on Vulkan (Android) and the Switch. Plasma bolts, rockets, muzzle flashes, held energy weapons, the Assault Rifle's ammo counter, Needlers, fuel rods, Jackal and Covenant shields, vehicles, powerups and teleporters can light what's around them, and energy shields glow onto their surroundings as they flare. Turn each one on in Video Setup > Dynamic Lighting; they're all off by default. (ported by thelinkin3000, thanks a lot Chester!)\n- Light Occlusion: dynamic lights stop at walls and vehicles instead of shining through them. On Android, Occluded Lights sets how many lights a frame get it (8, 6 or 4, 6 by default); fewer is faster on a slower phone. (thelinkin3000)\n- Dynamic lighting is tuned to keep big fights smooth: held weapons and moving lights trace far fewer rays, weapon lights always leave room for other lights, lights that can't reach your view or are far away stay as the game draws them, and a light on a moving object no longer rebuilds its place in the level every tick. (thelinkin3000)\n\n### Custom Edition maps\n\n- HUDs on Custom Edition maps now draw on Vulkan (Android) and the Switch as they do on OpenGL: ammo counters and health and shield meters drawn from sheets the map shares with other HUD art show correctly, and segmented high-res meters keep their steps sharp. With High-Res HUD on, the original HUD sheets that have no high-res redraw are drawn four times larger and smoother. (thelinkin3000, from chestahh's fix for OpenGL)\n- Android: DELETE on New Game's and the Map screen's map lists deletes the custom map or folder of maps chosen, after a second press to confirm. Only custom maps can be deleted. (thelinkin3000)\n- Android: on phones whose GPU can't use the game's compressed (DXT) textures, like the Nokia 8's Adreno 540 and Mali GPUs, most textures now take a quarter of the memory they did. Big Custom Edition maps such as the_Cage no longer run the phone out of memory while they load. To go back, set `display.dxt1_astc` to `false` in `config.toml`. (thelinkin3000)\n- Switch: very large textures (over 8 MB once unpacked) are drawn again. On the_Cage the pistol's zoom showed garbage instead of its scope, and the large 3D texture the game's own dynamic lights fade with was never drawn. (thelinkin3000)\n- Custom Edition maps: a custom_maps folder with no maps of its own, only folders of maps, no longer stops the game while it looks for maps. (thelinkin3000)\n\n### Theater and replays\n\n- Theater: once the player keeps moving, the cinematic camera now follows them at the left stick's distance, instead of chasing them in surges. It still stays put like a tripod while they stand or make short moves. (thelinkin3000)"
+        "published_at": "2026-11-10T02:32:37Z",
+        "notes": "Build 141\n\n### Dynamic lighting\n\n- New LIGHTING setting at the top of Video Setup > Dynamic Lighting: STOCK, 1X, 1.5X, 2X or 3X. STOCK, the default, is the same lighting as the original Xbox: every added light is off and the other options are hidden, keeping their settings for when you pick a level again. 1X to 3X make every dynamic light (projectiles, muzzle flashes, weapon glow, Needler prongs, shield emitters, vehicle lights, world emitters and shield glow) reach that much farther and shine that much brighter, its color kept. Online, each player's own level applies, except Shield Glow, which is still the host's choice. If you already had dynamic lights on, you keep them at 1X. (thelinkin3000)\n- Big fights cost less with dynamic lighting on: a light's occlusion rays are shared between the game thread and helper threads, moving lights are traced while the frame draws, occlusion uses faster math, and the ammo counter's light, Covenant emitters and objects standing still take less work each frame. (thelinkin3000)\n- Switch: every light ray helper thread now runs; only one of them ever did. (thelinkin3000)\n\n### Menus\n\n- The menus no longer stall on the SD card. Select Map and Select Gametype load in the background and say LOADING until they're ready; opened again, they're there at once. (thelinkin3000)\n- The campaign menus no longer read the whole 20 MB savegame each time they open: it's checked once, in the background, while the main menu is up. The saved games' index, gametype files, mods and the main menu's mod textures are kept in memory instead of read again and again. (thelinkin3000)\n- The maps folders are scanned again only when what's in them changes, and mods are found once a run (or when the Mods menu changes them), not at every map load. (thelinkin3000)\n- Startup touches the card less: unchanged default gametypes aren't rewritten, and shader caches are read in larger blocks. (thelinkin3000)\n- Android: Video Setup's last rows no longer overlap the help at the bottom. The Vulkan Driver's help now says it takes effect the next time the game starts. (thelinkin3000)\n\n### Split screen\n\n- Join a multiplayer match in progress: a controller with no player presses START, picks a profile in the box that opens in its quarter of the screen, and gets its own view. A player who leaves loses their view, and the others fill the screen. (thelinkin3000)\n- ADD PLAYER shows each profile's Spartan in its color. Player 1's controller can join when another controller started the game, and choosing a profile no longer sends players 2-4 to the title screen. (thelinkin3000)\n- Switch: a controller's face buttons follow the console's layout only while that player's own menu is up. (thelinkin3000)\n- The join box no longer opens during a replay. (thelinkin3000)"
       },
       "pins": [
+        {
+          "tag": "build-140",
+          "asset": "halo-ps5-release.zip",
+          "size": 57275065,
+          "sha256": "61216505a14e5208e974661252ef132dbd9556d99d4968968a38565739442059",
+          "content_version": "01.000.140",
+          "title_name": "SlipstreamCE"
+        },
         {
           "tag": "build-138",
           "asset": "halo-ps5-release.zip",
@@ -3238,14 +3272,6 @@
           "size": 56727433,
           "sha256": "41c938ee516346ba35bb739fe2e2679b74ab3bfc8db726af16684e5810fc4c07",
           "content_version": "01.000.132",
-          "title_name": "Halo: Combat Evolved"
-        },
-        {
-          "tag": "build-131",
-          "asset": "halo-ps5-release.zip",
-          "size": 56710789,
-          "sha256": "7e9dcf435720ae4196a855d66847b0c389db436b872fdd2edf38bd3afbf7d918",
-          "content_version": "01.000.131",
           "title_name": "Halo: Combat Evolved"
         }
       ]
@@ -3993,7 +4019,7 @@
         "xbox-360",
         "rexglue"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "V.1.1.1",
         "asset": "Spider.Man.Edge.Of.Time.V.1.1.1.zip",
@@ -5443,16 +5469,24 @@
       ],
       "stars": 19,
       "release": {
-        "tag": "01.000.040",
+        "tag": "01.000.041",
         "asset": "PPSA90210.zip",
-        "size": 9137497,
-        "sha256": "70035f0c8d21216d78bb4acb82165bbab038a8b1e86ee1aef72fc75920b91640",
-        "content_version": "01.000.040",
+        "size": 9148228,
+        "sha256": "7c08f27caf1fbedf90e84af50f8d9d59b26e1ebf5b9281c402176b9fe560ae0b",
+        "content_version": "01.000.041",
         "title_name": "Prospero Themes",
-        "published_at": "2026-11-09T14:06:47Z",
-        "notes": "## Changes\n\n- **Catalogs from the store.** On a firmware the app carries no catalog for, it now loads the one the store has, checks it and keeps a copy in `/data/prospero-themes/catalogs/`. The System tab says where the catalog comes from. Firmware reports you send from the app are what these catalogs are made from.\n- **Media Gallery tile icon.** The catalogs for 11.60, 13.00, 13.20, 13.40, 13.42 and 13.60 now know the Media Gallery tile icon, which themes can change and Restore defaults puts back.\n- **Plain words for consoles another tool themed first.** When the app finds files another tool had already changed, with no original left to put back, it says once what Restore defaults cannot bring back (backgrounds, icons, sounds…), and the Restore defaults row and question keep saying it.\n\nTested on FW 13.00. The store catalogs were tested with the bundled 13.00 catalog in place, so loading one from the store was only tested on the PC.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `70035f0c8d21216d78bb4acb82165bbab038a8b1e86ee1aef72fc75920b91640`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
+        "published_at": "2026-11-09T22:34:51Z",
+        "notes": "## Changes\n\n- **Originals from another firmware.** After a factory reset the app's backups are gone, but a theme's files stay on the console. The USB import (`prospero-themes/originals/`) now also helps when you only have the original files of *another* firmware:\n  - Backgrounds and tile icons are the same on every firmware the app knows, so another firmware's originals are taken as they are.\n  - The icon container (`Sce.PlayStation.PUI_UI3.rco`) differs between firmware and is never written whole over yours. The app keeps its icons and sounds, and Restore defaults puts back from them, by name, what a theme changed. When that gives your firmware's original byte for byte, it becomes the backup again. An icon that several lost originals share a length with, or one your firmware drew anew, stays, and the result says how many did.\n- **Icons and sounds by name on 13.00.** The 13.00 catalog now knows which of its icons have no title, so a theme with the original icons and sounds from another firmware can put icons back there too.\n- Restore no longer counts unchanged system sounds as put back.\n\nTested on FW 13.00: the app starts and runs. Putting icons back by name was tested on the PC with the 13.00 icon container and 11 store themes (10 come back byte for byte, one keeps 2 of 38 icons). Taking another firmware's icon container was only tested in unit tests, not with a real one.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `7c08f27caf1fbedf90e84af50f8d9d59b26e1ebf5b9281c402176b9fe560ae0b`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
       },
       "pins": [
+        {
+          "tag": "01.000.040",
+          "asset": "PPSA90210.zip",
+          "size": 9137497,
+          "sha256": "70035f0c8d21216d78bb4acb82165bbab038a8b1e86ee1aef72fc75920b91640",
+          "content_version": "01.000.040",
+          "title_name": "Prospero Themes"
+        },
         {
           "tag": "01.000.039",
           "asset": "PPSA90210.zip",
@@ -5490,7 +5524,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 511,
+      "stars": 513,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5581,7 +5615,7 @@
         "saves",
         "sync"
       ],
-      "stars": 113,
+      "stars": 114,
       "release": {
         "tag": "v1.4.1",
         "asset": "PPSA76677.zip",
