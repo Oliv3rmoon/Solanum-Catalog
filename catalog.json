@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 9,
+      "stars": 13,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 74,
+      "stars": 75,
       "release": {
         "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
@@ -1001,7 +1001,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 232,
+      "stars": 233,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1263,7 +1263,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 408,
+      "stars": 409,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1293,7 +1293,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 481,
+      "stars": 485,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1709,7 +1709,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 825,
+      "stars": 830,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1795,7 +1795,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 209,
+      "stars": 210,
       "release": {
         "tag": "v3.4",
         "asset": "PPSA97358.zip",
@@ -1858,7 +1858,7 @@
         "remote",
         "retro"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "01.000.005",
         "asset": "PPSA06464.zip",
@@ -2166,16 +2166,24 @@
       ],
       "stars": 16,
       "release": {
-        "tag": "v2.3",
-        "asset": "FBNeoPS5-v2.3-PPSA99924.zip",
-        "size": 64858228,
-        "sha256": "70ce14b02f3ca7fb814fe79680b5498a7a6af43d8994a3393a371b5d748f92a8",
-        "content_version": "02.030.000",
+        "tag": "v2.4",
+        "asset": "FBNeoPS5-v2.4-PPSA99924.zip",
+        "size": 91941418,
+        "sha256": "8594d2586b6d280642a4373222afb88ed830605d56cb389eb6e23dfb0b840743",
+        "content_version": "02.040.001",
         "title_name": "FBNeo PS5",
-        "published_at": "2026-11-05T18:42:06Z",
-        "notes": "## FBNeo PS5 2.3\n\n### New: Daytona USA (Sega Model 2)\n\n- **Four sets:** `daytona` (Revision A), `daytonase` (Special Edition), `daytona93` and `daytonas` (with Saturn advertisements). This is FBNeo PS5's first **Sega Model 2** game, ported from MAME (commit `b7f483f`), including:\n  - the main board's i960 and its TGP geometry coprocessor;\n  - the Model 2 3D renderer;\n  - the System 24 tilemaps;\n  - the Model 1 I/O board;\n  - the Model 1 sound board.\n- **It needs the I/O board's ROM,** `epr-14869c.25`. Put it in `model1io.zip` (MAME's name; the DAT lists it as a board set) or in the game's zip.\n- **Controls:** the new **Driving** layout is chosen automatically for Daytona USA.\n  - Steer with the left stick.\n  - **R2** is the accelerator and **L2** the brake, as far as you press them.\n  - **R1 / L1** shift up / down.\n  - **Square, Triangle, Circle, Cross** are the four view buttons.\n- **It starts in English:** the game's own settings say Japan, so the port sets the country to USA at every start. A choice made in the game's test menu lasts until the game is closed.\n- **Single cabinet:** the link board isn't emulated, so the game is set to a single cabinet. There is no force feedback.\n- The [README](https://github.com/MisterTemaki/fbneo-ps5#daytona-usa-sega-model-2) has the details.\n\n### New: Favorites\n\nRequested by dsb2020 in #5.\n\n- On the shelf, **Circle** adds the selected game to your favorites, and Circle again removes it. A favorite has a gold star on its card and its line.\n- **L3 / R3** show **Favorites** right after \"All games\": only your favorite games of the current storage tab.\n- The list is kept in `/data/fbneo/favorites.txt`, one set name a line, shared by every storage tab.\n\n### Also in 2.3\n\n- **Smoother games that don't run at 60 Hz:** their picture is now drawn on its own thread while the next frame runs. If a frame would still make the sound run low, that one frame is skipped (never two in a row) instead of leaving a gap in the sound. 60 Hz games draw as before.\n- **Buttons 7 and 8** in Settings > CONTROLS. A game's pedal on L2 or R2 is pressed as far as the trigger is.\n- **The NVRAM save no longer pauses the game:** the periodic NVRAM file is written on its own thread.\n- FBNeo's MultiPCM sound chip now includes upstream's state fix. For Sega Model 2 only, each sound write takes effect at its exact time in the frame, as in MAME.\n\n### Updating\n\n- **From 2.2:** Settings > SYSTEM > Updates offers 2.3. Or send `FBNeoPS5-v2.3.elf` to your payload loader (port 9021).\n- Put the new ELF in your autoload in place of the old one.\n\n### Files\n\n- `FBNeoPS5-v2.3.elf`: send it to your payload loader (port 9021). It installs the app, then stays running as its helper."
+        "published_at": "2026-11-10T12:44:22Z",
+        "notes": "## New: GPU presentation and CRT filters\n\nFBNeo PS5 2.4 adds Vulkan/RADV output. The CPU core generates the original game frame; the GPU handles texture scaling, CRT filtering, interface composition and final presentation.\n\n- Eleven CRT filters now run on the GPU, including the default **CRT Easymode style**.\n- Aspect ratio, smoothing, scanlines, vertical games, HUD transparency and pause-menu dimming are preserved.\n- ScaleFX + rAA + AA style keeps its CPU filter with GPU presentation.\n- Software output remains available: set `gpu=0` in `fbneo-ps5.ini` and restart the app. Initialization or submission failures also have software recovery paths.\n\nInitial PS5 logs confirm **3840x2160 output at 59.940 Hz**. Sampled rates settle at **57.5 fps in Daytona USA** and **59.9 fps in Cadillacs and Dinosaurs and Contra**. Crime Fighters also starts. The observed Easymode style GPU pass takes 0.4–0.6 ms, and both logged sessions exit normally. These are initial results, not a claim of universal game/filter compatibility or native 4K game rendering.\n\n## New: experimental two-player rollback netplay\n\nWith a compatible two-player game running, press **L3 + R3 → Netplay**. Choose **Host a game (Player 1)** on one installation, and enter its IPv4 address and matching TCP port on the other before selecting **Join a game (Player 2)**. The default port is **55435**. Both players must resume after connecting.\n\nUse the same 2.4 build, matching ROM/BIOS content and DIP settings. This uses a direct connection between two FBNeo PS5 installations. It does not connect to Fightcade, Kaillera, RetroArch or arcade link cabinets. Games with writable hard disks are unsupported. Disconnecting restores each player's pre-session offline state; online progress is not saved.\n\n**Netplay is experimental.** Local TCP tests and two complete Linux frontends pass real rollback/replay, pause and disconnect checks, including Vulkan output. A session between two physical PS5 consoles has not yet been validated. See the [netplay guide](https://github.com/MisterTemaki/fbneo-ps5/blob/v2.4/ps5/NETPLAY.md).\n\n## Compatibility and stability\n\n- Fix an audio-ring race that could read beyond the producer's input buffer.\n- Handle worker-allocation failures and configuration/update I/O failures more reliably.\n- Fix undefined numeric behavior in Model 2 rendering and i960 handling.\n- Strengthen malformed-file, image-resize and release-update validation.\n- Preserve existing saves, ROMs, settings, shader IDs and the `PPSA99924` title ID.\n- Verify that the final installer contains the complete application and its dependency notices.\n\n## Updating and files"
       },
       "pins": [
+        {
+          "tag": "v2.3",
+          "asset": "FBNeoPS5-v2.3-PPSA99924.zip",
+          "size": 64858228,
+          "sha256": "70ce14b02f3ca7fb814fe79680b5498a7a6af43d8994a3393a371b5d748f92a8",
+          "content_version": "02.030.000",
+          "title_name": "FBNeo PS5"
+        },
         {
           "tag": "v2.2",
           "asset": "FBNeoPS5-v2.2-PPSA99924.zip",
@@ -2278,7 +2286,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 387,
+      "stars": 388,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2321,18 +2329,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 138,
+      "stars": 141,
       "release": {
-        "tag": "v2.3.7",
+        "tag": "v2.3.8",
         "asset": "PPSA11018.zip",
-        "size": 327847522,
-        "sha256": "fc8a0a48fb1259d93160a3329c2430575ebfcd640c9cd5dbdaca6573217e9248",
-        "content_version": "02.003.007",
+        "size": 327848075,
+        "sha256": "2fb9a1c9e487666adc6651e85d7ae7d208c3bb9e112f3f55f8e7c120e08fd975",
+        "content_version": "02.003.008",
         "title_name": "PC5",
-        "published_at": "2026-11-09T14:15:01Z",
-        "notes": "PC5 2.3.7 fixes a crash in videos and typing with the on-screen keyboard, gets more Steam copies going, gives games the processor's name, and says more in its logs.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **A crash during videos**: a game that handed Windows' video code an empty frame crashed in it. The empty frame is now refused instead.\n- **The on-screen keyboard**: PC5 typed a whole word into the game at once, and a game that takes one letter per frame kept only the first. It now types a letter at a time.\n- **The processor's name**: games found no name for the processor (Unity games showed \"Processor: Unknown\"), and a game that picks its first settings from it could stop loading. Games now find it, as on a PC.\n- **Copies with ColdClientLoader**: its loader starts the game as a second program, which the console can't do, so the game was left with Steam's own library and asked for Steam. PC5's Steam emulator now takes Steam's place in such a copy too.\n- **Programs a game starts**: on some consoles PC5 couldn't make the connection it needs to start them (\"Operation not supported\"). It now tries the console's other folders for it.\n\n### Logs\n\n- **What the log shows**: a report's `about.txt` now sums up what the game's log shows: what the crash was, a DLL the game needs that isn't there, programs the game tried to start, what it drew with, its memory, and the language it was given.\n- **The start of a big log**: of a game's own log larger than 2 MB, the start is kept as well as the end.\n- **Less noise**: two kinds of line some games write many times a second are counted instead of logged, which leaves room for the rest and takes a little less of the game's time.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself."
+        "published_at": "2026-11-10T19:37:56Z",
+        "notes": "PC5 2.3.8 gets more Steam copies going, keeps the DLC a copy lists, opens a game's menu faster on a USB hard drive, and fixes a crash as some games' movies start.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Copies with ColdClientLoader**: a folder ColdClientLoader runs from now always gets PC5's Steam emulator, even when another stand-in's files are in it too. Such a game asked for the Steam app before.\n- **DLC**: when a copy lists its DLC for its own Steam stand-in, PC5's Steam emulator now keeps that list, so the DLC show as owned instead of \"buy\".\n- **A game's menu on a USB hard drive**: the first time a game's menu opened, PC5 looked at every one of its files to find Steam's library, which took seconds for a game with many files on a hard drive. It now looks only at what it needs.\n- **Movies without a frame rate**: a movie whose file gives no frame rate (WMV movies) was reported as 0 frames a second, and a game could crash as it started. It now gets the rate the video itself has.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs."
       },
       "pins": [
+        {
+          "tag": "v2.3.7",
+          "asset": "PPSA11018.zip",
+          "size": 327847522,
+          "sha256": "fc8a0a48fb1259d93160a3329c2430575ebfcd640c9cd5dbdaca6573217e9248",
+          "content_version": "02.003.007",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.6",
           "asset": "PPSA11018.zip",
@@ -2363,14 +2379,6 @@
           "size": 325268603,
           "sha256": "e15c7afe092e449b20f8a74e7dbf36cd6ce6aa883efaa6c5c0cac01011ceb6fe",
           "content_version": "02.003.001",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.0",
-          "asset": "PPSA11018.zip",
-          "size": 325217050,
-          "sha256": "7d851d5c24de3dcc53e5185725b47c2c976bfd32f12c6c6708559c6749404648",
-          "content_version": "02.003.000",
           "title_name": "PC5"
         }
       ]
@@ -2425,7 +2433,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1046,
+      "stars": 1051,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2504,7 +2512,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1655,
+      "stars": 1657,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2922,7 +2930,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "v1.0.0",
         "asset": "Dusklight-PS5-v1.0.0.zip",
@@ -3584,7 +3592,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 55,
+      "stars": 56,
       "release": {
         "tag": "01.000.279",
         "asset": "PPSA99874.zip",
@@ -3871,7 +3879,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 31,
+      "stars": 32,
       "release": {
         "tag": "v1.2.0",
         "asset": "PPSA99620.zip",
@@ -3978,7 +3986,7 @@
         "racing",
         "need-for-speed"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "01.000.002",
         "asset": "PPSA90505.zip",
@@ -4174,7 +4182,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "ps5-v0.1.0",
         "asset": "PPSA99640.zip",
@@ -4961,7 +4969,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 30,
+      "stars": 31,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5343,16 +5351,24 @@
       ],
       "stars": 11,
       "release": {
-        "tag": "v00.001.002",
+        "tag": "v00.001.003",
         "asset": "PPSA67670.zip",
-        "size": 19456401,
-        "sha256": "65c3016a588e35f847d1692281c26b36416293de0ddef71ba8926a799385a07b",
-        "content_version": "00.001.002",
+        "size": 19457120,
+        "sha256": "5647525a1fab0397678599d1c4abbed466d03fc6c9b46f159719db93c1652357",
+        "content_version": "00.001.003",
         "title_name": "PayLoader",
-        "published_at": "2026-11-03T10:51:32Z",
-        "notes": "### Added\n\n- Support screen, after Settings: a QR code to Ko-fi, for those who'd like to buy me a coffee or a beer. It works\n  without pldmgr as well."
+        "published_at": "2026-11-10T08:29:52Z",
+        "notes": "### Fixed\n\n- Repositories load on consoles where PayLoader made pldmgr's folder before pldmgr did. That folder was readable\n  but not writable for pldmgr, so pldmgr could not save its repositories or sources: PayLoader showed no\n  payloads to install or update. PayLoader now opens the folder for pldmgr, also on consoles where it is already\n  there."
       },
       "pins": [
+        {
+          "tag": "v00.001.002",
+          "asset": "PPSA67670.zip",
+          "size": 19456401,
+          "sha256": "65c3016a588e35f847d1692281c26b36416293de0ddef71ba8926a799385a07b",
+          "content_version": "00.001.002",
+          "title_name": "PayLoader"
+        },
         {
           "tag": "v00.001.001",
           "asset": "PPSA67670.zip",
@@ -5524,7 +5540,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 513,
+      "stars": 515,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5615,7 +5631,7 @@
         "saves",
         "sync"
       ],
-      "stars": 114,
+      "stars": 115,
       "release": {
         "tag": "v1.4.1",
         "asset": "PPSA76677.zip",
@@ -5695,7 +5711,7 @@
         "llm",
         "tailscale"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "01.004.001",
         "asset": "PPSA99555.zip",
