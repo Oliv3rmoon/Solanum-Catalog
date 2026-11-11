@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 14,
+      "stars": 13,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -1009,7 +1009,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 233,
+      "stars": 234,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1077,7 +1077,7 @@
         "n64",
         "mupen64plus"
       ],
-      "stars": 36,
+      "stars": 37,
       "release": {
         "tag": "0.7.5",
         "asset": "Mupen64PlusPS5.zip",
@@ -1271,7 +1271,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 408,
+      "stars": 409,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1301,7 +1301,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 486,
+      "stars": 488,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1688,7 +1688,7 @@
         "llm",
         "chat"
       ],
-      "stars": 67,
+      "stars": 68,
       "release": {
         "tag": "01.006.000",
         "asset": "PPSA99004.zip",
@@ -1717,7 +1717,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 831,
+      "stars": 832,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1803,18 +1803,26 @@
         "xbox",
         "xemu"
       ],
-      "stars": 209,
+      "stars": 210,
       "release": {
-        "tag": "v3.4",
+        "tag": "v3.5",
         "asset": "PPSA97358.zip",
-        "size": 13729037,
-        "sha256": "ddcc21d4d12270e4d122278719d816529671aa3781cb74c04b6e1ce969779249",
+        "size": 14110100,
+        "sha256": "3d762870f8c7b517f4fc2cee2513714787f698748bdc605f7163933724275183",
         "content_version": "01.000.000",
         "title_name": "XPSemu",
-        "published_at": "2026-11-10T00:28:10Z",
-        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.4</h1>\n\n<p align=\"center\">\n  <strong>MSAA, turbo buttons, box art for each region, more game fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; MSAA anti-aliasing</strong></summary>\n<br>\n\n- **MSAA 2x / 4x / 8x**, per game, its very heavy on big games.\n- **Off by default.**\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Turbo buttons</strong></summary>\n<br>\n\n- Hold a button instead of tapping it. With turbo on, holding a button works like tapping it very fast. For example, in a shooter, hold the fire button and the gun keeps shooting.\n- Per game: can be Activated on **Cross, Circle, Square, Triangle, R2**, two together, or all buttons.\n- In a game's settings > **Controller**, and in the quick menu's **Settings**.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Box art from your region, with spines</strong></summary>\n<br>\n\n- A European or Japanese disc now gets **its own region's cover**, front and back. if no covers find for a specific region they fallback to USA cover.\n\n</details>\n\n---\n\n## Fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **SSX 3**: the THX intro no longer freezes or crawls ([#36](https://github.com/ZiZc3/XPSemu/issues/36)).\n- **SSX On Tour**: no more black screen: it gets past loading into the game.\n- **FIFA 06** and **FIFA 07**: no longer stuck loading.\n- **Def Jam: Fight for NY (Europe)**: no longer crashes at start.\n- **Covers download error** ([#35](https://github.com/ZiZc3/XPSemu/issues/35)) fixed.\n\n</details>\n\n---\n\n## Installation\n\n1. Download `PPSA97358.zip`, extract it, and copy `PPSA97358/` to `/data/homebrew/`.\n2. Copy your Xbox games to `/data/xpsemu/games/` and your Chihiro games to `/data/xpsemu/chihiro/games/` (or `xpsemu/chihiro/games/` on a USB drive).\n3. Launch XPSemu from the home screen.\n\n## Updates\n\n1. System > Check for updates does it for you.\n\n> [!IMPORTANT]\n> run XPSemu with [kstuff lite](https://github.com/EchoStretch/kstuff-lite/releases), and at least [ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus/releases)."
+        "published_at": "2026-11-11T15:10:25Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.5</h1>\n\n<p align=\"center\">\n  <strong>Resolution up to x10, ambient occlusion, fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Resolution up to x10</strong></summary>\n<br>\n\n- **Resolution** now goes up to **x10**: a 640x480 game draws at **6400x4800**, over 30 million pixels, then is shrunk to your screen.\n- Pick it in **Settings > Video** or in a game's settings > **Settings**.\n\n</details>\n\n> [!WARNING]\n> From x6 up the game already draws more than a 4K TV can show, so x7 to x10 only make edges a little smoother and hard to notice. x10 is about **3x the GPU work of x6**: most 3D games will slow down a lot, and heavy games can run out of GPU memory and close. If a game struggles, go back to x6 or lower.\n\n<details open>\n<summary><strong>&nbsp; Ambient occlusion</strong></summary>\n<br>\n\n- Soft shadows in corners, creases and where things touch the ground, so 3D scenes look less flat.\n- **Off**, **Low** or **High**: for every game in **Settings > Video**, for one game in its settings > **Settings**, and in the quick menu's **Picture** group.\n- **Off by default.** Some games look the same with it on or have an UI effect issue so not compatible with every game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Smoother grass, leaves and fences with MSAA</strong></summary>\n<br>\n\n- With **MSAA** on, the edges of see-through shapes (grass, trees, fences, hair) are smoothed too, not only the edges of solid shapes.\n- Always on with MSAA, nothing to set.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; More 60 FPS and widescreen</strong></summary>\n<br>\n\n- **Breakdown**: 60 FPS Patch (on by default).\n- **Otogi: Myth of Demons (Europe)**: the 60 FPS mod from hakuX, now for the European disc too.\n- **Widescreen** for **Otogi (Europe)** and **Otogi 2 (Europe)**: the US patches, now for the European discs.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; More accurate graphics</strong></summary>\n<br>\n\n- Effects many games use are now drawn the way the Xbox draws them: signed textures, shadows from depth textures, the video overlay's colour key and scaling, depth clip ranges, multiple clip rectangles, colour-keyed textures, wireframe, blur filters and more.\n- Each one only changes games that use it: everything else is drawn exactly as before.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **Mortal Kombat: Shaolin Monks**: no longer crashes after the Midway intro ([#38](https://github.com/ZiZc3/XPSemu/issues/38)).\n- **RalliSport Challenge 2** ([#33](https://github.com/ZiZc3/XPSemu/issues/33)):"
       },
       "pins": [
+        {
+          "tag": "v3.4",
+          "asset": "PPSA97358.zip",
+          "size": 13729037,
+          "sha256": "ddcc21d4d12270e4d122278719d816529671aa3781cb74c04b6e1ce969779249",
+          "content_version": "01.000.000",
+          "title_name": "XPSemu"
+        },
         {
           "tag": "v3.3",
           "asset": "PPSA97358.zip",
@@ -2111,7 +2119,7 @@
         "surround",
         "tester"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "01.000.003",
         "asset": "PPSA99051.zip",
@@ -2337,18 +2345,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 141,
+      "stars": 142,
       "release": {
-        "tag": "v2.3.9",
+        "tag": "v2.3.10",
         "asset": "PPSA11018.zip",
-        "size": 327885473,
-        "sha256": "7fa805e2f1d8bc806b28200c093b22c871d756c926af067ec075cc81c603fb9f",
-        "content_version": "02.003.009",
+        "size": 327885775,
+        "sha256": "ea6149a539cc1d0026ea85b642d5a761546209414e63a011d6d0ddb825557616",
+        "content_version": "02.003.010",
         "title_name": "PC5",
-        "published_at": "2026-11-10T21:16:16Z",
-        "notes": "PC5 2.3.9 fixes several games that stopped at start or ignored the pointer, shows every cover on Home, and turns off Programs a game starts until it works.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Games built on an older web browser (NW.js) could stop as they started, when freeing memory failed. That memory is now freed.\n- Unreal Engine games now see the touchpad pointer, so menus that ignored every click work.\n- Direct3D 9 games that build their shaders from effect files no longer stop with a shader error.\n- Some older games built with Visual Studio 2005 or 2008 could crash; that's fixed.\n- Older 32-bit games that use a few rare instructions no longer stop at start.\n- Games whose movie player rewrites its own code no longer slow down more and more as the movie plays.\n- Home's covers far to the right of the chosen game now show their pictures straight away, not PC5's own cover until you move near them.\n- Logs show folder and file names in other alphabets (Korean, Japanese and others) as they are, not as codes.\n\n### Changed\n\n- **Programs a game starts** is off for every game, and its row in **Settings › In games** is hidden for now. When a game started another program with it on, that program could take PC5 down with it. Your choice is kept for when it comes back.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported"
+        "published_at": "2026-11-11T09:27:59Z",
+        "notes": "PC5 2.3.10 plays the films of games that use Windows Media video.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Games whose films are Windows Media videos (WMV) could close as the first film started; they now get the video's frame rate and play them.\n\n### Changed\n\n- A game's log (`about.txt`) now shows the launch options it was started with, so a report shows whether `launch.txt` was read.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.3.9 -->"
       },
       "pins": [
+        {
+          "tag": "v2.3.9",
+          "asset": "PPSA11018.zip",
+          "size": 327885473,
+          "sha256": "7fa805e2f1d8bc806b28200c093b22c871d756c926af067ec075cc81c603fb9f",
+          "content_version": "02.003.009",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.8",
           "asset": "PPSA11018.zip",
@@ -2379,14 +2395,6 @@
           "size": 325280237,
           "sha256": "29463476de1af92ef72472a0fd2e3755db3b62e24298001772ff677810588fc4",
           "content_version": "02.003.005",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.4",
-          "asset": "PPSA11018.zip",
-          "size": 325278128,
-          "sha256": "9f34dea5fed4102590e8c125c50ab99797a1238400641ff43c83b465b3c866be",
-          "content_version": "02.003.004",
           "title_name": "PC5"
         }
       ]
@@ -2441,7 +2449,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1053,
+      "stars": 1056,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2520,7 +2528,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1658,
+      "stars": 1660,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -3238,7 +3246,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 90,
+      "stars": 91,
       "release": {
         "tag": "build-141",
         "asset": "halo-ps5-release.zip",
@@ -3569,7 +3577,7 @@
         "pokemmo",
         "java"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA98001.zip",
@@ -3887,7 +3895,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 32,
+      "stars": 33,
       "release": {
         "tag": "v1.2.0",
         "asset": "PPSA99620.zip",
@@ -4381,7 +4389,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 58,
+      "stars": 62,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4453,18 +4461,26 @@
         "addons",
         "hdr"
       ],
-      "stars": 13,
+      "stars": 14,
       "release": {
-        "tag": "v1.0.0.17-native",
+        "tag": "v1.0.0.18-native",
         "asset": "PPSA99288.zip",
-        "size": 45296825,
-        "sha256": "d9e30887bda7888f497dde50762c6bef633e5f5402950f6c87bf391d8759d7d0",
-        "content_version": "07.000.017",
+        "size": 45377011,
+        "sha256": "02dca19b5ecb52c051af179c5d04d0e015b838b2b1f92d5249cee3624d755243",
+        "content_version": "07.000.018",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-11T02:46:30Z",
-        "notes": "# Nuvio Max'd 1.0.0.17\n\n- Add English/German interface selection under **Settings → App & Updates → Language**. Choose **Deutsch**, then fully close and restart Max'd. Menus, settings, dialogs and playback controls use the bundled German catalog, with English fallback. Audio, subtitle and addon-content languages remain separate.\n- Add **Cast & crew** to movie/series detail pages: press **R2**, browse the photo row and select a person. Person pages show biography, birth details, known-for department and movie/TV credits. Select a credit to open its title through your configured addons. Circle returns through the browsing history.\n- Keep metadata and artwork loading bounded and cancellable, with missing-photo/metadata fallbacks and profile-change guards. Back navigation restores cast/person selection. TMDB requests use the existing app configuration.\n- Preserve USB playlist import and private saved copies. The reporter confirmed 1.0.0.16 import/playback, persistence after USB removal/restart, cancellation, profile isolation and valid replacement. Dialog cancellation now uses stable identifiers across translations.\n\nStable release. The complete app build, host/VLC CI, 71 renderer previews, ZIP/native image and matching source verification passed. Console feedback on the two new features is welcome; host verification does not establish every firmware's compatibility.\n\nFully close Max'd before updating. Keep saved user data and your previous installer; do not overwrite a mounted FFPFSC. Title PPSA99288, contentVersion 07.000.017. The existing optional USB reader remains a privileged payload; Max'd itself stays sandboxed. See the included TESTING.txt and verification report."
+        "published_at": "2026-11-11T14:16:08Z",
+        "notes": "# Nuvio Max'd 1.0.0.18 — menu languages\n\n- Add Spanish, French, Arabic, Simplified Chinese, Japanese and Korean menu choices alongside English and German. Choose **Settings → App & Updates → Language**, then fully close and restart Max'd.\n- Translate the main navigation, settings labels/categories, common controls, sign-in/PIN, person pages and USB prompts. Each new catalog covers 425 core messages. Some help, status and provider messages still appear in English.\n- Use the bundled fonts for Chinese/Japanese/Korean and joined Arabic letters with right-to-left text ordering. The existing screen layout and controller order remain in place.\n- Preserve independent audio/subtitle settings, addon content, profiles and saved USB playlists. Extend public person metadata language requests with English biography fallback.\n\nStable release. Complete app, exact-source host/VLC CI, 125 native previews, ZIP/image and matching source verification passed. Console and native-speaker feedback are welcome. Fully close Max'd before updating, preserve saved data, and do not overwrite a mounted FFPFSC. Title PPSA99288; contentVersion 07.000.018."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.17-native",
+          "asset": "PPSA99288.zip",
+          "size": 45296825,
+          "sha256": "d9e30887bda7888f497dde50762c6bef633e5f5402950f6c87bf391d8759d7d0",
+          "content_version": "07.000.017",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.11-native",
           "asset": "PPSA99288.zip",
@@ -4756,16 +4772,24 @@
       ],
       "stars": 8,
       "release": {
-        "tag": "01.000.204",
+        "tag": "01.000.205",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33567836,
-        "sha256": "9fc9a05d1749655e05e0237aadc3cbb595e096f5c543cf5ed4290f6d236cd6d4",
-        "content_version": "01.000.204",
+        "size": 33697750,
+        "sha256": "9ca142bbb9bc335f0ceb80295a6c49353c7da5cf7dd3c98d7f86bcc12bc38af8",
+        "content_version": "01.000.205",
         "title_name": "SmartTube",
-        "published_at": "2026-11-11T04:42:12Z",
-        "notes": "Longer rows, guest mode, Shorts feed, titles and screen size\n\n- Rows grow as you scroll right: YouTube sends each Home row 5-8 videos at a time, and the next ones now load near the row's end (Home and the topic pages), like SmartTube's long rows\n- Guest mode works again: signed out, Home comes from the TV client (the web Home is empty for guests now), and Circle on the sign-in screen goes on without an account instead of staying on the QR code. Options there leaves the sign-in rather than the app\n- Shorts: Down goes to the next Short (from the row or the Shorts tab it was opened from), not a regular recommended video\n- Age-restricted videos showed their ID as the title: the title, channel and channel picture now come from the card the video was opened from when YouTube's answer leaves them out\n- Settings > User interface > Screen size (100% to 85%) for TVs that cut off the picture's edges"
+        "published_at": "2026-11-11T17:14:05Z",
+        "notes": "1.0.205: your language, and the log to your phone with a QR code\n\nLanguages\n- The app speaks Spanish, Portuguese (Brazil), French, German, Italian,\n  Russian, Polish, Turkish and Dutch. Settings > General > Language;\n  \"System\" (the default) follows the PS5's own language.\n- Every menu, button, setting, hint and message is translated. Video\n  titles, channel names, descriptions and comments stay as written.\n- YouTube is asked in the same language, so its section names, view\n  counts and dates match.\n- The search keyboard changes with the language: QWERTZ with ü ö ä ß for\n  German, AZERTY for French, ñ for Spanish, ç for Portuguese, ЙЦУКЕН for\n  Russian (with an abc page for Latin names), ı ğ ş for Turkish, and a\n  page of accented letters for the others.\n- Dates on the clock and in video info follow the language too.\n\nSend the log to your phone\n- Hold the touchpad and press Options, anywhere in the app, or use\n  Settings > General > Send the log to your phone.\n- A QR code appears. Scan it with the phone (same Wi-Fi as the console),\n  tap Download, and yt.log is saved on the phone, ready to attach to a\n  report. No FTP needed. The little server stops when the code closes."
       },
       "pins": [
+        {
+          "tag": "01.000.204",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33567836,
+          "sha256": "9fc9a05d1749655e05e0237aadc3cbb595e096f5c543cf5ed4290f6d236cd6d4",
+          "content_version": "01.000.204",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.203",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4796,14 +4820,6 @@
           "size": 33555156,
           "sha256": "fde09a311cc55d5ccac27d4d38172d78979903f86d4e76cfa4629cd87092a9e3",
           "content_version": "01.000.200",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.199",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33554682,
-          "sha256": "804ec076338064dca8426ac4fef0871ec18357292781989f6ec204d38df1ecf1",
-          "content_version": "01.000.199",
           "title_name": "SmartTube"
         }
       ]
@@ -5499,7 +5515,7 @@
         "themes",
         "home-screen"
       ],
-      "stars": 19,
+      "stars": 20,
       "release": {
         "tag": "01.000.041",
         "asset": "PPSA90210.zip",
@@ -5647,7 +5663,7 @@
         "saves",
         "sync"
       ],
-      "stars": 115,
+      "stars": 117,
       "release": {
         "tag": "v1.4.2",
         "asset": "PPSA76677.zip",
@@ -5735,7 +5751,7 @@
         "llm",
         "tailscale"
       ],
-      "stars": 6,
+      "stars": 7,
       "release": {
         "tag": "01.004.001",
         "asset": "PPSA99555.zip",
