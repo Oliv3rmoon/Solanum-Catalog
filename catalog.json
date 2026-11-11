@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 13,
+      "stars": 14,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -489,16 +489,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "v1.6.0",
-        "asset": "MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip",
-        "size": 72813867,
-        "sha256": "f12d9daf3542290a55fcbdd1ebf2fe0809cb4e8cc7a65b035f438e71600adc74",
-        "content_version": "01.060.000",
+        "tag": "v1.6.1",
+        "asset": "MediaPlayerClassicPS5-v1.6.1-PPSA99015.zip",
+        "size": 72822123,
+        "sha256": "e514211773255f4b49fe1cf2ec1386140a60e384e2b1ab00afaf9a5c31bdb0a4",
+        "content_version": "01.061.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-11-09T15:42:11Z",
-        "notes": "## Media Player Classic PS5 1.6.0\n\nGPU rendering and console decoder startup fixes, with optional native HDR10 output. This release is based on the 1.6 test13 sources. The app's internal version remains 1.6 and its title ID remains PPSA99015.\n\n### New\n\n- **The GPU draws the video.** Vulkan scales and converts the decoder's pictures and lays the window, menus and subtitles over them. The controls are still drawn into a bitmap on the CPU before GPU composition.\n- **Optional native HDR10 output.** On a compatible TV, the player requests 10-bit PQ/BT.2020 output. PQ video is preserved; HLG is converted to PQ. The interface uses a 203-nit graphics white. Options > Output controls it, from the next start.\n- **SDR tone mapping remains available.** If HDR output is refused or not confirmed, the player returns to SDR. For an SDR TV, turn native HDR output off and restart.\n\n### Fixed\n\n- **Missing Vulkan functions in the player.** The RADV driver is now linked in full, with a build check for the implemented entry points.\n- **Repeated GPU startup attempts.** Recovery is saved before entering the driver. After an interrupted or failed start, the next launch uses software rendering. Options > Output > Retry GPU next start allows another attempt.\n- **Decoder memory queries after leaving the sandbox.** Successful queries made early are cached for matching H.264, HEVC and VP9 configurations up to 4K. Unsupported streams still use FFmpeg on the CPU.\n- **The app's HDR capability profile.** hdr2 rebuilds the installer with attribute 0x62000000. Its player binary is unchanged from the tested hdr1 build.\n- **Update recovery and build fixes.** Preserve incomplete rollback state, reject invalid update ZIP entries, fail closed on file hash errors, redact truncated URL credentials and fix dependency/header discovery.\n\n### Updating\n\n- **From 1.5.4:** choose Help > Check for updates, confirm the download and installation, then restart the app. Or send `MediaPlayerClassicPS5-v1.6.0.elf` to your payload loader (port 9021) and open the app from the home screen.\n- Put the new ELF in your autoload in place of the older one so the matching helper runs.\n- The in-app updater downloads `MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip`, verifies GitHub's SHA-256 and the embedded file manifest, then installs the app. The ELF remains available for manual installation and for updating the helper.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.6.0.elf`: the installer and helper, with the native player embedded.\n- `MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip`: the app folder and file manifest, used by Help > Check for updates. You do not need to download it manually.\n- `mpc-ps5-v1.6.0-src.zip`: the source, including third-party notices and build notes."
+        "published_at": "2026-11-10T21:05:24Z",
+        "notes": "## Media Player Classic PS5 1.6.1\n\nDark mode for the PS5 interface, with saved preferences and instant switching. The application version is\n1.6.1, content version is 01.061.000, and the title ID remains PPSA99015.\n\n### New\n\n- **Dark mode:** choose **View > Options > Player > Theme > Dark**, then **Apply** or **OK**. Select **Light** to\n  restore the original appearance. Existing settings use Light by default.\n- **Immediate switching:** the window, toolbar, menus, playlist, file browser, dialogs and controls update without\n  restarting the player. The choice is saved for the next launch. Cancel discards a choice that has not been applied.\n- **Readable toolbar icons:** dark neutral glyphs are brightened for Dark, while colored icons and transparency\n  retain their original values. Returning to Light restores the original toolbar pixels.\n- **Independent video colors:** video, HDR processing, subtitles and custom subtitle colors retain their colors.\n\nWith a controller, use L1/R1 to move between controls, D-pad Left/Right to select the theme, and Cross on Apply or OK.\n\n### Fixed\n\n- Added missing Spanish, Brazilian Portuguese, French and German translations for four existing HDR/GPU labels.\n  The GPU retry button and hint are checked against the actual font metrics in all five languages.\n- Fixed spaces in the dependency archive command and runtime checksum path. `MPCPS5_DEPS_DIR` allows dependencies\n  to be built in a separate cache without spaces.\n- Fixed an unused constant stopping Linux builds with Clang and `-Werror`, preserving the console's crash handling.\n\n### Updating\n\n- **From 1.6.0:** use **Help > Check for updates**, install the update and restart the app. The update ZIP contains\n  the native application, its metadata, artwork, runtime module and file manifest.\n- For manual installation, run `MediaPlayerClassicPS5-v1.6.1.elf` with your existing homebrew setup, then open\n  Media Player Classic PS5 from the home screen. The ELF includes the installer, helper and native player.\n- If an older installer ELF is configured in autoload, replace that file with the new installer.\n- Settings and media remain in `/data/mpcps5`. The new preference is `DarkMode=1` (Dark) or `DarkMode=0` (Light)\n  in `mpc-hc.ini`.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.6.1.elf`: the complete installer. This is the only ELF download for this release.\n- `MediaPlayerClassicPS5-v1.6.1-PPSA99015.zip`: the application update package used by Help > Check for updates.\n- `mpc-ps5-v1.6.1-src.zip`: the source code, tests, third-party notices and documentation.\n- The `.sha256` files and `SHA256SUMS.txt`: download checksums.\n\n### Validation and limits\n\n- Native PS5 GPU build and complete installer: passed, including application imports, runtime/link checks,"
       },
       "pins": [
+        {
+          "tag": "v1.6.0",
+          "asset": "MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip",
+          "size": 72813867,
+          "sha256": "f12d9daf3542290a55fcbdd1ebf2fe0809cb4e8cc7a65b035f438e71600adc74",
+          "content_version": "01.060.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.5.4",
           "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
@@ -814,7 +822,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 188,
+      "stars": 0,
       "release": {
         "tag": "v1.6.9",
         "asset": "PPSA99810.zip",
@@ -822,8 +830,8 @@
         "sha256": "5e45ba026bc2fd1168e096036db70a19b41bb73e87c5ea1d3465489da9d52a34",
         "content_version": "01.609.000",
         "title_name": "PSBox Cloud Gaming",
-        "published_at": "2026-11-10T01:52:00Z",
-        "notes": "<!-- LANG:EN -->\n# PSBox Cloud Gaming v1.6.9\n\n## 🎯 Overhauled DualSense Gyro: Natural & Precise Aiming\n- **Effortless Micro-Adjustments for Shooters**: Gyro aiming has been completely re-engineered for pinpoint precision on subtle wrist movements. No more needing exaggerated physical motions to register a small turn — fine aiming in games like *Fortnite* is now instant, smooth, and 1:1 responsive.\n- **Natural Player Space Rotation**: Horizontal aim strictly tracks room gravity and your physical body posture instead of controller tilt. Tilting your wrists or resting the controller on your lap keeps your aim fully aligned and natural.\n- **Virtual Steering Wheel with Auto-Centering**: Turn your DualSense into a real racing wheel! Tilting the gamepad turns your vehicle naturally, auto-centering when you release the triggers. Includes 4 driving presets: Casual, Normal, Aggressive, and Drift.\n- **Quick In-Game Calibration**: Fine-tune your horizontal/vertical sensitivity and wheel modes directly from the in-game stream menu with instant visual feedback.\n\n## 📱 SmartGlass WebUI & In-Game Companion Card\n- **Instant QR Code Access in In-Game Menu**: The in-game stream menu now features a dedicated side companion card with a crisp QR code pointing directly to `http://<console-ip>:8080`. Just scan with your phone to access settings and controls without leaving your game!\n- **Show/Hide QR Code Toggle**: Press <kbd>△</kbd> (Triangle on DualSense) or use the keyboard shortcut to hide or show the QR companion card at any time, with an indicator on the bottom bar.\n- **Enhanced Mobile Web Experience**: Restored full smartphone portrait orientation, fixed virtual thumbstick drag clipping, suppressed repetitive connection popups, and added live integer FPS and video quality (QP) telemetry.\n- **Multi-Device Support**: Connect multiple smartphones, tablets, or PC browsers simultaneously on your local network to monitor telemetry or adjust settings.\n\n## 🎨 Visual Redesign & Menu Refinement\n- **Two-Tab In-Game Navigation**: Stream menu reorganized into two distinct tabs: **General** (<kbd>L1</kbd>) and **Controls** (<kbd>R1</kbd>), with standardized badge sizes and pixel-perfect text centering.\n- **Smooth 13-Row Scrolling Viewport**: Long settings lists now scroll smoothly within a 13-row viewport, preventing text overlap, safe-area clipping, or cluttered screens.\n- **Interactive Testers & Wheel Calibration**: Added built-in visual dialogs to test analog stick deadzones, adaptive triggers, and a streamlined single-wheel gyro calibration modal.\n- **Unified Clean Toasts**: Replaced intrusive Sony OS dialog popups with clean, non-intrusive animated system toasts.\n\n## ⚡ Higher Performance & Lower Latency on PS5"
+        "published_at": "2026-11-11T00:17:25Z",
+        "notes": "Temporary update bridge for PSBox Cloud Gaming v1.6.3 and older (issue RafaelNGP/psbox-cloud-gaming#409). These are the official, signed v1.6.9 PS5 files, identical to https://github.com/RafaelNGP/psbox-cloud-gaming/releases/tag/v1.6.9. After updating, the app looks for updates only in the official repository: https://github.com/RafaelNGP/psbox-cloud-gaming\n\nPonte temporária de atualização para o PSBox Cloud Gaming v1.6.3 e anteriores. São os arquivos oficiais e assinados da v1.6.9 para PS5, idênticos aos do repositório oficial. Depois de atualizar, o app procura atualizações somente no repositório oficial. This release removes itself on 2026-12-25."
       },
       "pins": [
         {
@@ -885,7 +893,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 98,
+      "stars": 99,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1263,7 +1271,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 409,
+      "stars": 408,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1293,7 +1301,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 485,
+      "stars": 486,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1709,7 +1717,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 830,
+      "stars": 831,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1795,7 +1803,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 210,
+      "stars": 209,
       "release": {
         "tag": "v3.4",
         "asset": "PPSA97358.zip",
@@ -2286,7 +2294,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 388,
+      "stars": 389,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2331,16 +2339,24 @@
       ],
       "stars": 141,
       "release": {
-        "tag": "v2.3.8",
+        "tag": "v2.3.9",
         "asset": "PPSA11018.zip",
-        "size": 327848075,
-        "sha256": "2fb9a1c9e487666adc6651e85d7ae7d208c3bb9e112f3f55f8e7c120e08fd975",
-        "content_version": "02.003.008",
+        "size": 327885473,
+        "sha256": "7fa805e2f1d8bc806b28200c093b22c871d756c926af067ec075cc81c603fb9f",
+        "content_version": "02.003.009",
         "title_name": "PC5",
-        "published_at": "2026-11-10T19:37:56Z",
-        "notes": "PC5 2.3.8 gets more Steam copies going, keeps the DLC a copy lists, opens a game's menu faster on a USB hard drive, and fixes a crash as some games' movies start.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Copies with ColdClientLoader**: a folder ColdClientLoader runs from now always gets PC5's Steam emulator, even when another stand-in's files are in it too. Such a game asked for the Steam app before.\n- **DLC**: when a copy lists its DLC for its own Steam stand-in, PC5's Steam emulator now keeps that list, so the DLC show as owned instead of \"buy\".\n- **A game's menu on a USB hard drive**: the first time a game's menu opened, PC5 looked at every one of its files to find Steam's library, which took seconds for a game with many files on a hard drive. It now looks only at what it needs.\n- **Movies without a frame rate**: a movie whose file gives no frame rate (WMV movies) was reported as 0 frames a second, and a game could crash as it started. It now gets the rate the video itself has.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs."
+        "published_at": "2026-11-10T21:16:16Z",
+        "notes": "PC5 2.3.9 fixes several games that stopped at start or ignored the pointer, shows every cover on Home, and turns off Programs a game starts until it works.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Games built on an older web browser (NW.js) could stop as they started, when freeing memory failed. That memory is now freed.\n- Unreal Engine games now see the touchpad pointer, so menus that ignored every click work.\n- Direct3D 9 games that build their shaders from effect files no longer stop with a shader error.\n- Some older games built with Visual Studio 2005 or 2008 could crash; that's fixed.\n- Older 32-bit games that use a few rare instructions no longer stop at start.\n- Games whose movie player rewrites its own code no longer slow down more and more as the movie plays.\n- Home's covers far to the right of the chosen game now show their pictures straight away, not PC5's own cover until you move near them.\n- Logs show folder and file names in other alphabets (Korean, Japanese and others) as they are, not as codes.\n\n### Changed\n\n- **Programs a game starts** is off for every game, and its row in **Settings › In games** is hidden for now. When a game started another program with it on, that program could take PC5 down with it. Your choice is kept for when it comes back.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported"
       },
       "pins": [
+        {
+          "tag": "v2.3.8",
+          "asset": "PPSA11018.zip",
+          "size": 327848075,
+          "sha256": "2fb9a1c9e487666adc6651e85d7ae7d208c3bb9e112f3f55f8e7c120e08fd975",
+          "content_version": "02.003.008",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.7",
           "asset": "PPSA11018.zip",
@@ -2371,14 +2387,6 @@
           "size": 325278128,
           "sha256": "9f34dea5fed4102590e8c125c50ab99797a1238400641ff43c83b465b3c866be",
           "content_version": "02.003.004",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.1",
-          "asset": "PPSA11018.zip",
-          "size": 325268603,
-          "sha256": "e15c7afe092e449b20f8a74e7dbf36cd6ce6aa883efaa6c5c0cac01011ceb6fe",
-          "content_version": "02.003.001",
           "title_name": "PC5"
         }
       ]
@@ -2433,7 +2441,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1051,
+      "stars": 1053,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2512,7 +2520,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1657,
+      "stars": 1658,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2569,7 +2577,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 431,
+      "stars": 430,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3592,7 +3600,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 56,
+      "stars": 57,
       "release": {
         "tag": "01.000.279",
         "asset": "PPSA99874.zip",
@@ -4373,7 +4381,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 57,
+      "stars": 58,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4447,16 +4455,24 @@
       ],
       "stars": 13,
       "release": {
-        "tag": "v1.0.0.11-native",
+        "tag": "v1.0.0.17-native",
         "asset": "PPSA99288.zip",
-        "size": 44411290,
-        "sha256": "e08ba610204d3864ab52f3838302c7a2589645a9437f41417fb274269a60be06",
-        "content_version": "07.000.011",
+        "size": 45296825,
+        "sha256": "d9e30887bda7888f497dde50762c6bef633e5f5402950f6c87bf391d8759d7d0",
+        "content_version": "07.000.017",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-05T15:47:12Z",
-        "notes": "# Nuvio Max'd 1.0.0.11\n\n## Security and maintenance\n- Replace the legacy provider HTML-selector fork with maintained Cheerio 1.2.0 slim. This removes the known nth-check denial-of-service advisory while preserving existing provider module names.\n- Update subtitle shaping to HarfBuzz 15.1.0, artwork handling to WebP 1.6.0 and XML parsing to libxml2 2.15.4.\n- Use the PS5 SDK's secure random API for XML hash randomization. Keep the verified FFmpeg 7.0.3 archive pins and existing Native/EVO/VLC playback integration.\n- Add weekly dependency/security monitoring and reviewable update proposals. No automatic app upgrades or publishing.\n\n## Included from recent test builds\n- Optional on-console torrent and magnet streaming with sequential buffering, plus paired phone/PC Web Drop. Torrent streaming is off by default and requires console confirmation.\n- Automatic HDR-to-SDR fallback when native HDR output is rejected. Strict native HDR and explicit SDR conversion remain available.\n- Experimental app-local Media Remote/CEC button testing and remapping under Settings > Controls > Remote buttons. PlayStation or the TV can intercept system buttons; Nuvio cannot remap presses it never receives. DualSense controls are unchanged.\n- Plex, Jellyfin and Emby browsing/playback, authenticated artwork and saved connection fixes remain included, along with profiles, Live TV/IPTV and watch progress.\n\n## Installation and verification\nUse PPSA99288.zip for a folder install or NuvioMaxd-1.0.0.11-native.ffpfsc for an image install. Preserve saved user data and keep the previous installer. Content version: 07.000.011.\n\nThe full PS5 app and updater compile/link, host regression tests, updated-library fixtures, matching source and package integrity are verified. npm reports zero known advisories for the pinned JavaScript graph at the time of verification; this is not a blanket native-library security clearance.\n\nPhysical PS5 acceptance of the updated libraries remains pending. Torrent networking, remote buttons, HDR output and optional EVO/VLC playback retain their documented experimental limits. EVO remains the integrated 0.13.0 decoder with our existing HEVC base-layer fix; this release does not add full Dolby Vision output."
+        "published_at": "2026-11-11T02:46:30Z",
+        "notes": "# Nuvio Max'd 1.0.0.17\n\n- Add English/German interface selection under **Settings → App & Updates → Language**. Choose **Deutsch**, then fully close and restart Max'd. Menus, settings, dialogs and playback controls use the bundled German catalog, with English fallback. Audio, subtitle and addon-content languages remain separate.\n- Add **Cast & crew** to movie/series detail pages: press **R2**, browse the photo row and select a person. Person pages show biography, birth details, known-for department and movie/TV credits. Select a credit to open its title through your configured addons. Circle returns through the browsing history.\n- Keep metadata and artwork loading bounded and cancellable, with missing-photo/metadata fallbacks and profile-change guards. Back navigation restores cast/person selection. TMDB requests use the existing app configuration.\n- Preserve USB playlist import and private saved copies. The reporter confirmed 1.0.0.16 import/playback, persistence after USB removal/restart, cancellation, profile isolation and valid replacement. Dialog cancellation now uses stable identifiers across translations.\n\nStable release. The complete app build, host/VLC CI, 71 renderer previews, ZIP/native image and matching source verification passed. Console feedback on the two new features is welcome; host verification does not establish every firmware's compatibility.\n\nFully close Max'd before updating. Keep saved user data and your previous installer; do not overwrite a mounted FFPFSC. Title PPSA99288, contentVersion 07.000.017. The existing optional USB reader remains a privileged payload; Max'd itself stays sandboxed. See the included TESTING.txt and verification report."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.11-native",
+          "asset": "PPSA99288.zip",
+          "size": 44411290,
+          "sha256": "e08ba610204d3864ab52f3838302c7a2589645a9437f41417fb274269a60be06",
+          "content_version": "07.000.011",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.8-native-experimental",
           "asset": "PPSA99288.zip",
@@ -4740,16 +4756,24 @@
       ],
       "stars": 8,
       "release": {
-        "tag": "01.000.203",
+        "tag": "01.000.204",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33557382,
-        "sha256": "8b11d5a1e8e442c5ffa3b144ec179a1077f922317890121f0c21fb1306ef90dd",
-        "content_version": "01.000.203",
+        "size": 33567836,
+        "sha256": "9fc9a05d1749655e05e0237aadc3cbb595e096f5c543cf5ed4290f6d236cd6d4",
+        "content_version": "01.000.204",
         "title_name": "SmartTube",
-        "published_at": "2026-11-07T00:41:54Z",
-        "notes": "Age-restricted songs in playlists play; captions stay with their video\n\n- Some age-restricted videos only came back from the TV client with signed (ciphered) streams and no player code named in the answer, so playback failed with \"Sign in to confirm your age\" even when signed in. The TV player's own signature code now signs them\n- A video without captions showed the previous video's captions on top of it. Each new video now starts without the last one's captions, and the chosen language comes back on when the new video has it"
+        "published_at": "2026-11-11T04:42:12Z",
+        "notes": "Longer rows, guest mode, Shorts feed, titles and screen size\n\n- Rows grow as you scroll right: YouTube sends each Home row 5-8 videos at a time, and the next ones now load near the row's end (Home and the topic pages), like SmartTube's long rows\n- Guest mode works again: signed out, Home comes from the TV client (the web Home is empty for guests now), and Circle on the sign-in screen goes on without an account instead of staying on the QR code. Options there leaves the sign-in rather than the app\n- Shorts: Down goes to the next Short (from the row or the Shorts tab it was opened from), not a regular recommended video\n- Age-restricted videos showed their ID as the title: the title, channel and channel picture now come from the card the video was opened from when YouTube's answer leaves them out\n- Settings > User interface > Screen size (100% to 85%) for TVs that cut off the picture's edges"
       },
       "pins": [
+        {
+          "tag": "01.000.203",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33557382,
+          "sha256": "8b11d5a1e8e442c5ffa3b144ec179a1077f922317890121f0c21fb1306ef90dd",
+          "content_version": "01.000.203",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.202",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4780,14 +4804,6 @@
           "size": 33554682,
           "sha256": "804ec076338064dca8426ac4fef0871ec18357292781989f6ec204d38df1ecf1",
           "content_version": "01.000.199",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.197",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33554845,
-          "sha256": "8dc125ed097ab092941e3d8e3e4d63e673ac9aa6aeb3ced255a085b63a7a6999",
-          "content_version": "01.000.197",
           "title_name": "SmartTube"
         }
       ]
@@ -4969,7 +4985,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 31,
+      "stars": 30,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5633,16 +5649,24 @@
       ],
       "stars": 115,
       "release": {
-        "tag": "v1.4.1",
+        "tag": "v1.4.2",
         "asset": "PPSA76677.zip",
-        "size": 47185101,
-        "sha256": "e829034d66fae048c221580d2998f86380866bcfd33d80cdbbf754315ef1fbc0",
-        "content_version": "01.004.001",
+        "size": 47188806,
+        "sha256": "beb546f4444fa93c9d00ed58d5097db3be51d029ead72cfc4dffc7e95c064913",
+        "content_version": "01.004.002",
         "title_name": "RommPS",
-        "published_at": "2026-11-09T08:20:05Z",
-        "notes": "A small one: RomM servers behind client certificates, faster downloads from far-away servers, and a few save sync fixes.\n\nUpdate RommPS and open it once. It updates everything else.\n\n### New\n\n- Client certificates (mTLS): RommPS reaches a RomM server behind Traefik, Pangolin or nginx that asks for one. Add your `.p12` file in the web UI, during setup or in Settings. Thanks to matschi95. ([#38](https://github.com/s0liton/RommPS/issues/38))\n\n### Fixed\n\n- Downloads from a distant RomM server are no longer held to about 2 MB/s. ([#39](https://github.com/s0liton/RommPS/issues/39))\n- A save that never synced from this console no longer replaces the one RomM already has. You get a conflict to settle instead.\n- PSP saves stored under another game's id (re-releases do this) stop downloading again on every sync.\n- An Xbox game that's incomplete on your RomM server is reported once, with what to do, instead of failing every sync.\n\n### Good to know\n\n- `.p12` files encrypted with RC2 don't load on the consoles. The README shows how to export one with AES."
+        "published_at": "2026-11-11T04:10:18Z",
+        "notes": "Faster downloads from far-away RomM servers.\n\nUpdate RommPS and open it once. It updates everything else.\n\n### Fixed\n\n- On the PS5, big downloads from a distant RomM server use several connections at once and finish much sooner. A server on your own network keeps using one. Thanks to fculpo. ([#39](https://github.com/s0liton/RommPS/issues/39))"
       },
       "pins": [
+        {
+          "tag": "v1.4.1",
+          "asset": "PPSA76677.zip",
+          "size": 47185101,
+          "sha256": "e829034d66fae048c221580d2998f86380866bcfd33d80cdbbf754315ef1fbc0",
+          "content_version": "01.004.001",
+          "title_name": "RommPS"
+        },
         {
           "tag": "v1.4.0",
           "asset": "PPSA76677.zip",
