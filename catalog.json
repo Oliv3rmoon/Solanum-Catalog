@@ -489,16 +489,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "v1.6.1",
-        "asset": "MediaPlayerClassicPS5-v1.6.1-PPSA99015.zip",
-        "size": 72822123,
-        "sha256": "e514211773255f4b49fe1cf2ec1386140a60e384e2b1ab00afaf9a5c31bdb0a4",
-        "content_version": "01.061.000",
+        "tag": "v1.6.2",
+        "asset": "MediaPlayerClassicPS5-v1.6.2-PPSA99015.zip",
+        "size": 72862571,
+        "sha256": "4cec5bb89c91bc3a195ef426368803f298741c9db2c65ce6384d97ddda46c955",
+        "content_version": "01.062.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-11-10T21:05:24Z",
-        "notes": "## Media Player Classic PS5 1.6.1\n\nDark mode for the PS5 interface, with saved preferences and instant switching. The application version is\n1.6.1, content version is 01.061.000, and the title ID remains PPSA99015.\n\n### New\n\n- **Dark mode:** choose **View > Options > Player > Theme > Dark**, then **Apply** or **OK**. Select **Light** to\n  restore the original appearance. Existing settings use Light by default.\n- **Immediate switching:** the window, toolbar, menus, playlist, file browser, dialogs and controls update without\n  restarting the player. The choice is saved for the next launch. Cancel discards a choice that has not been applied.\n- **Readable toolbar icons:** dark neutral glyphs are brightened for Dark, while colored icons and transparency\n  retain their original values. Returning to Light restores the original toolbar pixels.\n- **Independent video colors:** video, HDR processing, subtitles and custom subtitle colors retain their colors.\n\nWith a controller, use L1/R1 to move between controls, D-pad Left/Right to select the theme, and Cross on Apply or OK.\n\n### Fixed\n\n- Added missing Spanish, Brazilian Portuguese, French and German translations for four existing HDR/GPU labels.\n  The GPU retry button and hint are checked against the actual font metrics in all five languages.\n- Fixed spaces in the dependency archive command and runtime checksum path. `MPCPS5_DEPS_DIR` allows dependencies\n  to be built in a separate cache without spaces.\n- Fixed an unused constant stopping Linux builds with Clang and `-Werror`, preserving the console's crash handling.\n\n### Updating\n\n- **From 1.6.0:** use **Help > Check for updates**, install the update and restart the app. The update ZIP contains\n  the native application, its metadata, artwork, runtime module and file manifest.\n- For manual installation, run `MediaPlayerClassicPS5-v1.6.1.elf` with your existing homebrew setup, then open\n  Media Player Classic PS5 from the home screen. The ELF includes the installer, helper and native player.\n- If an older installer ELF is configured in autoload, replace that file with the new installer.\n- Settings and media remain in `/data/mpcps5`. The new preference is `DarkMode=1` (Dark) or `DarkMode=0` (Light)\n  in `mpc-hc.ini`.\n\n### Files\n\n- `MediaPlayerClassicPS5-v1.6.1.elf`: the complete installer. This is the only ELF download for this release.\n- `MediaPlayerClassicPS5-v1.6.1-PPSA99015.zip`: the application update package used by Help > Check for updates.\n- `mpc-ps5-v1.6.1-src.zip`: the source code, tests, third-party notices and documentation.\n- The `.sha256` files and `SHA256SUMS.txt`: download checksums.\n\n### Validation and limits\n\n- Native PS5 GPU build and complete installer: passed, including application imports, runtime/link checks,"
+        "published_at": "2026-11-11T20:57:11Z",
+        "notes": "## Media Player Classic PS5 1.6.2\n\nEncrypted network passwords and masked SMB credentials, addressing\n[issue #7](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/7).\nApplication version is **1.6.2**, content version is **01.062.000**, and the title ID remains **PPSA99015**.\n\n### Changed\n\n- Network passwords are saved with authenticated encryption instead of in the old plaintext credential file.\n- Passwords are masked in the SMB form and its on-screen keyboard, and hidden from displayed and saved addresses.\n- **Save password on this PS5** reuses the password automatically after restarting the app. Unchecking it keeps\n  the password only for the current session and removes an earlier saved password for that account.\n- There is no master password, vault screen or separate unlock step.\n- Existing plaintext credentials migrate automatically after the encrypted copy is saved and verified.\n  Failed writes or malformed legacy data preserve the original files for retry.\n- Password cleanup still follows the last saved address: removing all references removes the persisted password\n  after the settings commit succeeds.\n- Dark mode, existing preferences, favorites, media and file positions are retained.\n\n### Where to find the option\n\nOpen **View > Options > Miscellaneous > Network locations > Add...**. The **Save password on this PS5** checkbox\nis below **Name for this location** and is checked by default. Fill in the location, choose **OK**, then apply\nthe Options changes. The file browser also offers **Add a network location...** in its navigation pane.\n\n![SMB form with a masked password and save checkbox](https://raw.githubusercontent.com/MisterTemaki/MediaPlayerClassicPS5/v1.6.2/docs/screenshots/smb-save-password.png)\n\n### Updating\n\n- From 1.6.1 or an older version with the updater, choose **Help > Check for updates**, install the update and\n  restart the app.\n- For manual installation, use **MediaPlayerClassicPS5-v1.6.2.elf**, the complete installer, then open the app\n  from the home screen. This is the only ELF asset for this release.\n- If an older installer ELF is configured in autoload, replace that file with the new installer.\n- Settings and media remain in `/data/mpcps5`; old plaintext credential files are removed only after verified\n  migration and successful settings writes.\n\n### Storage and protection\n\nPasswords are encrypted with XChaCha20-Poly1305 using the existing Monocypher dependency. A random local key is\nstored separately in an owner-only directory, with private key and credential files. Keys and nonces come\nfrom the operating-system entropy source.\n\nAutomatic reuse requires storing the key on the console. Anyone who can read both the local key and encrypted\nfile can recover the passwords. This is not hardware-bound storage. See"
       },
       "pins": [
+        {
+          "tag": "v1.6.1",
+          "asset": "MediaPlayerClassicPS5-v1.6.1-PPSA99015.zip",
+          "size": 72822123,
+          "sha256": "e514211773255f4b49fe1cf2ec1386140a60e384e2b1ab00afaf9a5c31bdb0a4",
+          "content_version": "01.061.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.6.0",
           "asset": "MediaPlayerClassicPS5-v1.6.0-PPSA99015.zip",
@@ -529,13 +537,6 @@
           "size": 45512102,
           "sha256": "3d214273c33ca01b1b3bbf85290064741cafb27e9a6857f4e768f57d8ae48190",
           "content_version": "01.052.000"
-        },
-        {
-          "tag": "v1.5.1",
-          "asset": "MediaPlayerClassicPS5-v1.5.1-PPSA99015.zip",
-          "size": 45331110,
-          "sha256": "27e314d1d371adbd543b3bb0218b7d32d54c386c2209b89bb0d7d24ede04d765",
-          "content_version": "01.051.000"
         }
       ]
     },
@@ -893,7 +894,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 99,
+      "stars": 98,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -969,7 +970,7 @@
         "dreamcast",
         "flycast"
       ],
-      "stars": 39,
+      "stars": 40,
       "release": {
         "tag": "v1.3.5",
         "asset": "PSFlyCast-v1.3.5.zip",
@@ -1009,7 +1010,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 234,
+      "stars": 235,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1048,7 +1049,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 52,
+      "stars": 53,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1301,7 +1302,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 488,
+      "stars": 492,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1690,14 +1691,24 @@
       ],
       "stars": 68,
       "release": {
-        "tag": "01.006.000",
+        "tag": "01.007.000",
         "asset": "PPSA99004.zip",
-        "size": 70568813,
-        "sha256": "8b2241e003a22bffccee23e9424991533047e633e5ce337af60281b96868439e",
-        "published_at": "2026-10-14T15:22:03Z",
-        "notes": "- Text, image, sound and speech generation now use one pinned upstream llama.cpp/GGML Vulkan\n  runtime. The release includes guarded PS5 support for Ternary Bonsai 2's ternary weights and\n  replaces Kokoro's old prebuilt OpenCL path with a source-built Vulkan runtime.\n- Added 12 ready-to-download model presets across all four modalities, including Ternary\n  Bonsai 2 27B, MiniCPM5, Granite, BoHF, Stable Audio 3, ACE-Step, Kokoro and Chatterbox.\n  See [Supported models](docs/SUPPORTED_MODELS.md) for the complete list.\n- Added Chatterbox voice cloning with 19 language choices, custom voice samples, and voice\n  recording from DualSense or a web browser.\n- PS5 and web now share conversations and runtime settings. Models prepare when a conversation\n  starts, both interfaces show actual backend residency, and model switching and memory release\n  work across text, image, audio and speech.\n- The PS5 Workspace places New conversation after the voice controls, and the default idle\n  timeout before releasing a model is now five minutes.\n- All 12 curated presets completed three generation rounds each on the test title, including\n  checks for model switching and valid generated outputs.",
-        "content_version": "01.006.000"
-      }
+        "size": 71109828,
+        "sha256": "68759ee86af6a018c3a1b4203aa97b80ee12fcd9472f673ef177d3fb1dacc7aa",
+        "content_version": "01.007.000",
+        "title_name": "ProsperoAI",
+        "published_at": "2026-11-12T00:18:30Z",
+        "notes": "- Updated the shared Vulkan inference runtime to upstream llama.cpp and GGML, including PS5\n  and Ternary Bonsai compatibility for the upstream API changes.\n- Image Studio now passes uploaded images and masks reliably, and SDXL ControlNet keeps its\n  model weights resident alongside the guide network during sampling.\n- Fixed Cover and Stems rejecting valid WAV files on PS5; both workflows now produce their\n  expected artifacts.\n- Added symlink-safe file checks for image upload leases and audio workflow inputs.\n- Verified all 25 installed curated model presets and their applicable workflows on the PS5\n  test title. Two optional local GGUFs remain outside the supported catalog because they\n  exceed available console Vulkan memory."
+      },
+      "pins": [
+        {
+          "tag": "01.006.000",
+          "asset": "PPSA99004.zip",
+          "size": 70568813,
+          "sha256": "8b2241e003a22bffccee23e9424991533047e633e5ce337af60281b96868439e",
+          "content_version": "01.006.000"
+        }
+      ]
     },
     {
       "id": "ps5lm",
@@ -1717,7 +1728,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 832,
+      "stars": 835,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1912,7 +1923,7 @@
         "screenshots",
         "capture"
       ],
-      "stars": 29,
+      "stars": 30,
       "release": {
         "tag": "1.0",
         "asset": "PPSA99773.zip",
@@ -2302,7 +2313,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 389,
+      "stars": 391,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2345,7 +2356,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 142,
+      "stars": 143,
       "release": {
         "tag": "v2.3.10",
         "asset": "PPSA11018.zip",
@@ -2449,7 +2460,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1056,
+      "stars": 1061,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2498,7 +2509,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 259,
+      "stars": 261,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2528,7 +2539,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1660,
+      "stars": 1661,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2585,7 +2596,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 430,
+      "stars": 431,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2752,16 +2763,24 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "v00.040.006",
-        "asset": "ApricotGS-v00.040.006-PS5.zip",
-        "size": 55426486,
-        "sha256": "7c7b0ad716be8a6a7fbef738ce0e82fb79f43d9c8ee5a8a7e5b8cf5b7331d625",
-        "content_version": "00.040.006",
+        "tag": "v00.040.007",
+        "asset": "ApricotGS-v00.040.007-PS5.zip",
+        "size": 55426578,
+        "sha256": "a993f2b35ba991aa6e3dfc8a435eae87cfe1df6c631c239ae00bd215d2dca122",
+        "content_version": "00.040.007",
         "title_name": "ApricotGS",
-        "published_at": "2026-11-01T14:07:00Z",
-        "notes": "This update keeps the app in the edition-selection window, fixes remembered RomM access on PS5, and lets menu music continue while visiting the library. In-app music now uses a verified complete cycle generated from your own game instead of restarting a one-minute excerpt.\n\nDownload **ApricotGS-v00.040.006-PS5.zip** and check it with **SHA256SUMS.txt**. Corresponding source and required notices are available through the automatic Source code ZIP and TAR.GZ downloads. No games, extracted game music, saves or server credentials are included.\n\n| Version | Type | Change |\n| --- | --- | --- |\n| 00.040.006 | Fixed | Start in the edition-selection window even when no playable game is present. A centered message and Triangle prompt show how to open the library. |\n| 00.040.006 | Fixed | Return from an empty library to the start window with Circle. Unavailable selection/start actions are omitted when no game can be started. |\n| 00.040.006 | Fixed | Save and reopen the RomM connection on PS5 using supported private file operations, including the console runtime's missing link-count metadata. |\n| 00.040.006 | Improved | Explicitly open the saved RomM connection from its menu and retry a storage read without deleting the connection. |\n| 00.040.006 | Fixed | Preserve menu music playback and the selected edition during library visits when the installed editions are unchanged. |\n| 00.040.006 | Fixed | Replace the arbitrary 60-second in-app music cutoff with a validated complete cycle and intro/loop points, generated locally from the supported game. |\n| 00.040.006 | Improved | Update older verified title media through a transactional replacement while retaining the previous files and keeping saves unchanged. Failed music validation preserves existing media. |\n| 00.040.006 | Improved | Center visible footer text beside the original controller icons using the font's actual ink bounds. |\n\n**Updating:** 00.040.005 could fail to store the RomM login on PS5. If no connection is available, sign in or pair once; this version retains the connection for later app restarts. Updating older local title music can take additional preparation time. The separate PS5 Home-tile music excerpt remains limited to one minute.\n\nThe native RomM storage faults affected 00.040.005; introduction versions for the other corrected symptoms have not been established. No new regional compatibility or gameplay improvements are claimed. The app remains experimental and a complete playthrough has not been verified."
+        "published_at": "2026-11-12T01:27:52Z",
+        "notes": "ApricotGS now keeps the same title track playing when you switch between HeartGold and SoulSilver in the edition menu.\n\n| Version | Type | Change |\n| --- | --- | --- |\n| 00.040.007 | Fix | Switching editions keeps the title track playing without restarting or switching tracks. |\n\nCorresponding source is available in the GitHub-generated Source code ZIP and TAR.GZ below."
       },
       "pins": [
+        {
+          "tag": "v00.040.006",
+          "asset": "ApricotGS-v00.040.006-PS5.zip",
+          "size": 55426486,
+          "sha256": "7c7b0ad716be8a6a7fbef738ce0e82fb79f43d9c8ee5a8a7e5b8cf5b7331d625",
+          "content_version": "00.040.006",
+          "title_name": "ApricotGS"
+        },
         {
           "tag": "v00.040.005",
           "asset": "ApricotGS-v00.040.005-PS5.zip",
@@ -3246,7 +3265,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 91,
+      "stars": 90,
       "release": {
         "tag": "build-141",
         "asset": "halo-ps5-release.zip",
@@ -3412,7 +3431,7 @@
         "zelda",
         "adventure"
       ],
-      "stars": 17,
+      "stars": 18,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99670.zip",
@@ -4004,16 +4023,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.002",
+        "tag": "01.000.003",
         "asset": "PPSA90505.zip",
-        "size": 19037132,
-        "sha256": "96f50f7322fe747293de3d5d09e408c2a322fdc6c7ed99c9ad58036e4b2da4dc",
-        "content_version": "01.000.002",
+        "size": 19123400,
+        "sha256": "291a6cb479ddd502e2224a03aa7a33aee6ab4edd0410ce84646a2f3c8612738a",
+        "content_version": "01.000.003",
         "title_name": "SpeedBreaker",
-        "published_at": "2026-11-03T11:47:10Z",
-        "notes": "Two players on one console: split screen now takes a second DualSense.\n\n### What's new\n\n- **Two-player split screen** (Quick Race > Split Screen): each player gets their own half of the screen. The second DualSense has to be signed in as a second PS5 user; a guest will do. It joins at \"Player 2 press START\" with Options. Assist mode, which merges two controllers into one, doesn't add a player.\n\n### Install\n\n- Unpack PPSA90505.zip and copy the PPSA90505 folder to /data/homebrew/ on the console (or install it from RecompStore or ProsperoStore).\n- Copy the disc image (.iso) you made from your own USA disc to /data/speedbreaker/ over FTP, start the tile, choose the image and press Install.\n- Already installed? Just copy the new PPSA90505 folder over the old one. Saves, settings and game files are kept.\n\n**No game files are included or distributed.** To play, you need your own legally obtained backup of your own Xbox 360 disc of Need for Speed: Most Wanted (2005), USA version. This project does not support piracy: please don't ask for, or share, game files or disc images.\n\nUnofficial fan project, not affiliated with project(u), Electronic Arts or Sony Interactive Entertainment. GPL-3.0-or-later; licenses are in the app's licenses/ folder."
+        "published_at": "2026-11-11T20:46:23Z",
+        "notes": "Now on SpeedBreaker v0.2.4: a sharper picture at 4K, and cops in Quick Race.\n\n### What's new\n\n- **Sharper UI** (Settings > Graphics, on by default): the menus, the HUD and their text are enlarged to 4K with a sharper filter instead of a blur.\n- **Sharper movies:** the intro and the cutscenes are enlarged the same way (Movie Upscaling).\n- **Sharper shadows:** Shadow Resolution's new Auto, the default, draws the sun's shadows at 2x at 4K. A 1x from an earlier version becomes Auto once; choose 1x again to keep it.\n- **Cops in Quick Race:** a Cops row in Custom Race's race options (Off by default) puts the police in Circuit, Sprint, Lap Knockout and Speedtrap races, in single player.\n- **Player 1 follows the DualSense you last pressed,** outside split screen.\n- **Cooler Colors** (Settings > Display, off by default): less of the game's yellow.\n\nHDR Output isn't offered on the PS5: the app's picture is SDR.\n\n### Install\n\n- Unpack PPSA90505.zip and copy the PPSA90505 folder to /data/homebrew/ on the console (or install it from RecompStore or ProsperoStore).\n- Copy the disc image (.iso) you made from your own USA disc to /data/speedbreaker/ over FTP, start the tile, choose the image and press Install.\n- Already installed? Just copy the new PPSA90505 folder over the old one. Saves, settings and game files are kept.\n\n**No game files are included or distributed.** To play, you need your own legally obtained backup of your own Xbox 360 disc of Need for Speed: Most Wanted (2005), USA version. This project does not support piracy: please don't ask for, or share, game files or disc images.\n\nUnofficial fan project, not affiliated with project(u), Electronic Arts or Sony Interactive Entertainment. GPL-3.0-or-later; licenses are in the app's licenses/ folder."
       },
       "pins": [
+        {
+          "tag": "01.000.002",
+          "asset": "PPSA90505.zip",
+          "size": 19037132,
+          "sha256": "96f50f7322fe747293de3d5d09e408c2a322fdc6c7ed99c9ad58036e4b2da4dc",
+          "content_version": "01.000.002",
+          "title_name": "SpeedBreaker"
+        },
         {
           "tag": "01.000.001",
           "asset": "PPSA90505.zip",
@@ -4389,7 +4416,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 62,
+      "stars": 63,
       "release": {
         "tag": "v0.13.5",
         "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
@@ -4772,16 +4799,24 @@
       ],
       "stars": 8,
       "release": {
-        "tag": "01.000.205",
+        "tag": "01.000.207",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33697750,
-        "sha256": "9ca142bbb9bc335f0ceb80295a6c49353c7da5cf7dd3c98d7f86bcc12bc38af8",
-        "content_version": "01.000.205",
+        "size": 33700378,
+        "sha256": "a78a3d61ebd38dd2c5677b9f4d15760f5e51f10f3bff82ef09edd478b987b3b8",
+        "content_version": "01.000.207",
         "title_name": "SmartTube",
-        "published_at": "2026-11-11T17:14:05Z",
-        "notes": "1.0.205: your language, and the log to your phone with a QR code\n\nLanguages\n- The app speaks Spanish, Portuguese (Brazil), French, German, Italian,\n  Russian, Polish, Turkish and Dutch. Settings > General > Language;\n  \"System\" (the default) follows the PS5's own language.\n- Every menu, button, setting, hint and message is translated. Video\n  titles, channel names, descriptions and comments stay as written.\n- YouTube is asked in the same language, so its section names, view\n  counts and dates match.\n- The search keyboard changes with the language: QWERTZ with ü ö ä ß for\n  German, AZERTY for French, ñ for Spanish, ç for Portuguese, ЙЦУКЕН for\n  Russian (with an abc page for Latin names), ı ğ ş for Turkish, and a\n  page of accented letters for the others.\n- Dates on the clock and in video info follow the language too.\n\nSend the log to your phone\n- Hold the touchpad and press Options, anywhere in the app, or use\n  Settings > General > Send the log to your phone.\n- A QR code appears. Scan it with the phone (same Wi-Fi as the console),\n  tap Download, and yt.log is saved on the phone, ready to attach to a\n  report. No FTP needed. The little server stops when the code closes."
+        "published_at": "2026-11-12T03:07:34Z",
+        "notes": "1.0.207: the log QR code works on the console\n\n- The PS5 doesn't let apps listen on the network, so the log QR code\n  only said \"listen: permission denied\". When that happens, the log is\n  now uploaded to dpaste.com (deleted after 7 days) and the QR code opens\n  it there. The phone doesn't even need to be on the same Wi-Fi.\n- \"Uploading the log...\" shows while it goes up. A failed upload says why.\n- A log over about 900 KB keeps its start and its last 800 KB."
       },
       "pins": [
+        {
+          "tag": "01.000.205",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33697750,
+          "sha256": "9ca142bbb9bc335f0ceb80295a6c49353c7da5cf7dd3c98d7f86bcc12bc38af8",
+          "content_version": "01.000.205",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.204",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4812,14 +4847,6 @@
           "size": 33556102,
           "sha256": "492bf6563d55dd06498ebc5f77e254dfd68c3c27ef659002a1d0b258fb1090ae",
           "content_version": "01.000.201",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.200",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33555156,
-          "sha256": "fde09a311cc55d5ccac27d4d38172d78979903f86d4e76cfa4629cd87092a9e3",
-          "content_version": "01.000.200",
           "title_name": "SmartTube"
         }
       ]
@@ -5663,18 +5690,26 @@
         "saves",
         "sync"
       ],
-      "stars": 117,
+      "stars": 118,
       "release": {
-        "tag": "v1.4.2",
+        "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
-        "size": 47188806,
-        "sha256": "beb546f4444fa93c9d00ed58d5097db3be51d029ead72cfc4dffc7e95c064913",
-        "content_version": "01.004.002",
+        "size": 47209485,
+        "sha256": "789449f36a12dad79fe9ee608c8c835db1d7e1458a7e804d12e25e93fa09afd1",
+        "content_version": "01.004.003",
         "title_name": "RommPS",
-        "published_at": "2026-11-11T04:10:18Z",
-        "notes": "Faster downloads from far-away RomM servers.\n\nUpdate RommPS and open it once. It updates everything else.\n\n### Fixed\n\n- On the PS5, big downloads from a distant RomM server use several connections at once and finish much sooner. A server on your own network keeps using one. Thanks to fculpo. ([#39](https://github.com/s0liton/RommPS/issues/39))"
+        "published_at": "2026-11-12T05:30:31Z",
+        "notes": "I fixed a bunch of minor issues as well as some incorrect behavior when syncing certain consoles like the Switch. New UI sounds were added, and a few other enhancements.\n\n### Added\n\n- New interface sounds: pick Metal Gear Solid, Paper, Glass, Tones or Off in Settings.\n- XPSemu Alpha 3 support: saves sync from its new hard disk folder, and Alpha 2 still works. Thanks to kostas4949. ([#46](https://github.com/s0liton/RommPS/issues/46))\n- PC games (Windows, DOS and friends) now download with all their files. Thanks to Ribelio. ([#42](https://github.com/s0liton/RommPS/issues/42))\n\n### Fixed\n\n- Saves are compressed before uploading, so large Switch saves no longer go over RomM's upload limit. Thanks to Ribelio. ([#43](https://github.com/s0liton/RommPS/issues/43))\n- Games whose RomM entry was deleted, merged or rescanned now find their new entry on their own. Thanks to Ribelio. ([#44](https://github.com/s0liton/RommPS/issues/44))\n- Switch saves now sync for games without a title id in their file name. Thanks to Ribelio. ([#45](https://github.com/s0liton/RommPS/issues/45))\n- Switch updates downloaded on their own go to the updates folder instead of showing up as a game.\n- The library and covers no longer stay blank after an update until RommPS is reopened.\n- BIOS and firmware files you already had now update when RomM's copies change.\n- Emulators you don't have no longer show up as installed (PSXS5 next to SwanStationPS5, for one).\n- Saves are no longer offered to move into a different emulator's folder, which could cost you a memory card.\n- RommPS no longer keeps re-asking RomM for a collection it can't load; it shows the error once."
       },
       "pins": [
+        {
+          "tag": "v1.4.2",
+          "asset": "PPSA76677.zip",
+          "size": 47188806,
+          "sha256": "beb546f4444fa93c9d00ed58d5097db3be51d029ead72cfc4dffc7e95c064913",
+          "content_version": "01.004.002",
+          "title_name": "RommPS"
+        },
         {
           "tag": "v1.4.1",
           "asset": "PPSA76677.zip",
