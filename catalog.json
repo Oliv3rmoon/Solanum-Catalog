@@ -357,16 +357,24 @@
       ],
       "stars": 3,
       "release": {
-        "tag": "22.000.002",
+        "tag": "22.000.004",
         "asset": "PPSA99420.zip",
-        "size": 68367301,
-        "sha256": "e4b3f7c8f0d9ee913db129825c7e4efdc555d4f77324a91783ba9817e79fc26f",
-        "content_version": "22.000.002",
+        "size": 68447509,
+        "sha256": "f16e841940f7187edf1fb8aafb4e4430d53e7253a708fc57757eaf98b9d6531b",
+        "content_version": "22.000.004",
         "title_name": "Kodi",
-        "published_at": "2026-11-08T18:06:28Z",
-        "notes": "# Release Notes\n\n## PS5-Specific Changes\n\n- **PS5 Media Remote support:** Navigate Kodi, open playback controls, pause and resume, rewind, and fast-forward using the PS5 Media Remote.\n- **More reliable remote reconnection:** Playback controls recover after the remote disconnects, without interrupting controller input.\n- **Correct video pausing:** Pausing holds the displayed picture instead of allowing video frames to continue advancing. Frame-by-frame stepping remains available.\n- **Improved VP9 playback:** More reliable playback after seeking or recovering from an interruption.\n- **Improved video stability:** Safer transitions when hardware playback falls back to another playback method.\n- **Expanded optional add-on support:** Added PS5 support for RTMP streams, SFTP file access, RAR and other archive formats, and PDF viewing. These add-ons are intended for the PS5 testing repository, are not bundled, and still require on-console validation.\n\n## Upstream Changes\n\nThese changes were merged from Kodi's upstream Piers branch. Not all changes may apply to the PS5 platform.\n\n### Video Playback and Subtitles\n\n- Improved navigation between chapters, bookmarks, and scene markers, with large skips when no markers are available.\n- More accurate seeking and automatic commercial skipping, including avoiding brief glimpses of adverts when seeking into a marked commercial break.\n- Improved Blu-ray playback continuity and menu reliability, including keeping menus visible and separate from subtitles.\n- Improved audio/video synchronization when using audio passthrough.\n- Easier subtitle browsing, with direct access to the current video's folder and correctly listed local drives.\n\n### Movies, TV Shows, and Library Management\n\n- **Safer library refreshes:** Movies remain in the library when their details cannot be retrieved.\n- Improved handling of multi-disc movies, including grouping matching discs into one library entry when automatic grouping is enabled.\n- More reliable scanning and refreshing of disc images and Blu-ray/DVD folder backups.\n- Corrected matching of artwork, trailers, subtitles, and external audio to the appropriate movie version, extra, episode, or disc.\n- Improved local metadata discovery and reduced unnecessary rescanning after refreshing movies or episodes.\n- Fixed upgrades from older libraries that could incorrectly turn movie versions into extras or leave the movie library empty.\n\n### Pictures, Browsing, and Reliability\n\n- **Correct HEIF and AVIF photo display:** Large tiled photos, including many iPhone images, now display completely rather than showing only part of the picture. Image rotation is also handled correctly.\n- Reduced memory use when loading large JPEGs and browsing artwork."
+        "published_at": "2026-11-12T15:37:01Z",
+        "notes": "# PS5-22.0-RC2-20261112\n\nApplication version: **22.000.004**.\n\nChanges since the last published release, **22.000.002**, compared with commit `4d3b74714b`.\n\n## PS5-specific changes\n\n### Enhanced startup elevation\n\nThese changes address the notification:\n\n> Kodi cannot access its home directory. Sandbox escape or directory creation failed.\n\nKodi now supports additional methods for obtaining the access it needs at startup, with configurable method selection and fallback order. By default, it tries:\n\n1. **ELF loader on port 9021:** Kodi sends a bundled payload to the loader. Many jailbreak environments already provide this port; otherwise, start an ELF loader on port 9021 before launching Kodi. This method is intended to be firmware-independent, although compatibility still depends on the loader and jailbreak environment.\n2. **Marker-file request:** The existing method requires the Lapy daemon or OnionHEN to be running. With OnionHEN, whitelist Kodi's title ID, **PPSA99420**, in the OnionHEN configuration. The Lapy daemon currently supports firmware up to **12.00**; OnionHEN is expected to support newer firmware. ETAHen 2.6B also supports this by whitelisting the title_id.\n3. **etaHEN IPC:** With **etaHEN 2.5B**, enable **Toolbox > Settings > [Debug] Legacy Jailbreak CMD server**. Upgrading to **etaHEN 2.6B** is recommended instead.\n\n**etaHEN 2.5B note:** Its port-9021 ELF loader does not work with this elevation method as it does with other HENs. Enable the legacy Jailbreak CMD server, upgrade to etaHEN 2.6B, or use another compatible HEN or partial HEN.\n\n### Configuration and diagnostics\n\n- **Configurable startup and diagnostics:** A JSON configuration now controls startup methods, general debug logging, video diagnostics, and add-on diagnostics. The three debug options can be enabled independently.\n- **User configuration survives upgrades:** Releases ship a separate default configuration rather than replacing your custom configuration. Invalid configuration is reported instead of silently ignored.\n\n### Important notes\n\n- To customize settings, copy `default-config.json` to `config.json` beside the application executable and edit that copy. Restart Kodi after making changes.\n- The old `kodi-debug`, `kodi-video-debug`, and `kodi-addon-debug` marker files are no longer used. Configure `debug.enabled`, `debug.video`, and `debug.addons` instead.\n- The `kodi-reset` and `kodi-uninstall` marker actions have been removed. Those files no longer delete Kodi userdata or prevent normal startup.\n\n## Upstream Kodi changes\n\n- **Updated to Kodi 22.0 RC2.**"
       },
       "pins": [
+        {
+          "tag": "22.000.002",
+          "asset": "PPSA99420.zip",
+          "size": 68367301,
+          "sha256": "e4b3f7c8f0d9ee913db129825c7e4efdc555d4f77324a91783ba9817e79fc26f",
+          "content_version": "22.000.002",
+          "title_name": "Kodi"
+        },
         {
           "tag": "22.000.001",
           "asset": "PPSA99420.zip",
@@ -1272,7 +1280,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 409,
+      "stars": 408,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1302,7 +1310,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 492,
+      "stars": 494,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1728,7 +1736,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 835,
+      "stars": 839,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1814,7 +1822,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 210,
+      "stars": 211,
       "release": {
         "tag": "v3.5",
         "asset": "PPSA97358.zip",
@@ -2313,7 +2321,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 391,
+      "stars": 394,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2358,16 +2366,24 @@
       ],
       "stars": 143,
       "release": {
-        "tag": "v2.3.10",
+        "tag": "v2.3.11",
         "asset": "PPSA11018.zip",
-        "size": 327885775,
-        "sha256": "ea6149a539cc1d0026ea85b642d5a761546209414e63a011d6d0ddb825557616",
-        "content_version": "02.003.010",
+        "size": 327885557,
+        "sha256": "a1d42651475a5026cb3422469a658a6d733dffc8734d508cedeb0353f0550874",
+        "content_version": "02.003.011",
         "title_name": "PC5",
-        "published_at": "2026-11-11T09:27:59Z",
-        "notes": "PC5 2.3.10 plays the films of games that use Windows Media video.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Games whose films are Windows Media videos (WMV) could close as the first film started; they now get the video's frame rate and play them.\n\n### Changed\n\n- A game's log (`about.txt`) now shows the launch options it was started with, so a report shows whether `launch.txt` was read.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.3.9 -->"
+        "published_at": "2026-11-12T10:20:39Z",
+        "notes": "PC5 2.3.11 helps games built on a web browser start on their own.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Games built on a web browser (NW.js, which many RPG Maker games use) need a setting to start on the console, because they normally run as several programs at once. PC5 now gives a newly installed web game that setting by itself, so it starts without a file being edited by hand. A game that already has its own start options is left alone.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.3.10 -->"
       },
       "pins": [
+        {
+          "tag": "v2.3.10",
+          "asset": "PPSA11018.zip",
+          "size": 327885775,
+          "sha256": "ea6149a539cc1d0026ea85b642d5a761546209414e63a011d6d0ddb825557616",
+          "content_version": "02.003.010",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.9",
           "asset": "PPSA11018.zip",
@@ -2398,14 +2414,6 @@
           "size": 327845629,
           "sha256": "fa55628a61a4378af1ced917097d95ca48df0b07b7647d616f7388f5f04e10f9",
           "content_version": "02.003.006",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.5",
-          "asset": "PPSA11018.zip",
-          "size": 325280237,
-          "sha256": "29463476de1af92ef72472a0fd2e3755db3b62e24298001772ff677810588fc4",
-          "content_version": "02.003.005",
           "title_name": "PC5"
         }
       ]
@@ -2460,7 +2468,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1061,
+      "stars": 1063,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2539,7 +2547,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1661,
+      "stars": 1663,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2596,7 +2604,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 431,
+      "stars": 433,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -4418,16 +4426,24 @@
       ],
       "stars": 63,
       "release": {
-        "tag": "v0.13.5",
-        "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
-        "size": 28270642,
-        "sha256": "c4a60ffa4c364cc4990a5bf637e004289b3de95dd9b538cb88372321b52cb256",
-        "content_version": "01.013.050",
+        "tag": "v0.13.7",
+        "asset": "EVOPlayer-v0.13.7-PPSA99039.zip",
+        "size": 29237490,
+        "sha256": "27b9011f80c9a3020ce77244b9d6c5116fcf67b174f624256c7bc59f6b334f0c",
+        "content_version": "01.013.070",
         "title_name": "EVO Player",
-        "published_at": "2026-11-04T13:00:23Z",
-        "notes": "![](https://img.shields.io/badge/Release-v0.13.5-blueviolet?style=flat-square) ![](https://img.shields.io/badge/PS5%20Hardware-Verified-0070d1?style=flat-square&logo=playstation&logoColor=white) ![](https://img.shields.io/badge/Firmware-below%2013.60-blue?style=flat-square)\n\n**Network shares, a detail page, a Stremio account, and a log viewer on your phone.** 0.13.5 adds SMB shares with a proper Add Server flow, read-only NTFS drives, a movie and show detail page, skip intro and credits, native Stremio sign-in with a ranked automatic stream, true HDR colour, TLS certificate checks, and a phone and PC log viewer that can file a bug report for you.\n\nDownload **`PPSA99039.ffpfsc`** and deploy it with ShadowMountPlus, or the folder-title **`.zip`**, then launch EVO from the Games row. Or install it straight from the console with **[ProsperoStore](https://github.com/blackbearreloaded/ProsperoStore)**. Runs on any jailbroken PS5 on firmware 13.60 and below. PS5 Pro owners can use the `-pro` package for the larger memory mode.\n\nQuestions, bugs or ideas? Join the **[EVO Player Discord](https://discord.gg/47Nc8WtXh)**.\n\n### ![](https://img.shields.io/badge/STORAGE-4caf50?style=flat-square) Storage & Network\n\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Samba / Windows Share (SMB) support.** Connect directly to Windows shared folders, Samba servers and NAS devices (`smb://host/Share` or `user:pass@host/Share`) with direct streaming via `libsmb2`.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Add Server in steps.** Enter the address (or paste an `smb://` or `ftp://` link), pick Guest or Account, and EVO tests the login before saving. A wrong address, a wrong login and a missing share each give their own message. On a Samba server, tick which of its shares to show; the browser lists only those.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Online, Offline or Checking** on every server card, probed off the UI thread, with the round-trip time in ms.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Server options menu.** Press **OPTIONS** on a network server to Open, **Edit Server** or **Remove Server** (TRIANGLE opens Remove directly). Edit never shows the saved password; leave it empty to keep it.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **NTFS USB drives** open read-only: browse, play, view pictures and load subtitles.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Cover art on FTP and SMB.** Files show `poster.jpg`, `folder.jpg`, `<name>.jpg` and similar images from the same folder, with a disk cache and a per-source Cover Art switch."
+        "published_at": "2026-11-12T16:53:34Z",
+        "notes": "![](https://img.shields.io/badge/Release-v0.13.7-blueviolet?style=flat-square) ![](https://img.shields.io/badge/PS5%20Hardware-Verified-0070d1?style=flat-square&logo=playstation&logoColor=white) ![](https://img.shields.io/badge/Firmware-13.60%20and%20below-blue?style=flat-square)\n\n**YouTube casting, your phone as a remote, smoother playback and a clearer Settings screen.** Cast from the YouTube app on your phone, or paste a YouTube link, and EVO plays the whole video in its own player (up to 1080p60). Your phone can drive playback from a web page, the regular stutter during local and USB playback is gone, music shows its album art, Settings shows every setting in full with a picture of what it does, and Home shows a short tip about something EVO can do. An experimental built-in web browser is in Settings → Experimental (off by default).\n\nDownload **`PPSA99039.ffpfsc`** and deploy it with ShadowMountPlus, or the folder-title **`.zip`**, then launch EVO from the Games row. Or install it straight from the console with **[ProsperoStore](https://github.com/blackbearreloaded/ProsperoStore)**. Runs on any jailbroken PS5 on firmware 13.60 and below. PS5 Pro owners can use the `-pro` package for the larger memory mode.\n\nQuestions, bugs or ideas? Join the **[EVO Player Discord](https://discord.gg/47Nc8WtXh)**.\n\n### ![](https://img.shields.io/badge/YOUTUBE-ff0000?style=flat-square) YouTube in EVO's player\n\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Cast from the YouTube app.** EVO shows up as a cast target on Android and iOS, with no sign-in. The video plays in EVO's own player with hardware decode and surround audio. Turn it on or off in Settings → Network → **Cast to EVO Player**.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Play a YouTube link, whole video.** Settings → Interface & Storage → **Play a YouTube link**, the **Play a YouTube link** box on the phone page (`<console>:9780/input`), or a POST to the cast port. Up to 1080p60. EVO solves YouTube's playback check with yt-dlp's challenge solver running in an embedded QuickJS engine.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Casts play in full**, up to 1080p60, starting where the phone was. Live streams play too.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **Seeking in a cast** jumps straight to the right place.\n- ![](https://img.shields.io/badge/NEW-007acc?style=flat-square) **A loading toast while a cast starts:** a spinner with \"Getting the video\", then \"Opening the video\", instead of 10 seconds of nothing.\n- ![](https://img.shields.io/badge/IMPROVED-ff8c00?style=flat-square) **A cast in the browser closes itself** when the phone stops or disconnects, or the video ends, with a hint on screen."
       },
       "pins": [
+        {
+          "tag": "v0.13.5",
+          "asset": "EVOPlayer-v0.13.5-PPSA99039.zip",
+          "size": 28270642,
+          "sha256": "c4a60ffa4c364cc4990a5bf637e004289b3de95dd9b538cb88372321b52cb256",
+          "content_version": "01.013.050",
+          "title_name": "EVO Player"
+        },
         {
           "tag": "v0.13.0",
           "asset": "EVOPlayer-v0.13.0-PPSA99039.zip",
@@ -4490,16 +4506,24 @@
       ],
       "stars": 14,
       "release": {
-        "tag": "v1.0.0.18-native",
+        "tag": "v1.0.0.20-native",
         "asset": "PPSA99288.zip",
-        "size": 45377011,
-        "sha256": "02dca19b5ecb52c051af179c5d04d0e015b838b2b1f92d5249cee3624d755243",
-        "content_version": "07.000.018",
+        "size": 45651892,
+        "sha256": "3ff84b849c7db60d4d338a448db0f80f655c26417a4ee195365dac62f44476e8",
+        "content_version": "07.000.020",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-11T14:16:08Z",
-        "notes": "# Nuvio Max'd 1.0.0.18 — menu languages\n\n- Add Spanish, French, Arabic, Simplified Chinese, Japanese and Korean menu choices alongside English and German. Choose **Settings → App & Updates → Language**, then fully close and restart Max'd.\n- Translate the main navigation, settings labels/categories, common controls, sign-in/PIN, person pages and USB prompts. Each new catalog covers 425 core messages. Some help, status and provider messages still appear in English.\n- Use the bundled fonts for Chinese/Japanese/Korean and joined Arabic letters with right-to-left text ordering. The existing screen layout and controller order remain in place.\n- Preserve independent audio/subtitle settings, addon content, profiles and saved USB playlists. Extend public person metadata language requests with English biography fallback.\n\nStable release. Complete app, exact-source host/VLC CI, 125 native previews, ZIP/image and matching source verification passed. Console and native-speaker feedback are welcome. Fully close Max'd before updating, preserve saved data, and do not overwrite a mounted FFPFSC. Title PPSA99288; contentVersion 07.000.018."
+        "published_at": "2026-11-12T14:18:04Z",
+        "notes": "# Nuvio Max'd 1.0.0.20 — configuration backup, TVDB ordering and portals\n\n- Encrypted per-profile configuration backup/restore, including private imported USB playlists. AES-256-GCM with PBKDF2-HMAC-SHA256; rollback recovery; no account sessions or playback history in backups.\n- Manual Google Drive configuration sync with three-way conflict review, conditional updates and upload verification. Google OAuth TV application setup is required; no registration credentials are bundled.\n- Per-series TVDB episode order selection using your own API key/PIN. Source searches and next-episode navigation follow the selected order; watched/history/resume identities remain canonical. Ambiguous split/combined mappings retain provider order.\n- Stalker/Ministra portal sources with provider-assigned MAC and optional login/serial. Live channels, signed playback links, guide and available movies/series use bounded, cancellable requests. Portal credentials are never forwarded to media CDNs.\n- New menu entries translated into all eight supported languages; advanced help may appear in English.\n\nThese features are implemented and regression-tested, but live account/provider behavior and physical PS5 operation are **unconfirmed**. Please use the testing checklist before relying on them. Existing USB diagnostics/import validation, profile isolation and private atomic copies remain in place.\n\nNo playlists, media, account access, TVDB API subscription or Google OAuth app registration are supplied. The app remains independent of its metadata, account and content providers. Metadata: TheTVDB.com and TMDB, without endorsement.\n\n\nSee TESTING.txt for the console/account/provider checklist. Matching source and verification results accompany this release."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.18-native",
+          "asset": "PPSA99288.zip",
+          "size": 45377011,
+          "sha256": "02dca19b5ecb52c051af179c5d04d0e015b838b2b1f92d5249cee3624d755243",
+          "content_version": "07.000.018",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.17-native",
           "asset": "PPSA99288.zip",
@@ -4530,14 +4554,6 @@
           "size": 44067420,
           "sha256": "f97a8e722e71a6ac257b58674d7f78893ab7a218cbc359892c0fa2edcb2eea7d",
           "content_version": "06.000.005",
-          "title_name": "Nuvio Max'd"
-        },
-        {
-          "tag": "v1.0.0.3-native-experimental",
-          "asset": "PPSA99288.zip",
-          "size": 44024078,
-          "sha256": "03618aed0b53c48695db23ffeff1dea5ee99f8c8c215f1c9265ef887a83700b2",
-          "content_version": "06.000.003",
           "title_name": "Nuvio Max'd"
         }
       ]
@@ -5028,7 +5044,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 30,
+      "stars": 31,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5599,7 +5615,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 515,
+      "stars": 518,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5630,7 +5646,7 @@
         "stable-diffusion",
         "images"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "v1.0.0",
         "asset": "PPSA99576.zip",
@@ -5690,7 +5706,7 @@
         "saves",
         "sync"
       ],
-      "stars": 118,
+      "stars": 119,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
