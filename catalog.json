@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 14,
+      "stars": 15,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -355,7 +355,7 @@
         "media-center",
         "video"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "22.000.004",
         "asset": "PPSA99420.zip",
@@ -411,7 +411,7 @@
         "emby",
         "video"
       ],
-      "stars": 45,
+      "stars": 46,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -1018,7 +1018,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 237,
+      "stars": 238,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1280,7 +1280,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 411,
+      "stars": 412,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1310,7 +1310,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 493,
+      "stars": 498,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1736,7 +1736,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 843,
+      "stars": 844,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2321,7 +2321,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 395,
+      "stars": 396,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2364,7 +2364,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 144,
+      "stars": 146,
       "release": {
         "tag": "v2.3.11",
         "asset": "PPSA11018.zip",
@@ -2468,7 +2468,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1064,
+      "stars": 1066,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2517,7 +2517,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 260,
+      "stars": 261,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2547,7 +2547,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1666,
+      "stars": 1667,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -3068,7 +3068,7 @@
         "battle-net",
         "world-of-warcraft"
       ],
-      "stars": 19,
+      "stars": 20,
       "release": {
         "tag": "01.000.024",
         "asset": "PPSA99030.zip",
@@ -4140,7 +4140,7 @@
         "gamecube",
         "mario"
       ],
-      "stars": 13,
+      "stars": 14,
       "release": {
         "tag": "v0.10.0",
         "asset": "Sunshine-PS5-v0.10.0.zip",
@@ -4424,7 +4424,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 63,
+      "stars": 64,
       "release": {
         "tag": "v0.13.7",
         "asset": "EVOPlayer-v0.13.7-PPSA99039.zip",
@@ -4813,7 +4813,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "01.000.207",
         "asset": "SmartTube-PPSA98260.zip",
@@ -5014,7 +5014,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 33,
+      "stars": 34,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5558,7 +5558,7 @@
         "themes",
         "home-screen"
       ],
-      "stars": 20,
+      "stars": 21,
       "release": {
         "tag": "01.000.041",
         "asset": "PPSA90210.zip",
@@ -5615,7 +5615,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 518,
+      "stars": 520,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5716,7 +5716,7 @@
         "saves",
         "sync"
       ],
-      "stars": 122,
+      "stars": 123,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
