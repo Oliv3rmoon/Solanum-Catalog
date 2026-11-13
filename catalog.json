@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 13,
+      "stars": 14,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 10,
+      "stars": 12,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 75,
+      "stars": 76,
       "release": {
         "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
@@ -1018,7 +1018,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 235,
+      "stars": 237,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1280,7 +1280,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 408,
+      "stars": 411,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1310,7 +1310,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 494,
+      "stars": 493,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1736,7 +1736,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 839,
+      "stars": 843,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2321,7 +2321,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 394,
+      "stars": 395,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2364,7 +2364,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 143,
+      "stars": 144,
       "release": {
         "tag": "v2.3.11",
         "asset": "PPSA11018.zip",
@@ -2468,7 +2468,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1063,
+      "stars": 1064,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2517,7 +2517,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 261,
+      "stars": 260,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2547,7 +2547,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1663,
+      "stars": 1666,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2604,7 +2604,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 433,
+      "stars": 437,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -4504,7 +4504,7 @@
         "addons",
         "hdr"
       ],
-      "stars": 14,
+      "stars": 15,
       "release": {
         "tag": "v1.0.0.20-native",
         "asset": "PPSA99288.zip",
@@ -4577,7 +4577,7 @@
         "video",
         "addons"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v0.1.0-alpha.7",
         "asset": "PPSA99997.zip",
@@ -5014,7 +5014,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 31,
+      "stars": 33,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5384,7 +5384,7 @@
         "library",
         "box-art"
       ],
-      "stars": 50,
+      "stars": 49,
       "release": {
         "tag": "01.107.000",
         "asset": "PPSA99062.zip",
@@ -5646,17 +5646,27 @@
         "stable-diffusion",
         "images"
       ],
-      "stars": 13,
+      "stars": 14,
       "release": {
-        "tag": "v1.0.0",
+        "tag": "v1.1.1",
         "asset": "PPSA99576.zip",
-        "size": 52191751,
-        "sha256": "a10177438a284fc2335325c52e84e2c5705c272fd25a85b5dab5853d11624f89",
-        "content_version": "02.000.000",
+        "size": 53152817,
+        "sha256": "c151d8396cec1a2cf53c010780eabd50aa334c447c4b0e33b9f0e52a9830b675",
+        "content_version": "02.001.001",
         "title_name": "PS5SD",
-        "published_at": "2026-10-28T14:43:31Z",
-        "notes": "PS5SD 1.0.0 is the version that keeps its promises: every item of the 1.0 checklist in [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.0.0/ROADMAP.md#100-ready-done) holds. From here on, a change that breaks a client of the API needs a new major version.\n\n## What 1.0 means\n\n- **The API is fixed**: one error shape with a code, progress as server-sent events, `POST /sdapi/v1/options` waits for the model, the `model` of an OpenAI request switches it, and an OpenAPI description at `/ps5sd/v1/app/openapi.json` (0.9.15 to 0.9.17).\n- **No run fails without a reason**: the web UI says before a run when it may not fit and what to lower; a run that fails anyway says why (0.9.18).\n- **No known crash**: the two ends 0.9.18's measurements found are fixed, and there is no open bug.\n\n## An update keeps everything\n\n- Tested on the console from every release since 0.5.0 (26 releases): install the old one, make models, LoRAs, presets, images, settings and an API key through its API, update to 1.0, and check that all of it is still there. All 26 passed. `scripts/update-test.py` does it again for any build.\n\n## A soak test\n\n- 38 minutes of mixed load on the console: 22 model switches between Z-Image Turbo, SDXL, FLUX.2 Klein 9B with a LoRA and Wan 2.1, 36 jobs with three queued at once, a cancel while a job runs, a video, and an event stream open all along. Every job and switch did what it should, each round took the same time, and the CPU heap stayed at 0.63 to 0.66 GiB after the first round. `scripts/soak-test.py` runs it again. The numbers are in [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.0.0/docs/CONSOLE.md#a-soak-test-before-10-2026-10-28).\n\n## A home screen background of its own\n\n- The placeholder background is gone: ribbons of blue, violet and pink light, made by PS5SD itself on the console with FLUX.2 Klein 4B. A home screen theme that shows its own picture for every app still wins.\n\n## The docs\n\n- New screenshots of the web UI in the README, on a PC and a phone.\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update from any 0.x release keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.0.0/ROADMAP.md#after-10)."
-      }
+        "published_at": "2026-11-12T23:27:04Z",
+        "notes": "PS5SD 1.1.1 fixes two things people asked for: [issue 16](https://github.com/Darkatek7/PS5SD/issues/16) (a preset with a LoRA whose name has spaces in it) and [issue 15](https://github.com/Darkatek7/PS5SD/issues/15) (any width and height). It also brings back the home screen background, which 1.1.0 lost.\n\n## A preset keeps a LoRA of any name\n\n- **Save as preset** failed when a LoRA's file name had a space, `[`, `]`, `@` or another sign in it. Presets keep their settings on one line, where a value is one word.\n- The web UI writes such a name percent-encoded now, as in a URL (`my%20style%20%5Bv2%5D.safetensors`), and reads it back. Presets saved before read as they did.\n- Write a preset by hand the same way. See [MODELS.md](https://github.com/Darkatek7/PS5SD/blob/v1.1.1/docs/MODELS.md#presets-models-of-several-files-and-options).\n\n## Any width and height\n\n- The Width and Height fields take any whole number from 64 to 4096 when you type it in. Their arrows still step by 64.\n- Before, a size was rounded to a multiple of 8 and kept to 2048 at most.\n- stable-diffusion.cpp rounds a size up to the multiple the model works in, so the image can come out a few pixels larger than asked.\n- A preset's `width` and `height` take any size from 64 to 4096 too.\n- The fit hint still says when a size is larger than anything measured on the console.\n\n## The home screen background is back\n\n- 1.1.0 showed a plain dark gradient on the home screen instead of PS5SD's own picture. The build had made the background plain, and nothing checked it.\n- 1.1.1 has the picture again, and the build now stops when a background comes out plain.\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.1.1/ROADMAP.md#after-10). Image to text ([issue 14](https://github.com/Darkatek7/PS5SD/issues/14)) is on it now."
+      },
+      "pins": [
+        {
+          "tag": "v1.0.0",
+          "asset": "PPSA99576.zip",
+          "size": 52191751,
+          "sha256": "a10177438a284fc2335325c52e84e2c5705c272fd25a85b5dab5853d11624f89",
+          "content_version": "02.000.000",
+          "title_name": "PS5SD"
+        }
+      ]
     },
     {
       "id": "pscord",
@@ -5706,7 +5716,7 @@
         "saves",
         "sync"
       ],
-      "stars": 119,
+      "stars": 122,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
@@ -5762,7 +5772,7 @@
         "startup-tune",
         "payloads"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v00.006.000",
         "asset": "PPSA69426.zip",
@@ -5802,7 +5812,7 @@
         "llm",
         "tailscale"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "01.004.001",
         "asset": "PPSA99555.zip",
