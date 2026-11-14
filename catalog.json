@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 76,
+      "stars": 75,
       "release": {
         "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
@@ -786,16 +786,24 @@
       ],
       "stars": 10,
       "release": {
-        "tag": "v1.6.0.6",
-        "asset": "wiliwili-PS5-v1.6.0.6.zip",
-        "size": 60946863,
-        "sha256": "f45aa1f66205b164da8611cad529480b76e0885ffe0ebf681ef544b6e9a77682",
-        "content_version": "01.600.006",
+        "tag": "v1.6.0.7",
+        "asset": "wiliwili-PS5-v1.6.0.7.zip",
+        "size": 63411733,
+        "sha256": "e9a9c2e69863b3f5c5fba207421aabcd32fa2f90f46bb7a3ae5efe68a6f278a4",
+        "content_version": "01.600.007",
         "title_name": "wiliwili",
-        "published_at": "2026-11-06T15:18:47Z",
-        "notes": "### What's New\n1. Added AV1 software decoding via libdav1d, supporting smooth playback up to 4K\n2. Improved live stream stability on PS5 by bypassing hardware decode to prevent black screens\n3. Added automatic protocol fallback and retry for live streams (smart FLV ⇋ HLS switching)\n4. Fixed followed-UP list loading failure in Dynamic tab\n\n### Known Issues\n• High-bitrate 4K AV1 videos may experience stuttering during playback\n\n---\n\n### 更新内容\n1. 新增 AV1 软解支持（基于 libdav1d），最高支持 4K 流畅播放\n2. 优化直播流播放稳定性，PS5 直播强制走 CPU 软解彻底解决黑屏问题\n3. 增加直播流协议自动回退与重试机制（FLV 与 HLS 智能切换）\n4. 修复动态页面顶部“关注的 UP 主”列表无法加载的问题\n\n### 已知问题\n• AV1 4K 高码率视频可能存在播放卡顿现象\n\n**Full Changelog**: https://github.com/carlchina/wiliwili/compare/v1.6.0.1...v1.6.0.6"
+        "published_at": "2026-11-14T03:20:21Z",
+        "notes": "### What's New / 更新日志\n\n#### English\n1. **Critical Crash Fix**: Fixed the immediate crash on startup (SIGSEGV at `0x0000000000000000` / `vkCreateInstance`) when launching wiliwili on PS5 consoles by statically embedding the complete Mesa RADV Vulkan driver (`libvulkan_radeon.ps5.a`) and PS5 platform runtime (`libps5platform.a`) into `eboot.bin`.\n2. **CI Pipeline Overhaul**: Integrated self-contained prebuilt RADV Vulkan driver archives into the automated GitHub Actions CI workflow, ensuring cloud-built releases match local production builds.\n\n#### 中文\n1. **紧急修复启动闪退**：彻底修复 1.6.0.6 版本在 PS5 主机上打开时瞬间崩溃/闪退（SIGSEGV 0x0 空指针调用）的严重问题。现已将完整的 Mesa RADV Vulkan 驱动与 `libps5platform.a` 运行时全部静态内嵌至 `eboot.bin`，无需任何外部未提供的动态库依赖。\n2. **CI 自动化构建流水线修复**：在 GitHub Actions 中引入完整的静态 RADV Vulkan 预编译归档，确保 Release 发布包与本地构建完全一致、稳定可用。\n\n--------\n\n### 发布文件说明 / Release Packages\n\n- **`PPSA99099.ffpfsc`（强烈推荐）**：高压缩比单文件镜像包。推荐搭配 **ShadowMountPlus**（1.7beta6 或更高版本）使用，免解压、免传输大量碎文件，安装与加载速度更快。\n- **`wiliwili-PS5-v1.6.0.7.zip`**：传统 ZIP 压缩包，解压后得到 `PPSA99099` 完整目录，适合通过 FTP 工具上传到主机的 `/data/homebrew/` 目录下。\n\n--------\n\n### 运行环境要求 / Requirements\n\n1. 已破解的 PlayStation 5 主机（支持 kstuff 环境）\n2. ShadowMountPlus 1.7beta6 或更高版本\n3. 最新版本的 kstuff payload\n\n--------\n\n### 安装方法 / Installation\n\n#### 方式一：使用 `.ffpfsc` 镜像包（推荐）\n1. 下载 `PPSA99099.ffpfsc`。\n2. 放入 U 盘插入 PS5，或通过 FTP 传入主机（如 `/data/` 目录）。\n3. 使用最新版 **ShadowMountPlus** 挂载安装，即可在系统主界面启动运行。\n\n#### 方式二：使用 ZIP 压缩包（FTP 上传）\n1. 下载 `wiliwili-PS5-v1.6.0.7.zip` 并解压，得到 `PPSA99099` 文件夹。\n2. 通过 FTP 将整个 `PPSA99099` 文件夹上传至主机的 `/data/homebrew/` 目录：\n   ```text\n   /data/homebrew/PPSA99099/\n   ├── eboot.bin\n   ├── imports.txt\n   ├── resources/\n   ├── sce_module/\n   └── sce_sys/\n   ```\n3. 刷新 ShadowMountPlus 列表或重启主机，即可在系统桌面启动 wiliwili。"
       },
       "pins": [
+        {
+          "tag": "v1.6.0.6",
+          "asset": "wiliwili-PS5-v1.6.0.6.zip",
+          "size": 60946863,
+          "sha256": "f45aa1f66205b164da8611cad529480b76e0885ffe0ebf681ef544b6e9a77682",
+          "content_version": "01.600.006",
+          "title_name": "wiliwili"
+        },
         {
           "tag": "v1.6.0.5",
           "asset": "wiliwili-PS5-v1.6.0.5.zip",
@@ -1018,7 +1026,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 238,
+      "stars": 239,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1086,7 +1094,7 @@
         "n64",
         "mupen64plus"
       ],
-      "stars": 37,
+      "stars": 38,
       "release": {
         "tag": "0.7.5",
         "asset": "Mupen64PlusPS5.zip",
@@ -1183,7 +1191,7 @@
         "cd-i",
         "mame"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v1.24",
         "asset": "Seedee5-1.24.zip",
@@ -1697,7 +1705,7 @@
         "llm",
         "chat"
       ],
-      "stars": 68,
+      "stars": 69,
       "release": {
         "tag": "01.007.000",
         "asset": "PPSA99004.zip",
@@ -1822,7 +1830,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 211,
+      "stars": 212,
       "release": {
         "tag": "v3.5",
         "asset": "PPSA97358.zip",
@@ -2366,16 +2374,24 @@
       ],
       "stars": 146,
       "release": {
-        "tag": "v2.3.11",
+        "tag": "v2.3.13",
         "asset": "PPSA11018.zip",
-        "size": 327885557,
-        "sha256": "a1d42651475a5026cb3422469a658a6d733dffc8734d508cedeb0353f0550874",
-        "content_version": "02.003.011",
+        "size": 327907675,
+        "sha256": "b7ddd64b76f602e83e5f89cfaf9afa5e14dd90e2e2a601370c11f4fe7ed6e45f",
+        "content_version": "02.003.013",
         "title_name": "PC5",
-        "published_at": "2026-11-12T10:20:39Z",
-        "notes": "PC5 2.3.11 helps games built on a web browser start on their own.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Games built on a web browser (NW.js, which many RPG Maker games use) need a setting to start on the console, because they normally run as several programs at once. PC5 now gives a newly installed web game that setting by itself, so it starts without a file being edited by hand. A game that already has its own start options is left alone.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.3.10 -->"
+        "published_at": "2026-11-13T23:48:59Z",
+        "notes": "PC5 2.3.13 lets games that build their own graphics effects get past that step.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Some older games build their graphics effects themselves while they load. PC5 only half-supported the way they ask for a whole effect: the game got nothing back and crashed. PC5 now builds the effect for them, so these games carry on loading.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.3.12 -->"
       },
       "pins": [
+        {
+          "tag": "v2.3.11",
+          "asset": "PPSA11018.zip",
+          "size": 327885557,
+          "sha256": "a1d42651475a5026cb3422469a658a6d733dffc8734d508cedeb0353f0550874",
+          "content_version": "02.003.011",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.10",
           "asset": "PPSA11018.zip",
@@ -2406,14 +2422,6 @@
           "size": 327847522,
           "sha256": "fc8a0a48fb1259d93160a3329c2430575ebfcd640c9cd5dbdaca6573217e9248",
           "content_version": "02.003.007",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.6",
-          "asset": "PPSA11018.zip",
-          "size": 327845629,
-          "sha256": "fa55628a61a4378af1ced917097d95ca48df0b07b7647d616f7388f5f04e10f9",
-          "content_version": "02.003.006",
           "title_name": "PC5"
         }
       ]
@@ -2468,7 +2476,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1066,
+      "stars": 1068,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2547,7 +2555,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1667,
+      "stars": 1671,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2604,7 +2612,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 437,
+      "stars": 439,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3273,18 +3281,26 @@
         "xbox",
         "fps"
       ],
-      "stars": 90,
+      "stars": 91,
       "release": {
-        "tag": "build-141",
+        "tag": "build-142",
         "asset": "halo-ps5-release.zip",
-        "size": 57307525,
-        "sha256": "8d3c30201a2cc283955b44ac9a7f3047a9f9beecabfc0fb9a7c73c53302c9298",
-        "content_version": "01.000.141",
+        "size": 59133816,
+        "sha256": "ff34d2c0647f2717c0ebc60e02cd34819f7a657df1a6a47226505fe31886903a",
+        "content_version": "01.000.142",
         "title_name": "SlipstreamCE",
-        "published_at": "2026-11-10T02:32:37Z",
-        "notes": "Build 141\n\n### Dynamic lighting\n\n- New LIGHTING setting at the top of Video Setup > Dynamic Lighting: STOCK, 1X, 1.5X, 2X or 3X. STOCK, the default, is the same lighting as the original Xbox: every added light is off and the other options are hidden, keeping their settings for when you pick a level again. 1X to 3X make every dynamic light (projectiles, muzzle flashes, weapon glow, Needler prongs, shield emitters, vehicle lights, world emitters and shield glow) reach that much farther and shine that much brighter, its color kept. Online, each player's own level applies, except Shield Glow, which is still the host's choice. If you already had dynamic lights on, you keep them at 1X. (thelinkin3000)\n- Big fights cost less with dynamic lighting on: a light's occlusion rays are shared between the game thread and helper threads, moving lights are traced while the frame draws, occlusion uses faster math, and the ammo counter's light, Covenant emitters and objects standing still take less work each frame. (thelinkin3000)\n- Switch: every light ray helper thread now runs; only one of them ever did. (thelinkin3000)\n\n### Menus\n\n- The menus no longer stall on the SD card. Select Map and Select Gametype load in the background and say LOADING until they're ready; opened again, they're there at once. (thelinkin3000)\n- The campaign menus no longer read the whole 20 MB savegame each time they open: it's checked once, in the background, while the main menu is up. The saved games' index, gametype files, mods and the main menu's mod textures are kept in memory instead of read again and again. (thelinkin3000)\n- The maps folders are scanned again only when what's in them changes, and mods are found once a run (or when the Mods menu changes them), not at every map load. (thelinkin3000)\n- Startup touches the card less: unchanged default gametypes aren't rewritten, and shader caches are read in larger blocks. (thelinkin3000)\n- Android: Video Setup's last rows no longer overlap the help at the bottom. The Vulkan Driver's help now says it takes effect the next time the game starts. (thelinkin3000)\n\n### Split screen\n\n- Join a multiplayer match in progress: a controller with no player presses START, picks a profile in the box that opens in its quarter of the screen, and gets its own view. A player who leaves loses their view, and the others fill the screen. (thelinkin3000)\n- ADD PLAYER shows each profile's Spartan in its color. Player 1's controller can join when another controller started the game, and choosing a profile no longer sends players 2-4 to the title screen. (thelinkin3000)\n- Switch: a controller's face buttons follow the console's layout only while that player's own menu is up. (thelinkin3000)\n- The join box no longer opens during a replay. (thelinkin3000)"
+        "published_at": "2026-11-14T03:12:18Z",
+        "notes": "Build 142: MCC and Hosted Servers!\n\nThanks to:\n\n1. **puginatux**, for brainstorming the UX and for testing.\n2. **chester**, for the MCC compatibility base.\n3. **watanoge**, for the Steam Workshop integration base.\n\n### Host Server\n\n- New: host a dedicated server from the menus, with no player of your own, on Android, the Switch and the PS5. Multiplayer > HOST SERVER opens the Host Hub. It lists your playlists (A hosts, X edits, Y deletes, START opens Server Settings) beside the rounds of the playlist you've picked. While hosting, the host's screen shows the match, the players and the next round, and has a player menu for kick, ban (for a day or for good), mute and notices. (thelinkin3000)\n- Playlist Builder: maps and rounds side by side. A on a map picks its gametype and adds the round, Y removes a round, the shoulder buttons move it, SAVE keeps the playlist under its name. It lists custom_maps' subfolders, MCC maps, and the gametypes you made in Edit Gametypes (always the latest version of them). It also has Round Options. (thelinkin3000)\n- Server Settings: name, password, listing, players, lobby countdown, map sharing, vote kicking and message of the day. LISTING is INTERNET: PUBLIC, INTERNET: PRIVATE or LAN, like Create Game's choices. A public server now shows in the server browser like a player's game, and asks the router for its port. (thelinkin3000)\n- Watch your server's game live with the Theater's cameras: R on the host's screen, or WATCH in a player's menu. Behind, eyes, free and cinematic views; Back shows the scores. (thelinkin3000)\n- Bots can fill a hosted server (BOTS in Server Settings). An MCC map in the rotation loads after the first round. The host stopping the server no longer shows a network error. (thelinkin3000)\n\n### MCC maps\n\n- Settings > Network Setup > STEAM WORKSHOP: sign in with Steam (password with Steam Guard, or a QR code) and download Halo: CE Anniversary's shared maps and Halo 1 Workshop items, on Android, the Switch and the PS5. The Steam client comes from Halo Content Evolved. (thelinkin3000)\n- IMPORT on the map lists now takes CE maps, zips of maps, Workshop packages and MCC resource sets on every platform. Android opens the file picker. The Switch and the PS5 show an upload page's address and QR code on your local network. An import of a package you already have asks whether to REPLACE it or KEEP VERSION ON DISK. (thelinkin3000)\n- MCC maps load much faster: sounds and textures are converted on the host's spare cores, not one by one on the game's thread (a Switch campaign map took 87 s). The shared bitmaps.map and sounds.map are no longer read in full for their checksum at every load, and BC7 textures are kept at a quarter of the memory. (thelinkin3000)"
       },
       "pins": [
+        {
+          "tag": "build-141",
+          "asset": "halo-ps5-release.zip",
+          "size": 57307525,
+          "sha256": "8d3c30201a2cc283955b44ac9a7f3047a9f9beecabfc0fb9a7c73c53302c9298",
+          "content_version": "01.000.141",
+          "title_name": "SlipstreamCE"
+        },
         {
           "tag": "build-140",
           "asset": "halo-ps5-release.zip",
@@ -3315,14 +3331,6 @@
           "size": 56800421,
           "sha256": "c3ff433c420990492795fd72f5af866b8eb30bd277b70116097f7aa7c202e53a",
           "content_version": "01.000.134",
-          "title_name": "Halo: Combat Evolved"
-        },
-        {
-          "tag": "build-132",
-          "asset": "halo-ps5-release.zip",
-          "size": 56727433,
-          "sha256": "41c938ee516346ba35bb739fe2e2679b74ab3bfc8db726af16684e5810fc4c07",
-          "content_version": "01.000.132",
           "title_name": "Halo: Combat Evolved"
         }
       ]
@@ -4171,7 +4179,7 @@
         "kart",
         "open-source"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "00.001.000",
         "asset": "PPSA69421.zip",
@@ -4424,7 +4432,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 64,
+      "stars": 65,
       "release": {
         "tag": "v0.13.7",
         "asset": "EVOPlayer-v0.13.7-PPSA99039.zip",
@@ -4506,16 +4514,24 @@
       ],
       "stars": 15,
       "release": {
-        "tag": "v1.0.0.20-native",
+        "tag": "v1.0.0.25-native",
         "asset": "PPSA99288.zip",
-        "size": 45651892,
-        "sha256": "3ff84b849c7db60d4d338a448db0f80f655c26417a4ee195365dac62f44476e8",
-        "content_version": "07.000.020",
+        "size": 46840347,
+        "sha256": "304b1ce679089cca614fdcbe7e9c4860255d7d035dd097db1d42abfb77a71dcd",
+        "content_version": "07.000.025",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-12T14:18:04Z",
-        "notes": "# Nuvio Max'd 1.0.0.20 — configuration backup, TVDB ordering and portals\n\n- Encrypted per-profile configuration backup/restore, including private imported USB playlists. AES-256-GCM with PBKDF2-HMAC-SHA256; rollback recovery; no account sessions or playback history in backups.\n- Manual Google Drive configuration sync with three-way conflict review, conditional updates and upload verification. Google OAuth TV application setup is required; no registration credentials are bundled.\n- Per-series TVDB episode order selection using your own API key/PIN. Source searches and next-episode navigation follow the selected order; watched/history/resume identities remain canonical. Ambiguous split/combined mappings retain provider order.\n- Stalker/Ministra portal sources with provider-assigned MAC and optional login/serial. Live channels, signed playback links, guide and available movies/series use bounded, cancellable requests. Portal credentials are never forwarded to media CDNs.\n- New menu entries translated into all eight supported languages; advanced help may appear in English.\n\nThese features are implemented and regression-tested, but live account/provider behavior and physical PS5 operation are **unconfirmed**. Please use the testing checklist before relying on them. Existing USB diagnostics/import validation, profile isolation and private atomic copies remain in place.\n\nNo playlists, media, account access, TVDB API subscription or Google OAuth app registration are supplied. The app remains independent of its metadata, account and content providers. Metadata: TheTVDB.com and TMDB, without endorsement.\n\n\nSee TESTING.txt for the console/account/provider checklist. Matching source and verification results accompany this release."
+        "published_at": "2026-11-13T23:47:41Z",
+        "notes": "# Nuvio Max'd 1.0.0.25 — official release\n\n- Official release of the current Max'd feature set, with matching in-app labels and update metadata.\n- Eight menu languages, cast and crew browsing, library/watched actions, IPTV portals, TVDB ordering and encrypted configuration backups.\n- Includes the playback, provider, networking and font updates from 1.0.0.24, plus its seeking, Arabic subtitle and MDBList fixes.\n\nClose Max'd before updating and keep your app data. ZIP, native image, matching source and verification results are included."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.20-native",
+          "asset": "PPSA99288.zip",
+          "size": 45651892,
+          "sha256": "3ff84b849c7db60d4d338a448db0f80f655c26417a4ee195365dac62f44476e8",
+          "content_version": "07.000.020",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.18-native",
           "asset": "PPSA99288.zip",
@@ -4546,14 +4562,6 @@
           "size": 44258510,
           "sha256": "ca8e22dcde1695b4a5239dc9dacaf1863f3aefee65366818620aa3a6424f156b",
           "content_version": "07.000.008",
-          "title_name": "Nuvio Max'd"
-        },
-        {
-          "tag": "v1.0.0.5-native-experimental",
-          "asset": "PPSA99288.zip",
-          "size": 44067420,
-          "sha256": "f97a8e722e71a6ac257b58674d7f78893ab7a218cbc359892c0fa2edcb2eea7d",
-          "content_version": "06.000.005",
           "title_name": "Nuvio Max'd"
         }
       ]
