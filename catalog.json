@@ -910,7 +910,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 98,
+      "stars": 99,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1026,7 +1026,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 239,
+      "stars": 240,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1065,7 +1065,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 53,
+      "stars": 54,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1288,7 +1288,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 412,
+      "stars": 415,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1318,7 +1318,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 498,
+      "stars": 501,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1744,7 +1744,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 844,
+      "stars": 845,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1830,7 +1830,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 212,
+      "stars": 213,
       "release": {
         "tag": "v3.5",
         "asset": "PPSA97358.zip",
@@ -1901,7 +1901,7 @@
         "remote",
         "retro"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "01.000.005",
         "asset": "PPSA06464.zip",
@@ -2329,7 +2329,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 396,
+      "stars": 400,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2372,7 +2372,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 146,
+      "stars": 147,
       "release": {
         "tag": "v2.3.13",
         "asset": "PPSA11018.zip",
@@ -2476,7 +2476,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1068,
+      "stars": 1069,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2525,7 +2525,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 261,
+      "stars": 262,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2555,7 +2555,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1671,
+      "stars": 1672,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2612,7 +2612,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 439,
+      "stars": 440,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2641,7 +2641,7 @@
         "emulator",
         "snes"
       ],
-      "stars": 66,
+      "stars": 67,
       "release": {
         "tag": "v2.11",
         "asset": "Snes9xPS5-v2.11-PPSA99922.zip",
@@ -3281,7 +3281,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 91,
+      "stars": 92,
       "release": {
         "tag": "build-142",
         "asset": "halo-ps5-release.zip",
@@ -3643,18 +3643,26 @@
         "java",
         "sandbox"
       ],
-      "stars": 57,
+      "stars": 58,
       "release": {
-        "tag": "01.000.279",
+        "tag": "01.000.281",
         "asset": "PPSA99874.zip",
-        "size": 127938217,
-        "sha256": "60a354e39a3a11b4bf0a4a4f62cba80220ea961781c846233929122197159cd2",
-        "content_version": "01.000.279",
+        "size": 128572074,
+        "sha256": "ab92eafe8a1569d90a6a6e26339ec29ba69f149f6bd3e4f3567eeb2215c770a9",
+        "content_version": "01.000.281",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-08T16:59:11Z",
-        "notes": "# ProsperoCraft 01.000.279\n\n## What's new\n\n- Increase Minecraft's background worker pool from three to five to improve chunk generation.\n- Apply the five-worker setting automatically when opening the launcher.\n- Replace decorative menu taglines with clear headings and simplify the startup introduction.\n- Keep the phone sign-in guidance on the Microsoft account screen.\n- Bug fixes."
+        "published_at": "2026-11-14T10:37:52Z",
+        "notes": "### Fixed\n\n- Controlify’s on-screen keyboard keeps the text field active on Minecraft 26.3 Fabric so you can type and use Backspace.\n- Added the OpenJDK HTTP client module required for OpSec to start on Minecraft 26.3 Fabric.\n\n### PS5 validation\n\nThe maintainer confirmed the keyboard fix and shader rendering on build 01.000.281. A reported Hypixel join stall with OpSec did not recur.\n\nInstall or update ProsperoCraft with the PPSA99874.zip asset. The release includes checksums, validation records and the corresponding source and OpenAL relink kit."
       },
       "pins": [
+        {
+          "tag": "01.000.279",
+          "asset": "PPSA99874.zip",
+          "size": 127938217,
+          "sha256": "60a354e39a3a11b4bf0a4a4f62cba80220ea961781c846233929122197159cd2",
+          "content_version": "01.000.279",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.267",
           "asset": "PPSA99874.zip",
@@ -3685,14 +3693,6 @@
           "size": 127488343,
           "sha256": "d97e530ea67838ef806e8fa88731d399aa9ce1ae661b091daff5eaacfe3f75a7",
           "content_version": "01.000.212",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.204",
-          "asset": "PPSA99874.zip",
-          "size": 127056881,
-          "sha256": "89167d01c7da0ece733b0dd8b7871a05ee38ff5f79ee45b4ce9beefc5d4c14a0",
-          "content_version": "01.000.204",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -4039,16 +4039,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.003",
+        "tag": "01.000.004",
         "asset": "PPSA90505.zip",
-        "size": 19123400,
-        "sha256": "291a6cb479ddd502e2224a03aa7a33aee6ab4edd0410ce84646a2f3c8612738a",
-        "content_version": "01.000.003",
+        "size": 40423527,
+        "sha256": "e573f69fce53eeeb2d0433d8457005a55565398c2ba57b4a51d0aa3804e8d582",
+        "content_version": "01.000.004",
         "title_name": "SpeedBreaker",
-        "published_at": "2026-11-11T20:46:23Z",
-        "notes": "Now on SpeedBreaker v0.2.4: a sharper picture at 4K, and cops in Quick Race.\n\n### What's new\n\n- **Sharper UI** (Settings > Graphics, on by default): the menus, the HUD and their text are enlarged to 4K with a sharper filter instead of a blur.\n- **Sharper movies:** the intro and the cutscenes are enlarged the same way (Movie Upscaling).\n- **Sharper shadows:** Shadow Resolution's new Auto, the default, draws the sun's shadows at 2x at 4K. A 1x from an earlier version becomes Auto once; choose 1x again to keep it.\n- **Cops in Quick Race:** a Cops row in Custom Race's race options (Off by default) puts the police in Circuit, Sprint, Lap Knockout and Speedtrap races, in single player.\n- **Player 1 follows the DualSense you last pressed,** outside split screen.\n- **Cooler Colors** (Settings > Display, off by default): less of the game's yellow.\n\nHDR Output isn't offered on the PS5: the app's picture is SDR.\n\n### Install\n\n- Unpack PPSA90505.zip and copy the PPSA90505 folder to /data/homebrew/ on the console (or install it from RecompStore or ProsperoStore).\n- Copy the disc image (.iso) you made from your own USA disc to /data/speedbreaker/ over FTP, start the tile, choose the image and press Install.\n- Already installed? Just copy the new PPSA90505 folder over the old one. Saves, settings and game files are kept.\n\n**No game files are included or distributed.** To play, you need your own legally obtained backup of your own Xbox 360 disc of Need for Speed: Most Wanted (2005), USA version. This project does not support piracy: please don't ask for, or share, game files or disc images.\n\nUnofficial fan project, not affiliated with project(u), Electronic Arts or Sony Interactive Entertainment. GPL-3.0-or-later; licenses are in the app's licenses/ folder."
+        "published_at": "2026-11-14T09:29:07Z",
+        "notes": "European discs and ten text languages on every disc.\n\n![The Language page: English text, Spanish audio on the Spanish disc](https://raw.githubusercontent.com/bystritskiy/speedbreaker-ps5/80676e4/assets/screenshots/ps5/ps5-10-settings-language.jpg)\n\n### What's new\n\n- **European discs:** besides the USA disc, the installer now takes the European English disc (Need for Speed - Most Wanted (Europe)) and the Spanish one (Spain), each with its own movies and speech. It tells them apart by their files; their saves are kept apart from the USA's.\n- **Ten text languages, the USA disc included** (Settings > Language > Text): English, French, German, Italian, Spanish, Dutch, Swedish, Danish, Polish or Finnish for the menus and race text, from the next start. Audio shows the language of the disc's speech and movies, which only the disc decides.\n\n### Supported discs\n\n| Disc | `default.xex` SHA-256 | Movies and speech |\n|---|---|---|\n| USA (NTSC-U) | `aebdf3c14d1e4e4ed2c130d94bc1a0e97bd6d5bf39bdfdef33c3909c9cc4ba4c` | English |\n| Europe, English (PAL) | `e2ea2ff11bf84cb30430d824d7bfe699a3acf3e7400d21b9a7c938e3d7a10474` | English |\n| Spain (PAL) | `aad15fc218d034de3131f746e0b763dd8049a40dd676efc87667fcaf4fc72694` | Spanish |\n\nThe German disc and other editions aren't in this release.\n\n### Install\n\n- Unpack PPSA90505.zip and copy the PPSA90505 folder to /data/homebrew/ on the console (or install it from RecompStore or ProsperoStore).\n- Copy the disc image (.iso) you made from your own disc to /data/speedbreaker/ over FTP, start the tile, choose the image and press Install.\n- Already installed? Just copy the new PPSA90505 folder over the old one. Saves, settings and game files are kept.\n- Switching to another disc: delete /data/speedbreaker/game-image, put the new image in /data/speedbreaker/ and start the tile; the installer opens. A European disc keeps its own saves, so its career starts fresh.\n\n**No game files are included or distributed.** To play, you need your own legally obtained backup of your own Xbox 360 disc of Need for Speed: Most Wanted (2005): USA, European English or Spanish. This project does not support piracy: please don't ask for, or share, game files or disc images.\n\nUnofficial fan project, not affiliated with project(u), Electronic Arts or Sony Interactive Entertainment. GPL-3.0-or-later; licenses are in the app's licenses/ folder."
       },
       "pins": [
+        {
+          "tag": "01.000.003",
+          "asset": "PPSA90505.zip",
+          "size": 19123400,
+          "sha256": "291a6cb479ddd502e2224a03aa7a33aee6ab4edd0410ce84646a2f3c8612738a",
+          "content_version": "01.000.003",
+          "title_name": "SpeedBreaker"
+        },
         {
           "tag": "01.000.002",
           "asset": "PPSA90505.zip",
@@ -4370,7 +4378,7 @@
         "wii-u",
         "zelda"
       ],
-      "stars": 17,
+      "stars": 18,
       "release": {
         "tag": "ps5-v0.1.2",
         "asset": "PPSA99641.zip",
@@ -4749,7 +4757,7 @@
         "addons",
         "torrent"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "0.6.00",
         "asset": "PPSA74126.zip",
@@ -5656,16 +5664,24 @@
       ],
       "stars": 14,
       "release": {
-        "tag": "v1.1.1",
+        "tag": "v1.2.1",
         "asset": "PPSA99576.zip",
-        "size": 53152817,
-        "sha256": "c151d8396cec1a2cf53c010780eabd50aa334c447c4b0e33b9f0e52a9830b675",
-        "content_version": "02.001.001",
+        "size": 53174697,
+        "sha256": "68b3c340edd19c6404253be27a6e494fb161f7adee79f68a8c6c68bdd4373d75",
+        "content_version": "02.002.001",
         "title_name": "PS5SD",
-        "published_at": "2026-11-12T23:27:04Z",
-        "notes": "PS5SD 1.1.1 fixes two things people asked for: [issue 16](https://github.com/Darkatek7/PS5SD/issues/16) (a preset with a LoRA whose name has spaces in it) and [issue 15](https://github.com/Darkatek7/PS5SD/issues/15) (any width and height). It also brings back the home screen background, which 1.1.0 lost.\n\n## A preset keeps a LoRA of any name\n\n- **Save as preset** failed when a LoRA's file name had a space, `[`, `]`, `@` or another sign in it. Presets keep their settings on one line, where a value is one word.\n- The web UI writes such a name percent-encoded now, as in a URL (`my%20style%20%5Bv2%5D.safetensors`), and reads it back. Presets saved before read as they did.\n- Write a preset by hand the same way. See [MODELS.md](https://github.com/Darkatek7/PS5SD/blob/v1.1.1/docs/MODELS.md#presets-models-of-several-files-and-options).\n\n## Any width and height\n\n- The Width and Height fields take any whole number from 64 to 4096 when you type it in. Their arrows still step by 64.\n- Before, a size was rounded to a multiple of 8 and kept to 2048 at most.\n- stable-diffusion.cpp rounds a size up to the multiple the model works in, so the image can come out a few pixels larger than asked.\n- A preset's `width` and `height` take any size from 64 to 4096 too.\n- The fit hint still says when a size is larger than anything measured on the console.\n\n## The home screen background is back\n\n- 1.1.0 showed a plain dark gradient on the home screen instead of PS5SD's own picture. The build had made the background plain, and nothing checked it.\n- 1.1.1 has the picture again, and the build now stops when a background comes out plain.\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.1.1/ROADMAP.md#after-10). Image to text ([issue 14](https://github.com/Darkatek7/PS5SD/issues/14)) is on it now."
+        "published_at": "2026-11-14T09:04:36Z",
+        "notes": "PS5SD 1.2.1 lets a LoRA's strength go past 2, as [issue 18](https://github.com/Darkatek7/PS5SD/issues/18) asked.\n\n## LoRA strengths from -100 to 100\n\n- The web UI kept a LoRA's strength between -2 and 2. Some LoRAs are made for much more: slider LoRAs, for example, go from -8 to 8.\n- The strength field on the Create tab, under **Style**, now takes -100 to 100, the same range as ComfyUI's LoRA loader.\n- sd-server never had a limit, so the API and presets (`loras=path:strength`) take any strength as before.\n- Most LoRAs are still made for about 0 to 1. The LoRA's page says what it is made for.\n\n1.2.0's faster loading and Spectrum presets are in this release too. See [PS5SD 1.2.0](https://github.com/Darkatek7/PS5SD/releases/tag/v1.2.0).\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.2.1/ROADMAP.md#after-10). Two pictures for Edit ([issue 13](https://github.com/Darkatek7/PS5SD/issues/13)) comes in 1.3.0."
       },
       "pins": [
+        {
+          "tag": "v1.1.1",
+          "asset": "PPSA99576.zip",
+          "size": 53152817,
+          "sha256": "c151d8396cec1a2cf53c010780eabd50aa334c447c4b0e33b9f0e52a9830b675",
+          "content_version": "02.001.001",
+          "title_name": "PS5SD"
+        },
         {
           "tag": "v1.0.0",
           "asset": "PPSA99576.zip",
