@@ -697,7 +697,7 @@
         "radio",
         "streaming"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "01.000.010",
         "asset": "PPSA99001.zip",
@@ -939,7 +939,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 26,
+      "stars": 25,
       "release": {
         "tag": "v1.0.18",
         "asset": "Crux2-v1.0.18.zip",
@@ -1318,7 +1318,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 501,
+      "stars": 502,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1744,7 +1744,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 845,
+      "stars": 847,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1903,15 +1903,23 @@
       ],
       "stars": 3,
       "release": {
-        "tag": "01.000.005",
+        "tag": "01.000.006",
         "asset": "PPSA06464.zip",
-        "size": 5572311,
-        "sha256": "bcff57347d2c7baf6852661e3f2f4648dec1343eab2951b2d3d54cc4f0fd44ce",
-        "content_version": "01.000.005",
-        "published_at": "2026-10-30T14:28:58Z",
-        "notes": "PS64 1.0.5: a VIC-20.\n\n## New\n\n- VIC-20: a second built-in emulator on the home screen, with its own games folder (/data/ps64/vic20).\n\n## Other\n\n- Enhancements to the UI."
+        "size": 6809148,
+        "sha256": "fb07fe04039bb50938b62f5639f31be69ffdde1bf1dd8ff3469ec8d9daeee161",
+        "content_version": "01.000.006",
+        "title_name": "PS64",
+        "published_at": "2026-11-14T20:19:35Z",
+        "notes": "PS64 1.0.6: a SuperCPU, an REU and JiffyDOS for the C64, and SID search by musician.\n\n## New\n\n- SuperCPU option (VICE C64): a 20 MHz 65816 with 16 MB of SuperRAM, for software that needs one.\n- REU option (VICE C64): a RAM Expansion Unit of 512 KB or 16 MB, with or without the SuperCPU.\n- JiffyDOS option (VICE C64): faster disk loading with your own JiffyDOS ROMs, copied into /data/ps64/roms.\n- SID search on Assembly64 finds tunes by musician as well as by title."
       },
       "pins": [
+        {
+          "tag": "01.000.005",
+          "asset": "PPSA06464.zip",
+          "size": 5572311,
+          "sha256": "bcff57347d2c7baf6852661e3f2f4648dec1343eab2951b2d3d54cc4f0fd44ce",
+          "content_version": "01.000.005"
+        },
         {
           "tag": "01.000.004",
           "asset": "PPSA06464.zip",
@@ -2372,7 +2380,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 147,
+      "stars": 148,
       "release": {
         "tag": "v2.3.13",
         "asset": "PPSA11018.zip",
@@ -2476,7 +2484,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1069,
+      "stars": 1070,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -5576,16 +5584,24 @@
       ],
       "stars": 21,
       "release": {
-        "tag": "01.000.041",
+        "tag": "01.000.042",
         "asset": "PPSA90210.zip",
-        "size": 9148228,
-        "sha256": "7c08f27caf1fbedf90e84af50f8d9d59b26e1ebf5b9281c402176b9fe560ae0b",
-        "content_version": "01.000.041",
+        "size": 9148504,
+        "sha256": "37fc6e68303d7806ef883682f54c24044648c4b662f02b491fbc84efb109ed25",
+        "content_version": "01.000.042",
         "title_name": "Prospero Themes",
-        "published_at": "2026-11-09T22:34:51Z",
-        "notes": "## Changes\n\n- **Originals from another firmware.** After a factory reset the app's backups are gone, but a theme's files stay on the console. The USB import (`prospero-themes/originals/`) now also helps when you only have the original files of *another* firmware:\n  - Backgrounds and tile icons are the same on every firmware the app knows, so another firmware's originals are taken as they are.\n  - The icon container (`Sce.PlayStation.PUI_UI3.rco`) differs between firmware and is never written whole over yours. The app keeps its icons and sounds, and Restore defaults puts back from them, by name, what a theme changed. When that gives your firmware's original byte for byte, it becomes the backup again. An icon that several lost originals share a length with, or one your firmware drew anew, stays, and the result says how many did.\n- **Icons and sounds by name on 13.00.** The 13.00 catalog now knows which of its icons have no title, so a theme with the original icons and sounds from another firmware can put icons back there too.\n- Restore no longer counts unchanged system sounds as put back.\n\nTested on FW 13.00: the app starts and runs. Putting icons back by name was tested on the PC with the 13.00 icon container and 11 store themes (10 come back byte for byte, one keeps 2 of 38 icons). Taking another firmware's icon container was only tested in unit tests, not with a real one.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `7c08f27caf1fbedf90e84af50f8d9d59b26e1ebf5b9281c402176b9fe560ae0b`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
+        "published_at": "2026-11-14T21:34:58Z",
+        "notes": "## Changes\n\n- **Library empty under kstuff and Relapse (#18, #20).** With kstuff (seen on 11.00 and 13.00) or Relapse (13.20), the console refused the app's folder listings while reading and writing files still worked. The app took that for an empty folder, so the Library showed only Blue Hour and USB Import found no theme packs. The app now reads folders in a way these jailbreaks accept. Should a listing of its own folder still be refused, the app lets its file helper (ThemeHelper) handle the folder instead.\n\nTested on FW 13.00 with kstuff: 01.000.041 showed only Blue Hour; 01.000.042 shows all 32 themes of the test library. USB Import uses the same folder listing but was not tested on the console.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `37fc6e68303d7806ef883682f54c24044648c4b662f02b491fbc84efb109ed25`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
       },
       "pins": [
+        {
+          "tag": "01.000.041",
+          "asset": "PPSA90210.zip",
+          "size": 9148228,
+          "sha256": "7c08f27caf1fbedf90e84af50f8d9d59b26e1ebf5b9281c402176b9fe560ae0b",
+          "content_version": "01.000.041",
+          "title_name": "Prospero Themes"
+        },
         {
           "tag": "01.000.040",
           "asset": "PPSA90210.zip",
