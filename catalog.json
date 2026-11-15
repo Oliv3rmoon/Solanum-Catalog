@@ -755,7 +755,7 @@
         "streaming",
         "video"
       ],
-      "stars": 2,
+      "stars": 3,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99474.zip",
@@ -939,7 +939,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 25,
+      "stars": 26,
       "release": {
         "tag": "v1.0.18",
         "asset": "Crux2-v1.0.18.zip",
@@ -1318,7 +1318,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 502,
+      "stars": 503,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -2272,7 +2272,7 @@
         "switch",
         "eden"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v6.000.000",
         "asset": "ProsperoEden-v6.000.000.zip",
@@ -2380,7 +2380,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 148,
+      "stars": 150,
       "release": {
         "tag": "v2.3.13",
         "asset": "PPSA11018.zip",
@@ -2484,7 +2484,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1070,
+      "stars": 1071,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -4530,16 +4530,24 @@
       ],
       "stars": 15,
       "release": {
-        "tag": "v1.0.0.25-native",
+        "tag": "v1.0.0.26-native",
         "asset": "PPSA99288.zip",
-        "size": 46840347,
-        "sha256": "304b1ce679089cca614fdcbe7e9c4860255d7d035dd097db1d42abfb77a71dcd",
-        "content_version": "07.000.025",
+        "size": 46855598,
+        "sha256": "bd4150bb0b220cfd52875f553e389a077eb138bc68c4799a426b98b0dba95b94",
+        "content_version": "07.000.026",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-13T23:47:41Z",
-        "notes": "# Nuvio Max'd 1.0.0.25 — official release\n\n- Official release of the current Max'd feature set, with matching in-app labels and update metadata.\n- Eight menu languages, cast and crew browsing, library/watched actions, IPTV portals, TVDB ordering and encrypted configuration backups.\n- Includes the playback, provider, networking and font updates from 1.0.0.24, plus its seeking, Arabic subtitle and MDBList fixes.\n\nClose Max'd before updating and keep your app data. ZIP, native image, matching source and verification results are included."
+        "published_at": "2026-11-15T03:20:52Z",
+        "notes": "# Nuvio Max'd 1.0.0.26 — age ratings\n\n- Movie and series details now show TMDB age certifications alongside year, runtime and genres.\n- Choose from 32 countries in Settings → Account & Services → Age-rating country. The preference is saved per profile and included in configuration backups.\n- The badge names its country. US ratings are used when the selected country's rating is missing; no badge appears when both are unavailable.\n- Country names and settings are translated into all eight menu languages. Ratings are display only.\n\nClose Max'd before updating and keep your app data. ZIP, native image, matching source and verification results are included."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.25-native",
+          "asset": "PPSA99288.zip",
+          "size": 46840347,
+          "sha256": "304b1ce679089cca614fdcbe7e9c4860255d7d035dd097db1d42abfb77a71dcd",
+          "content_version": "07.000.025",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.20-native",
           "asset": "PPSA99288.zip",
@@ -4570,14 +4578,6 @@
           "size": 44411290,
           "sha256": "e08ba610204d3864ab52f3838302c7a2589645a9437f41417fb274269a60be06",
           "content_version": "07.000.011",
-          "title_name": "Nuvio Max'd"
-        },
-        {
-          "tag": "v1.0.0.8-native-experimental",
-          "asset": "PPSA99288.zip",
-          "size": 44258510,
-          "sha256": "ca8e22dcde1695b4a5239dc9dacaf1863f3aefee65366818620aa3a6424f156b",
-          "content_version": "07.000.008",
           "title_name": "Nuvio Max'd"
         }
       ]
