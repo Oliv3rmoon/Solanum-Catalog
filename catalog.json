@@ -495,7 +495,7 @@
         "video",
         "ffmpeg"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v1.6.2",
         "asset": "MediaPlayerClassicPS5-v1.6.2-PPSA99015.zip",
@@ -784,7 +784,7 @@
         "video",
         "streaming"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v1.6.0.7",
         "asset": "wiliwili-PS5-v1.6.0.7.zip",
@@ -988,16 +988,24 @@
       ],
       "stars": 40,
       "release": {
-        "tag": "v1.3.5",
-        "asset": "PSFlyCast-v1.3.5.zip",
-        "size": 21969724,
-        "sha256": "70ab96b021731af85a948dcba71bc701c2883e11694c4a89dda8c3ecdf38e09c",
-        "content_version": "01.003.094",
+        "tag": "v1.3.9",
+        "asset": "PSFlyCast-v1.3.9.zip",
+        "size": 22242232,
+        "sha256": "4b5a65dca95bfc6636da49507734538e740f8e0357acb661b83b1b90a7a77323",
+        "content_version": "01.003.103",
         "title_name": "PSFlyCast",
-        "published_at": "2026-11-01T05:12:07Z",
-        "notes": "<html><body>\n<!--StartFragment--><html><head></head><body><h2>New in v1.3.5</h2>\n<p><strong>Added</strong></p>\n<ul>\n<li><strong>Threads on cores of their own</strong> (Settings &gt; System, on), as Crux2 has\nthem: the emulator on a processor of its own with its core's second thread\nleft empty, the renderer and the interface on another core, and everything\nelse on the cores left over. With the graphics driver on its own thread,\n<strong>Graphics driver on a core of its own</strong> (on) gives that thread a third.</li>\n\n<p><strong>Changed</strong></p>\n<ul>\n<li><strong>Flycast</strong> is its <code>dev</code> branch at 2c83abc (28 October 2026): the sound chip's DMA at its real rate.</li>\n<li><strong>The graphics driver</strong> is built from Crux2's newest driver patches: Mesa\nmain of 31 October 2026, with fixes to the shader compiler and to how\npipelines are kept in the shader cache.</li>\n</ul>\n<p><strong>Fixed</strong></p>\n<ul>\n<li><strong>PSFlyCast could not start on a firmware without variable refresh:</strong> it\nasked the console for a function (<code>sceVideoOutVrrUnpegFromFixedRate</code>) that\nnot every firmware has, and a title asking for one the console lacks does\nnot start. It is now looked for while PSFlyCast runs; without it, variable\nrefresh is simply refused.</li>\n<li><strong>A spurious wake-up</strong> between the emulator's and the renderer's threads\nno longer passes for a frame handed over.</li>\n</ul>\n<p>Your settings, saves and games are kept when this version is installed over an earlier one. Two new settings are on: Threads on cores of their own and Graphics driver on a core of its own (Settings &gt; System); turn the first off if a game runs worse.</p>\n\n<h2>Install or update</h2>\n<ol>\n<li>Copy the <code>PPSA99247</code> folder from the ZIP to your homebrew folder on the console (<code>/data/homebrew/</code>), over an older one if you have it, or update from Settings &gt; About &gt; Check for updates.</li>\n<li>Your own games in <code>games/</code> (or on a USB drive or a network share), your own BIOS in <code>bios/</code>. None included, none ever will be.</li>\n<li>Read <code>LEGAL.txt</code> and <code>README.md</code> in the folder. Shaders are compiled again once after the update.</li>\n</ol>\n<h2>Reporting problems</h2>\n<p>Open an issue with <code>flycast-boot.log</code> from the title folder, copied before PSFlyCast is started again. Never attach games, BIOS files, firmware or keys.</p>\n<h2>Source</h2>"
+        "published_at": "2026-11-15T17:43:24Z",
+        "notes": "## New since v1.3.5 (v1.3.6 to v1.3.9)\n\n**Added**\n\n- **HDR** (Settings > Video, off; from OGBox): the picture goes to an HDR TV as HDR10 (BT.2020 colours, the PQ curve), the game's brightest parts raised toward **HDR highlights** (1000 nits by default) and white at the **HDR white level** (203 nits); the menus stay at the white level. **Adjust HDR brightness** is a test screen for the TV's peak and the white level. It needs the console's own HDR setting on and a TV that takes HDR; PSFlyCast now declares HDR to the console, so an HDR TV is in HDR mode while PSFlyCast runs, with HDR on or off.\n- **SSAA and SMAA** (Settings > Video, from OGBox): Down-sampling (Bilinear, Soft or Sharp with Lanczos) for an internal resolution above the screen's, and SMAA over the picture.\n- **Internal resolution 4.5x (2160p)**, a 4K screen's own lines: a 4:3 picture is shown there without being scaled up or down.\n- **Memory cards kept in sync with the network share, both ways** (Crux2's sync): when PSFlyCast starts and when a game is quit, a card changed on one side goes to the other; one changed on both keeps the newer, and the other is put in an \"older\" folder on its side. In place of the one-way backup, in the same folder.\n- **Find servers on the network** (Settings > Library > Network, from OGBox): the shared folders' servers on the console's network are listed by name, and one is picked to add a folder on it.\n- **Large network buffers** (Settings > Library > Network, on; from OGBox): a connection to a network share asks the console for 4 MB send and receive buffers instead of its small default.\n- **PlayStation Move and Navigation controllers** (Settings > Controls, off; experimental), through Move Management, a separate payload by REXCRAFT88: each player's are a controller of their own, and in a light-gun game the Move aims by turning it.\n- **Vibration in the menus** and **Circle confirms** (Settings > Controls, from OGBox).\n- **Continue where you left off:** with Auto save state on and Auto load state off, a game with a saved state asks whether to continue from it or start from the beginning.\n- **Delete a save state** (Game details > Load state): Triangle twice.\n- **The quick menu in your own order** (Triangle in it): entries moved and hidden.\n- **Every disc game's cover is fetched in the background** after a scan, when covers are on, instead of only the covers on screen."
       },
       "pins": [
+        {
+          "tag": "v1.3.5",
+          "asset": "PSFlyCast-v1.3.5.zip",
+          "size": 21969724,
+          "sha256": "70ab96b021731af85a948dcba71bc701c2883e11694c4a89dda8c3ecdf38e09c",
+          "content_version": "01.003.094",
+          "title_name": "PSFlyCast"
+        },
         {
           "tag": "v1.3.4",
           "asset": "PSFlyCast-v1.3.4.zip",
@@ -1065,7 +1073,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 54,
+      "stars": 55,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1318,7 +1326,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 503,
+      "stars": 510,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1744,7 +1752,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 847,
+      "stars": 849,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1793,16 +1801,24 @@
       ],
       "stars": 39,
       "release": {
-        "tag": "build26",
-        "asset": "PSSwanStation-PS5-PPSA99248-build26.zip",
-        "size": 37201334,
-        "sha256": "f625f9af19abdbfb99e3135c81e7e6aa509cc8c9607b857e0e158fbe3ffba9bf",
-        "content_version": "01.026.000",
+        "tag": "build27",
+        "asset": "PSSwanStation-PS5-PPSA99248-build27.zip",
+        "size": 38127723,
+        "sha256": "adcfe285f1f015402a555929cbb90d7565097ec25b6c21063399cae9afd55aa1",
+        "content_version": "01.027.000",
         "title_name": "PSSwanStation",
-        "published_at": "2026-11-01T05:17:37Z",
-        "notes": "# PSSwanStation build 26\n\n## Added\n\n- **The renderer changes while a game runs.** Software and Vulkan, both ways: the game goes on where it was, with no restart. The picture presets that change the renderer apply at once too.\n- **Multi-disc games as one** (Settings, Interface, View; on): the discs of a game are one entry, sharing one memory card. Discs are now also found when each is in a folder of its own named after the disc (`Game (Disc 1)/...`), in folders named only `CD1`, `CD2` (`Game/CD1/...`), and by \"CD2\" or \"Disc 2\" at the end of a name. Off: each disc is an entry of its own.\n- **Variable refresh, really asked for**: \"120 Hz, variable refresh rate\" (Display output) now asks the output to leave its fixed rate, so on a TV with VRR each frame is shown as soon as it is ready, where the console's firmware offers it (the boot log says whether it does).\n\n## Changed\n\n- **The graphics driver is Mesa main of 31 October 2026** (27.0.0-devel, as Crux2 1.0.17 builds it): fixes to the shader compiler and to how graphics pipelines are found in the shader cache.\n- Newer parts: libsmb2 (c6e4997) and libnfs (affe4c8).\n\n## Fixed\n\n- **120 Hz fell back to 60 Hz on TVs with VRR**: before the first frame such a TV refreshes at 48 Hz, which was taken for a TV still at 60 Hz.\n- **Cover downloads could stop for the rest of a run** when a cover downloaded but could not be saved (a full or read-only drive); the boot log now says why it was not saved (bobrass, pull request #5).\n\n## Source\n\nThis ZIP was built from PSSwanStation commit `fb1b4f861762d93a4b0c3766589a82256fedc164`, this release's tag. The title is distributed under the GNU General Public License, version 3, as a whole; the source of every part is public at the revision it was built from:\n\n- PSSwanStation: SwanStation (the emulator, with the libraries in its tree: libchdr with LZMA and zstd, xxHash, Xbyak, stb, libretro-common, OpenBIOS) and the PS5 frontend in ps5/ (with miniz, stb_vorbis, stb_truetype, pugixml and nanosvg (ES-DE themes), dr_mp3, AMD's FSR 1 and CAS headers, NVIDIA Image Scaling, AMD FidelityFX SDK's FSR3 optical flow through swordpdf's ps5-framegen and Mihawk's MihawkGen frame generation with its network, and PS5SX2's USB pad decoder, an HTTPS client of its own on mbedTLS, Crux2's clock and pacing wait, the disc drive after DuckStation's (GPL) and 5S2CD's disc readers, Project Nayuki's QR Code generator, the sandbox elevation client and Font Awesome Free's icons): [`fb1b4f861762`](https://github.com/Press5elect/PSSwanStation/tree/fb1b4f861762d93a4b0c3766589a82256fedc164)"
+        "published_at": "2026-11-15T17:49:02Z",
+        "notes": "# PSSwanStation build 27\n\n## New in build 27\n\n### Added\n\n- **HDR** (Settings, Picture; off): the picture goes to an HDR TV as HDR10, white at the HDR white level (203 nits at first) and the game's brightest parts raised toward the TV's peak (HDR highlights). **Adjust HDR brightness** finds both with two test pictures. It begins at the next start, and the TV is asked for HDR only while it is on. Needs the console's own HDR on and a TV that takes it.\n- **Network shares from the console** (Settings, Games and saving, Network shares): add, change and remove the folders with games, the account and the folder for your files, without editing `network.cfg` over FTP. The SMB servers on the network are found for you, and a change is used at once.\n- **A game on a share that does not answer yet waits for it** (\"Waiting for the network share\", Circle goes back) instead of failing, and the shares are woken as PSSwanStation starts, so a NAS's disks are turning by the time a game starts.\n- **Logs** (Settings, System): written as they come, only when something goes wrong, or off; in the title's folder or on a USB drive; the boot log alone, with the emulator's log, or everything. Kept in memory, they keep the session's start too, and a game that stands still for 15 s writes them by itself.\n- **Save states on a USB drive** (Settings, Games and saving).\n- **Vibration strength** (Settings, Controls).\n- **The Sinden Lightgun, an experiment** (Settings, Controls, Players): it aims a player's GunCon. PSSwanStation reads the gun's camera over USB and finds the white border it draws round the game's picture itself, without Sinden's software. **Not tested with a gun yet**: if you have one, please try it and open an issue with the boot log's `sinden:` lines.\n\n### Changed\n\n- **Fewer writes to the console's storage**: settings written when PSSwanStation closes and when the console's menu opens, files written only when they changed, one shader cache, an update replacing only the files that changed, and the sleep-safe resume state saved only when the console's menu opens.\n- **Network games read faster**: large TCP buffers for every SMB, NFS and FTP connection.\n- **Closing while your files are being brought up to date** finishes the file it is copying, with a bar, and closes; the rest follows at the next start.\n- **The stick dead zone** is taken round the stick's middle: small diagonals stay diagonals.\n- **The graphics driver** is PS5_Mesa main of 10 November 2026 with Crux2's patches: a cached pipeline that lost a stage is compiled again instead of crashing at every start. Newer payload SDK (upstream's v0.45), libsmb2 and libnfs.\n- Every cover of the library is fetched in the background with \"Download covers\" on.\n\n### Fixed"
       },
       "pins": [
+        {
+          "tag": "build26",
+          "asset": "PSSwanStation-PS5-PPSA99248-build26.zip",
+          "size": 37201334,
+          "sha256": "f625f9af19abdbfb99e3135c81e7e6aa509cc8c9607b857e0e158fbe3ffba9bf",
+          "content_version": "01.026.000",
+          "title_name": "PSSwanStation"
+        },
         {
           "tag": "build25",
           "asset": "PSSwanStation-PS5-PPSA99248-build25.zip",
@@ -2272,7 +2288,7 @@
         "switch",
         "eden"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "v6.000.000",
         "asset": "ProsperoEden-v6.000.000.zip",
@@ -2337,7 +2353,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 400,
+      "stars": 401,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2380,7 +2396,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 150,
+      "stars": 152,
       "release": {
         "tag": "v2.3.13",
         "asset": "PPSA11018.zip",
@@ -2452,7 +2468,7 @@
         "pico-8",
         "fantasy-console"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "v0.1.2",
         "asset": "PPSA99808.zip",
@@ -2484,7 +2500,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1071,
+      "stars": 1076,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2563,7 +2579,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1672,
+      "stars": 1675,
       "release": {
         "tag": "vk-285-190",
         "asset": "PS5SX2-vk-285-190.zip",
@@ -2866,7 +2882,7 @@
         "xbox",
         "racing"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "v0.2.2",
         "asset": "Burnout3-PS5-0.2.2.zip",
@@ -3291,16 +3307,24 @@
       ],
       "stars": 92,
       "release": {
-        "tag": "build-142",
+        "tag": "build-143",
         "asset": "halo-ps5-release.zip",
-        "size": 59133816,
-        "sha256": "ff34d2c0647f2717c0ebc60e02cd34819f7a657df1a6a47226505fe31886903a",
-        "content_version": "01.000.142",
+        "size": 59290292,
+        "sha256": "9e7e207e6d84d83f650129c9387b871f9eb2e63a3d7db866486209be294a2918",
+        "content_version": "01.000.143",
         "title_name": "SlipstreamCE",
-        "published_at": "2026-11-14T03:12:18Z",
-        "notes": "Build 142: MCC and Hosted Servers!\n\nThanks to:\n\n1. **puginatux**, for brainstorming the UX and for testing.\n2. **chester**, for the MCC compatibility base.\n3. **watanoge**, for the Steam Workshop integration base.\n\n### Host Server\n\n- New: host a dedicated server from the menus, with no player of your own, on Android, the Switch and the PS5. Multiplayer > HOST SERVER opens the Host Hub. It lists your playlists (A hosts, X edits, Y deletes, START opens Server Settings) beside the rounds of the playlist you've picked. While hosting, the host's screen shows the match, the players and the next round, and has a player menu for kick, ban (for a day or for good), mute and notices. (thelinkin3000)\n- Playlist Builder: maps and rounds side by side. A on a map picks its gametype and adds the round, Y removes a round, the shoulder buttons move it, SAVE keeps the playlist under its name. It lists custom_maps' subfolders, MCC maps, and the gametypes you made in Edit Gametypes (always the latest version of them). It also has Round Options. (thelinkin3000)\n- Server Settings: name, password, listing, players, lobby countdown, map sharing, vote kicking and message of the day. LISTING is INTERNET: PUBLIC, INTERNET: PRIVATE or LAN, like Create Game's choices. A public server now shows in the server browser like a player's game, and asks the router for its port. (thelinkin3000)\n- Watch your server's game live with the Theater's cameras: R on the host's screen, or WATCH in a player's menu. Behind, eyes, free and cinematic views; Back shows the scores. (thelinkin3000)\n- Bots can fill a hosted server (BOTS in Server Settings). An MCC map in the rotation loads after the first round. The host stopping the server no longer shows a network error. (thelinkin3000)\n\n### MCC maps\n\n- Settings > Network Setup > STEAM WORKSHOP: sign in with Steam (password with Steam Guard, or a QR code) and download Halo: CE Anniversary's shared maps and Halo 1 Workshop items, on Android, the Switch and the PS5. The Steam client comes from Halo Content Evolved. (thelinkin3000)\n- IMPORT on the map lists now takes CE maps, zips of maps, Workshop packages and MCC resource sets on every platform. Android opens the file picker. The Switch and the PS5 show an upload page's address and QR code on your local network. An import of a package you already have asks whether to REPLACE it or KEEP VERSION ON DISK. (thelinkin3000)\n- MCC maps load much faster: sounds and textures are converted on the host's spare cores, not one by one on the game's thread (a Switch campaign map took 87 s). The shared bitmaps.map and sounds.map are no longer read in full for their checksum at every load, and BC7 textures are kept at a quarter of the memory. (thelinkin3000)"
+        "published_at": "2026-11-15T07:08:56Z",
+        "notes": "Build 143: Faster map sharing, custom Xbox maps and moving game files!\n\n### Map sharing\n\n- New: between two SlipstreamCE machines, maps go over a fast encrypted connection of their own instead of the game's tunnel, for both MCC packages and Custom Edition maps. A joiner opens up to 16 connections to the host (4 on the Switch), all through one port, which the host forwards with UPnP; a host serves 32 in all. Over the internet a joiner connects straight to the host's address when it can. A Custom Edition map still comes from the other players too, with the host as one more source. OpenCE hosts and joiners work as before. (thelinkin3000)\n- Uploads use the whole line outside a game. During a game they leave room for the game's own traffic and slow down only when the players' pings show the line filling up. (thelinkin3000)\n- The upload limits in Network Setup and Server Setup go up to 250 MB/s. (thelinkin3000)\n- A download's speed is shown correctly past 2 MB/s. (thelinkin3000)\n- Fixed: a download stuck at 0 KB/s when the host offered the map as the player joined. (thelinkin3000)\n- Fixed: the Switch froze for 20 to 30 seconds while downloading a map and was dropped from the game. Downloaded pieces are now written to the SD card on a thread of their own. (thelinkin3000)\n\n### Custom Xbox multiplayer maps\n\n- New: Xbox multiplayer maps (from mods such as Halo CE+ X) can go in custom_maps. They're listed, described as \"Custom Xbox multiplayer map\", shared, and played like the game's own maps, even when they have the same names as the stock ones. (thelinkin3000)\n- A dedicated server's rotation takes them. An Xbox campaign map is still refused, with a message saying why. (thelinkin3000)\n- A game on one of these maps needs a client that supports them. A player whose client doesn't is told \"You need a client with support for custom OG Xbox multiplayer maps.\" and removed. (thelinkin3000)\n\n### Game files (Android)\n\n- New: Settings > Gameplay > GAME FILES moves your maps, custom maps, mods and MCC maps to another place: APP DATA (the app's storage) or OTHER FOLDER (any folder you choose, such as one on a memory card). The game restarts to move them and shows its progress, then says where they are. A move that stops loses nothing: try again, or move them back. (thelinkin3000)\n\n### Hosted servers\n\n- Watching a player through their eyes from the host's screen now turns smoothly, as a replay does, instead of jumping each time their input arrives. (thelinkin3000)\n\n### Custom campaigns (experimental)"
       },
       "pins": [
+        {
+          "tag": "build-142",
+          "asset": "halo-ps5-release.zip",
+          "size": 59133816,
+          "sha256": "ff34d2c0647f2717c0ebc60e02cd34819f7a657df1a6a47226505fe31886903a",
+          "content_version": "01.000.142",
+          "title_name": "SlipstreamCE"
+        },
         {
           "tag": "build-141",
           "asset": "halo-ps5-release.zip",
@@ -3331,14 +3355,6 @@
           "size": 56800869,
           "sha256": "4890a9ddeabcc82b30b35f638d5f3dded18fb137356feced5e50aa7feca8b6bb",
           "content_version": "01.000.135",
-          "title_name": "Halo: Combat Evolved"
-        },
-        {
-          "tag": "build-134",
-          "asset": "halo-ps5-release.zip",
-          "size": 56800421,
-          "sha256": "c3ff433c420990492795fd72f5af866b8eb30bd277b70116097f7aa7c202e53a",
-          "content_version": "01.000.134",
           "title_name": "Halo: Combat Evolved"
         }
       ]
@@ -3653,16 +3669,24 @@
       ],
       "stars": 58,
       "release": {
-        "tag": "01.000.281",
+        "tag": "01.000.285",
         "asset": "PPSA99874.zip",
-        "size": 128572074,
-        "sha256": "ab92eafe8a1569d90a6a6e26339ec29ba69f149f6bd3e4f3567eeb2215c770a9",
-        "content_version": "01.000.281",
+        "size": 128585796,
+        "sha256": "c46d07bb0ca56988e83cacc7f5b2b495f8ff70f36c4dbaca134d5ba15f505ae4",
+        "content_version": "01.000.285",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-14T10:37:52Z",
-        "notes": "### Fixed\n\n- Controlify’s on-screen keyboard keeps the text field active on Minecraft 26.3 Fabric so you can type and use Backspace.\n- Added the OpenJDK HTTP client module required for OpSec to start on Minecraft 26.3 Fabric.\n\n### PS5 validation\n\nThe maintainer confirmed the keyboard fix and shader rendering on build 01.000.281. A reported Hypixel join stall with OpSec did not recur.\n\nInstall or update ProsperoCraft with the PPSA99874.zip asset. The release includes checksums, validation records and the corresponding source and OpenAL relink kit."
+        "published_at": "2026-11-15T13:19:54Z",
+        "notes": "### Performance\n\n- Prepare the PS5 shader cache before graphics startup so Mesa can reuse compiled shaders across launches.\n- Reduce per-method JVM logging during Minecraft 26.3 Fabric gameplay.\n\n### PS5 validation\n\nThe maintainer approved build 01.000.285 on PS5 and confirmed that shaders work.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. The release includes checksums, validation records, and the corresponding source and OpenAL relink kit."
       },
       "pins": [
+        {
+          "tag": "01.000.281",
+          "asset": "PPSA99874.zip",
+          "size": 128572074,
+          "sha256": "ab92eafe8a1569d90a6a6e26339ec29ba69f149f6bd3e4f3567eeb2215c770a9",
+          "content_version": "01.000.281",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.279",
           "asset": "PPSA99874.zip",
@@ -3693,14 +3717,6 @@
           "size": 127912091,
           "sha256": "433fddadd77068e324e2118cd1d47988f9f46e5201fcf41535475de8ec0e3b9f",
           "content_version": "01.000.256",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.212",
-          "asset": "PPSA99874.zip",
-          "size": 127488343,
-          "sha256": "d97e530ea67838ef806e8fa88731d399aa9ce1ae661b091daff5eaacfe3f75a7",
-          "content_version": "01.000.212",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -5647,7 +5663,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 520,
+      "stars": 521,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5756,7 +5772,7 @@
         "saves",
         "sync"
       ],
-      "stars": 123,
+      "stars": 124,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
