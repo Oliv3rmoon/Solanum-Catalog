@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 15,
+      "stars": 16,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 13,
+      "stars": 14,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -411,7 +411,7 @@
         "emby",
         "video"
       ],
-      "stars": 46,
+      "stars": 47,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -440,18 +440,26 @@
         "emby",
         "video"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
-        "tag": "1.3.1",
-        "asset": "Emby5-1.3.1.zip",
-        "size": 32804008,
-        "sha256": "c5194742de8118cfce029535e9ddcf4819af5799bbdf84b3cdfe85571ff43339",
-        "content_version": "01.003.001",
+        "tag": "1.3.2",
+        "asset": "Emby5-1.3.2.zip",
+        "size": 32810640,
+        "sha256": "4fd82194b70ed41e26d897d420dfbe6231ab06cefb9294d586e59519d1447e66",
+        "content_version": "01.003.002",
         "title_name": "Emby5",
-        "published_at": "2026-11-02T08:49:05Z",
-        "notes": "## What's new\n\n### 4K playback\n- 4K videos, including 4K (UHD) Blu-ray disc images, now get the PS5's hardware video decoder when it couldn't find enough memory before. Emby5 frees the decoders it isn't using for as long as the 4K video plays, and brings them back afterwards.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.1.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.1** under **Settings > System > Installed version**."
+        "published_at": "2026-11-15T20:48:59Z",
+        "notes": "## What's fixed\n\n### Chinese, Japanese, Korean and Thai subtitles\n- Subtitles in Chinese, Japanese, Korean or Thai no longer show broken characters when the subtitle file has no language set, such as a fansub .ass named after the film. Emby5 now looks at the text itself and loads the PS5's own font for the characters it finds. Tracks inside the video get the same check. ([#10](https://github.com/bornaradusin/Emby5/issues/10))\n- Subtitle files that aren't saved as UTF-8 show correctly. That covers the older Chinese (GBK, Big5), Japanese (Shift-JIS), Korean, Cyrillic, Arabic and other encodings, in .srt and .ass alike. The encoding is worked out from the file itself, and three-letter languages from Emby and Jellyfin (such as `chi`, `jpn` and `rus`) are now understood.\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.2.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.2** under **Settings > System > Installed version**."
       },
       "pins": [
+        {
+          "tag": "1.3.1",
+          "asset": "Emby5-1.3.1.zip",
+          "size": 32804008,
+          "sha256": "c5194742de8118cfce029535e9ddcf4819af5799bbdf84b3cdfe85571ff43339",
+          "content_version": "01.003.001",
+          "title_name": "Emby5"
+        },
         {
           "tag": "1.2.11",
           "asset": "Emby5-1.2.11.zip",
@@ -839,7 +847,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 0,
+      "stars": 1,
       "release": {
         "tag": "v1.6.9",
         "asset": "PPSA99810.zip",
@@ -910,7 +918,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 99,
+      "stars": 100,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -939,18 +947,26 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 26,
+      "stars": 27,
       "release": {
-        "tag": "v1.0.18",
-        "asset": "Crux2-v1.0.18.zip",
-        "size": 35743309,
-        "sha256": "9b585c6d46f855db0eb0b8d50910bc7fef6ed5f113733c218ea7e007deec2471",
-        "content_version": "01.018.000",
+        "tag": "v1.0.19",
+        "asset": "Crux2-v1.0.19.zip",
+        "size": 38467991,
+        "sha256": "3352e46699f41838b51853ea95f019f3fef0846be80df68cfae00ffb953a7c86",
+        "content_version": "01.019.000",
         "title_name": "Crux2",
-        "published_at": "2026-11-01T07:06:54Z",
-        "notes": "# Crux2 v1.0.18\n\n> [!IMPORTANT]\n> No games, BIOS files, firmware or keys are included, and none ever will be. Use only legally obtained backups of games you own and a BIOS dumped from your own PlayStation 2.\n\n## Added\n- **Settings > Folders**: add game folders from USB drives, network shares or the console's storage, and choose where the BIOS, memory cards, save states, screenshots, cheats, covers and texture replacements are kept.\n- **Accurate floating point** for the FPU, VU0 and VU1 (Settings > Advanced, or a game's own Settings > Emulation; off), from PCSX2 Reliquary.\n- **MihawkGen**, a third frame generation method.\n- **Show the movement** (Settings > Graphics, advanced): shows what FSR 3 optical flow decided for each pixel.\n\n## Changed\n- Frame generation is lighter when no upscaler is used: frames are made at the game picture's own size.\n- Accurate floating point is on for the FPU and VU0 in the two games known to need it.\n- x86 emitter encoding fixes from PCSX2 Reliquary.\n- Save states keep their format: v1.0.17 and v1.0.18 load each other's states.\n\n## Fixed\n- Frame generation at 120 Hz held games at 67% or 50% speed, even standing still.\n- Frame generation sped up and slowed down every few seconds in games at 30 frames a second.\n- Frame generation at 120 Hz made one picture between the game's instead of three when frames came unevenly.\n- What's new now shows what was added, changed and fixed in each version, and opens once after an update.\n\n## Installation\n- Copy the `PPSA99249` folder to `/data/homebrew/` on the console, over an older one if you have it.\n- Your games, BIOS files, memory cards, states and settings are kept. Shaders are compiled again once after the update.\n- Read `LEGAL.txt` and `README.md` in the folder.\n\n## Reporting problems\n- Open an issue and attach `crux2-boot.log` from the title folder, copied before Crux2 is started again. Don't attach games, BIOS files, firmware or keys.\n\n## Source and licensing\n- GPL-3.0-or-later with one additional term: keep the credit \"Crux2 by Press5elect\" (`NOTICE`).\n- Source: this repository at the tag, and PCSX2 at [`6d5e7daacefe`](https://github.com/PCSX2/pcsx2/tree/6d5e7daacefef49a0a921fb89730c50b70d9119e); every other part's revision is in `licenses/components.json` in the ZIP.\n\n## Build versions\n- Crux2: `d6c7f6a` (build 43)\n- PCSX2: v2.9.150 (`6d5e7daacefe`)\n- RADV: Mesa 27.0-devel, 2026-10-31\n- PS5_Vulkan: `f410e67`\n- PS5_PayloadSDK: `b5efad5`\n- paraLLEl-GS: `cc6184a`\n- MihawkGen: `c57232a9f16b`\n\nSHA-256 of `Crux2-v1.0.18.zip`: `9b585c6d46f855db0eb0b8d50910bc7fef6ed5f113733c218ea7e007deec2471`"
+        "published_at": "2026-11-15T19:48:12Z",
+        "notes": "# Crux2 v1.0.19\n\n## Added\n- **HDR10 output** (Settings > Graphics, HDR; off), with peak and white levels and **Adjust HDR brightness**. Needs the console's HDR setting and a TV that takes HDR.\n- **Debanding** and a **colour filter for colour blindness** on the game's picture (Settings > Graphics; off).\n- **A startup video** of Crux2's own (Settings > Interface, Startup video).\n- **Network shares set up on the console** (Settings > Folders): servers found on the network (SMB and NFS), their shares listed, and a test that says what went wrong. Shares are woken when Crux2 starts, and a game on a share that doesn't answer waits for it with a count on the screen.\n- **Light gun** (Settings > Controllers): one or two GunCon 2s plugged in with their buttons set up, steady motion aim (no drift, R3 recentres, the screen measured at two corners), R2 that clicks like a trigger, and a second gun for player 2. A **PlayStation Move** can aim player 1's gun through the Move Management payload (off).\n- **Achievements as the console's trophy pop-ups**, with the trophy sound.\n- **The quick menu your way**: Triangle shows, hides and orders its entries and puts a game's options in it; **Apply changes now** restarts the game for settings that need it; **Save the log**.\n- **Screenshots** with Options + Square (the game's picture, no menus).\n- **Game fixes fetched from GitHub** at start, so a fixed game needs no new Crux2.\n- **Stick response curves**, Steady 30 for frame generation, launch arguments `--rom` and `--exit-after-game`.\n- **The recomp kit** (`Crux2-recomp-kit-v1.0.19.zip`) comes with the release: it makes a game's native modules on a PC.\n\n## Changed\n- **HD texture packs download over 10 connections at once**, with a progress bar (size, speed, time left). Download connections: 1 to 16.\n- **Covers download three at a time**, and the ones on screen load first.\n- Quick taps are held for the game at least 50 ms, so they aren't missed.\n- The boot log is kept in memory and written when something goes wrong (Settings > Log); settings are written when the menus close; an exit waits for writes under way, with a bar.\n- Texture packs are held within a memory budget.\n- Built on PCSX2 v2.9.179 (was v2.9.150). **Save states made with earlier versions don't load**; memory cards are not affected.\n- Built with the payload SDK `3345cde` (its v0.45 base), PS5_Vulkan `7f492b4` and a new profile for profile-guided optimisation. The graphics driver stays on Mesa of 2026-10-31, as v1.0.18's.\n\n## Fixed\n- A GunCon 2 could only be plugged in by editing the settings file.\n- A backup that couldn't read a file was written as complete, and could then replace the previous good one.\n- Very large images are refused before they're decoded.\n\n## Tested"
       },
       "pins": [
+        {
+          "tag": "v1.0.18",
+          "asset": "Crux2-v1.0.18.zip",
+          "size": 35743309,
+          "sha256": "9b585c6d46f855db0eb0b8d50910bc7fef6ed5f113733c218ea7e007deec2471",
+          "content_version": "01.018.000",
+          "title_name": "Crux2"
+        },
         {
           "tag": "v1.0.17",
           "asset": "Crux2-v1.0.17.zip",
@@ -1034,7 +1050,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 240,
+      "stars": 241,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1296,7 +1312,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 415,
+      "stars": 417,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1326,7 +1342,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 510,
+      "stars": 512,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1752,7 +1768,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 849,
+      "stars": 851,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1846,7 +1862,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 213,
+      "stars": 214,
       "release": {
         "tag": "v3.5",
         "asset": "PPSA97358.zip",
@@ -2500,7 +2516,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1076,
+      "stars": 1079,
       "release": {
         "tag": "v0.10.0",
         "asset": "playden-ps5-0.10.0.zip",
@@ -2549,7 +2565,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 262,
+      "stars": 264,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2579,18 +2595,26 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1675,
+      "stars": 1680,
       "release": {
-        "tag": "vk-285-190",
-        "asset": "PS5SX2-vk-285-190.zip",
-        "size": 30483238,
-        "sha256": "8cec2731ac94a4b0001bc42f502d1f2eab128574cad6e9736238ca20557a55ed",
-        "content_version": "02.400.000",
+        "tag": "vk-285-321",
+        "asset": "PS5SX2-vk-285-321.zip",
+        "size": 31332272,
+        "sha256": "2c72e77a4e58583d6e42909e3d7b82deb5321f39b17776ff4954c05b4825d241",
+        "content_version": "02.500.000",
         "title_name": "PS5SX2",
-        "published_at": "2026-11-05T17:22:22Z",
-        "notes": "**PS5SX2 2.40** (build vk-285-190)\n\nThe in-game menu. No console restart needed this time: the disc helper is still 171p.\n\n**The in-game menu**\n- In a game, hold **L2 + D-pad Down** for a second (a small *Menu* ring fills in the corner). The game pauses and its picture moves into a card next to a menu in the shelf's style.\n- **Game:** resume, save and load states (ten slots, each with its screenshot and when it was saved), fast forward, change disc (games on more than one disc), *Settings on your phone* (the settings page's address and QR code), *Report a problem* (a note in the session log, for your #bugs report) and back to the shelf.\n- **Settings** and **Controls:** the settings page's options, for this game or all games (L1 / R1). Changes are saved at once and apply when the game goes on; the few that need a restart say *next start*.\n- **Achievements:** the game's RetroAchievements, with their badges.\n- L2 / R2 switch tabs; Circle or OPTIONS goes back to the game.\n- The buttons are still yours to change: *In-game menu: button 1 / 2* on the *Controls* tab. The empty file `flags/noingamemenu` brings back the old combo (held for 2 seconds: the settings page in the PS5's browser).\n\n**Achievements**\n- Unlock and sign-in pop-ups show the badge and your avatar again on consoles where they came up without a picture (the PS5's notification screen can't read `/data` on some jailbreak setups; the pictures now come from `/user/data`).\n\n---\n\n## Download\n\n- **`PS5SX2-vk-285-190.zip`**: the app (eboot and files). The installer and System update install it for you.\n  SHA-256: `8cec2731ac94a4b0001bc42f502d1f2eab128574cad6e9736238ca20557a55ed`\n- **`PS5SX2Installer.elf`**: the installer (1.5, unchanged). Send it once and it installs this build; after that, use System update in the app.\n  SHA-256: `efdec4f8d968ef4a7c1880e75d26b96d212a042a6c208de46f0a859609f6224c`\n- **`PS5SXHelper.elf`**: disc helper 171p (unchanged) with the `/data` mount (only for ShadowMount+ 1.7beta3).\n  SHA-256: `e98906788909cab909f22b75fedbeeb8d41a1adb49166e92d98b3f7536c8a2cd`\n- **`PS5SXHelper-no-data-mount.elf`**: the same without the `/data` mount, for ShadowMount+ 1.7-beta5fix1 or newer (the app starts this one itself).\n  SHA-256: `1d85c21611de6c7ab51859b850c2c886fbd16855e58968b9ae47b042dbc4438a`"
+        "published_at": "2026-11-15T19:28:21Z",
+        "notes": "**PS5SX2 2.50** (build vk-285-321)\n\nLossless Scaling frame generation, a new settings sheet, and a long list of fixes from your reports. **Restart the console once after updating**: the disc helper is now 171q.\n\n**Lossless Scaling frame generation**\n- A second frame generation method. On a game's settings: *Picture* > *Frame gen method* > *Lossless Scaling*, and frame generation on.\n- It uses **your own** `Lossless.dll` (from your copy of Lossless Scaling), copied to `/data/PCSX2/lossless/Lossless.dll`. Nothing of Lossless Scaling comes with PS5SX2. Without the file, PS5SX2's own frame generation is used.\n- Like PS5SX2's own, it needs the 120 Hz output: a 60 fps game is shown at 120, a PAL game at 50 fps at 100.\n- The optical flow runs at full size at 4K; if a game can't keep full speed with it, it steps down to 75% and then 50% by itself and remembers that.\n- The watery, warped look on moving parts is fixed (a cache bug in the GPU driver).\n\n**120 Hz**\n- On some TVs frame generation said *FG: NO 120 HZ OUTPUT* now and then, although the TV does 120 Hz (a screen with a variable refresh rate idles at 48 Hz while nothing is drawn, and that fooled the check). Fixed.\n- The FPS box counts each generated picture once (a 30 fps game shows *FPS 60 (game 30)*, not 90).\n\n**The new settings sheet**\n- On the shelf and in the in-game menu: pages as tiles, values as coloured chips (set for this game, from all games, or the default), help on a card of its own.\n- *All games* settings start with **System update**, and are on pages too (Picture, Speed, PS2 console, Memory cards, Library, PS5SX2).\n- Lists wrap around. The empty file `flags/oldsheet` brings the old list back.\n\n**Leaving a game and saves**\n- Going back to the shelf no longer freezes on the fat consoles where it did.\n- If the game is still writing to a memory card, PS5SX2 waits for it (*SAVING - BACK TO MENU WHEN DONE*) instead of cutting the save off.\n- Save states have their screenshot again.\n- The disc drive is left alone while a game runs.\n\n**Games**\n- The game database is synced with upstream PCSX2 (12,906 entries).\n- `.pnach` patches and cheats are found by folder, serial, CRC, file name or `gametitle=`; letter case and separators don't matter. Cheats without a group name apply.\n- New options: C VIF unpacking (Mafia, #37), flat CRT filter (#75), Skipdraw start and end (#73), Game speed (#38), Dithering, EE/VU round modes (#44), HDD image (#60), USB guitar fret colours, Buzz! buzzers (#91).\n- Achievements work on discs whose ISO writer flagged every file as multi-extent (#83; thanks bobrass for PR #98).\n- DualShock 3 and guitar adapters that are one are turned on over USB (#67).\n\n**Shelf**\n- Games on NFS shares get home screen tiles (helper 171q)."
       },
       "pins": [
+        {
+          "tag": "vk-285-190",
+          "asset": "PS5SX2-vk-285-190.zip",
+          "size": 30483238,
+          "sha256": "8cec2731ac94a4b0001bc42f502d1f2eab128574cad6e9736238ca20557a55ed",
+          "content_version": "02.400.000",
+          "title_name": "PS5SX2"
+        },
         {
           "tag": "vk-285-187",
           "asset": "PS5SX2-vk-285-187.zip",
@@ -2882,7 +2906,7 @@
         "xbox",
         "racing"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "v0.2.2",
         "asset": "Burnout3-PS5-0.2.2.zip",
@@ -3036,7 +3060,7 @@
         "gamecube",
         "horror"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v0.9.5",
         "asset": "EternalDarkness-PS5-0.9.5.zip",
@@ -3305,7 +3329,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 92,
+      "stars": 93,
       "release": {
         "tag": "build-143",
         "asset": "halo-ps5-release.zip",
@@ -3847,7 +3871,7 @@
         "xbox",
         "prince-of-persia"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "01.005.000",
         "asset": "PPSA99023-01.005.000.zip",
@@ -4118,7 +4142,7 @@
         "xbox-360",
         "rexglue"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "V.1.1.1",
         "asset": "Spider.Man.Edge.Of.Time.V.1.1.1.zip",
@@ -4512,7 +4536,7 @@
         "jellyfin",
         "video"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "1.0.0-beta.5",
         "asset": "Mortalfin-1.0.0-beta.5.zip",
@@ -5054,7 +5078,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 34,
+      "stars": 35,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5598,7 +5622,7 @@
         "themes",
         "home-screen"
       ],
-      "stars": 21,
+      "stars": 22,
       "release": {
         "tag": "01.000.042",
         "asset": "PPSA90210.zip",
@@ -5828,7 +5852,7 @@
         "startup-tune",
         "payloads"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "v00.006.000",
         "asset": "PPSA69426.zip",
