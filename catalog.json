@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 14,
+      "stars": 15,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -918,7 +918,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 100,
+      "stars": 99,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -949,16 +949,24 @@
       ],
       "stars": 27,
       "release": {
-        "tag": "v1.0.19",
-        "asset": "Crux2-v1.0.19.zip",
-        "size": 38467991,
-        "sha256": "3352e46699f41838b51853ea95f019f3fef0846be80df68cfae00ffb953a7c86",
-        "content_version": "01.019.000",
+        "tag": "v1.0.21",
+        "asset": "Crux2-v1.0.21.zip",
+        "size": 38880815,
+        "sha256": "d3d1f0e27f8195fd6e3f8ba709c2bfc53c1340915ec3e220ed9d52f78f2f3f62",
+        "content_version": "01.021.000",
         "title_name": "Crux2",
-        "published_at": "2026-11-15T19:48:12Z",
-        "notes": "# Crux2 v1.0.19\n\n## Added\n- **HDR10 output** (Settings > Graphics, HDR; off), with peak and white levels and **Adjust HDR brightness**. Needs the console's HDR setting and a TV that takes HDR.\n- **Debanding** and a **colour filter for colour blindness** on the game's picture (Settings > Graphics; off).\n- **A startup video** of Crux2's own (Settings > Interface, Startup video).\n- **Network shares set up on the console** (Settings > Folders): servers found on the network (SMB and NFS), their shares listed, and a test that says what went wrong. Shares are woken when Crux2 starts, and a game on a share that doesn't answer waits for it with a count on the screen.\n- **Light gun** (Settings > Controllers): one or two GunCon 2s plugged in with their buttons set up, steady motion aim (no drift, R3 recentres, the screen measured at two corners), R2 that clicks like a trigger, and a second gun for player 2. A **PlayStation Move** can aim player 1's gun through the Move Management payload (off).\n- **Achievements as the console's trophy pop-ups**, with the trophy sound.\n- **The quick menu your way**: Triangle shows, hides and orders its entries and puts a game's options in it; **Apply changes now** restarts the game for settings that need it; **Save the log**.\n- **Screenshots** with Options + Square (the game's picture, no menus).\n- **Game fixes fetched from GitHub** at start, so a fixed game needs no new Crux2.\n- **Stick response curves**, Steady 30 for frame generation, launch arguments `--rom` and `--exit-after-game`.\n- **The recomp kit** (`Crux2-recomp-kit-v1.0.19.zip`) comes with the release: it makes a game's native modules on a PC.\n\n## Changed\n- **HD texture packs download over 10 connections at once**, with a progress bar (size, speed, time left). Download connections: 1 to 16.\n- **Covers download three at a time**, and the ones on screen load first.\n- Quick taps are held for the game at least 50 ms, so they aren't missed.\n- The boot log is kept in memory and written when something goes wrong (Settings > Log); settings are written when the menus close; an exit waits for writes under way, with a bar.\n- Texture packs are held within a memory budget.\n- Built on PCSX2 v2.9.179 (was v2.9.150). **Save states made with earlier versions don't load**; memory cards are not affected.\n- Built with the payload SDK `3345cde` (its v0.45 base), PS5_Vulkan `7f492b4` and a new profile for profile-guided optimisation. The graphics driver stays on Mesa of 2026-10-31, as v1.0.18's.\n\n## Fixed\n- A GunCon 2 could only be plugged in by editing the settings file.\n- A backup that couldn't read a file was written as complete, and could then replace the previous good one.\n- Very large images are refused before they're decoded.\n\n## Tested"
+        "published_at": "2026-11-16T13:28:06Z",
+        "notes": "A small release after v1.0.20: the menus open faster, and covers come from a second collection.\n\n## Added\n- **A second place covers are downloaded from.** A game that libretro's collection has no box art for is asked for by its serial in the `xlenore/ps2-covers` collection on GitHub and saved as `covers/<serial>.jpg`. Games found missing from libretro's before are tried there too (Settings > Games and saves > Game List, **Download Missing Covers**).\n\n## Changed\n- **The interface asks the emulator for less when a screen opens.** The quick menu with pinned settings made the settings' pages five times as it opened; the Settings and the quick menu read the whole game list, looking into the save states, cheats and textures folders, each time. Both are done once now.\n- A long title is cut to its width in one pass, and discs off the side of the screen (the Discs view) are not drawn.\n\n## Fixed\n- **A game's own settings could take seconds to open** (Square on Home, a game's page) with many cheat files on the console, as after **Download Cheats for All Games**: looking for one game's files asked the console about every file in the folder, four times. The name is looked at first now. The boot log says when opening them still takes 50 ms or more.\n\n## Installation\n- Copy the `PPSA99249` folder to `/data/homebrew/` on the console, over an older one if you have it.\n- Your games, BIOS files, memory cards, save states and settings are kept (PCSX2 is the same revision as in v1.0.19 and v1.0.20).\n- Read `LEGAL.txt` and `README.md` in the folder.\n\n## Reporting problems\n- Open an issue and attach `crux2-boot.log` from the title folder (written after a crash, a hang or Save the log). Don't attach games, BIOS files, firmware or keys.\n\n## Source and licensing\n- GPL-3.0-or-later with one additional term: keep the credit \"Crux2 by Press5elect\" (`NOTICE`).\n- Source: this repository at the tag, and PCSX2 at [`0ab00c49b157`](https://github.com/PCSX2/pcsx2/tree/0ab00c49b157be667a8a2f0bf4cda83f75a9198e); every other part's revision is in `licenses/components.json` in the ZIP.\n\n## Build versions\n- Crux2: `ab42b7c` (build 123)\n- PCSX2: v2.9.179 (`0ab00c49b157`)\n- RADV: Mesa 27.0-devel, 2026-10-31 (as v1.0.19's)\n- PS5_Vulkan: `7f492b4`\n- PS5_PayloadSDK: `3345cde`\n- paraLLEl-GS: `cc6184a`\n- MihawkGen: `c57232a9f16b`\n- Build identity: `cfdd9111cdd43882`; profile `f965a89d3a30`\n\nSHA-256 of `Crux2-v1.0.21.zip`: `d3d1f0e27f8195fd6e3f8ba709c2bfc53c1340915ec3e220ed9d52f78f2f3f62`\nSHA-256 of `Crux2-recomp-kit-v1.0.21.zip`: `ef10f451eac5cc17d6a4b7d0d941ac532219a454dfdea0f2db813c9924258707`"
       },
       "pins": [
+        {
+          "tag": "v1.0.19",
+          "asset": "Crux2-v1.0.19.zip",
+          "size": 38467991,
+          "sha256": "3352e46699f41838b51853ea95f019f3fef0846be80df68cfae00ffb953a7c86",
+          "content_version": "01.019.000",
+          "title_name": "Crux2"
+        },
         {
           "tag": "v1.0.18",
           "asset": "Crux2-v1.0.18.zip",
@@ -1004,16 +1012,24 @@
       ],
       "stars": 40,
       "release": {
-        "tag": "v1.3.9",
-        "asset": "PSFlyCast-v1.3.9.zip",
-        "size": 22242232,
-        "sha256": "4b5a65dca95bfc6636da49507734538e740f8e0357acb661b83b1b90a7a77323",
-        "content_version": "01.003.103",
+        "tag": "v1.4.1",
+        "asset": "PSFlyCast-v1.4.1.zip",
+        "size": 22477264,
+        "sha256": "6e10af5f04b89626c286bf64d3fa10b777325e055dec0e26fdf2cecfa499cea2",
+        "content_version": "01.003.110",
         "title_name": "PSFlyCast",
-        "published_at": "2026-11-15T17:43:24Z",
-        "notes": "## New since v1.3.5 (v1.3.6 to v1.3.9)\n\n**Added**\n\n- **HDR** (Settings > Video, off; from OGBox): the picture goes to an HDR TV as HDR10 (BT.2020 colours, the PQ curve), the game's brightest parts raised toward **HDR highlights** (1000 nits by default) and white at the **HDR white level** (203 nits); the menus stay at the white level. **Adjust HDR brightness** is a test screen for the TV's peak and the white level. It needs the console's own HDR setting on and a TV that takes HDR; PSFlyCast now declares HDR to the console, so an HDR TV is in HDR mode while PSFlyCast runs, with HDR on or off.\n- **SSAA and SMAA** (Settings > Video, from OGBox): Down-sampling (Bilinear, Soft or Sharp with Lanczos) for an internal resolution above the screen's, and SMAA over the picture.\n- **Internal resolution 4.5x (2160p)**, a 4K screen's own lines: a 4:3 picture is shown there without being scaled up or down.\n- **Memory cards kept in sync with the network share, both ways** (Crux2's sync): when PSFlyCast starts and when a game is quit, a card changed on one side goes to the other; one changed on both keeps the newer, and the other is put in an \"older\" folder on its side. In place of the one-way backup, in the same folder.\n- **Find servers on the network** (Settings > Library > Network, from OGBox): the shared folders' servers on the console's network are listed by name, and one is picked to add a folder on it.\n- **Large network buffers** (Settings > Library > Network, on; from OGBox): a connection to a network share asks the console for 4 MB send and receive buffers instead of its small default.\n- **PlayStation Move and Navigation controllers** (Settings > Controls, off; experimental), through Move Management, a separate payload by REXCRAFT88: each player's are a controller of their own, and in a light-gun game the Move aims by turning it.\n- **Vibration in the menus** and **Circle confirms** (Settings > Controls, from OGBox).\n- **Continue where you left off:** with Auto save state on and Auto load state off, a game with a saved state asks whether to continue from it or start from the beginning.\n- **Delete a save state** (Game details > Load state): Triangle twice.\n- **The quick menu in your own order** (Triangle in it): entries moved and hidden.\n- **Every disc game's cover is fetched in the background** after a scan, when covers are on, instead of only the covers on screen."
+        "published_at": "2026-11-16T16:26:00Z",
+        "notes": "## New in v1.4.1 - hotfix update\n\n**Changed**\n\n- **Faster to move through:** a held direction speeds up in the Settings' lists and search, a held range speeds up (5 steps, then 25), and L2 / R2 step on while held (letters, pages). A game's page no longer draws the library under it, and the new screens' shadows cost about half the drawing.\n- **Cross changes a choice or a range** in the Settings, as before v1.4.0.\n\n**Fixed**\n\n- **A crash on leaving a game's own options** (quick menu > Game options).\n- **Home empty on start** (\"Nothing played yet\") until the Library had been opened.\n- **A crash from Home's Game Page** after the library's games changed (a drive removed).\n- **Covers stretched** on a game's page and in the quick menu; **the cover list** failing to download no longer marks games without a cover for 30 days.\n- **Pinned, changed and search** now include the Settings' rows the table does not name (network folders, a game's patches); **OPTIONS** closes the Settings from the search too; Triangle opens the keyboard and shows results only once something is typed; L1 / R1 no longer change the hidden level in a game's options; \"all back\" (Square twice) is asked afresh at each opening.\n- **Home at other UI Scaling settings**, the quick menu's Controls picture at 120 %, \"Empty slot\" shown for a state whose picture was loading, a disabled entry looking enabled, arrows on entries that open no page, a long pin's name split in two, the restart notice over the hints.\n\nYour settings, saves and games are kept when this version is installed over an earlier one.\n\nNot run on a console before this release: v1.4.1's fixes and faster menus. If a menu feels slow, `flycast-boot.log` now says which screen and by how much (`ui:` lines): please attach it to an issue.\n\n## Install or update\n1. Copy the `PPSA99247` folder from the ZIP to your homebrew folder on the console (`/data/homebrew/`), over an older one if you have it, or update from Settings > About > Check for updates.\n2. Your own games in `games/` (or on a USB drive or a network share), your own BIOS in `bios/`. None included, none ever will be.\n3. Read `LEGAL.txt` and `README.md` in the folder. Shaders are compiled again once after the update.\n\n## Reporting problems\nOpen an issue with `flycast-boot.log` from the title folder, copied before PSFlyCast is started again. Never attach games, BIOS files, firmware or keys.\n\n## Source"
       },
       "pins": [
+        {
+          "tag": "v1.3.9",
+          "asset": "PSFlyCast-v1.3.9.zip",
+          "size": 22242232,
+          "sha256": "4b5a65dca95bfc6636da49507734538e740f8e0357acb661b83b1b90a7a77323",
+          "content_version": "01.003.103",
+          "title_name": "PSFlyCast"
+        },
         {
           "tag": "v1.3.5",
           "asset": "PSFlyCast-v1.3.5.zip",
@@ -1050,7 +1066,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 241,
+      "stars": 243,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1312,7 +1328,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 417,
+      "stars": 418,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1342,7 +1358,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 512,
+      "stars": 516,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1502,7 +1518,7 @@
         "rpg",
         "engine-port"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "v1.0.1",
         "asset": "PPSA99630.zip",
@@ -1729,7 +1745,7 @@
         "llm",
         "chat"
       ],
-      "stars": 69,
+      "stars": 68,
       "release": {
         "tag": "01.007.000",
         "asset": "PPSA99004.zip",
@@ -1768,7 +1784,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 851,
+      "stars": 852,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1817,16 +1833,24 @@
       ],
       "stars": 39,
       "release": {
-        "tag": "build27",
-        "asset": "PSSwanStation-PS5-PPSA99248-build27.zip",
-        "size": 38127723,
-        "sha256": "adcfe285f1f015402a555929cbb90d7565097ec25b6c21063399cae9afd55aa1",
-        "content_version": "01.027.000",
+        "tag": "build28",
+        "asset": "PSSwanStation-PS5-PPSA99248-build28.zip",
+        "size": 38158910,
+        "sha256": "190c48f5bd8583d92c5989644a9ad39ee1b5c5cb903f3e09102b3e17f3292d22",
+        "content_version": "01.028.000",
         "title_name": "PSSwanStation",
-        "published_at": "2026-11-15T17:49:02Z",
-        "notes": "# PSSwanStation build 27\n\n## New in build 27\n\n### Added\n\n- **HDR** (Settings, Picture; off): the picture goes to an HDR TV as HDR10, white at the HDR white level (203 nits at first) and the game's brightest parts raised toward the TV's peak (HDR highlights). **Adjust HDR brightness** finds both with two test pictures. It begins at the next start, and the TV is asked for HDR only while it is on. Needs the console's own HDR on and a TV that takes it.\n- **Network shares from the console** (Settings, Games and saving, Network shares): add, change and remove the folders with games, the account and the folder for your files, without editing `network.cfg` over FTP. The SMB servers on the network are found for you, and a change is used at once.\n- **A game on a share that does not answer yet waits for it** (\"Waiting for the network share\", Circle goes back) instead of failing, and the shares are woken as PSSwanStation starts, so a NAS's disks are turning by the time a game starts.\n- **Logs** (Settings, System): written as they come, only when something goes wrong, or off; in the title's folder or on a USB drive; the boot log alone, with the emulator's log, or everything. Kept in memory, they keep the session's start too, and a game that stands still for 15 s writes them by itself.\n- **Save states on a USB drive** (Settings, Games and saving).\n- **Vibration strength** (Settings, Controls).\n- **The Sinden Lightgun, an experiment** (Settings, Controls, Players): it aims a player's GunCon. PSSwanStation reads the gun's camera over USB and finds the white border it draws round the game's picture itself, without Sinden's software. **Not tested with a gun yet**: if you have one, please try it and open an issue with the boot log's `sinden:` lines.\n\n### Changed\n\n- **Fewer writes to the console's storage**: settings written when PSSwanStation closes and when the console's menu opens, files written only when they changed, one shader cache, an update replacing only the files that changed, and the sleep-safe resume state saved only when the console's menu opens.\n- **Network games read faster**: large TCP buffers for every SMB, NFS and FTP connection.\n- **Closing while your files are being brought up to date** finishes the file it is copying, with a bar, and closes; the rest follows at the next start.\n- **The stick dead zone** is taken round the stick's middle: small diagonals stay diagonals.\n- **The graphics driver** is PS5_Mesa main of 10 November 2026 with Crux2's patches: a cached pipeline that lost a stage is compiled again instead of crashing at every start. Newer payload SDK (upstream's v0.45), libsmb2 and libnfs.\n- Every cover of the library is fetched in the background with \"Download covers\" on.\n\n### Fixed"
+        "published_at": "2026-11-16T13:24:39Z",
+        "notes": "## New in build 28\n\n### Added\n\n- **Settings redesigned as one board**: Console, Graphics, Display, Audio, Controllers, Library, Saving, Interface, Network and System, each a tile with a light for every setting, lit when it is not at its default. Nothing is hidden behind another page. Inside an area the sections follow the path of the picture, the sound or a press (L2/R2 between sections, L1/R1 between areas), and beside the list each setting shows what it does, its current and default value, whether it applies at once or after a restart, and whether it is SwanStation's or PSSwanStation's. Over a running game, Graphics and Display leave a window on the game that shows each change live.\n- **Search** (Triangle in Settings), **Undo** (L3) and **Quick Settings**: R3 pins a setting, and the menu over a game shows the pinned ones beside its actions (R1).\n- **Folders of your choice** (Settings, Library, Folders): game folders anywhere on the console's storage or a USB drive, and a folder of your own for the BIOS, memory cards, save states, cheats, covers and texture packs, picked with a folder browser.\n- **Covers by serial**: a game the libretro thumbnails collection has no box art for is looked up in xlenore's psx-covers collection by its disc's serial.\n\n### Changed\n\n- **The menu over a game** keeps the game in view, with its newest save states' pictures and the quick settings.\n- **A game's details** show its save states and how many settings are its own; its Game Settings follow the board.\n- **GPU On Separate Core** (Settings, Graphics, Renderer; on): the graphics driver's thread and the software renderer's each run on a processor core of their own.\n- **The touch pad**: Select or Start is the half of the finger that touched last, so a thumb resting on the other half no longer decides it.\n- Newer libsmb2 and libnfs.\n\n### Fixed\n\n- **The console could still go down after PSSwanStation was closed a number of times**: a Lapy service already running on the console was asked first, and an older one leaves the sandbox without counting the console root's references. PSSwanStation now leaves its sandbox only with its own helper, as Crux2 and OGBox do.\n- **An update made from inside PSSwanStation did not replace its sandbox helper**, so build 27's fix only reached consoles where the folder was copied over by hand. The updater now replaces it.\n\nYour settings, saves, states and games are kept when this build is installed over an earlier one. USB drives, the disc drive and files kept outside the title's folder now need the ELF loader running on port 9021 (a Lapy service is no longer used).\n\n## Install or update\n\n1. Copy the `PPSA99248` folder from the ZIP to `/data/homebrew/` on the console, over the old one, or update from the menu's Update."
       },
       "pins": [
+        {
+          "tag": "build27",
+          "asset": "PSSwanStation-PS5-PPSA99248-build27.zip",
+          "size": 38127723,
+          "sha256": "adcfe285f1f015402a555929cbb90d7565097ec25b6c21063399cae9afd55aa1",
+          "content_version": "01.027.000",
+          "title_name": "PSSwanStation"
+        },
         {
           "tag": "build26",
           "asset": "PSSwanStation-PS5-PPSA99248-build26.zip",
@@ -1864,16 +1888,24 @@
       ],
       "stars": 214,
       "release": {
-        "tag": "v3.5",
+        "tag": "v3.6",
         "asset": "PPSA97358.zip",
-        "size": 14110100,
-        "sha256": "3d762870f8c7b517f4fc2cee2513714787f698748bdc605f7163933724275183",
+        "size": 18016087,
+        "sha256": "7dd34570d6288b1e5fd64064c91fbbe9bbc870f49152defa8b52c54f8f50e524",
         "content_version": "01.000.000",
         "title_name": "XPSemu",
-        "published_at": "2026-11-11T15:10:25Z",
-        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.5</h1>\n\n<p align=\"center\">\n  <strong>Resolution up to x10, ambient occlusion, fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Resolution up to x10</strong></summary>\n<br>\n\n- **Resolution** now goes up to **x10**: a 640x480 game draws at **6400x4800**, over 30 million pixels, then is shrunk to your screen.\n- Pick it in **Settings > Video** or in a game's settings > **Settings**.\n\n</details>\n\n> [!WARNING]\n> From x6 up the game already draws more than a 4K TV can show, so x7 to x10 only make edges a little smoother and hard to notice. x10 is about **3x the GPU work of x6**: most 3D games will slow down a lot, and heavy games can run out of GPU memory and close. If a game struggles, go back to x6 or lower.\n\n<details open>\n<summary><strong>&nbsp; Ambient occlusion</strong></summary>\n<br>\n\n- Soft shadows in corners, creases and where things touch the ground, so 3D scenes look less flat.\n- **Off**, **Low** or **High**: for every game in **Settings > Video**, for one game in its settings > **Settings**, and in the quick menu's **Picture** group.\n- **Off by default.** Some games look the same with it on or have an UI effect issue so not compatible with every game.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Smoother grass, leaves and fences with MSAA</strong></summary>\n<br>\n\n- With **MSAA** on, the edges of see-through shapes (grass, trees, fences, hair) are smoothed too, not only the edges of solid shapes.\n- Always on with MSAA, nothing to set.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; More 60 FPS and widescreen</strong></summary>\n<br>\n\n- **Breakdown**: 60 FPS Patch (on by default).\n- **Otogi: Myth of Demons (Europe)**: the 60 FPS mod from hakuX, now for the European disc too.\n- **Widescreen** for **Otogi (Europe)** and **Otogi 2 (Europe)**: the US patches, now for the European discs.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; More accurate graphics</strong></summary>\n<br>\n\n- Effects many games use are now drawn the way the Xbox draws them: signed textures, shadows from depth textures, the video overlay's colour key and scaling, depth clip ranges, multiple clip rectangles, colour-keyed textures, wireframe, blur filters and more.\n- Each one only changes games that use it: everything else is drawn exactly as before.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>\n<summary><strong>&nbsp; Fixed this release</strong></summary>\n<br>\n\n- **Mortal Kombat: Shaolin Monks**: no longer crashes after the Midway intro ([#38](https://github.com/ZiZc3/XPSemu/issues/38)).\n- **RalliSport Challenge 2** ([#33](https://github.com/ZiZc3/XPSemu/issues/33)):"
+        "published_at": "2026-11-16T16:36:05Z",
+        "notes": "<p align=\"center\">\n  <img src=\"https://github.com/ZiZc3/XPSemu/blob/main/assets/xpsemu-logo.png\" alt=\"XPSemu\" width=\"120\">\n</p>\n\n<h1 align=\"center\">XPSemu Alpha 3.6</h1>\n\n<p align=\"center\">\n  <strong>EvolutionX dashboard, Basic AI Texture Upscaler, games fixes.</strong>\n</p>\n\n---\n\n## What's new\n\n<details open>\n<summary><strong>&nbsp; Basic Texture Upscaler</strong></summary>\n<br>\n\n- Makes the game's textures **twice as big** as they load, for cleaner surfaces and text up close.\n- Two modes:\n  - **SGSR**: edge-aware upscaling, done at once.\n  - **ESRGAN**: the **Real-ESRGAN** AI model running on the PS5's GPU. It adds detail a plain upscale can't. Each texture shows SGSR first and turns AI a moment later, once.\n- For every game in **Settings > Advanced**, or for one game in its per game settings > **Settings**.\n- **Off by default.** Xbox games only.\n\n</details>\n\n> [!NOTE]\n> The upscaler uses more GPU memory, and more the further you travel in big open-world games. ESRGAN only adds what the AI can guess: it can't bring back detail that was never in the texture its basic upscaler.\n\n<details open>\n<summary><strong>&nbsp; EvolutionX dashboard support</strong></summary>\n<br>\n\n**`PPSA97358-EvoX.zip`**, is 3.6 plus support for the **EvolutionX (EvoX)** modded dashboard, for those who keep their Xbox setup on it:\n\n- EvoX starts from **System > Xbox Dashboard** when it's installed as `xboxdash.xbe` in `/data/xpsemu/hdd/Partition2/`.\n- Its drive list, game list and settings work. Games in **F:\\Games** (`/data/xpsemu/hdd/Partition6/Games/`) start from its menu, with the full quick menu.\n- **Trainers** from `C:\\trainers` work from its menu.\n- **MS Dashboard** opens the Microsoft one when EvoX's `evox.ini` points at it.\n- Still Experimental and its gonna be a part of main build.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Fast loading</strong></summary>\n<br>\n\n- Reads your game discs at the **PS5's full speed** instead of an Xbox DVD drive's, for shorter loading screens.\n- For every game in **Settings > Advanced**. **Off by default.**\n\n</details>\n\n> [!WARNING]\n> A few games rely on the Xbox drive's timing and can **freeze while loading** with Fast loading on. If a game freezes on a loading screen, turn it off.\n\n<details open>\n<summary><strong>&nbsp; Disable fog (experimental)</strong></summary>\n<br>\n\n- Turns off the Xbox's own fog, so you can see further in foggy games.\n- For every game in **Settings > Advanced**. **Off by default.**\n- Games that draw their fog as their own effect (**Silent Hill 2**) keep it.\n\n</details>\n\n<details open>\n<summary><strong>&nbsp; Quick menu</strong></summary>\n<br>\n\n- Every group now has an **icon**.\n- The **FPS counter** moved to the **Performance** group.\n\n</details>\n\n---\n\n## Game fixes\n\n<details open>"
       },
       "pins": [
+        {
+          "tag": "v3.5",
+          "asset": "PPSA97358.zip",
+          "size": 14110100,
+          "sha256": "3d762870f8c7b517f4fc2cee2513714787f698748bdc605f7163933724275183",
+          "content_version": "01.000.000",
+          "title_name": "XPSemu"
+        },
         {
           "tag": "v3.4",
           "asset": "PPSA97358.zip",
@@ -1905,13 +1937,6 @@
           "sha256": "0fa4f1556b257317d5b38a8f5b9803b58e05b5ba0e63fb26492f7bea369bf558",
           "content_version": "01.000.000",
           "title_name": "XPSemu"
-        },
-        {
-          "tag": "Alpha-2.1",
-          "asset": "PPSA97358.zip",
-          "size": 21413061,
-          "sha256": "494682ff5073985422fd8961cc617b8e3bdbdb2dedd85b69dadbd06f709953e9",
-          "content_version": "01.000.000"
         }
       ]
     },
@@ -2247,7 +2272,7 @@
         "arcade",
         "fbneo"
       ],
-      "stars": 16,
+      "stars": 17,
       "release": {
         "tag": "v2.4",
         "asset": "FBNeoPS5-v2.4-PPSA99924.zip",
@@ -2369,7 +2394,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 401,
+      "stars": 402,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2414,16 +2439,24 @@
       ],
       "stars": 152,
       "release": {
-        "tag": "v2.3.13",
+        "tag": "v2.4.2",
         "asset": "PPSA11018.zip",
-        "size": 327907675,
-        "sha256": "b7ddd64b76f602e83e5f89cfaf9afa5e14dd90e2e2a601370c11f4fe7ed6e45f",
-        "content_version": "02.003.013",
+        "size": 327975844,
+        "sha256": "343dc7c9b5065b09611040a72c85373f2739acb9a04bdaf19984403030faf059",
+        "content_version": "02.004.002",
         "title_name": "PC5",
-        "published_at": "2026-11-13T23:48:59Z",
-        "notes": "PC5 2.3.13 lets games that build their own graphics effects get past that step.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- Some older games build their graphics effects themselves while they load. PC5 only half-supported the way they ask for a whole effect: the game got nothing back and crashed. PC5 now builds the effect for them, so these games carry on loading.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.3.12 -->"
+        "published_at": "2026-11-16T20:31:31Z",
+        "notes": "PC5 2.4.2 puts the picture of games shown in 2D only at a smaller resolution back in the middle of the TV, and saves graphics effects that fail to compile so they can be fixed from a report.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- With **Graphics mode › 2D only**, a game running at a smaller resolution than the TV's showed its picture shifted to the left and cut off, with black on the right. Windows makes a full-screen game's visible area cover the whole TV at a smaller resolution, while the game's picture still belongs to its window, and PC5 drew the picture from the corner of that visible area. It's now drawn where the game's window is.\n\n### Changed\n\n- When a game's graphics effects fail to compile, the game's log zip now also has the failing effects themselves (one of each kind, up to eight), so a report shows what the compiler is missing for that game.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output."
       },
       "pins": [
+        {
+          "tag": "v2.3.13",
+          "asset": "PPSA11018.zip",
+          "size": 327907675,
+          "sha256": "b7ddd64b76f602e83e5f89cfaf9afa5e14dd90e2e2a601370c11f4fe7ed6e45f",
+          "content_version": "02.003.013",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.11",
           "asset": "PPSA11018.zip",
@@ -2454,14 +2487,6 @@
           "size": 327848075,
           "sha256": "2fb9a1c9e487666adc6651e85d7ae7d208c3bb9e112f3f55f8e7c120e08fd975",
           "content_version": "02.003.008",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.7",
-          "asset": "PPSA11018.zip",
-          "size": 327847522,
-          "sha256": "fc8a0a48fb1259d93160a3329c2430575ebfcd640c9cd5dbdaca6573217e9248",
-          "content_version": "02.003.007",
           "title_name": "PC5"
         }
       ]
@@ -2516,18 +2541,26 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1079,
+      "stars": 1083,
       "release": {
-        "tag": "v0.10.0",
-        "asset": "playden-ps5-0.10.0.zip",
-        "size": 40361734,
-        "sha256": "f9edfca65fc617c9805436e6c879771a330e5a28c35df8b3e03184ed0969e2e2",
-        "content_version": "00.010.000",
+        "tag": "v0.11.0",
+        "asset": "playden-ps5-0.11.0.zip",
+        "size": 58778957,
+        "sha256": "e7a5579a693c4d7f48f1f66fd3339f9f27ef503de56809e1950cb036d77736d3",
+        "content_version": "00.011.000",
         "title_name": "Playden",
-        "published_at": "2026-11-06T10:21:38Z",
-        "notes": "Up to four people can play on one PS5, each with their own DualSense, and games can show PlayStation buttons. A game's launcher can now start the game, Project Zomboid plays, and USB games keep starting from PS5 Home after your drives change places. A new Runtimes tab updates many games to the newest version of the runtime kit at once, and the web page gets a Files tab for a game's saves and files. New runtime kit 0.19 brings four controllers, NW.js games, better rumble, the USB drive search, and fixes for games that started only once.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.10.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.19.zip` | Runtime kit 0.19. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.19 (473 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept.\n\n**After the update:** Playden asks once whether to update your games to the new runtime kit, and says how many. This takes about 30 seconds per game and downloads nothing from Steam. If you choose Later, they stay on the Runtimes tab of Manage installed games, and Play updates a game's runtime kit first. Until then, games keep running on their old kit from PS5 Home.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself.\n\n**New install:** unzip `playden-ps5-0.10.0.zip` into a folder of its own and copy the `FAKE77031` folder to `/data/homebrew/` (see the [README](https://github.com/leolobato/playden-ps5#install)). On its first start Playden offers to download the runtime kit; you can sign in while it downloads.\n\n## What's new\n\n- **Up to four controllers.** Each signed-in PS5 user's DualSense is now its own controller, so couch co-op and split screen work. Sign in a PS5 user or a guest for each controller, then start the game. ([#221](https://github.com/leolobato/playden-ps5/issues/221))"
+        "published_at": "2026-11-16T07:29:02Z",
+        "notes": "Community recipes are here: Game settings lists the settings other players shared for a game, with how well they ran, and you can share your own with no GitHub account. Games can run at 120 Hz on a VRR display, you can save your own presets, and turn a game's DLC on or off. Playden starts faster with many games, and keeps your data through a crash. New runtime kit 0.28 gives 32-bit games up to 4 GB of memory, lets Project Zomboid load a world again, runs Steam games from Steam's own folder, and fixes Euro Truck Simulator 2 with mods, Metro 2033 Redux, Spider-Man: Web of Shadows, Need for Speed III and more.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.11.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.28.zip` | Runtime kit 0.28. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its runtime kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.28 (about 495 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept.\n\n**After the update:** games set up with an older runtime kit show \"Runtime kit update available\". Playden asks once whether to update them all to the new runtime kit. This takes about 30 seconds per game and downloads nothing from Steam. If you choose Later, Play updates a game's runtime kit first, and the Runtimes tab of Settings › Storage › Manage installed games updates many at once. Until then, games keep running on their old runtime kit from PS5 Home.\n\n**Recreate bottle for two fixes:** the new fonts and the Metro 2033 Redux fix are in the Windows setup that a game gets when Playden prepares it. A game set up before keeps its old setup. To get them, use Maintenance › Recreate bottle on that game (your saves and Game settings are kept). Games you installed before also keep running from their own folder; see Steam library folder below.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself."
       },
       "pins": [
+        {
+          "tag": "v0.10.0",
+          "asset": "playden-ps5-0.10.0.zip",
+          "size": 40361734,
+          "sha256": "f9edfca65fc617c9805436e6c879771a330e5a28c35df8b3e03184ed0969e2e2",
+          "content_version": "00.010.000",
+          "title_name": "Playden"
+        },
         {
           "tag": "v0.9.0",
           "asset": "playden-ps5-0.9.0.zip",
@@ -2595,7 +2628,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1680,
+      "stars": 1682,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -2660,7 +2693,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 440,
+      "stars": 441,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3174,7 +3207,7 @@
         "xbox-360",
         "racing"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v0.1.0",
         "asset": "PPSA99690.zip",
@@ -3329,7 +3362,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 93,
+      "stars": 94,
       "release": {
         "tag": "build-143",
         "asset": "halo-ps5-release.zip",
@@ -3693,16 +3726,24 @@
       ],
       "stars": 58,
       "release": {
-        "tag": "01.000.285",
+        "tag": "01.000.286",
         "asset": "PPSA99874.zip",
-        "size": 128585796,
-        "sha256": "c46d07bb0ca56988e83cacc7f5b2b495f8ff70f36c4dbaca134d5ba15f505ae4",
-        "content_version": "01.000.285",
+        "size": 128586172,
+        "sha256": "6c7e019ec85cfc74085fe1de1e7213a589dc9e0ce3c8d8271feee0a88aa3c031",
+        "content_version": "01.000.286",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-15T13:19:54Z",
-        "notes": "### Performance\n\n- Prepare the PS5 shader cache before graphics startup so Mesa can reuse compiled shaders across launches.\n- Reduce per-method JVM logging during Minecraft 26.3 Fabric gameplay.\n\n### PS5 validation\n\nThe maintainer approved build 01.000.285 on PS5 and confirmed that shaders work.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. The release includes checksums, validation records, and the corresponding source and OpenAL relink kit."
+        "published_at": "2026-11-16T14:42:59Z",
+        "notes": "### Fixed\n\n- Fresh installs can start when Mesa has already created a shader cache and the launcher has yet to create its library catalog.\n- Existing shader cache files are kept when the launcher creates its first catalog.\n\n### PS5 validation\n\nThe maintainer confirmed build 01.000.286 on firmware 13.60, including shader rendering. Confirmation of the reported first-launch issue on firmware 11.40 is pending.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. Checksums, validation records and the corresponding source and OpenAL relink kit are included."
       },
       "pins": [
+        {
+          "tag": "01.000.285",
+          "asset": "PPSA99874.zip",
+          "size": 128585796,
+          "sha256": "c46d07bb0ca56988e83cacc7f5b2b495f8ff70f36c4dbaca134d5ba15f505ae4",
+          "content_version": "01.000.285",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.281",
           "asset": "PPSA99874.zip",
@@ -3733,14 +3774,6 @@
           "size": 127928066,
           "sha256": "321f17e96e25dcb39bce4f77d4cffa27935abf976af3db38ebd33b3e89e8ade1",
           "content_version": "01.000.265",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.256",
-          "asset": "PPSA99874.zip",
-          "size": 127912091,
-          "sha256": "433fddadd77068e324e2118cd1d47988f9f46e5201fcf41535475de8ec0e3b9f",
-          "content_version": "01.000.256",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -5078,7 +5111,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 35,
+      "stars": 34,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5221,7 +5254,7 @@
         "home-screen",
         "emulators"
       ],
-      "stars": 27,
+      "stars": 28,
       "release": {
         "tag": "00.001.006",
         "asset": "PPSA99930.zip",
@@ -5624,16 +5657,24 @@
       ],
       "stars": 22,
       "release": {
-        "tag": "01.000.042",
+        "tag": "01.000.043",
         "asset": "PPSA90210.zip",
-        "size": 9148504,
-        "sha256": "37fc6e68303d7806ef883682f54c24044648c4b662f02b491fbc84efb109ed25",
-        "content_version": "01.000.042",
+        "size": 9328474,
+        "sha256": "72411848fec3bc22fce4e0958b4083a447fd21da0af7ee1842129967966945fe",
+        "content_version": "01.000.043",
         "title_name": "Prospero Themes",
-        "published_at": "2026-11-14T21:34:58Z",
-        "notes": "## Changes\n\n- **Library empty under kstuff and Relapse (#18, #20).** With kstuff (seen on 11.00 and 13.00) or Relapse (13.20), the console refused the app's folder listings while reading and writing files still worked. The app took that for an empty folder, so the Library showed only Blue Hour and USB Import found no theme packs. The app now reads folders in a way these jailbreaks accept. Should a listing of its own folder still be refused, the app lets its file helper (ThemeHelper) handle the folder instead.\n\nTested on FW 13.00 with kstuff: 01.000.041 showed only Blue Hour; 01.000.042 shows all 32 themes of the test library. USB Import uses the same folder listing but was not tested on the console.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `37fc6e68303d7806ef883682f54c24044648c4b662f02b491fbc84efb109ed25`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
+        "published_at": "2026-11-16T07:45:36Z",
+        "notes": "## Changes\n\n- **A theme's system icons now replace an earlier theme's when the originals are gone (#20).** A theme's icon loses its name inside the icon container, and the app found an earlier theme's icons again only through its backup of the original container. Where that backup was missing or made from an already themed container (for example after `/data/prospero-themes` was deleted), every icon an earlier theme had changed was skipped (\"nothing in this theme fits this console … matches 0 entries in the container\"), and the old icons stayed. The app now carries, for each firmware, where every icon sits in the original container and how long it is, and finds such icons there. It only uses that place when the container has the firmware's number of icons and the icon there is a theme's at the original length; otherwise the icon is skipped as before.\n\n  Covered firmware: 10.20 to 13.60 (17 versions). 9.60, 10.01 and 11.20 have no report from an untouched console yet, so they behave as before; a firmware report from an untouched console on one of them (System → Firmware report) adds it.\n\nIcons a new theme does not include still cannot go back to Sony's without the originals (USB Import, then Restore defaults).\n\nTested with the PC tests and against the firmware report from #20 (11.00: all 23 icons an earlier theme changed are where the 11.00 catalog has them); not yet tested on a console.\n\n**Install or update:** System → App update installs this release from the app. Or extract `PPSA90210.zip` and copy the `PPSA90210` folder to `/data/homebrew/` on the console; ShadowMountPlus registers it. Your library, backups and settings in `/data/prospero-themes/` are kept. ThemeHelper is unchanged (v11), so no console restart is needed after the update. The app needs an ELF loader on port 9021 (elfldr) for its file helper.\n\n`PPSA90210.zip` SHA-256: `72411848fec3bc22fce4e0958b4083a447fd21da0af7ee1842129967966945fe`\n\nThe ZIP contains a `libc.prx`, the system library every SharpProspero app has to carry. That file is Sony's and is not covered by this repository's license."
       },
       "pins": [
+        {
+          "tag": "01.000.042",
+          "asset": "PPSA90210.zip",
+          "size": 9148504,
+          "sha256": "37fc6e68303d7806ef883682f54c24044648c4b662f02b491fbc84efb109ed25",
+          "content_version": "01.000.042",
+          "title_name": "Prospero Themes"
+        },
         {
           "tag": "01.000.041",
           "asset": "PPSA90210.zip",
@@ -5687,7 +5728,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 521,
+      "stars": 522,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5718,7 +5759,7 @@
         "stable-diffusion",
         "images"
       ],
-      "stars": 14,
+      "stars": 15,
       "release": {
         "tag": "v1.2.1",
         "asset": "PPSA99576.zip",
@@ -5796,7 +5837,7 @@
         "saves",
         "sync"
       ],
-      "stars": 124,
+      "stars": 126,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
