@@ -513,16 +513,24 @@
       ],
       "stars": 10,
       "release": {
-        "tag": "v1.6.2",
-        "asset": "MediaPlayerClassicPS5-v1.6.2-PPSA99015.zip",
-        "size": 72862571,
-        "sha256": "4cec5bb89c91bc3a195ef426368803f298741c9db2c65ce6384d97ddda46c955",
-        "content_version": "01.062.000",
+        "tag": "v1.6.3",
+        "asset": "MediaPlayerClassicPS5-v1.6.3-PPSA99015.zip",
+        "size": 72944175,
+        "sha256": "6a6eedf66360ef35b4999c0e0323fb113d19771d43f897d10314befb7073d801",
+        "content_version": "01.063.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-11-11T20:57:11Z",
-        "notes": "## Media Player Classic PS5 1.6.2\n\nEncrypted network passwords and masked SMB credentials, addressing\n[issue #7](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/7).\nApplication version is **1.6.2**, content version is **01.062.000**, and the title ID remains **PPSA99015**.\n\n### Changed\n\n- Network passwords are saved with authenticated encryption instead of in the old plaintext credential file.\n- Passwords are masked in the SMB form and its on-screen keyboard, and hidden from displayed and saved addresses.\n- **Save password on this PS5** reuses the password automatically after restarting the app. Unchecking it keeps\n  the password only for the current session and removes an earlier saved password for that account.\n- There is no master password, vault screen or separate unlock step.\n- Existing plaintext credentials migrate automatically after the encrypted copy is saved and verified.\n  Failed writes or malformed legacy data preserve the original files for retry.\n- Password cleanup still follows the last saved address: removing all references removes the persisted password\n  after the settings commit succeeds.\n- Dark mode, existing preferences, favorites, media and file positions are retained.\n\n### Where to find the option\n\nOpen **View > Options > Miscellaneous > Network locations > Add...**. The **Save password on this PS5** checkbox\nis below **Name for this location** and is checked by default. Fill in the location, choose **OK**, then apply\nthe Options changes. The file browser also offers **Add a network location...** in its navigation pane.\n\n![SMB form with a masked password and save checkbox](https://raw.githubusercontent.com/MisterTemaki/MediaPlayerClassicPS5/v1.6.2/docs/screenshots/smb-save-password.png)\n\n### Updating\n\n- From 1.6.1 or an older version with the updater, choose **Help > Check for updates**, install the update and\n  restart the app.\n- For manual installation, use **MediaPlayerClassicPS5-v1.6.2.elf**, the complete installer, then open the app\n  from the home screen. This is the only ELF asset for this release.\n- If an older installer ELF is configured in autoload, replace that file with the new installer.\n- Settings and media remain in `/data/mpcps5`; old plaintext credential files are removed only after verified\n  migration and successful settings writes.\n\n### Storage and protection\n\nPasswords are encrypted with XChaCha20-Poly1305 using the existing Monocypher dependency. A random local key is\nstored separately in an owner-only directory, with private key and credential files. Keys and nonces come\nfrom the operating-system entropy source.\n\nAutomatic reuse requires storing the key on the console. Anyone who can read both the local key and encrypted\nfile can recover the passwords. This is not hardware-bound storage. See"
+        "published_at": "2026-11-17T14:26:31Z",
+        "notes": "## Media Player Classic PS5 1.6.3\n\nSettings backup to a USB drive, addressing [issue #10](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/10),\nand the app listed under **Media** on the home screen, addressing\n[issue #6](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/6).\nApplication version is **1.6.3**, content version is **01.063.000**, and the title ID remains **PPSA99015**.\n\n### Added\n\n- **View > Options > Miscellaneous > Backup.** Choose a drive under **Back up automatically to:** and the\n  settings are copied to `<drive>/mpcps5/backup/mpc-hc.ini` at once, then again every time they change.\n  **Back up now** writes it on request. **Import...** takes the newest backup on the connected drives and, after\n  asking, replaces the settings with it: after a factory reset, or on another PS5.\n- A backup holds everything `mpc-hc.ini` holds: Options, the controller's Keys, audio and subtitle settings,\n  theme and language, recent files, file positions, favorites and network locations.\n- Network passwords are not in backups (their key never leaves the console): type them again after an import.\n  The fonts folder isn't copied either. See [settings backup](https://github.com/MisterTemaki/MediaPlayerClassicPS5/blob/v1.6.3/docs/SETTINGS-BACKUP.md).\n- **A backup this installation didn't write is never replaced on its own** (the one from before a factory reset,\n  another PS5's, another stick at the same `/mnt/usbN`, one that can't be read). The page says so; **Back up now**\n  asks first, with **No** as the default. The backup is written by its own thread, so the picture never waits for\n  the drive.\n\n### Changed\n\n- `sce_sys/param.json` declares the app as a media application: `applicationCategoryType` is `65536`\n  (\"Prospero Native Media App\") instead of `0` (a native game). VLC for PS5 declares the same value.\n- The build's preflight check rejects a `param.json` that is not a media application, and one whose\n  `contentVersion` doesn't match the version being built.\n- Playback, dark mode, saved network passwords, settings and favorites behave as in 1.6.2.\n\n### Updating\n\n- From 1.6.2 or an older version with the updater, choose **Help > Check for updates**, install the update and\n  restart the app.\n- For manual installation, use **MediaPlayerClassicPS5-v1.6.3.elf**, the complete installer, then open the app\n  from the home screen. This is the only ELF asset for this release.\n- If an older installer ELF is configured in autoload, replace that file with the new installer.\n- Settings and media remain in `/data/mpcps5`.\n\n- **Moving to Media:** the console decides the tab when ShadowMount+ registers the app. If the tile still shows"
       },
       "pins": [
+        {
+          "tag": "v1.6.2",
+          "asset": "MediaPlayerClassicPS5-v1.6.2-PPSA99015.zip",
+          "size": 72862571,
+          "sha256": "4cec5bb89c91bc3a195ef426368803f298741c9db2c65ce6384d97ddda46c955",
+          "content_version": "01.062.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.6.1",
           "asset": "MediaPlayerClassicPS5-v1.6.1-PPSA99015.zip",
@@ -554,13 +562,6 @@
           "sha256": "ce4c8abf398538b52fde5095e1d5179455c80a3324aa99b531cae1f4e9cb7193",
           "content_version": "01.053.000",
           "title_name": "Media Player Classic PS5"
-        },
-        {
-          "tag": "v1.5.2",
-          "asset": "MediaPlayerClassicPS5-v1.5.2-PPSA99015.zip",
-          "size": 45512102,
-          "sha256": "3d214273c33ca01b1b3bbf85290064741cafb27e9a6857f4e768f57d8ae48190",
-          "content_version": "01.052.000"
         }
       ]
     },
@@ -1082,7 +1083,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 243,
+      "stars": 244,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1374,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 517,
+      "stars": 519,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1761,7 +1762,7 @@
         "llm",
         "chat"
       ],
-      "stars": 68,
+      "stars": 69,
       "release": {
         "tag": "01.007.000",
         "asset": "PPSA99004.zip",
@@ -1800,7 +1801,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 853,
+      "stars": 855,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1902,7 +1903,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 214,
+      "stars": 216,
       "release": {
         "tag": "v3.6",
         "asset": "PPSA97358.zip",
@@ -2557,7 +2558,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1084,
+      "stars": 1085,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2644,7 +2645,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1684,
+      "stars": 1685,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -4928,16 +4929,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.208",
+        "tag": "01.000.210",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 41352009,
-        "sha256": "b67e9c4f2eb65cd06b3d01d95ae65a068bfcb2e4b6fdb6ed6214b739cc4e0280",
-        "content_version": "01.000.208",
+        "size": 41369516,
+        "sha256": "6740f43d82747c56825e614ffae16251f06a83b93c26e6992674bd42ab96792c",
+        "content_version": "01.000.210",
         "title_name": "SmartTube",
-        "published_at": "2026-11-17T02:30:20Z",
-        "notes": "Upload date from the TV overlay: join all of the line's runs"
+        "published_at": "2026-11-17T14:30:59Z",
+        "notes": "1.0.210: Run diagnostics (Settings > Developer)\n\nOne button checks everything the app depends on, line by line, then puts\nthe report on screen as a QR code for your phone.\n\n- Console: app version, languages, account, playback settings, whether\n  96 MB of memory is free, whether the app's folder writes and reads.\n- Network: plain internet, Google, YouTube and its API, Google sign-in,\n  SponsorBlock, DeArrow, Return YouTube Dislike, GitHub (updates), and\n  both log-sharing sites. Each check shows the HTTP answer and how long it\n  took; a failure says why (DNS, TLS...). It also checks whether the console\n  lets the app run a local server.\n- YouTube (signed out): Home, a search, a player answer for a known video\n  and for the video played last (formats, best height, codecs, which\n  client answered), the watch page, and where the upload date comes from\n  (player, watch page, or neither).\n- When the pass ends, the report (and the end of yt.log) uploads to\n  dpaste.com, or paste.rs if that fails, and a QR code appears. If the\n  upload fails, the error shows. Every line is in yt.log too (\"diag:\").\n- Up/Down scroll, Square runs it again, Circle closes."
       },
       "pins": [
+        {
+          "tag": "01.000.208",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 41352009,
+          "sha256": "b67e9c4f2eb65cd06b3d01d95ae65a068bfcb2e4b6fdb6ed6214b739cc4e0280",
+          "content_version": "01.000.208",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.207",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4968,14 +4977,6 @@
           "size": 33557382,
           "sha256": "8b11d5a1e8e442c5ffa3b144ec179a1077f922317890121f0c21fb1306ef90dd",
           "content_version": "01.000.203",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.202",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33556546,
-          "sha256": "15192b807e2a9e1b14c1732c9fb932f53d375d36282626b000ca6c0882c9b084",
-          "content_version": "01.000.202",
           "title_name": "SmartTube"
         }
       ]
@@ -5067,7 +5068,7 @@
         "geforce-now",
         "cloud-gaming"
       ],
-      "stars": 24,
+      "stars": 25,
       "release": {
         "tag": "0.3.0",
         "asset": "OpenNOW-PS5-0.3.0.zip",
@@ -5744,7 +5745,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 523,
+      "stars": 524,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5777,16 +5778,24 @@
       ],
       "stars": 15,
       "release": {
-        "tag": "v1.2.1",
+        "tag": "v1.3.0",
         "asset": "PPSA99576.zip",
-        "size": 53174697,
-        "sha256": "68b3c340edd19c6404253be27a6e494fb161f7adee79f68a8c6c68bdd4373d75",
-        "content_version": "02.002.001",
+        "size": 53181875,
+        "sha256": "7fd31e3d4fce995dff6da7e7e214e0fe852952774b79f51f26af5060f28967a7",
+        "content_version": "02.003.000",
         "title_name": "PS5SD",
-        "published_at": "2026-11-14T09:04:36Z",
-        "notes": "PS5SD 1.2.1 lets a LoRA's strength go past 2, as [issue 18](https://github.com/Darkatek7/PS5SD/issues/18) asked.\n\n## LoRA strengths from -100 to 100\n\n- The web UI kept a LoRA's strength between -2 and 2. Some LoRAs are made for much more: slider LoRAs, for example, go from -8 to 8.\n- The strength field on the Create tab, under **Style**, now takes -100 to 100, the same range as ComfyUI's LoRA loader.\n- sd-server never had a limit, so the API and presets (`loras=path:strength`) take any strength as before.\n- Most LoRAs are still made for about 0 to 1. The LoRA's page says what it is made for.\n\n1.2.0's faster loading and Spectrum presets are in this release too. See [PS5SD 1.2.0](https://github.com/Darkatek7/PS5SD/releases/tag/v1.2.0).\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.2.1/ROADMAP.md#after-10). Two pictures for Edit ([issue 13](https://github.com/Darkatek7/PS5SD/issues/13)) comes in 1.3.0."
+        "published_at": "2026-11-17T18:22:56Z",
+        "notes": "PS5SD 1.3.0 downloads the gallery as one ZIP ([issue 20](https://github.com/Darkatek7/PS5SD/issues/20)), makes a FLUX.3 Klein image in about 67 s instead of 74, and says how to run Krea 2 Turbo ([issue 19](https://github.com/Darkatek7/PS5SD/issues/19)). All times are from the console; the measurements are in [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.0/docs/CONSOLE.md#spectrum-from-the-fourth-step-klein-9bs-samplers-krea-2-2026-11-17).\n\n## The gallery as one ZIP\n\n- **Download all** in the gallery saves every image and video as one ZIP, `ps5sd-gallery-<date>.zip`. A PNG keeps its parameters inside; a video's parameters, and those of a PNG saved without them, come along as a text file next to it.\n- With two or more images selected, **Download** saves them as one ZIP too. One selected image still comes as the file itself.\n- The console makes the ZIP while it sends it, so it needs no room on the console and no time before the download starts. A gallery of 1.06 GB came in 24 s. The browser does not know the size until the download is done.\n- With the API key on, it works after the page's login, as the rest of the web UI does.\n- For programs: `GET /ps5sd/v1/gallery/archive` (everything, or `?names=a.png,b.webm`) and `POST` with the names in the form field `names`. See [API.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.0/docs/API.md).\n\n## FLUX.3 Klein: Spectrum from the fourth step\n\n- The FLUX.3 Klein presets (Q4_K and Q6_K) start Spectrum one step earlier (`--cache-option warmup=3`). It skips 7 of 16 steps instead of 6.\n\n| FLUX.3 Klein Q4, 1024x1024 | Image |\n|---|---|\n| no cache | 114.5 s |\n| 1.2.x (Spectrum from the fifth step) | 73.9 s |\n| 1.3.0 (from the fourth step) | 67.1 s |\n\n- The picture stays the same, faces, hands and the text in it too. From the third step on it would be 60 s, but hands and objects moved, so the presets stop at the fourth.\n- Presets that 1.2.x wrote and nobody changed get the new line at the first start. A preset you changed stays as it is.\n- A request can set it with `\"cache_option\"`, for example `\"warmup=4\"` for the old behaviour.\n\n## Krea 2 Turbo\n\n- Krea 2 Turbo runs on the PS5: 1024x1024 at 8 steps in about 3 minutes (FLUX.3 Klein: about 1 minute).\n- It is not in the catalog. Its licence, the Krea 2 Community License, asks everyone who deploys the model for a content filter (section 4.2), and PS5SD has none.\n- [MODELS.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.0/docs/MODELS.md#krea-2-turbo) gives the three files and a preset, for those who read the licence and want to use it.\n\n## Looked at and left\n\n- VAE tiles of 768 instead of 512 save 0.3 s an image; without tiles the VAE does not fit.\n- Flash attention is on already, for every attention of a run."
       },
       "pins": [
+        {
+          "tag": "v1.2.1",
+          "asset": "PPSA99576.zip",
+          "size": 53174697,
+          "sha256": "68b3c340edd19c6404253be27a6e494fb161f7adee79f68a8c6c68bdd4373d75",
+          "content_version": "02.002.001",
+          "title_name": "PS5SD"
+        },
         {
           "tag": "v1.1.1",
           "asset": "PPSA99576.zip",
