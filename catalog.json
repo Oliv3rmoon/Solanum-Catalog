@@ -442,16 +442,24 @@
       ],
       "stars": 13,
       "release": {
-        "tag": "1.3.2",
-        "asset": "Emby5-1.3.2.zip",
-        "size": 32810640,
-        "sha256": "4fd82194b70ed41e26d897d420dfbe6231ab06cefb9294d586e59519d1447e66",
-        "content_version": "01.003.002",
+        "tag": "1.3.3",
+        "asset": "Emby5-1.3.3.zip",
+        "size": 32811242,
+        "sha256": "4db1686f4dcd57c32596b88d3c9ccb514d3af5af3260997594d96707562a6569",
+        "content_version": "01.003.003",
         "title_name": "Emby5",
-        "published_at": "2026-11-15T20:48:59Z",
-        "notes": "## What's fixed\n\n### Chinese, Japanese, Korean and Thai subtitles\n- Subtitles in Chinese, Japanese, Korean or Thai no longer show broken characters when the subtitle file has no language set, such as a fansub .ass named after the film. Emby5 now looks at the text itself and loads the PS5's own font for the characters it finds. Tracks inside the video get the same check. ([#10](https://github.com/bornaradusin/Emby5/issues/10))\n- Subtitle files that aren't saved as UTF-8 show correctly. That covers the older Chinese (GBK, Big5), Japanese (Shift-JIS), Korean, Cyrillic, Arabic and other encodings, in .srt and .ass alike. The encoding is worked out from the file itself, and three-letter languages from Emby and Jellyfin (such as `chi`, `jpn` and `rus`) are now understood.\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.2.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.2** under **Settings > System > Installed version**."
+        "published_at": "2026-11-17T08:07:14Z",
+        "notes": "## What's fixed\n\n### Chinese, Japanese, Korean and Thai subtitles\n- Subtitles in Chinese, Japanese, Korean or Thai no longer show boxes. 1.3.2 loaded the PS5's font for those characters but the subtitle renderer never used it: it only takes a font that a subtitle's style asks for by name, or its default font. The PS5's font for the subtitle's characters is now the default font while that subtitle is shown, so a styled .ass asking for Windows fonts (such as 微软雅黑) and a plain .srt both draw their Chinese, Japanese, Korean or Thai text. English lines in a plain .srt keep the usual font. ([#10](https://github.com/bornaradusin/Emby5/issues/10))\n\n## What's new\n\n### Theme videos\n- When a film or show has a theme video on your server, it can play behind the title's page in place of the backdrop picture, over and over while the page is open, with its sound as quiet as theme music. A title without one still plays its theme music. ([#9](https://github.com/bornaradusin/Emby5/issues/9))\n- It's off for now: turn it on under **Settings › Playback › Theme videos**. Emby and Jellyfin take theme videos from the video files in a title's **backdrops** folder. A theme video in HDR plays its sound but keeps the backdrop picture, as the menus are in SDR.\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.3.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.3** under **Settings > System > Installed version**."
       },
       "pins": [
+        {
+          "tag": "1.3.2",
+          "asset": "Emby5-1.3.2.zip",
+          "size": 32810640,
+          "sha256": "4fd82194b70ed41e26d897d420dfbe6231ab06cefb9294d586e59519d1447e66",
+          "content_version": "01.003.002",
+          "title_name": "Emby5"
+        },
         {
           "tag": "1.3.1",
           "asset": "Emby5-1.3.1.zip",
@@ -949,16 +957,24 @@
       ],
       "stars": 27,
       "release": {
-        "tag": "v1.0.21",
-        "asset": "Crux2-v1.0.21.zip",
-        "size": 38880815,
-        "sha256": "d3d1f0e27f8195fd6e3f8ba709c2bfc53c1340915ec3e220ed9d52f78f2f3f62",
-        "content_version": "01.021.000",
+        "tag": "v1.0.22",
+        "asset": "Crux2-v1.0.22.zip",
+        "size": 38927589,
+        "sha256": "501283ce83748daf42423417e78d3f806eea55176f24c0ff1611a895e93b1759",
+        "content_version": "01.022.000",
         "title_name": "Crux2",
-        "published_at": "2026-11-16T13:28:06Z",
-        "notes": "A small release after v1.0.20: the menus open faster, and covers come from a second collection.\n\n## Added\n- **A second place covers are downloaded from.** A game that libretro's collection has no box art for is asked for by its serial in the `xlenore/ps2-covers` collection on GitHub and saved as `covers/<serial>.jpg`. Games found missing from libretro's before are tried there too (Settings > Games and saves > Game List, **Download Missing Covers**).\n\n## Changed\n- **The interface asks the emulator for less when a screen opens.** The quick menu with pinned settings made the settings' pages five times as it opened; the Settings and the quick menu read the whole game list, looking into the save states, cheats and textures folders, each time. Both are done once now.\n- A long title is cut to its width in one pass, and discs off the side of the screen (the Discs view) are not drawn.\n\n## Fixed\n- **A game's own settings could take seconds to open** (Square on Home, a game's page) with many cheat files on the console, as after **Download Cheats for All Games**: looking for one game's files asked the console about every file in the folder, four times. The name is looked at first now. The boot log says when opening them still takes 50 ms or more.\n\n## Installation\n- Copy the `PPSA99249` folder to `/data/homebrew/` on the console, over an older one if you have it.\n- Your games, BIOS files, memory cards, save states and settings are kept (PCSX2 is the same revision as in v1.0.19 and v1.0.20).\n- Read `LEGAL.txt` and `README.md` in the folder.\n\n## Reporting problems\n- Open an issue and attach `crux2-boot.log` from the title folder (written after a crash, a hang or Save the log). Don't attach games, BIOS files, firmware or keys.\n\n## Source and licensing\n- GPL-3.0-or-later with one additional term: keep the credit \"Crux2 by Press5elect\" (`NOTICE`).\n- Source: this repository at the tag, and PCSX2 at [`0ab00c49b157`](https://github.com/PCSX2/pcsx2/tree/0ab00c49b157be667a8a2f0bf4cda83f75a9198e); every other part's revision is in `licenses/components.json` in the ZIP.\n\n## Build versions\n- Crux2: `ab42b7c` (build 123)\n- PCSX2: v2.9.179 (`0ab00c49b157`)\n- RADV: Mesa 27.0-devel, 2026-10-31 (as v1.0.19's)\n- PS5_Vulkan: `7f492b4`\n- PS5_PayloadSDK: `3345cde`\n- paraLLEl-GS: `cc6184a`\n- MihawkGen: `c57232a9f16b`\n- Build identity: `cfdd9111cdd43882`; profile `f965a89d3a30`\n\nSHA-256 of `Crux2-v1.0.21.zip`: `d3d1f0e27f8195fd6e3f8ba709c2bfc53c1340915ec3e220ed9d52f78f2f3f62`\nSHA-256 of `Crux2-recomp-kit-v1.0.21.zip`: `ef10f451eac5cc17d6a4b7d0d941ac532219a454dfdea0f2db813c9924258707`"
+        "published_at": "2026-11-17T00:29:58Z",
+        "notes": "# Crux2 v1.0.22\n\nHeavy games run faster: the graphics thread no longer spends half its time creating textures. About fifty bugs in the interface are fixed.\n\n## Added\n- **Shared Render Target Memory** and **Streamed Memory Clearing** (Settings, the Everything level; both on). At high internal resolutions the graphics thread spent about half its time creating textures: each render target had a memory allocation of its own, and the driver cleared each one and then flushed it line by line. Render targets now share memory blocks, and new memory is cleared in one pass. On a console, in a heavy game at 6x, the graphics thread went from 100% busy to 30-60%. Either can be turned off (they take effect at the next start).\n- **The recomp kit makes Crux2's native modules on Windows** too: drop a game on `Crux2 Native.cmd` (they were made on Linux only). It also links large games on Windows, which failed with \"The filename or extension is too long\".\n- The boot log names what creates textures and at what sizes, and a profile lists 40 functions on the stack (12 before).\n\n## Changed\n- Built on PCSX2 master of 2026-11-17 (`8407746`: a newer controller database, and Japanese titles in the game database). Save states are not affected.\n- **Thread Pinning** shows \"Dedicated Cores (Default)\", which is what Crux2 has always set on a new install.\n\n## Fixed\nAbout fifty bugs found by a review of the interface's code. Among them:\n- **The quick menu's Screenshot**, and a texture pack download or a save search ending during a game, could stop the picture or the title.\n- **Covers without a connection**: every game was noted as having no cover and never asked for again. A cover download cut short no longer turns automatic covers off for good.\n- **A texture pack moved onto a share** that already had one for the game was mixed with it, and the original deleted.\n- **A memory card could be lost** to a power cut while it was written; a restore stopped by a game start left some cards restored and some not.\n- **The on-screen keyboard**: Delete took two characters after an accented letter.\n- **Controller ports 2 and up** shared port 1's rows: after \"Map to Console Controller\" the next press mapped another port.\n- **\"Internal resolution above 12x\"** jumped to 25x from a normal value.\n- **Quick views** kept in Showcase, Wheel, Wall or Discs came back as Table after a restart.\n- **A game's own SingStar or light gun choice**, put back to the global one, kept its own USB settings.\n- **A disc set's** last played, time played and favourite are now the whole set's, not the front disc's.\n- Logs and What's New at larger text sizes lost the ends of their lines; the card and texture pack managers sat off-centre under 100% interface size.\n\n## Installation"
       },
       "pins": [
+        {
+          "tag": "v1.0.21",
+          "asset": "Crux2-v1.0.21.zip",
+          "size": 38880815,
+          "sha256": "d3d1f0e27f8195fd6e3f8ba709c2bfc53c1340915ec3e220ed9d52f78f2f3f62",
+          "content_version": "01.021.000",
+          "title_name": "Crux2"
+        },
         {
           "tag": "v1.0.19",
           "asset": "Crux2-v1.0.19.zip",
@@ -1358,7 +1374,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 516,
+      "stars": 517,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1784,7 +1800,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 852,
+      "stars": 853,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2541,7 +2557,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1083,
+      "stars": 1084,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2628,7 +2644,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1682,
+      "stars": 1684,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -4912,16 +4928,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.207",
+        "tag": "01.000.208",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 33700378,
-        "sha256": "a78a3d61ebd38dd2c5677b9f4d15760f5e51f10f3bff82ef09edd478b987b3b8",
-        "content_version": "01.000.207",
+        "size": 41352009,
+        "sha256": "b67e9c4f2eb65cd06b3d01d95ae65a068bfcb2e4b6fdb6ed6214b739cc4e0280",
+        "content_version": "01.000.208",
         "title_name": "SmartTube",
-        "published_at": "2026-11-12T03:07:34Z",
-        "notes": "1.0.207: the log QR code works on the console\n\n- The PS5 doesn't let apps listen on the network, so the log QR code\n  only said \"listen: permission denied\". When that happens, the log is\n  now uploaded to dpaste.com (deleted after 7 days) and the QR code opens\n  it there. The phone doesn't even need to be on the same Wi-Fi.\n- \"Uploading the log...\" shows while it goes up. A failed upload says why.\n- A log over about 900 KB keeps its start and its last 800 KB."
+        "published_at": "2026-11-17T02:30:20Z",
+        "notes": "Upload date from the TV overlay: join all of the line's runs"
       },
       "pins": [
+        {
+          "tag": "01.000.207",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 33700378,
+          "sha256": "a78a3d61ebd38dd2c5677b9f4d15760f5e51f10f3bff82ef09edd478b987b3b8",
+          "content_version": "01.000.207",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.205",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4952,14 +4976,6 @@
           "size": 33556546,
           "sha256": "15192b807e2a9e1b14c1732c9fb932f53d375d36282626b000ca6c0882c9b084",
           "content_version": "01.000.202",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.201",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33556102,
-          "sha256": "492bf6563d55dd06498ebc5f77e254dfd68c3c27ef659002a1d0b258fb1090ae",
-          "content_version": "01.000.201",
           "title_name": "SmartTube"
         }
       ]
@@ -5051,7 +5067,7 @@
         "geforce-now",
         "cloud-gaming"
       ],
-      "stars": 23,
+      "stars": 24,
       "release": {
         "tag": "0.3.0",
         "asset": "OpenNOW-PS5-0.3.0.zip",
@@ -5728,7 +5744,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 522,
+      "stars": 523,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5837,7 +5853,7 @@
         "saves",
         "sync"
       ],
-      "stars": 126,
+      "stars": 127,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
