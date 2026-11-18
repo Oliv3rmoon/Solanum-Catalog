@@ -1345,7 +1345,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 418,
+      "stars": 419,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1375,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 519,
+      "stars": 520,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1801,7 +1801,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 855,
+      "stars": 856,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1903,7 +1903,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 216,
+      "stars": 217,
       "release": {
         "tag": "v3.6",
         "asset": "PPSA97358.zip",
@@ -2411,7 +2411,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 402,
+      "stars": 403,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2558,7 +2558,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1085,
+      "stars": 1088,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2615,7 +2615,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 264,
+      "stars": 265,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2645,7 +2645,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1685,
+      "stars": 1686,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -2710,7 +2710,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 441,
+      "stars": 443,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -3079,7 +3079,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 17,
+      "stars": 18,
       "release": {
         "tag": "v1.0.0",
         "asset": "Dusklight-PS5-v1.0.0.zip",
@@ -3174,7 +3174,7 @@
         "battle-net",
         "world-of-warcraft"
       ],
-      "stars": 20,
+      "stars": 21,
       "release": {
         "tag": "01.000.024",
         "asset": "PPSA99030.zip",
@@ -3379,7 +3379,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 94,
+      "stars": 95,
       "release": {
         "tag": "build-143",
         "asset": "halo-ps5-release.zip",
@@ -4929,16 +4929,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.210",
+        "tag": "01.000.213",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 41369516,
-        "sha256": "6740f43d82747c56825e614ffae16251f06a83b93c26e6992674bd42ab96792c",
-        "content_version": "01.000.210",
+        "size": 41383304,
+        "sha256": "35cd7d4c34ad2128c53a8e11ab66da52ea2151a22499d7aafd53fc6042bc3a7b",
+        "content_version": "01.000.213",
         "title_name": "SmartTube",
-        "published_at": "2026-11-17T14:30:59Z",
-        "notes": "1.0.210: Run diagnostics (Settings > Developer)\n\nOne button checks everything the app depends on, line by line, then puts\nthe report on screen as a QR code for your phone.\n\n- Console: app version, languages, account, playback settings, whether\n  96 MB of memory is free, whether the app's folder writes and reads.\n- Network: plain internet, Google, YouTube and its API, Google sign-in,\n  SponsorBlock, DeArrow, Return YouTube Dislike, GitHub (updates), and\n  both log-sharing sites. Each check shows the HTTP answer and how long it\n  took; a failure says why (DNS, TLS...). It also checks whether the console\n  lets the app run a local server.\n- YouTube (signed out): Home, a search, a player answer for a known video\n  and for the video played last (formats, best height, codecs, which\n  client answered), the watch page, and where the upload date comes from\n  (player, watch page, or neither).\n- When the pass ends, the report (and the end of yt.log) uploads to\n  dpaste.com, or paste.rs if that fails, and a QR code appears. If the\n  upload fails, the error shows. Every line is in yt.log too (\"diag:\").\n- Up/Down scroll, Square runs it again, Circle closes."
+        "published_at": "2026-11-18T04:23:33Z",
+        "notes": "1.0.213: the day a video went up, under its title\n\n- Videos older than a week show the day they were uploaded (\"Apr 23,\n  2005\") under the title instead of \"21y ago\". Newer ones still say how long\n  ago (\"today\", \"3 days ago\").\n- A signed-in account plays through YouTube's TV app, whose answers carry\n  no upload day. When they don't, the app now asks the web client (signed\n  out) for it: the player's microformat date, or else the date on its watch\n  page.\n- Diagnostics show what each source gave for the upload date."
       },
       "pins": [
+        {
+          "tag": "01.000.210",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 41369516,
+          "sha256": "6740f43d82747c56825e614ffae16251f06a83b93c26e6992674bd42ab96792c",
+          "content_version": "01.000.210",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.208",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4969,14 +4977,6 @@
           "size": 33567836,
           "sha256": "9fc9a05d1749655e05e0237aadc3cbb595e096f5c543cf5ed4290f6d236cd6d4",
           "content_version": "01.000.204",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.203",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33557382,
-          "sha256": "8b11d5a1e8e442c5ffa3b144ec179a1077f922317890121f0c21fb1306ef90dd",
-          "content_version": "01.000.203",
           "title_name": "SmartTube"
         }
       ]
@@ -5128,7 +5128,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 34,
+      "stars": 36,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5778,16 +5778,24 @@
       ],
       "stars": 15,
       "release": {
-        "tag": "v1.3.0",
+        "tag": "v1.3.1",
         "asset": "PPSA99576.zip",
-        "size": 53181875,
-        "sha256": "7fd31e3d4fce995dff6da7e7e214e0fe852952774b79f51f26af5060f28967a7",
-        "content_version": "02.003.000",
+        "size": 53182149,
+        "sha256": "fc8381eb7602b64d0cf766b4f34ec8ed12e0afcf05227a559194c7fafacf83dd",
+        "content_version": "02.003.001",
         "title_name": "PS5SD",
-        "published_at": "2026-11-17T18:22:56Z",
-        "notes": "PS5SD 1.3.0 downloads the gallery as one ZIP ([issue 20](https://github.com/Darkatek7/PS5SD/issues/20)), makes a FLUX.3 Klein image in about 67 s instead of 74, and says how to run Krea 2 Turbo ([issue 19](https://github.com/Darkatek7/PS5SD/issues/19)). All times are from the console; the measurements are in [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.0/docs/CONSOLE.md#spectrum-from-the-fourth-step-klein-9bs-samplers-krea-2-2026-11-17).\n\n## The gallery as one ZIP\n\n- **Download all** in the gallery saves every image and video as one ZIP, `ps5sd-gallery-<date>.zip`. A PNG keeps its parameters inside; a video's parameters, and those of a PNG saved without them, come along as a text file next to it.\n- With two or more images selected, **Download** saves them as one ZIP too. One selected image still comes as the file itself.\n- The console makes the ZIP while it sends it, so it needs no room on the console and no time before the download starts. A gallery of 1.06 GB came in 24 s. The browser does not know the size until the download is done.\n- With the API key on, it works after the page's login, as the rest of the web UI does.\n- For programs: `GET /ps5sd/v1/gallery/archive` (everything, or `?names=a.png,b.webm`) and `POST` with the names in the form field `names`. See [API.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.0/docs/API.md).\n\n## FLUX.3 Klein: Spectrum from the fourth step\n\n- The FLUX.3 Klein presets (Q4_K and Q6_K) start Spectrum one step earlier (`--cache-option warmup=3`). It skips 7 of 16 steps instead of 6.\n\n| FLUX.3 Klein Q4, 1024x1024 | Image |\n|---|---|\n| no cache | 114.5 s |\n| 1.2.x (Spectrum from the fifth step) | 73.9 s |\n| 1.3.0 (from the fourth step) | 67.1 s |\n\n- The picture stays the same, faces, hands and the text in it too. From the third step on it would be 60 s, but hands and objects moved, so the presets stop at the fourth.\n- Presets that 1.2.x wrote and nobody changed get the new line at the first start. A preset you changed stays as it is.\n- A request can set it with `\"cache_option\"`, for example `\"warmup=4\"` for the old behaviour.\n\n## Krea 2 Turbo\n\n- Krea 2 Turbo runs on the PS5: 1024x1024 at 8 steps in about 3 minutes (FLUX.3 Klein: about 1 minute).\n- It is not in the catalog. Its licence, the Krea 2 Community License, asks everyone who deploys the model for a content filter (section 4.2), and PS5SD has none.\n- [MODELS.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.0/docs/MODELS.md#krea-2-turbo) gives the three files and a preset, for those who read the licence and want to use it.\n\n## Looked at and left\n\n- VAE tiles of 768 instead of 512 save 0.3 s an image; without tiles the VAE does not fit.\n- Flash attention is on already, for every attention of a run."
+        "published_at": "2026-11-17T21:11:10Z",
+        "notes": "PS5SD 1.3.1 makes images faster on every catalog model: the GPU now computes large matrix products in larger tiles. The images stay the same. All times are from the console; the measurements are in [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.1/docs/CONSOLE.md#larger-matrix-tiles-2026-11-17).\n\n## Larger matrix tiles\n\n- ggml-vulkan computes a matrix product in tiles. On AMD graphics without matrix cores, which the PS5 has, it left out its large tile (128x128), so every large product ran in 64x64 tiles.\n- PS5SD now uses the large tile for products that add up in f16. A product that adds up in f32 (some layers of Z-Image and SDXL ask for it) stays in the medium tile: there the large one took about four times as long.\n- The images of FLUX.3 Klein, FLUX.2 Klein 4B and 9B and Z-Image are the same, pixel for pixel. SDXL's differ in small details.\n\n| Catalog preset | 1.3.0 | 1.3.1 |\n|---|---|---|\n| FLUX.3 Klein Q4, 1024x1024 | 67 s | 56 s |\n| FLUX.2 Klein 9B, dpm2 at 8 steps | 165 s | 137 s |\n| FLUX.2 Klein 9B, Euler at 4 steps | 48 s | 40 s |\n| FLUX.2 Klein 4B | 25 s | 22 s |\n| Z-Image Turbo | 55 s | 48 s |\n| SDXL Base | 28 s | 27 s |\n| Wan 2.1 1.3B, 9 frames at 832x480 | 84 s | 80 s |\n\n- FLUX.3 Klein Q6 at 896x896 takes about 45 s.\n- The memory a model needs is the same.\n- The catalog's descriptions give the new times.\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.1/ROADMAP.md#after-10). Two pictures for Edit ([issue 13](https://github.com/Darkatek7/PS5SD/issues/13)) comes in 1.4.0."
       },
       "pins": [
+        {
+          "tag": "v1.3.0",
+          "asset": "PPSA99576.zip",
+          "size": 53181875,
+          "sha256": "7fd31e3d4fce995dff6da7e7e214e0fe852952774b79f51f26af5060f28967a7",
+          "content_version": "02.003.000",
+          "title_name": "PS5SD"
+        },
         {
           "tag": "v1.2.1",
           "asset": "PPSA99576.zip",
