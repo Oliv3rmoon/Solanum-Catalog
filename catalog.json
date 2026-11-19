@@ -1083,7 +1083,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 244,
+      "stars": 245,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1375,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 521,
+      "stars": 523,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -2411,7 +2411,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 403,
+      "stars": 407,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2558,7 +2558,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1091,
+      "stars": 1094,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -3710,7 +3710,7 @@
         "pokemmo",
         "java"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA98001.zip",
