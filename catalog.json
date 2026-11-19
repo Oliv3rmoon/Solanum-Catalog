@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 75,
+      "stars": 76,
       "release": {
         "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
@@ -1083,7 +1083,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 245,
+      "stars": 246,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1375,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 523,
+      "stars": 526,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1801,7 +1801,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 857,
+      "stars": 859,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1977,16 +1977,24 @@
       ],
       "stars": 3,
       "release": {
-        "tag": "01.000.006",
+        "tag": "01.000.007",
         "asset": "PPSA06464.zip",
-        "size": 6809148,
-        "sha256": "fb07fe04039bb50938b62f5639f31be69ffdde1bf1dd8ff3469ec8d9daeee161",
-        "content_version": "01.000.006",
+        "size": 6817308,
+        "sha256": "2825a7f334535832b5321ce6545bd141f3a70e5f7fe2d3e67b16bff6d2c5d015",
+        "content_version": "01.000.007",
         "title_name": "PS64",
-        "published_at": "2026-11-14T20:19:35Z",
-        "notes": "PS64 1.0.6: a SuperCPU, an REU and JiffyDOS for the C64, and SID search by musician.\n\n## New\n\n- SuperCPU option (VICE C64): a 20 MHz 65816 with 16 MB of SuperRAM, for software that needs one.\n- REU option (VICE C64): a RAM Expansion Unit of 512 KB or 16 MB, with or without the SuperCPU.\n- JiffyDOS option (VICE C64): faster disk loading with your own JiffyDOS ROMs, copied into /data/ps64/roms.\n- SID search on Assembly64 finds tunes by musician as well as by title."
+        "published_at": "2026-11-19T18:17:15Z",
+        "notes": "PS64 1.0.7: more control of the C64 Ultimate with its firmware 1.2.1, and a mouse.\n\n## New\n\n- C64 Ultimate firmware 1.2.0 and newer: keys are held down for as long as you hold them, so games that need a held key (SPACE, F-keys, SHIFT) work.\n- Ultimate menu control (firmware 1.2.0 and newer): while the menu is open, the D-pad moves through it, Cross selects and Circle goes back.\n- Mouse option (C64 Ultimate firmware 1.2.1 and newer, VICE C64): a 1351 mouse on port 1 for GEOS, C64 OS and other mouse software. The right stick moves it, and R1 and L1 are its buttons. The joystick moves to port 2 while the mouse is on."
       },
       "pins": [
+        {
+          "tag": "01.000.006",
+          "asset": "PPSA06464.zip",
+          "size": 6809148,
+          "sha256": "fb07fe04039bb50938b62f5639f31be69ffdde1bf1dd8ff3469ec8d9daeee161",
+          "content_version": "01.000.006",
+          "title_name": "PS64"
+        },
         {
           "tag": "01.000.005",
           "asset": "PPSA06464.zip",
@@ -2411,7 +2419,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 407,
+      "stars": 408,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2558,7 +2566,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1094,
+      "stars": 1095,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2615,7 +2623,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 265,
+      "stars": 266,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2645,7 +2653,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1689,
+      "stars": 1691,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -3743,16 +3751,24 @@
       ],
       "stars": 58,
       "release": {
-        "tag": "01.000.287",
+        "tag": "01.000.288",
         "asset": "PPSA99874.zip",
-        "size": 128588325,
-        "sha256": "59200aa6d31807952093c9104aa675c27788970a477a01f0f9f3799ff0e7999d",
-        "content_version": "01.000.287",
+        "size": 128592118,
+        "sha256": "e2e931fcabe01d9b8a4dd95bb03a55c4db1f611a074decbba5787b71b08b7766",
+        "content_version": "01.000.288",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-18T14:22:59Z",
-        "notes": "### Added\n\n- Create a local offline profile with a username in Accounts.\n- Download Minecraft instances without Microsoft sign-in.\n- Play singleplayer or join servers configured for offline mode using your local profile.\n- Switch between your saved offline profile and Microsoft account.\n\n### Using offline profiles\n\nOpen Accounts, choose Create Offline Profile and enter a username. Then create or open an instance and choose Download & Play. Downloading missing files requires internet access. Installed instances can reuse verified files while offline.\n\nChanging the offline username changes your player identity. Use your Microsoft account for servers that require authentication.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. Checksums, validation records and the corresponding source and OpenAL relink kit are included."
+        "published_at": "2026-11-19T18:21:30Z",
+        "notes": "### Added\n\n- Enable or disable installed mods without uninstalling them.\n- See each mod’s enabled state in the Installed list, including manually added mods.\n\n### Using the mod toggle\n\nOpen Instance Settings → Mods → Installed, select a mod and press X to enable or disable it. RIGHT still opens Uninstall.\n\nDisabled mods stay on your console. If another enabled mod needs one, the launcher tells you which dependency to enable instead of downloading it again. Disabling Controlify also disables its in-game controller support until you enable it again.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. Checksums, validation records and the corresponding source and OpenAL relink kit are included."
       },
       "pins": [
+        {
+          "tag": "01.000.287",
+          "asset": "PPSA99874.zip",
+          "size": 128588325,
+          "sha256": "59200aa6d31807952093c9104aa675c27788970a477a01f0f9f3799ff0e7999d",
+          "content_version": "01.000.287",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.286",
           "asset": "PPSA99874.zip",
@@ -3783,14 +3799,6 @@
           "size": 127938217,
           "sha256": "60a354e39a3a11b4bf0a4a4f62cba80220ea961781c846233929122197159cd2",
           "content_version": "01.000.279",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.267",
-          "asset": "PPSA99874.zip",
-          "size": 127933009,
-          "sha256": "680e4342c974398158de1099249d0d83aae7cf778173863b484da65fa942cd28",
-          "content_version": "01.000.267",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -4929,16 +4937,24 @@
       ],
       "stars": 9,
       "release": {
-        "tag": "01.000.214",
+        "tag": "01.000.215",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 41383498,
-        "sha256": "5edfb990790a7ecb4d5e027754ecf242109670240ad1bd5802b2309572a284ce",
-        "content_version": "01.000.214",
+        "size": 41397964,
+        "sha256": "32f5336b8d9bcf8c208e9e3800c47a440d8324632e99a73b763d9331f4352863",
+        "content_version": "01.000.215",
         "title_name": "SmartTube",
-        "published_at": "2026-11-18T13:55:53Z",
-        "notes": "1.0.214: a Home without an account, and settings that stay put\n\n- Home without an account: YouTube now sends a guest no Home at all (a\n  search box and \"Try searching to get started\") to the web and the TV app\n  alike. When that happens the app builds one from YouTube's own topic\n  channels: a row each of Music, Gaming, News, Sports and Live.\n- Settings reverting after an update: the app's storage had filled up (see\n  1.0.212), so changes to the player buttons, the sidebar and the rest\n  lived only until the next restart, which is usually an update. Now:\n  - when saving settings fails, the oldest half of the thumbnail cache is\n    cleared and the save is tried again; if it still fails, a message says\n    so instead of losing the change quietly;\n  - a change made just before the app closes for an update, or quits, is\n    saved first instead of waiting for the usual short delay."
+        "published_at": "2026-11-19T15:01:31Z",
+        "notes": "1.0.215: Subscriptions newest first, and an OLED screen saver\n\n- Subscriptions are sorted newest first. YouTube's TV app opens the list\n  with a \"Most relevant\" row; now every video appears once, by the age its\n  card shows (\"3 hours ago\", in any of the app's languages), with Shorts\n  after the rest.\n- Settings > General > Screen saver: Dim (as before) or Black (OLED),\n  which turns the screen black but for a small grey clock that moves to a\n  new spot every minute.\n- Screen dimming now also starts while a video is paused or finished,\n  not only outside the player, so a paused frame doesn't stay on an OLED.\n- The press that wakes the screen only wakes it; it doesn't also act."
       },
       "pins": [
+        {
+          "tag": "01.000.214",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 41383498,
+          "sha256": "5edfb990790a7ecb4d5e027754ecf242109670240ad1bd5802b2309572a284ce",
+          "content_version": "01.000.214",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.213",
           "asset": "SmartTube-PPSA98260.zip",
@@ -4969,14 +4985,6 @@
           "size": 33700378,
           "sha256": "a78a3d61ebd38dd2c5677b9f4d15760f5e51f10f3bff82ef09edd478b987b3b8",
           "content_version": "01.000.207",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.205",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33697750,
-          "sha256": "9ca142bbb9bc335f0ceb80295a6c49353c7da5cf7dd3c98d7f86bcc12bc38af8",
-          "content_version": "01.000.205",
           "title_name": "SmartTube"
         }
       ]
@@ -5778,16 +5786,24 @@
       ],
       "stars": 15,
       "release": {
-        "tag": "v1.3.1",
+        "tag": "v1.7.0",
         "asset": "PPSA99576.zip",
-        "size": 53182149,
-        "sha256": "fc8381eb7602b64d0cf766b4f34ec8ed12e0afcf05227a559194c7fafacf83dd",
-        "content_version": "02.003.001",
+        "size": 53282338,
+        "sha256": "370480cd72a450a2c3a829b9f55b815b2d4b0cfad738007ff68f22ded675a9fa",
+        "content_version": "02.007.000",
         "title_name": "PS5SD",
-        "published_at": "2026-11-17T21:11:10Z",
-        "notes": "PS5SD 1.3.1 makes images faster on every catalog model: the GPU now computes large matrix products in larger tiles. The images stay the same. All times are from the console; the measurements are in [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.1/docs/CONSOLE.md#larger-matrix-tiles-2026-11-17).\n\n## Larger matrix tiles\n\n- ggml-vulkan computes a matrix product in tiles. On AMD graphics without matrix cores, which the PS5 has, it left out its large tile (128x128), so every large product ran in 64x64 tiles.\n- PS5SD now uses the large tile for products that add up in f16. A product that adds up in f32 (some layers of Z-Image and SDXL ask for it) stays in the medium tile: there the large one took about four times as long.\n- The images of FLUX.3 Klein, FLUX.2 Klein 4B and 9B and Z-Image are the same, pixel for pixel. SDXL's differ in small details.\n\n| Catalog preset | 1.3.0 | 1.3.1 |\n|---|---|---|\n| FLUX.3 Klein Q4, 1024x1024 | 67 s | 56 s |\n| FLUX.2 Klein 9B, dpm2 at 8 steps | 165 s | 137 s |\n| FLUX.2 Klein 9B, Euler at 4 steps | 48 s | 40 s |\n| FLUX.2 Klein 4B | 25 s | 22 s |\n| Z-Image Turbo | 55 s | 48 s |\n| SDXL Base | 28 s | 27 s |\n| Wan 2.1 1.3B, 9 frames at 832x480 | 84 s | 80 s |\n\n- FLUX.3 Klein Q6 at 896x896 takes about 45 s.\n- The memory a model needs is the same.\n- The catalog's descriptions give the new times.\n\n## Install\n\nInstall from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` on the console and let ShadowMountPlus scan. An update keeps your models, presets, gallery and settings.\n\nNext: see [ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.3.1/ROADMAP.md#after-10). Two pictures for Edit ([issue 13](https://github.com/Darkatek7/PS5SD/issues/13)) comes in 1.4.0."
+        "published_at": "2026-11-19T17:27:31Z",
+        "notes": "The gallery as a slideshow on the TV, with the DualSense.\n\n## The slideshow\n\n- **Triangle** on the dashboard opens the gallery in full screen, on the newest picture.\n- **Left** and **Right** (D-pad or left stick) step through it; held, they repeat.\n- **Options** goes on by itself every 5 seconds, with a line along the bottom; again, and it stops.\n- **Circle** goes back to the dashboard.\n- New pictures join it while it is open, and a running job shows its progress in the top right corner.\n- Videos and images made with \"temporary\" are left out.\n\n## What it respects\n\n- With **Show images and prompts on the TV** off, there is no slideshow, and the dashboard says so. Turning it off closes an open slideshow.\n- The dashboard says when no controller was found.\n- A press right after the PS menu counts; closing the menu with Circle does not close the slideshow.\n\n## Memory\n\n- The slideshow keeps three pictures decoded, at most 1920 px, and lets go of them when it closes. A file over 4096x4096 shows as a note and is not decoded.\n- FLUX.2 Klein 9B with two LoRAs made an image while the slideshow ran, with the CPU heap at 0.55 GiB after it ([CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.7.0/docs/CONSOLE.md#the-slideshow-on-the-tv-2026-11-19)).\n\n## Install\n\nFrom the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` and let ShadowMountPlus scan. An update keeps models, presets, gallery and settings.\n\n## Next\n\n[ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.7.0/ROADMAP.md) at the tag."
       },
       "pins": [
+        {
+          "tag": "v1.3.1",
+          "asset": "PPSA99576.zip",
+          "size": 53182149,
+          "sha256": "fc8381eb7602b64d0cf766b4f34ec8ed12e0afcf05227a559194c7fafacf83dd",
+          "content_version": "02.003.001",
+          "title_name": "PS5SD"
+        },
         {
           "tag": "v1.3.0",
           "asset": "PPSA99576.zip",
