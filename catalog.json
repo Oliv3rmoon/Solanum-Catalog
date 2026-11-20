@@ -585,16 +585,24 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "01.000.100",
-        "asset": "Mediathek-PPSA66120-01.000.100.zip",
-        "size": 32080444,
-        "sha256": "36cae8ee9a7f0fbb4a8126ecc2b0f7c8aadf13b3c411e5e2aa9f3f5690adf8b9",
-        "content_version": "01.000.100",
+        "tag": "01.000.110",
+        "asset": "Mediathek-PPSA66120-01.000.110.zip",
+        "size": 32701558,
+        "sha256": "3816663d8dfe0d9c93ca636c468c765924cb40b297a731953bbf7ae4fc441c32",
+        "content_version": "01.000.110",
         "title_name": "Mediathek",
-        "published_at": "2026-11-05T18:09:18Z",
-        "notes": "## Mediathek 1.0.0 (`01.000.100`)\n\nA Netflix-style library and player for your movies and series on the PS5. Put your films in a `movies` folder and your series in `tvshows` on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 1.0.0\n\n- **Hardware decoding at every size.** H.264 and HEVC films of every size now play on the console's video decoder, as in VLC's PS5 port, not only those beyond 1080p: it leaves the CPU and memory free and plays 1080p 10-bit HEVC that was heavy for the CPU. FFmpeg still decodes every other codec and takes over from where the film is when the hardware refuses one. `HW_DECODE=0` keeps everything on FFmpeg.\n- **Subtitles inside the film.** Text tracks (SubRip, ASS/SSA as plain text, mov_text, WebVTT) and picture tracks (PGS from Blu-rays, VobSub from DVDs, DVB), drawn where the disc puts them and above the controls while those show. Triangle steps through the film's own tracks and the `.srt` files together, your language first; the message says which (\"German · embedded\", \"German · SRT\", \"English · SDH · embedded\"). The details page lists the languages of both.\n- **Forced subtitles** (only the lines in another language than the film's: a sign, a scene abroad) show by themselves while no full subtitles are on, in your *Subtitle language*, or with None in the language of the sound playing. A file named `Film.de.forced.srt` counts too.\n- **HDR output.** On a TV the console already sends HDR to, an HDR film is sent as HDR10 while it plays instead of being tone-mapped to SDR; the controls and subtitles are drawn over it at their usual brightness.\n- **5.1 and 7.1 sound** on the console's 8-channel output instead of a stereo mix; the console mixes it down itself for a TV or headset with two channels. Menu sounds play in front.\n- **New settings under Playback**, now grouped under Subtitles, Audio and Video: *Subtitle source* (Automatic, Embedded only, SRT only), *HDR output* (Automatic, Off), *Audio output* (Automatic, Stereo) and *Audio language* (Automatic, German, English: the main track in that language, not a commentary).\n- Fixed: when the graphics chip cannot convert the hardware's pictures and the CPU does it, a film at its own size is no longer softened by half a pixel.\n\n### Features\n\n- **Home:** a billboard for the focused title, tinted by its colours, and one shelf at a time: Continue Watching, Recently Added, collections, one per genre, decades, All Movies and All Series."
+        "published_at": "2026-11-20T11:58:07Z",
+        "notes": "## Mediathek 1.1.0 (`01.000.110`)\n\nA Netflix-style library and player for your movies and series on the PS5. Put your films in a `movies` folder and your series in `tvshows` on the internal drive, a USB stick or extended storage; Mediathek finds them, shows a billboard and shelves with their posters, fetches covers and descriptions from TMDB, and plays them. English and German.\n\n### What's new in 1.1.0\n\n- **AV1 films play**, HDR10 and HLG included. They are decoded on the CPU by dav1d, as in VLC's PS5 port (the console's video decoder is not known to take AV1), and shown like every other film: tone-mapped on an SDR TV, sent as HDR10 to an HDR one. A 1080p HDR film plays and seeks smoothly; whether 4K keeps up on the console's CPU is not checked yet.\n- **A larger details page:** a bigger cover and a taller column of text, so a film's description has room for about nine lines instead of five. On a series' page the episode's and the season's descriptions share the room better.\n- **The year from TMDB:** a film or series whose file or folder name gives no year takes TMDB's (the release, or the first air date), and each season's heading shows the year it aired (\"SEASON 2 · 2016\"). A year in the name still wins.\n- **L1 in the player** starts the film or episode again from the beginning (L2 still jumps back a minute). Pressed twice within a second in a series, it plays the episode before.\n\n### Features\n\n- **Home:** a billboard for the focused title, tinted by its colours, and one shelf at a time: Continue Watching, Recently Added, collections, one per genre, decades, All Movies and All Series.\n- **Movies and Series:** an eight-column grid, sortable by title, newest or year (R3), with search (Triangle). Series with seasons and episodes, and the next episode in the player.\n- **Details:** length, formats, score, genres and languages (sound and subtitles, also guessed from file names and subtitle text); L1/R1 step between titles.\n- **Player:** scrubber, seeking (hold left/right to seek faster), pause, audio-track and subtitle switching (the film's own and `.srt` files), a stream info panel. It remembers where you stopped; 92% counts as watched. H.264 and HEVC on the hardware decoder, AV1 through dav1d, HDR10 output on an HDR TV, tone mapping on an SDR one, surround sound.\n- **Settings:** Appearance, Playback, General, Library and About, saved as you change them.\n- **Automatic covers:** with a free TMDB key, posters, wallpapers and descriptions are fetched for titles that lack them. Pictures you put beside a film always win.\n\n### Good to know\n\n- Needs a PS5 that runs homebrew, with a loader that starts apps from `/data/homebrew` and an ELF loader on `127.0.0.1:9021`. Without it the app starts but finds nothing."
       },
       "pins": [
+        {
+          "tag": "01.000.100",
+          "asset": "Mediathek-PPSA66120-01.000.100.zip",
+          "size": 32080444,
+          "sha256": "36cae8ee9a7f0fbb4a8126ecc2b0f7c8aadf13b3c411e5e2aa9f3f5690adf8b9",
+          "content_version": "01.000.100",
+          "title_name": "Mediathek"
+        },
         {
           "tag": "01.000.090",
           "asset": "Mediathek-PPSA66120-01.000.090.zip",
@@ -625,14 +633,6 @@
           "size": 31964554,
           "sha256": "175b4807acecee6f9113f6c0261ed39495f060a19693ba49342d17c29ce05770",
           "content_version": "01.000.064",
-          "title_name": "Mediathek"
-        },
-        {
-          "tag": "01.000.062",
-          "asset": "Mediathek-PPSA66120-01.000.062.zip",
-          "size": 31961975,
-          "sha256": "04f21e484301ed46718b274e0c841de857775ce25dcb94e2ce5afb6848c7e779",
-          "content_version": "01.000.062",
           "title_name": "Mediathek"
         }
       ]
@@ -856,7 +856,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 1,
+      "stars": 4,
       "release": {
         "tag": "v1.6.9",
         "asset": "PPSA99810.zip",
@@ -1083,7 +1083,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 247,
+      "stars": 248,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1375,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 525,
+      "stars": 526,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1801,7 +1801,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 861,
+      "stars": 862,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2058,7 +2058,7 @@
         "capture",
         "usb"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v1.0.0",
         "asset": "PPSA17035.zip",
@@ -2297,7 +2297,7 @@
         "arcade",
         "fbneo"
       ],
-      "stars": 17,
+      "stars": 18,
       "release": {
         "tag": "v2.4",
         "asset": "FBNeoPS5-v2.4-PPSA99924.zip",
@@ -2419,7 +2419,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 408,
+      "stars": 409,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2462,18 +2462,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 153,
+      "stars": 154,
       "release": {
-        "tag": "v2.4.3",
+        "tag": "v2.4.5",
         "asset": "PPSA11018.zip",
-        "size": 327980417,
-        "sha256": "dbaaca34e158ecf3d13bcd72f398445b95ee00af13f9effdd1f9a6ca35854156",
-        "content_version": "02.004.003",
+        "size": 327997053,
+        "sha256": "58cd8d9aedb2751c475b1c1f1a38102752c7fd100db2b75558d4618147228d56",
+        "content_version": "02.004.005",
         "title_name": "PC5",
-        "published_at": "2026-11-19T22:44:59Z",
-        "notes": "PC5 2.4.3 gives every game Microsoft's DirectX helper DLLs when you have them, taken from a game's own DirectX redistributable by itself, and lets a game turn off read-ahead in its `env.txt`: Mini Ninjas now plays.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Mini Ninjas plays**: its effects failed to compile with Wine's own DirectX helper DLLs, and Level 1 crashed while loading. With Microsoft's DLLs and read-ahead off for the game, it plays through Level 1 at 60 FPS, with its files as they came.\n- `WINE_PS5_READ_AHEAD=0` in a game's `env.txt` turns off read-ahead for that game, as Wine patch 1001 describes. PC5 used to leave it out of the game's settings.\n\n### Changed\n\n- **DirectX helper DLLs for every game**: Microsoft's `d3dx9_*`, `d3dx10_*`, `d3dx11_*` and `d3dcompiler_*` DLLs in `pc5/dx9/syswow64` (32-bit) and `pc5/dx9/system32` (64-bit) are put in each game's Windows and used before Wine's own, as on Windows with the DirectX runtime installed. PC5 also takes them from DirectX `*_x86.cab` / `*_x64.cab` files in `pc5/dx9`, or in a game's own DirectX folder (such as `_CommonRedist/DirectX/Jun2010`) on the game's first start. Games that don't use these DLLs aren't affected.\n\nThanks to [youss17x](https://github.com/youss17x) for this ([#722](https://github.com/bornaradusin/PC5/pull/722)).\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for."
+        "published_at": "2026-11-20T14:17:24Z",
+        "notes": "PC5 2.4.5 fixes games that closed the moment their window opened while a controller was connected.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Games that closed as soon as their window opened** with a controller connected: at a game's start, PC5 told it that a device had just been added or removed, for the controller you were already holding, which Windows never does, and a game that read that message's details closed on it. Now only a controller that connects or disconnects while a game runs is announced, as on Windows.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.4.4 -->"
       },
       "pins": [
+        {
+          "tag": "v2.4.3",
+          "asset": "PPSA11018.zip",
+          "size": 327980417,
+          "sha256": "dbaaca34e158ecf3d13bcd72f398445b95ee00af13f9effdd1f9a6ca35854156",
+          "content_version": "02.004.003",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.4.2",
           "asset": "PPSA11018.zip",
@@ -2504,14 +2512,6 @@
           "size": 327885775,
           "sha256": "ea6149a539cc1d0026ea85b642d5a761546209414e63a011d6d0ddb825557616",
           "content_version": "02.003.010",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.9",
-          "asset": "PPSA11018.zip",
-          "size": 327885473,
-          "sha256": "7fa805e2f1d8bc806b28200c093b22c871d756c926af067ec075cc81c603fb9f",
-          "content_version": "02.003.009",
           "title_name": "PC5"
         }
       ]
@@ -2566,7 +2566,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1097,
+      "stars": 1098,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2623,7 +2623,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 266,
+      "stars": 267,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2653,7 +2653,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1691,
+      "stars": 1695,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -2718,7 +2718,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 442,
+      "stars": 443,
       "release": {
         "tag": "v4.0.0-beta-4",
         "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -2747,7 +2747,7 @@
         "emulator",
         "snes"
       ],
-      "stars": 67,
+      "stars": 68,
       "release": {
         "tag": "v2.11",
         "asset": "Snes9xPS5-v2.11-PPSA99922.zip",
@@ -4036,7 +4036,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 33,
+      "stars": 34,
       "release": {
         "tag": "v1.2.0",
         "asset": "PPSA99620.zip",
@@ -4546,7 +4546,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 65,
+      "stars": 66,
       "release": {
         "tag": "v0.13.7",
         "asset": "EVOPlayer-v0.13.7-PPSA99039.zip",
@@ -4935,7 +4935,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "01.000.215",
         "asset": "SmartTube-PPSA98260.zip",
@@ -5007,7 +5007,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 4,
+      "stars": 5,
       "release": {
         "tag": "v1.6.0",
         "asset": "PPSA99991.zip",
@@ -5784,7 +5784,7 @@
         "stable-diffusion",
         "images"
       ],
-      "stars": 15,
+      "stars": 16,
       "release": {
         "tag": "v1.7.0",
         "asset": "PPSA99576.zip",
