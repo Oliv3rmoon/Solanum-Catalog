@@ -411,7 +411,7 @@
         "emby",
         "video"
       ],
-      "stars": 47,
+      "stars": 50,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -1083,7 +1083,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 246,
+      "stars": 247,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1375,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 526,
+      "stars": 525,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1801,7 +1801,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 859,
+      "stars": 861,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2464,16 +2464,24 @@
       ],
       "stars": 153,
       "release": {
-        "tag": "v2.4.2",
+        "tag": "v2.4.3",
         "asset": "PPSA11018.zip",
-        "size": 327975844,
-        "sha256": "343dc7c9b5065b09611040a72c85373f2739acb9a04bdaf19984403030faf059",
-        "content_version": "02.004.002",
+        "size": 327980417,
+        "sha256": "dbaaca34e158ecf3d13bcd72f398445b95ee00af13f9effdd1f9a6ca35854156",
+        "content_version": "02.004.003",
         "title_name": "PC5",
-        "published_at": "2026-11-16T20:31:31Z",
-        "notes": "PC5 2.4.2 puts the picture of games shown in 2D only at a smaller resolution back in the middle of the TV, and saves graphics effects that fail to compile so they can be fixed from a report.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- With **Graphics mode › 2D only**, a game running at a smaller resolution than the TV's showed its picture shifted to the left and cut off, with black on the right. Windows makes a full-screen game's visible area cover the whole TV at a smaller resolution, while the game's picture still belongs to its window, and PC5 drew the picture from the corner of that visible area. It's now drawn where the game's window is.\n\n### Changed\n\n- When a game's graphics effects fail to compile, the game's log zip now also has the failing effects themselves (one of each kind, up to eight), so a report shows what the compiler is missing for that game.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output."
+        "published_at": "2026-11-19T22:44:59Z",
+        "notes": "PC5 2.4.3 gives every game Microsoft's DirectX helper DLLs when you have them, taken from a game's own DirectX redistributable by itself, and lets a game turn off read-ahead in its `env.txt`: Mini Ninjas now plays.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Mini Ninjas plays**: its effects failed to compile with Wine's own DirectX helper DLLs, and Level 1 crashed while loading. With Microsoft's DLLs and read-ahead off for the game, it plays through Level 1 at 60 FPS, with its files as they came.\n- `WINE_PS5_READ_AHEAD=0` in a game's `env.txt` turns off read-ahead for that game, as Wine patch 1001 describes. PC5 used to leave it out of the game's settings.\n\n### Changed\n\n- **DirectX helper DLLs for every game**: Microsoft's `d3dx9_*`, `d3dx10_*`, `d3dx11_*` and `d3dcompiler_*` DLLs in `pc5/dx9/syswow64` (32-bit) and `pc5/dx9/system32` (64-bit) are put in each game's Windows and used before Wine's own, as on Windows with the DirectX runtime installed. PC5 also takes them from DirectX `*_x86.cab` / `*_x64.cab` files in `pc5/dx9`, or in a game's own DirectX folder (such as `_CommonRedist/DirectX/Jun2010`) on the game's first start. Games that don't use these DLLs aren't affected.\n\nThanks to [youss17x](https://github.com/youss17x) for this ([#722](https://github.com/bornaradusin/PC5/pull/722)).\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for."
       },
       "pins": [
+        {
+          "tag": "v2.4.2",
+          "asset": "PPSA11018.zip",
+          "size": 327975844,
+          "sha256": "343dc7c9b5065b09611040a72c85373f2739acb9a04bdaf19984403030faf059",
+          "content_version": "02.004.002",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.3.13",
           "asset": "PPSA11018.zip",
@@ -2504,14 +2512,6 @@
           "size": 327885473,
           "sha256": "7fa805e2f1d8bc806b28200c093b22c871d756c926af067ec075cc81c603fb9f",
           "content_version": "02.003.009",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.8",
-          "asset": "PPSA11018.zip",
-          "size": 327848075,
-          "sha256": "2fb9a1c9e487666adc6651e85d7ae7d208c3bb9e112f3f55f8e7c120e08fd975",
-          "content_version": "02.003.008",
           "title_name": "PC5"
         }
       ]
@@ -2566,7 +2566,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1095,
+      "stars": 1097,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2964,7 +2964,7 @@
         "xbox",
         "racing"
       ],
-      "stars": 13,
+      "stars": 14,
       "release": {
         "tag": "v0.2.2",
         "asset": "Burnout3-PS5-0.2.2.zip",
@@ -3491,7 +3491,7 @@
         "amiga",
         "platformer"
       ],
-      "stars": 25,
+      "stars": 26,
       "release": {
         "tag": "v1.0.2",
         "asset": "JamesPond2-PS5-1.0.2.zip",
@@ -6010,7 +6010,7 @@
       "tags": [
         "trophies"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v0.1.1",
         "asset": "Trophy-Manager-v0.1.1-PPSA99842.zip",
