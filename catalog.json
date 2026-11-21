@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 76,
+      "stars": 77,
       "release": {
         "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
@@ -856,7 +856,7 @@
         "xbox",
         "cloud-gaming"
       ],
-      "stars": 4,
+      "stars": 6,
       "release": {
         "tag": "v1.6.9",
         "asset": "PPSA99810.zip",
@@ -1083,7 +1083,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 248,
+      "stars": 250,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1122,7 +1122,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 55,
+      "stars": 56,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1345,7 +1345,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 418,
+      "stars": 420,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1375,7 +1375,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 527,
+      "stars": 530,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1801,7 +1801,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 864,
+      "stars": 870,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2419,7 +2419,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 409,
+      "stars": 411,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2462,7 +2462,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 154,
+      "stars": 155,
       "release": {
         "tag": "v2.4.5",
         "asset": "PPSA11018.zip",
@@ -2566,7 +2566,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1100,
+      "stars": 1103,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2718,18 +2718,26 @@
         "libretro",
         "es-de"
       ],
-      "stars": 444,
+      "stars": 446,
       "release": {
-        "tag": "v4.1.0-beta-4",
-        "asset": "PS5_RetroArch-v4.1.0-beta-4.zip",
-        "size": 1553703982,
-        "sha256": "55231489f7701ba13ccbefcfd8d41592fd8db2ec437d8c2b752cb6480c8b2148",
-        "content_version": "01.000.000",
+        "tag": "v4.4.0-beta-4",
+        "asset": "PS5_RetroArch-v4.4.0-beta-4.zip",
+        "size": 1557219897,
+        "sha256": "de1c1d5edf416b5c6869055615cb092e3c70f9ffe361805b3771f3aa1c58c2e0",
+        "content_version": "04.004.000",
         "title_name": "RetroArch",
-        "published_at": "2026-11-21T02:57:37Z",
-        "notes": "# PS5_RetroArch-v4.1.0-beta-4\n\n<img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/assets/readme/important-warning.png\" alt=\"Important warning\">\n\n## PS5 RetroArch is a passion project, not a piracy project.\n\nIt exists so you can play the games you own on the console you own.\n\n- **Piracy is not condoned.**\n- **No games, BIOS files, console firmware or decryption keys are included, and they never will be.**\n- **Use only legally obtained backups of games you own**, made yourself from your own discs, cartridges or digital purchases.\n- **Use only BIOS and firmware files dumped from hardware you own.**\n- **Requests for, or links to, games, BIOS files, firmware or keys are not welcome** in this project's issues or discussions.\n\n---\n\n<a id=\"thanks\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/game-chat.svg\" width=\"26\" height=\"26\" alt=\"\"> Thank you\n\nEvery fix in this beta is a contributor's pull request. Each was reviewed, given a test that fails without it, and played on a Base PS5 before it was taken.\n\n| Contributor | What they brought |\n| --- | --- |\n| <img src=\"https://github.com/jorgemakerdev.png?size=96\" width=\"48\" height=\"48\" alt=\"\"><br>**Jorge Feitosa**<br>[@jorgemakerdev](https://github.com/jorgemakerdev) | **RetroArch starts every time** ([#51](https://github.com/mihawk-99/PS5_RetroArch/pull/51)): the elevation client now waits for root before it checks its access, so a quick relaunch is no longer refused. |\n| <img src=\"https://github.com/juliansuperai.png?size=96\" width=\"48\" height=\"48\" alt=\"\"><br>**juliansuperai**<br>[@juliansuperai](https://github.com/juliansuperai) | **SMB no longer freezes** ([#111](https://github.com/mihawk-99/PS5_RetroArch/pull/111)), and **.7z archives load over SMB** ([#115](https://github.com/mihawk-99/PS5_RetroArch/pull/115)). |\n| <img src=\"https://github.com/bobrass.png?size=96\" width=\"48\" height=\"48\" alt=\"\"><br>**lou**<br>[@bobrass](https://github.com/bobrass) | **The SMB page saves on a fresh install** ([#103](https://github.com/mihawk-99/PS5_RetroArch/pull/103)), and **games named like a BIOS file stay in your library** ([#101](https://github.com/mihawk-99/PS5_RetroArch/pull/101)). |\n\n**Starts every time. SMB that keeps up.**\n\n<a id=\"highlights\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/board.svg\" width=\"26\" height=\"26\" alt=\"\"> At a glance\n\n| What's fixed | What it means |\n| --- | --- |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/arrow-sync.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**Starting** | RetroArch no longer closes on launch after a game from EmulationStation or a quick restart. |"
+        "published_at": "2026-11-21T18:22:38Z",
+        "notes": "# PS5_RetroArch-v4.4.0-beta-4\n\n<img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/assets/releases/v4.4.0-beta-4/retroachievements-unlock.jpg\" width=\"960\" alt=\"An achievement unlocking in a game on the PS5, drawn as a notification widget with its badge\">\n\n**Achievements pop on screen. Your login stays.**\n\n<img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/assets/readme/important-warning.png\" alt=\"Important warning\">\n\n## PS5 RetroArch is a passion project, not a piracy project.\n\nIt exists so you can play the games you own on the console you own.\n\n- **Piracy is not condoned.**\n- **No games, BIOS files, console firmware or decryption keys are included, and they never will be.**\n- **Use only legally obtained backups of games you own**, made yourself from your own discs, cartridges or digital purchases.\n- **Use only BIOS and firmware files dumped from hardware you own.**\n- **Requests for, or links to, games, BIOS files, firmware or keys are not welcome** in this project's issues or discussions.\n\n---\n\n<a id=\"thanks\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/game-chat.svg\" width=\"26\" height=\"26\" alt=\"\"> Thank you\n\n| Contributor | What they brought |\n| --- | --- |\n| <img src=\"https://github.com/dirrini.png?size=96\" width=\"48\" height=\"48\" alt=\"\"><br>**Diego**<br>[@dirrini](https://github.com/dirrini) | **Notification widgets** ([#122](https://github.com/mihawk-99/PS5_RetroArch/pull/122)): RetroArch's graphical notifications, with the fonts and icons they need and their licences. Reviewed, tested, and played on a Base PS5 before it was taken. |\n\nThank you also to **rafaelbodri** for reporting the lost RetroAchievements login ([#110](https://github.com/mihawk-99/PS5_RetroArch/issues/110)) and **victorrentvd** for the missing Naomi list ([#109](https://github.com/mihawk-99/PS5_RetroArch/issues/109)).\n\n<a id=\"highlights\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/board.svg\" width=\"26\" height=\"26\" alt=\"\"> At a glance\n\n| What's new | What it means |\n| --- | --- |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/flag.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**Notification widgets** | Achievements, progress and RetroArch's own messages appear as graphical notifications instead of yellow text. |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/vault.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**RetroAchievements login** | You stay signed in after closing RetroArch from the PS5 home screen. |"
       },
       "pins": [
+        {
+          "tag": "v4.1.0-beta-4",
+          "asset": "PS5_RetroArch-v4.1.0-beta-4.zip",
+          "size": 1553703982,
+          "sha256": "55231489f7701ba13ccbefcfd8d41592fd8db2ec437d8c2b752cb6480c8b2148",
+          "content_version": "01.000.000",
+          "title_name": "RetroArch"
+        },
         {
           "tag": "v4.0.0-beta-4",
           "asset": "PS5_RetroArch-v4.0.0-beta-4.zip",
@@ -4046,7 +4054,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 34,
+      "stars": 35,
       "release": {
         "tag": "v1.2.0",
         "asset": "PPSA99620.zip",
@@ -5763,7 +5771,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 524,
+      "stars": 526,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
