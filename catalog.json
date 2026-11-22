@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 16,
+      "stars": 18,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -315,7 +315,7 @@
         "music",
         "vlc"
       ],
-      "stars": 77,
+      "stars": 78,
       "release": {
         "tag": "v0.6.1",
         "asset": "PPSA85300.zip",
@@ -442,16 +442,24 @@
       ],
       "stars": 13,
       "release": {
-        "tag": "1.3.3",
-        "asset": "Emby5-1.3.3.zip",
-        "size": 32811242,
-        "sha256": "4db1686f4dcd57c32596b88d3c9ccb514d3af5af3260997594d96707562a6569",
-        "content_version": "01.003.003",
+        "tag": "1.3.4",
+        "asset": "Emby5-1.3.4.zip",
+        "size": 32826289,
+        "sha256": "8d44c950ef38a7564ae0647f41e2aeb315edcf684d66e4f4fec76e34b25baa6c",
+        "content_version": "01.003.004",
         "title_name": "Emby5",
-        "published_at": "2026-11-17T08:07:14Z",
-        "notes": "## What's fixed\n\n### Chinese, Japanese, Korean and Thai subtitles\n- Subtitles in Chinese, Japanese, Korean or Thai no longer show boxes. 1.3.2 loaded the PS5's font for those characters but the subtitle renderer never used it: it only takes a font that a subtitle's style asks for by name, or its default font. The PS5's font for the subtitle's characters is now the default font while that subtitle is shown, so a styled .ass asking for Windows fonts (such as 微软雅黑) and a plain .srt both draw their Chinese, Japanese, Korean or Thai text. English lines in a plain .srt keep the usual font. ([#10](https://github.com/bornaradusin/Emby5/issues/10))\n\n## What's new\n\n### Theme videos\n- When a film or show has a theme video on your server, it can play behind the title's page in place of the backdrop picture, over and over while the page is open, with its sound as quiet as theme music. A title without one still plays its theme music. ([#9](https://github.com/bornaradusin/Emby5/issues/9))\n- It's off for now: turn it on under **Settings › Playback › Theme videos**. Emby and Jellyfin take theme videos from the video files in a title's **backdrops** folder. A theme video in HDR plays its sound but keeps the backdrop picture, as the menus are in SDR.\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.3.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.3** under **Settings > System > Installed version**."
+        "published_at": "2026-11-21T21:14:20Z",
+        "notes": "## What's new\n\n### Shuffle episodes\n- A show's page has a **Shuffle** button next to Play. It starts a random episode and plays on through the rest of the show in random order, each episode from its start. Specials (season 0) are left out, and each episode keeps its own season and episode number in the player. ([#11](https://github.com/bornaradusin/Emby5/issues/11))\n\n### \"Included in\" on film pages\n- A film's page can show the collections the film is in, above \"More like this\"; ✕ on one opens it. ([#11](https://github.com/bornaradusin/Emby5/issues/11))\n- It's off by default: turn it on under **Settings › Playback › Show \"Included in\" on film pages**. Emby and Jellyfin can't say which collections a film is in, so the first film page opened reads your collections once in the background (a few seconds on a large server; the page doesn't wait for it). The list is kept for ten minutes, so a film added to a collection on the server shows there within ten minutes.\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.4.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.4** under **Settings > System > Installed version**."
       },
       "pins": [
+        {
+          "tag": "1.3.3",
+          "asset": "Emby5-1.3.3.zip",
+          "size": 32811242,
+          "sha256": "4db1686f4dcd57c32596b88d3c9ccb514d3af5af3260997594d96707562a6569",
+          "content_version": "01.003.003",
+          "title_name": "Emby5"
+        },
         {
           "tag": "1.3.2",
           "asset": "Emby5-1.3.2.zip",
@@ -483,13 +491,6 @@
           "sha256": "8245685e9139840fcb8e45e86e6fceb3fabb1264a27cebad5c407336674a8085",
           "content_version": "01.002.010",
           "title_name": "Emby5"
-        },
-        {
-          "tag": "1.2.9",
-          "asset": "Emby5-1.2.9.zip",
-          "size": 29103252,
-          "sha256": "a1592d81312bebb14b46490fb4aeb410e59e5d5f7e428847b3dc7952e0ae5155",
-          "content_version": "01.002.009"
         }
       ]
     },
@@ -511,7 +512,7 @@
         "video",
         "ffmpeg"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v1.6.3",
         "asset": "MediaPlayerClassicPS5-v1.6.3-PPSA99015.zip",
@@ -1083,7 +1084,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 250,
+      "stars": 249,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1801,7 +1802,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 870,
+      "stars": 872,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1903,7 +1904,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 217,
+      "stars": 218,
       "release": {
         "tag": "v3.6",
         "asset": "PPSA97358.zip",
@@ -2419,7 +2420,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 411,
+      "stars": 412,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2462,18 +2463,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 155,
+      "stars": 158,
       "release": {
-        "tag": "v2.4.5",
+        "tag": "v2.4.6",
         "asset": "PPSA11018.zip",
-        "size": 327997053,
-        "sha256": "58cd8d9aedb2751c475b1c1f1a38102752c7fd100db2b75558d4618147228d56",
-        "content_version": "02.004.005",
+        "size": 328003160,
+        "sha256": "cf4aca9285d338dbc406050fd6945549dc925b6783339a34baa05ebb4396d230",
+        "content_version": "02.004.006",
         "title_name": "PC5",
-        "published_at": "2026-11-20T14:17:24Z",
-        "notes": "PC5 2.4.5 fixes games that closed the moment their window opened while a controller was connected.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Games that closed as soon as their window opened** with a controller connected: at a game's start, PC5 told it that a device had just been added or removed, for the controller you were already holding, which Windows never does, and a game that read that message's details closed on it. Now only a controller that connects or disconnects while a game runs is announced, as on Windows.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.4.4 -->"
+        "published_at": "2026-11-22T01:35:25Z",
+        "notes": "PC5 2.4.6 starts games in the language you chose in PC5, installs NVIDIA's PhysX for the games that carry it, and fixes older games that froze when a cutscene started or was skipped.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Games in PC5's language**: a game started in the console's language whatever **Settings › System › Language** said, and a game that doesn't handle that language could stop with an error at its start. A game now gets PC5's language, or the console's with **System default**.\n- **Games that froze when a cutscene started or was skipped**, with its voices missing: Windows' sound engine for older games (XACT) divided by zero when a game asked about a sound that hadn't started yet, and stopped while it held the game's sound.\n- **Games that need NVIDIA's PhysX** and carry its installer (PhysX System Software 9.13): PC5 stopped installing it partway (\"the cabinet ends before its files do\"), as two of its files are stored as one, so a game asking for PhysX 2.8 closed at its start. It installs whole now, and a game where it failed with an earlier PC5 gets it at its next start.\n- **Games that stayed on their loading screen** while their video decoder started (Unreal Engine 5): a decoded picture's size was given as its first part only, and the game's check of it stopped its video.\n- **Videos that showed green** in Unreal Engine games drawn with DirectX 11 (`-dx11`): the game decodes them on a second DirectX 11 device, and the main one couldn't open its pictures. PC5 now lets the two share them, for those games alone (an Unreal Engine game with its Media Foundation video player, in its program or as a DLL in its Engine folder). Games drawn with DirectX 12 aren't fixed by this: use `-dx11` for them.\n- **Games taken for drawing with Windows itself** that draw with Direct3D: a game whose program names no Direct3D, with an engine library beside it that uses Direct3D's helper library (D3DX) and loads Direct3D itself, so **Graphics mode** offered only **Auto** and **Windows only**. It is now a Direct3D game, with **Alternative** and **Compatibility** to try, an installed one too.\n- **Electron games that stopped at their start** with \"A JavaScript error occurred in the main process\" and `open EBADF`: the console gives a game its output as a socket, which Windows calls a pipe, and the game's script engine couldn't set it up as one. It can now."
       },
       "pins": [
+        {
+          "tag": "v2.4.5",
+          "asset": "PPSA11018.zip",
+          "size": 327997053,
+          "sha256": "58cd8d9aedb2751c475b1c1f1a38102752c7fd100db2b75558d4618147228d56",
+          "content_version": "02.004.005",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.4.3",
           "asset": "PPSA11018.zip",
@@ -2504,14 +2513,6 @@
           "size": 327885557,
           "sha256": "a1d42651475a5026cb3422469a658a6d733dffc8734d508cedeb0353f0550874",
           "content_version": "02.003.011",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.10",
-          "asset": "PPSA11018.zip",
-          "size": 327885775,
-          "sha256": "ea6149a539cc1d0026ea85b642d5a761546209414e63a011d6d0ddb825557616",
-          "content_version": "02.003.010",
           "title_name": "PC5"
         }
       ]
@@ -2566,7 +2567,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1103,
+      "stars": 1106,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2623,7 +2624,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 267,
+      "stars": 269,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2653,7 +2654,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1695,
+      "stars": 1697,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -2718,18 +2719,26 @@
         "libretro",
         "es-de"
       ],
-      "stars": 446,
+      "stars": 447,
       "release": {
-        "tag": "v4.4.0-beta-4",
-        "asset": "PS5_RetroArch-v4.4.0-beta-4.zip",
-        "size": 1557219897,
-        "sha256": "de1c1d5edf416b5c6869055615cb092e3c70f9ffe361805b3771f3aa1c58c2e0",
-        "content_version": "04.004.000",
+        "tag": "v4.7.0-beta-4",
+        "asset": "PS5_RetroArch-v4.7.0-beta-4.zip",
+        "size": 1558895879,
+        "sha256": "31510fb32b1e0b2b3c41d1232f5730ec9d8e4c248c7d6b5a63adddd5f880a455",
+        "content_version": "04.007.000",
         "title_name": "RetroArch",
-        "published_at": "2026-11-21T18:22:38Z",
-        "notes": "# PS5_RetroArch-v4.4.0-beta-4\n\n<img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/assets/releases/v4.4.0-beta-4/retroachievements-unlock.jpg\" width=\"960\" alt=\"An achievement unlocking in a game on the PS5, drawn as a notification widget with its badge\">\n\n**Achievements pop on screen. Your login stays.**\n\n<img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/assets/readme/important-warning.png\" alt=\"Important warning\">\n\n## PS5 RetroArch is a passion project, not a piracy project.\n\nIt exists so you can play the games you own on the console you own.\n\n- **Piracy is not condoned.**\n- **No games, BIOS files, console firmware or decryption keys are included, and they never will be.**\n- **Use only legally obtained backups of games you own**, made yourself from your own discs, cartridges or digital purchases.\n- **Use only BIOS and firmware files dumped from hardware you own.**\n- **Requests for, or links to, games, BIOS files, firmware or keys are not welcome** in this project's issues or discussions.\n\n---\n\n<a id=\"thanks\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/game-chat.svg\" width=\"26\" height=\"26\" alt=\"\"> Thank you\n\n| Contributor | What they brought |\n| --- | --- |\n| <img src=\"https://github.com/dirrini.png?size=96\" width=\"48\" height=\"48\" alt=\"\"><br>**Diego**<br>[@dirrini](https://github.com/dirrini) | **Notification widgets** ([#122](https://github.com/mihawk-99/PS5_RetroArch/pull/122)): RetroArch's graphical notifications, with the fonts and icons they need and their licences. Reviewed, tested, and played on a Base PS5 before it was taken. |\n\nThank you also to **rafaelbodri** for reporting the lost RetroAchievements login ([#110](https://github.com/mihawk-99/PS5_RetroArch/issues/110)) and **victorrentvd** for the missing Naomi list ([#109](https://github.com/mihawk-99/PS5_RetroArch/issues/109)).\n\n<a id=\"highlights\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/board.svg\" width=\"26\" height=\"26\" alt=\"\"> At a glance\n\n| What's new | What it means |\n| --- | --- |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/flag.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**Notification widgets** | Achievements, progress and RetroArch's own messages appear as graphical notifications instead of yellow text. |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/vault.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**RetroAchievements login** | You stay signed in after closing RetroArch from the PS5 home screen. |"
+        "published_at": "2026-11-22T02:34:08Z",
+        "notes": "# PS5_RetroArch-v4.7.0-beta-4\n\n**Four fixes from your reports, and achievements now make a sound.**\n\n<img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/assets/readme/important-warning.png\" alt=\"Important warning\">\n\n## PS5 RetroArch is a passion project, not a piracy project.\n\nIt exists so you can play the games you own on the console you own.\n\n- **Piracy is not condoned.**\n- **No games, BIOS files, console firmware or decryption keys are included, and they never will be.**\n- **Use only legally obtained backups of games you own**, made yourself from your own discs, cartridges or digital purchases.\n- **Use only BIOS and firmware files dumped from hardware you own.**\n- **Requests for, or links to, games, BIOS files, firmware or keys are not welcome** in this project's issues or discussions.\n\n---\n\n<a id=\"thanks\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/game-chat.svg\" width=\"26\" height=\"26\" alt=\"\"> Thank you\n\nThank you to **KURAMAAA0** for reporting the WebUI timing out with a large library ([#78](https://github.com/mihawk-99/PS5_RetroArch/issues/78)), **lozanosky** for the volume that kept coming back and for noticing the missing sounds ([#130](https://github.com/mihawk-99/PS5_RetroArch/issues/130)), and **quixotic120** for DOSBox Pure on a share ([#76](https://github.com/mihawk-99/PS5_RetroArch/issues/76)).\n\n<a id=\"highlights\"></a>\n\n## <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/board.svg\" width=\"26\" height=\"26\" alt=\"\"> At a glance\n\n| What's new | What it means |\n| --- | --- |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/library.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**Large libraries in the WebUI** | The WebUI answers in about a second with 15,000 games, where it took eleven. |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/settings.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**WebUI settings stop overriding the menu** | A value saved from the WebUI is applied once; what you then set on the console stays. |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/headphones.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**Sounds** | The achievement unlock sound plays, and is on by default. The menu's sounds are included too. |\n| <img src=\"https://raw.githubusercontent.com/mihawk-99/PS5_RetroArch/main/webui/assets/fluent/cloud.svg\" width=\"40\" height=\"40\" alt=\"\"><br>**DOSBox Pure on a share** | A DOS game's zip on an SMB share starts. |\n\n<a id=\"library\"></a>"
       },
       "pins": [
+        {
+          "tag": "v4.4.0-beta-4",
+          "asset": "PS5_RetroArch-v4.4.0-beta-4.zip",
+          "size": 1557219897,
+          "sha256": "de1c1d5edf416b5c6869055615cb092e3c70f9ffe361805b3771f3aa1c58c2e0",
+          "content_version": "04.004.000",
+          "title_name": "RetroArch"
+        },
         {
           "tag": "v4.1.0-beta-4",
           "asset": "PS5_RetroArch-v4.1.0-beta-4.zip",
@@ -3477,7 +3486,7 @@
         "fan-game",
         "hard"
       ],
-      "stars": 0,
+      "stars": 1,
       "release": {
         "tag": "v1.6.6.6-tribute-ps5",
         "asset": "IWBTGR-TributeEdition-PS5-PPSA99616.zip",
@@ -3767,7 +3776,7 @@
         "java",
         "sandbox"
       ],
-      "stars": 58,
+      "stars": 59,
       "release": {
         "tag": "01.000.288",
         "asset": "PPSA99874.zip",
@@ -4280,7 +4289,7 @@
         "gamecube",
         "mario"
       ],
-      "stars": 14,
+      "stars": 15,
       "release": {
         "tag": "v0.10.0",
         "asset": "Sunshine-PS5-v0.10.0.zip",
@@ -4850,7 +4859,7 @@
         "music",
         "spotify"
       ],
-      "stars": 24,
+      "stars": 25,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99061.zip",
@@ -5468,7 +5477,7 @@
         "saves",
         "backup"
       ],
-      "stars": 37,
+      "stars": 36,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
@@ -5621,7 +5630,7 @@
         "psvr2",
         "gaussian-splat"
       ],
-      "stars": 0,
+      "stars": 1,
       "release": {
         "tag": "v0.6.0",
         "asset": "photo-splat-vr-v0.6.0.zip",
@@ -5771,7 +5780,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 526,
+      "stars": 528,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
@@ -5804,16 +5813,24 @@
       ],
       "stars": 16,
       "release": {
-        "tag": "v1.7.0",
+        "tag": "v1.8.2",
         "asset": "PPSA99576.zip",
-        "size": 53282338,
-        "sha256": "370480cd72a450a2c3a829b9f55b815b2d4b0cfad738007ff68f22ded675a9fa",
-        "content_version": "02.007.000",
+        "size": 53461325,
+        "sha256": "16ae7fd89cf8b0606182aabc471c17b611b3732da4211bb82d7db07797913063",
+        "content_version": "02.008.002",
         "title_name": "PS5SD",
-        "published_at": "2026-11-19T17:27:31Z",
-        "notes": "The gallery as a slideshow on the TV, with the DualSense.\n\n## The slideshow\n\n- **Triangle** on the dashboard opens the gallery in full screen, on the newest picture.\n- **Left** and **Right** (D-pad or left stick) step through it; held, they repeat.\n- **Options** goes on by itself every 5 seconds, with a line along the bottom; again, and it stops.\n- **Circle** goes back to the dashboard.\n- New pictures join it while it is open, and a running job shows its progress in the top right corner.\n- Videos and images made with \"temporary\" are left out.\n\n## What it respects\n\n- With **Show images and prompts on the TV** off, there is no slideshow, and the dashboard says so. Turning it off closes an open slideshow.\n- The dashboard says when no controller was found.\n- A press right after the PS menu counts; closing the menu with Circle does not close the slideshow.\n\n## Memory\n\n- The slideshow keeps three pictures decoded, at most 1920 px, and lets go of them when it closes. A file over 4096x4096 shows as a note and is not decoded.\n- FLUX.2 Klein 9B with two LoRAs made an image while the slideshow ran, with the CPU heap at 0.55 GiB after it ([CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.7.0/docs/CONSOLE.md#the-slideshow-on-the-tv-2026-11-19)).\n\n## Install\n\nFrom the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` and let ShadowMountPlus scan. An update keeps models, presets, gallery and settings.\n\n## Next\n\n[ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.7.0/ROADMAP.md) at the tag."
+        "published_at": "2026-11-22T00:51:00Z",
+        "notes": "A LoRA's trigger words as a list: each on or off, all of them or some at random for each image, and through the API.\n\n## Trigger words as chips\n\n- A LoRA's trigger words are a list of chips, kept on the console. Under **Info** you add your own (Enter or a comma), remove ones with ×, and turn them on and off.\n- Under a LoRA you picked on the Create tab, its chips turn on and off with a click, saved to the console at once.\n- A lookup on Civitai makes one chip of each trained word; a phrase with commas stays one chip.\n- `activation text` keeps all the words, so A1111 still sees them.\n\n## Modes\n\n- **All of them**: the words that are on. **One at random** or **Some at random** (a number): picked anew for each image.\n- In mode One or Some, **Add __lora:NAME__** puts a placeholder at the cursor, so each image picks its own words; in mode All, **Add trigger words** puts the words themselves.\n- **`__lora:NAME__`** puts in one LoRA's words at that place (its path or file name, any case), picked or not. `__lora__` leaves out the LoRAs it names.\n\n## API\n\n- `GET` and `POST /ps5sd/v1/app/loras/info/<path>` read and set `triggers`, `trigger_mode` and `trigger_count`; the old `trigger` still works. `GET loras` lists them.\n- `POST /ps5sd/v1/app/prompts/expand` uses each LoRA's list and mode, and takes `triggers`, `trigger_mode` and `trigger_count` in a `lora` item for one call.\n- [API.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.2/docs/API.md#trigger-words). Measured on the console: [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.2/docs/CONSOLE.md#trigger-words-as-a-list-2026-11-22).\n\n## Install\n\nFrom the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` and let ShadowMountPlus scan. An update keeps models, presets, gallery and settings.\n\n## Next\n\n[ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.2/ROADMAP.md) at the tag."
       },
       "pins": [
+        {
+          "tag": "v1.7.0",
+          "asset": "PPSA99576.zip",
+          "size": 53282338,
+          "sha256": "370480cd72a450a2c3a829b9f55b815b2d4b0cfad738007ff68f22ded675a9fa",
+          "content_version": "02.007.000",
+          "title_name": "PS5SD"
+        },
         {
           "tag": "v1.3.1",
           "asset": "PPSA99576.zip",
@@ -5845,14 +5862,6 @@
           "sha256": "c151d8396cec1a2cf53c010780eabd50aa334c447c4b0e33b9f0e52a9830b675",
           "content_version": "02.001.001",
           "title_name": "PS5SD"
-        },
-        {
-          "tag": "v1.0.0",
-          "asset": "PPSA99576.zip",
-          "size": 52191751,
-          "sha256": "a10177438a284fc2335325c52e84e2c5705c272fd25a85b5dab5853d11624f89",
-          "content_version": "02.000.000",
-          "title_name": "PS5SD"
         }
       ]
     },
@@ -5873,7 +5882,7 @@
         "discord",
         "chat"
       ],
-      "stars": 3,
+      "stars": 4,
       "release": {
         "tag": "v01.000.010",
         "asset": "PPSA99190.zip",
