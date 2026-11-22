@@ -959,16 +959,24 @@
       ],
       "stars": 28,
       "release": {
-        "tag": "v1.0.22",
-        "asset": "Crux2-v1.0.22.zip",
-        "size": 38927589,
-        "sha256": "501283ce83748daf42423417e78d3f806eea55176f24c0ff1611a895e93b1759",
-        "content_version": "01.022.000",
+        "tag": "v1.0.23",
+        "asset": "Crux2-v1.0.23.zip",
+        "size": 39113320,
+        "sha256": "ef2bf8832624ddd45f5a0570f996f10188540307ca50edd1be08e65662a5310a",
+        "content_version": "01.023.000",
         "title_name": "Crux2",
-        "published_at": "2026-11-17T00:29:58Z",
-        "notes": "# Crux2 v1.0.22\n\nHeavy games run faster: the graphics thread no longer spends half its time creating textures. About fifty bugs in the interface are fixed.\n\n## Added\n- **Shared Render Target Memory** and **Streamed Memory Clearing** (Settings, the Everything level; both on). At high internal resolutions the graphics thread spent about half its time creating textures: each render target had a memory allocation of its own, and the driver cleared each one and then flushed it line by line. Render targets now share memory blocks, and new memory is cleared in one pass. On a console, in a heavy game at 6x, the graphics thread went from 100% busy to 30-60%. Either can be turned off (they take effect at the next start).\n- **The recomp kit makes Crux2's native modules on Windows** too: drop a game on `Crux2 Native.cmd` (they were made on Linux only). It also links large games on Windows, which failed with \"The filename or extension is too long\".\n- The boot log names what creates textures and at what sizes, and a profile lists 40 functions on the stack (12 before).\n\n## Changed\n- Built on PCSX2 master of 2026-11-17 (`8407746`: a newer controller database, and Japanese titles in the game database). Save states are not affected.\n- **Thread Pinning** shows \"Dedicated Cores (Default)\", which is what Crux2 has always set on a new install.\n\n## Fixed\nAbout fifty bugs found by a review of the interface's code. Among them:\n- **The quick menu's Screenshot**, and a texture pack download or a save search ending during a game, could stop the picture or the title.\n- **Covers without a connection**: every game was noted as having no cover and never asked for again. A cover download cut short no longer turns automatic covers off for good.\n- **A texture pack moved onto a share** that already had one for the game was mixed with it, and the original deleted.\n- **A memory card could be lost** to a power cut while it was written; a restore stopped by a game start left some cards restored and some not.\n- **The on-screen keyboard**: Delete took two characters after an accented letter.\n- **Controller ports 2 and up** shared port 1's rows: after \"Map to Console Controller\" the next press mapped another port.\n- **\"Internal resolution above 12x\"** jumped to 25x from a normal value.\n- **Quick views** kept in Showcase, Wheel, Wall or Discs came back as Table after a restart.\n- **A game's own SingStar or light gun choice**, put back to the global one, kept its own USB settings.\n- **A disc set's** last played, time played and favourite are now the whole set's, not the front disc's.\n- Logs and What's New at larger text sizes lost the ends of their lines; the card and texture pack managers sat off-centre under 100% interface size.\n\n## Installation"
+        "published_at": "2026-11-22T17:53:26Z",
+        "notes": "# Crux2 v1.0.23\n\nFreezes in the interface are fixed, anti-aliasing can be set per game and no longer raises the resolution, and the M.2 storage can hold games.\n\n## Added\n- **Games on the M.2 storage** (`/mnt/ext1`) and on `/mnt/ext0`: a folder named `crux2`, `ps2` or the like at the top is found as on a USB drive, and both are offered in the folder browser, for copying a disc, exporting saves and shader presets.\n- **Anti-Aliasing, SSAA Filter and Debanding** can be set for one game.\n- Test runs say more about where the graphics chip's time goes: what each conversion pass does (copies, depth conversions, deinterlacing, merging, clears), the pixels shaded by each kind of pass, and why the graphics thread waited for an image (the screen's pace, the GPU, a full queue; a patch to the graphics driver).\n- **IOP Stores Inline**, **Skip Unchanged Microprograms**, **Coarse Thread Times** and **Wake-Up Spin Time** (Settings, the Everything level; off, or as before).\n\n## Changed\n- **SSAA** scales the picture of the internal resolution you chose down to the screen; it no longer raises the resolution to 8x at 4K. FSR 1 is off while SSAA is chosen, and comes back when another choice is made.\n- **Driver Core Kept Free** is on: the emulator's other threads stay off the graphics driver's core.\n- The game page's settings tab is **Game Specific Settings** (and so are the quick menu's tile and the page's card); the file card is **Game File**.\n- PCSX2's messages on screen look like Crux2's own.\n- Faster paths in the CPU emulation, the VU thread, the GS and the audio's time stretch, each giving the same results as before. In the games measured they changed no frame rate: those are held back by the graphics chip, not by these paths.\n- The profile the title is compiled with is trained again on these sources.\n\n## Fixed\n- **Choosing a memory card or changing a memory card setting could freeze the interface and the game**: the Memory cards page opened every card (a folder card's saves all read) each frame it was shown.\n- **Loading texture packs again soon after a game with a pack started** (a game closed, a texture setting changed, a pack download ended) could freeze the picture and the interface for tens of seconds or minutes.\n- **A file written to a network share** (a card sync, a backup, a pack moved there) held up everything else on that share until it was written, the game's picture among them.\n- **Pinned settings**: the Settings home showed only the four oldest pins. It shows them in the quick menu's order and scrolls through the rest.\n- A resolution that SSAA had raised stayed raised after SSAA was turned off. It is put back now; one raised by an older version is not known: lower it by hand.\n\n## Tested"
       },
       "pins": [
+        {
+          "tag": "v1.0.22",
+          "asset": "Crux2-v1.0.22.zip",
+          "size": 38927589,
+          "sha256": "501283ce83748daf42423417e78d3f806eea55176f24c0ff1611a895e93b1759",
+          "content_version": "01.022.000",
+          "title_name": "Crux2"
+        },
         {
           "tag": "v1.0.21",
           "asset": "Crux2-v1.0.21.zip",
@@ -1000,13 +1008,6 @@
           "sha256": "dc0dd59ee77a23b8c1baeb7cd1347100d553a6159c319aa8a263887a308a355e",
           "content_version": "01.017.000",
           "title_name": "Crux2"
-        },
-        {
-          "tag": "v1.0.15",
-          "asset": "Crux2-v1.0.15.zip",
-          "size": 32669031,
-          "sha256": "c7e7415b37a40f9f1e0947a6a1584fe76dcc5260ac1c7760bf9859ce583ca015",
-          "content_version": "01.015.000"
         }
       ]
     },
@@ -1346,7 +1347,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 420,
+      "stars": 419,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1802,7 +1803,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 872,
+      "stars": 873,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -1904,7 +1905,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 218,
+      "stars": 219,
       "release": {
         "tag": "v3.6",
         "asset": "PPSA97358.zip",
@@ -2465,16 +2466,24 @@
       ],
       "stars": 158,
       "release": {
-        "tag": "v2.4.6",
+        "tag": "v2.4.7",
         "asset": "PPSA11018.zip",
-        "size": 328003160,
-        "sha256": "cf4aca9285d338dbc406050fd6945549dc925b6783339a34baa05ebb4396d230",
-        "content_version": "02.004.006",
+        "size": 328006232,
+        "sha256": "fda2b173f994be5063495b46534ee07f30a289611ac343a4169e02ca6b85237c",
+        "content_version": "02.004.007",
         "title_name": "PC5",
-        "published_at": "2026-11-22T01:35:25Z",
-        "notes": "PC5 2.4.6 starts games in the language you chose in PC5, installs NVIDIA's PhysX for the games that carry it, and fixes older games that froze when a cutscene started or was skipped.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Games in PC5's language**: a game started in the console's language whatever **Settings › System › Language** said, and a game that doesn't handle that language could stop with an error at its start. A game now gets PC5's language, or the console's with **System default**.\n- **Games that froze when a cutscene started or was skipped**, with its voices missing: Windows' sound engine for older games (XACT) divided by zero when a game asked about a sound that hadn't started yet, and stopped while it held the game's sound.\n- **Games that need NVIDIA's PhysX** and carry its installer (PhysX System Software 9.13): PC5 stopped installing it partway (\"the cabinet ends before its files do\"), as two of its files are stored as one, so a game asking for PhysX 2.8 closed at its start. It installs whole now, and a game where it failed with an earlier PC5 gets it at its next start.\n- **Games that stayed on their loading screen** while their video decoder started (Unreal Engine 5): a decoded picture's size was given as its first part only, and the game's check of it stopped its video.\n- **Videos that showed green** in Unreal Engine games drawn with DirectX 11 (`-dx11`): the game decodes them on a second DirectX 11 device, and the main one couldn't open its pictures. PC5 now lets the two share them, for those games alone (an Unreal Engine game with its Media Foundation video player, in its program or as a DLL in its Engine folder). Games drawn with DirectX 12 aren't fixed by this: use `-dx11` for them.\n- **Games taken for drawing with Windows itself** that draw with Direct3D: a game whose program names no Direct3D, with an engine library beside it that uses Direct3D's helper library (D3DX) and loads Direct3D itself, so **Graphics mode** offered only **Auto** and **Windows only**. It is now a Direct3D game, with **Alternative** and **Compatibility** to try, an installed one too.\n- **Electron games that stopped at their start** with \"A JavaScript error occurred in the main process\" and `open EBADF`: the console gives a game its output as a socket, which Windows calls a pipe, and the game's script engine couldn't set it up as one. It can now."
+        "published_at": "2026-11-22T15:32:24Z",
+        "notes": "PC5 2.4.7 reads Microsoft's DirectX End-User Runtime as it is downloaded, gives older games Microsoft's own sound engine where Wine's falls short, and fixes games that stopped for memory while enough was free.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Microsoft's DirectX End-User Runtime, as it is downloaded**: put Microsoft's `directx_Jun2010_redist.exe` in `/data/prospero-win/pc5/dx9`. At the next game start PC5 takes Microsoft's Direct3D helpers (D3DX) and shader compilers from it for every game, as DLLs put in that folder already did, and Microsoft's sound engine for older games (XACT) for the games whose sound needs Microsoft's own. It reads the package once. A game that needs it and doesn't have it says so in its log.\n\n### Fixed\n\n- **Older games whose voices went missing**, with their ambient sound too loud and out of step: a game that hands the sound engine for older games (XACT) its own audio engine gets Microsoft's XACT from the DirectX End-User Runtime above, as Wine's doesn't take it.\n- **Games whose screen stayed black after switching to fullscreen** (Direct3D 9): their effects (D3DX) answered \"not implemented\" when the game reset its graphics for fullscreen, and the game stopped drawing. They now answer as Microsoft's do.\n- **Games that stopped with \"out of memory\" while enough memory was free**: the console's memory was split into pieces, and a game's large request, or a large graphics buffer, needed one piece bigger than any free. Such a request now takes several pieces.\n- **\"Video memory has been exhausted\" shown by Unreal Engine games**: the console's graphics driver counted every graphics allocation twice in the memory it reports.\n- **A game drawn only with DirectX 12 taken for DirectX 11** (RE Engine), as its protected program shows only DXGI: it was given Wine's own DirectX 12, which couldn't make its device. It starts with DirectX 12, an installed one too.\n- **A game's log when memory runs out** now tells all the memory still free, beside the largest free piece, so a full console can be told from one whose memory is split into pieces.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem"
       },
       "pins": [
+        {
+          "tag": "v2.4.6",
+          "asset": "PPSA11018.zip",
+          "size": 328003160,
+          "sha256": "cf4aca9285d338dbc406050fd6945549dc925b6783339a34baa05ebb4396d230",
+          "content_version": "02.004.006",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.4.5",
           "asset": "PPSA11018.zip",
@@ -2505,14 +2514,6 @@
           "size": 327907675,
           "sha256": "b7ddd64b76f602e83e5f89cfaf9afa5e14dd90e2e2a601370c11f4fe7ed6e45f",
           "content_version": "02.003.013",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.11",
-          "asset": "PPSA11018.zip",
-          "size": 327885557,
-          "sha256": "a1d42651475a5026cb3422469a658a6d733dffc8734d508cedeb0353f0550874",
-          "content_version": "02.003.011",
           "title_name": "PC5"
         }
       ]
@@ -2567,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1106,
+      "stars": 1109,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2654,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1697,
+      "stars": 1700,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -3747,15 +3748,25 @@
       ],
       "stars": 5,
       "release": {
-        "tag": "v1.0.2",
+        "tag": "v1.0.5",
         "asset": "PPSA98001.zip",
-        "size": 8977138,
-        "sha256": "1927587707eee86681677fb2ddadcc53c5be0c4f1696da41ad11d92dbc42662e",
-        "content_version": "02.000.002",
+        "size": 8997540,
+        "sha256": "4bb71f9839b7e01afbd0d612deb921d3df3dbc09558aa7c42bcd5d2148c7bc04",
+        "content_version": "02.000.005",
         "title_name": "PokeMMO Prospero",
-        "published_at": "2026-10-09T15:54:30Z",
-        "notes": "**Full Changelog**: https://github.com/Shabbypenguin/PokeMMO-Prospero/compare/v1.0.1...v1.0.2"
-      }
+        "published_at": "2026-11-22T18:49:59Z",
+        "notes": "**Full Changelog**: https://github.com/Shabbypenguin/PokeMMO-Prospero/compare/v1.0.2...v1.0.5"
+      },
+      "pins": [
+        {
+          "tag": "v1.0.2",
+          "asset": "PPSA98001.zip",
+          "size": 8977138,
+          "sha256": "1927587707eee86681677fb2ddadcc53c5be0c4f1696da41ad11d92dbc42662e",
+          "content_version": "02.000.002",
+          "title_name": "PokeMMO Prospero"
+        }
+      ]
     },
     {
       "id": "prosperocraft",
@@ -5632,16 +5643,24 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "v0.6.0",
-        "asset": "photo-splat-vr-v0.6.0.zip",
-        "size": 34379610,
-        "sha256": "f085419db0d2d0f94998b3b89a1d96a681aa5f8fede2646ed7b2c39c2d16f67c",
-        "content_version": "01.006.000",
+        "tag": "v0.6.1",
+        "asset": "photo-splat-vr-v0.6.1.zip",
+        "size": 34424634,
+        "sha256": "f755df34a9f815deed9f05dd304ec309bf34eb4a95305d6c82a5a0af1aeea78c",
+        "content_version": "01.006.001",
         "title_name": "Photo Splat VR",
-        "published_at": "2026-11-07T13:13:24Z",
-        "notes": "**Photo Splat VR v0.6.0** makes network libraries much easier to use: the photo picker browses folders on every source, new scenes can be saved straight to a network folder, the TV now shows its own picture and menu while you are in VR, and the model downloads about three times faster.\n\n**What's new**\n- Folders in the photo picker. Every source (Console, Inbox, USB and your network locations) is a folder browser like Finder or Windows Explorer: folders first, then the photos and splat files of the folder you are in. Cross opens a folder, Circle goes up. A network location is no longer one long list of every photo on the share.\n- Import splat files one by one. Square on a folder no longer imports every splat file below it. You pick the files yourself, and Cross on a splat file imports it, from any source.\n- Output folder. Settings > Output folder chooses where new scenes are saved: the console (default) or a folder on a network location, picked by browsing that location's folders (Square = \"Use this folder\"). Scenes are saved to `<output folder>/<album>/<scene>`, so your albums look the same as on the console. A splat import saves a converted copy there too. Choosing a folder switches that location's scene library on. Scenes you already have stay where they are.\n- Albums on network scene libraries. A network scene library shows the folders that hold scenes as albums, like the console does, and the scenes directly in the folder as Unsorted. An offline share shows its own error.\n- An offline share no longer loses a scene. If the network folder does not answer when a scene is ready, the scene waits (the row says \"Waiting for\" and the location's name), stays safe on the console, tries again by itself (every few seconds at first, later every 2 minutes, and when the app starts) and is saved when the share is back. Square on the row cancels it. A scene is saved under a hidden temporary name and only gets its real name once it is whole, so a share that drops never leaves a half-saved scene or a duplicate.\n- Much faster model download. The SHARP model (2.8 GB) downloads over four connections at once, about 3 times faster on the console, and the Models row shows \"about N min left\". A paused or interrupted download continues where it stopped, and the model is still checked after it arrives.\n- The TV has its own picture. In VR the TV shows the scene without the VR window or HUD and, while the menu is open, the same menu flat on the whole screen. Anyone holding a controller can drive it, so the person at the TV can pick a scene before the headset is on. If the console refuses the TV output or it stops working, the TV shows the headset's view as before."
+        "published_at": "2026-11-22T16:44:30Z",
+        "notes": "**Photo Splat VR v0.6.1** fixes the SHARP model download on the console, makes Quit faster, and adds PS VR2 support tables for more firmware versions.\n\n**What's new**\n- **SHARP downloads on the console.** The 2.8 GB model no longer stops at 5% with heavy lag: it downloads and gets ready in about 40 minutes; a faster setup is planned. A download that stalls now fails after 60 seconds with **Retry**, and **Cancel** and **Quit** always work. Tested on a base PS5, firmware 13.60.\n- **Faster Quit.** VR mode is turned off before the TV output closes, so leaving the app no longer waits on the display.\n- **More firmware support.** PS VR2 support tables for firmware 5.50 to 13.60; 10.01 uses the 10.00 tables. Tested on firmware 13.60; the other versions are untested on console. The tables come from the PS5VR project (Husam Osman, GPL-3.0); the notices are in the repository.\n- **A message when support is missing.** On a firmware without a table, the TV now shows a message explaining how to help add support instead of the app closing silently.\n\n**Install**\nUnzip `photo-splat-vr-v0.6.1.zip` and copy the `PPSA99770` folder to the console as described in the README (Install section). Title ID `PPSA99770`, content ID `IV0000-PPSA99770_00-PHOTOSPLATVR0001`. Installing over v0.6.0 or earlier keeps your scenes, photos, network locations and downloaded models: the app's data folder is separate from the app.\n\n**Unchanged from v0.6.0**\n- Convert photos on the console: SHARP (best quality) or Depth Anything V2 Small (fast, ~2 s; scene size is approximate).\n- Models are downloaded inside the app after you accept their licences; no model weights are shipped.\n- The photo picker browses folders on every source, scenes can be saved to a folder on a network location, and network scene libraries show albums.\n- Photo formats including camera RAW, splat import (`.ply`, `.splat`, `.spz`, `.compressed.ply`), rotate left or right on any photo or scene entry, visible folders with a passcode, thumbnail size, SMB and NFS network locations.\n- The TV has its own picture and menu, the scene and menu start in front of you, hold **Options** to recentre, and the menu window stays rigid.\n- Browsing, folders, rename and delete, VR viewing with DualSense or PS VR2 Sense controllers, comfort settings.\n- Three sample scenes (public-domain photos).\n\n**Known limitations**\n- Scaling a scene down tightens the space around the pivot; the whole scene does not get smaller (its highest point stays high). A better scale is planned for 0.9.\n- Folders on a network share cannot be created, renamed or deleted from the console; do that on the computer that hosts the share."
       },
       "pins": [
+        {
+          "tag": "v0.6.0",
+          "asset": "photo-splat-vr-v0.6.0.zip",
+          "size": 34379610,
+          "sha256": "f085419db0d2d0f94998b3b89a1d96a681aa5f8fede2646ed7b2c39c2d16f67c",
+          "content_version": "01.006.000",
+          "title_name": "Photo Splat VR"
+        },
         {
           "tag": "v0.5.0",
           "asset": "photo-splat-vr-v0.5.0.zip",
@@ -5813,16 +5832,24 @@
       ],
       "stars": 16,
       "release": {
-        "tag": "v1.8.2",
+        "tag": "v1.8.5",
         "asset": "PPSA99576.zip",
-        "size": 53461325,
-        "sha256": "16ae7fd89cf8b0606182aabc471c17b611b3732da4211bb82d7db07797913063",
-        "content_version": "02.008.002",
+        "size": 53497375,
+        "sha256": "90da12138142605f43c6685454ff1f7864ec6105ff16d4730421a425e86cc35a",
+        "content_version": "02.008.005",
         "title_name": "PS5SD",
-        "published_at": "2026-11-22T00:51:00Z",
-        "notes": "A LoRA's trigger words as a list: each on or off, all of them or some at random for each image, and through the API.\n\n## Trigger words as chips\n\n- A LoRA's trigger words are a list of chips, kept on the console. Under **Info** you add your own (Enter or a comma), remove ones with ×, and turn them on and off.\n- Under a LoRA you picked on the Create tab, its chips turn on and off with a click, saved to the console at once.\n- A lookup on Civitai makes one chip of each trained word; a phrase with commas stays one chip.\n- `activation text` keeps all the words, so A1111 still sees them.\n\n## Modes\n\n- **All of them**: the words that are on. **One at random** or **Some at random** (a number): picked anew for each image.\n- In mode One or Some, **Add __lora:NAME__** puts a placeholder at the cursor, so each image picks its own words; in mode All, **Add trigger words** puts the words themselves.\n- **`__lora:NAME__`** puts in one LoRA's words at that place (its path or file name, any case), picked or not. `__lora__` leaves out the LoRAs it names.\n\n## API\n\n- `GET` and `POST /ps5sd/v1/app/loras/info/<path>` read and set `triggers`, `trigger_mode` and `trigger_count`; the old `trigger` still works. `GET loras` lists them.\n- `POST /ps5sd/v1/app/prompts/expand` uses each LoRA's list and mode, and takes `triggers`, `trigger_mode` and `trigger_count` in a `lora` item for one call.\n- [API.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.2/docs/API.md#trigger-words). Measured on the console: [CONSOLE.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.2/docs/CONSOLE.md#trigger-words-as-a-list-2026-11-22).\n\n## Install\n\nFrom the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` and let ShadowMountPlus scan. An update keeps models, presets, gallery and settings.\n\n## Next\n\n[ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.2/ROADMAP.md) at the tag."
+        "published_at": "2026-11-22T12:22:42Z",
+        "notes": "PS5SD 1.8.5 waits when Civitai limits downloads, fixes the memory hint after a model switch, adds a search to the prompt collections, and keeps showing the steps of a run after its tab was in the background.\n\n## Downloads that the server limits (HTTP 429)\n\nCivitai stopped a LoRA at 855 MB with \"Too Many Requests\". 1.8.4 tried again every few seconds on 16 connections and gave up after about a minute, and the row only showed the bytes.\n\n- All connections of a download now pause together: 30, 60, then 120 s, or as long as the server's Retry-After says (at most 300 s). After seven pauses in a row without progress the download fails.\n- A 429 on the first request is asked again three times.\n- The row says why it waits: \"Civitai limits downloads for now (HTTP 429); trying again in 60 s\".\n- A failed download says what happened and that Retry keeps what came in.\n\nOn the console, the 580 MB LoRA that Civitai limited paused 300 s twice and then finished on its own.\n\n## The memory hint under Generate\n\n- It said \"Larger than every run since PS5SD started\" when it meant \"since the model loaded\". It now says what it checks.\n- It warned at FLUX.3 Klein's own 1024x1024 after a switch from another model. Q6_K at 1024x1024 after Q4_K, the run that failed in 0.7, now runs, so 1024x1024 counts as safe for the family.\n- The hint is checked again after each image of a queue, not only when the queue ends.\n\n## Search in the prompt collections\n\n- A box above the collections finds them by name and by their entries. All the words you type must match, in any order, each at the start of a word: \"red\" finds red and reddish, not colored.\n- A collection whose name does not match lists only the entries that do, and its chip shows \"cosplay (3 of 60)\".\n- Tick all and Tick none act on the shown collections while you search.\n\n## The steps after a tab in the background\n\nThe page asked for its job one look at a time. A look that never came back, such as a request the browser held while the tab was in the background, left the page on \"Queued…\" for good.\n\n- A look now has a time limit, and one that hangs for 15 s is replaced.\n- The page looks at once when its tab is shown again.\n- While your image waits behind another one, the page shows the one that runs: its step (\"Queued · running now: step 14 of 20\"), the bar and its live preview. This happens with Random prompt, where each image is sent when the one before is done: images you add to the queue meanwhile line up before the run's next one.\n\n## Install\n\nUpdate from the homebrew store, or unpack `PPSA99576.zip` into `/data/homebrew/` and let ShadowMountPlus scan.\n\n## Next\n\n[ROADMAP.md](https://github.com/Darkatek7/PS5SD/blob/v1.8.5/ROADMAP.md)"
       },
       "pins": [
+        {
+          "tag": "v1.8.2",
+          "asset": "PPSA99576.zip",
+          "size": 53461325,
+          "sha256": "16ae7fd89cf8b0606182aabc471c17b611b3732da4211bb82d7db07797913063",
+          "content_version": "02.008.002",
+          "title_name": "PS5SD"
+        },
         {
           "tag": "v1.7.0",
           "asset": "PPSA99576.zip",
@@ -5853,14 +5880,6 @@
           "size": 53174697,
           "sha256": "68b3c340edd19c6404253be27a6e494fb161f7adee79f68a8c6c68bdd4373d75",
           "content_version": "02.002.001",
-          "title_name": "PS5SD"
-        },
-        {
-          "tag": "v1.1.1",
-          "asset": "PPSA99576.zip",
-          "size": 53152817,
-          "sha256": "c151d8396cec1a2cf53c010780eabd50aa334c447c4b0e33b9f0e52a9830b675",
-          "content_version": "02.001.001",
           "title_name": "PS5SD"
         }
       ]
@@ -5913,7 +5932,7 @@
         "saves",
         "sync"
       ],
-      "stars": 127,
+      "stars": 128,
       "release": {
         "tag": "v1.4.3",
         "asset": "PPSA76677.zip",
