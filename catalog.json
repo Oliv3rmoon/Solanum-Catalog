@@ -411,7 +411,7 @@
         "emby",
         "video"
       ],
-      "stars": 50,
+      "stars": 51,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -514,16 +514,24 @@
       ],
       "stars": 11,
       "release": {
-        "tag": "v1.6.3",
-        "asset": "MediaPlayerClassicPS5-v1.6.3-PPSA99015.zip",
-        "size": 72944175,
-        "sha256": "6a6eedf66360ef35b4999c0e0323fb113d19771d43f897d10314befb7073d801",
-        "content_version": "01.063.000",
+        "tag": "v1.7.0",
+        "asset": "MediaPlayerClassicPS5-v1.7.0-PPSA99015.zip",
+        "size": 73239407,
+        "sha256": "6b527b9f81f52c5470c9c677a0885a9941aece3ec61a137906f1698ad9839f07",
+        "content_version": "01.070.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-11-17T14:26:31Z",
-        "notes": "## Media Player Classic PS5 1.6.3\n\nSettings backup to a USB drive, addressing [issue #10](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/10),\nand the app listed under **Media** on the home screen, addressing\n[issue #6](https://github.com/MisterTemaki/MediaPlayerClassicPS5/issues/6).\nApplication version is **1.6.3**, content version is **01.063.000**, and the title ID remains **PPSA99015**.\n\n### Added\n\n- **View > Options > Miscellaneous > Backup.** Choose a drive under **Back up automatically to:** and the\n  settings are copied to `<drive>/mpcps5/backup/mpc-hc.ini` at once, then again every time they change.\n  **Back up now** writes it on request. **Import...** takes the newest backup on the connected drives and, after\n  asking, replaces the settings with it: after a factory reset, or on another PS5.\n- A backup holds everything `mpc-hc.ini` holds: Options, the controller's Keys, audio and subtitle settings,\n  theme and language, recent files, file positions, favorites and network locations.\n- Network passwords are not in backups (their key never leaves the console): type them again after an import.\n  The fonts folder isn't copied either. See [settings backup](https://github.com/MisterTemaki/MediaPlayerClassicPS5/blob/v1.6.3/docs/SETTINGS-BACKUP.md).\n- **A backup this installation didn't write is never replaced on its own** (the one from before a factory reset,\n  another PS5's, another stick at the same `/mnt/usbN`, one that can't be read). The page says so; **Back up now**\n  asks first, with **No** as the default. The backup is written by its own thread, so the picture never waits for\n  the drive.\n\n### Changed\n\n- `sce_sys/param.json` declares the app as a media application: `applicationCategoryType` is `65536`\n  (\"Prospero Native Media App\") instead of `0` (a native game). VLC for PS5 declares the same value.\n- The build's preflight check rejects a `param.json` that is not a media application, and one whose\n  `contentVersion` doesn't match the version being built.\n- Playback, dark mode, saved network passwords, settings and favorites behave as in 1.6.2.\n\n### Updating\n\n- From 1.6.2 or an older version with the updater, choose **Help > Check for updates**, install the update and\n  restart the app.\n- For manual installation, use **MediaPlayerClassicPS5-v1.6.3.elf**, the complete installer, then open the app\n  from the home screen. This is the only ELF asset for this release.\n- If an older installer ELF is configured in autoload, replace that file with the new installer.\n- Settings and media remain in `/data/mpcps5`.\n\n- **Moving to Media:** the console decides the tab when ShadowMount+ registers the app. If the tile still shows"
+        "published_at": "2026-11-23T02:04:13Z",
+        "notes": "## Media Player Classic PS5 1.7.0\n\n**Video post-processing on the GPU**, suggested by **Cris Valente**: thank you, Cris! Also a choice of where the\nhome screen lists the app, and the fixes made for 1.6.4 (which wasn't released on its own): **Stop** keeps the\nfile's position, and an audit's fixes. Application version is **1.7.0**, content version is **01.070.000**, and the\ntitle ID remains **PPSA99015**.\n\n### Added: Shaders (View > Options > Output > Shaders, Play > Shaders)\n\nA chain of compute passes between the decoder's picture and the screen, for the video only (never the window, the\nmenus or the subtitles), with the GPU renderer. **Off** is the default: the picture is drawn in one pass, as in 1.6.\n\n- **Presets:**\n  - **Performance:** FSR 1 enlarges the picture to the screen (AMD FidelityFX Super Resolution 1.0's EASU, with its\n    RCAS sharpening at 75 %).\n  - **Quality:** debanding and light deblocking first, then FSR 1 (sharpening 88 %).\n  - **Experimental:** Quality, and motion smoothing.\n  - **Custom:** each of them on or off, their strength, the scaler (FSR 1, Lanczos, bicubic or bilinear) and the\n    sharpening.\n- **Debanding** smooths the steps of gradients (skies, dark scenes) the way libplacebo and f3kdb do: where nearby\n  pixels differ by less than a threshold, their average is taken, then a little grain hides what is left.\n- **Deblocking** softens the 8×8 block edges of MPEG-2, MPEG-4 and early H.264 video, where the step between two\n  blocks is smaller than the texture around it (H.264's own rule), and keeps a pixel next to a strong edge within\n  its neighbours' range (deringing).\n- **Motion smoothing (experimental)** makes pictures between the film's own for the screen's 60 a second: each\n  picture's optical flow both ways, coarse to fine, then the picture at the display's time, with occluded areas taken\n  from the picture that shows them. A cut (two pictures more different than the **Scene cut** setting) is never\n  blended, and where the motion is beyond what the flow can follow the nearer picture is shown as it is, never a\n  double image. It is used while playing a film of 24, 25 or 30 pictures a second (not 48 or more, nor 24 to 30 at\n  twice the speed); paused, stepped or seeking, the picture is shown as it is.\n- **Colour controls:** brightness, contrast and saturation, with any preset but Off.\n- **Play > Shaders** switches between the presets at once; **Shader Options...** opens the page.\n- **View > Statistics** has a **Shaders** line with each pass's GPU time per frame (prep, motion smoothing, scale,\n  final); the statistics over the video (R3 + Square) show their sum. Without motion smoothing, a paused picture and\n  the repeats of a 24 fps film at 60 Hz cost only the last pass."
       },
       "pins": [
+        {
+          "tag": "v1.6.3",
+          "asset": "MediaPlayerClassicPS5-v1.6.3-PPSA99015.zip",
+          "size": 72944175,
+          "sha256": "6a6eedf66360ef35b4999c0e0323fb113d19771d43f897d10314befb7073d801",
+          "content_version": "01.063.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.6.2",
           "asset": "MediaPlayerClassicPS5-v1.6.2-PPSA99015.zip",
@@ -554,14 +562,6 @@
           "size": 45564262,
           "sha256": "a75a14887c8dd2eeeca08cfcb53bc0dda37e0f7519a019ceb386970be84ac5fb",
           "content_version": "01.054.000",
-          "title_name": "Media Player Classic PS5"
-        },
-        {
-          "tag": "v1.5.3",
-          "asset": "MediaPlayerClassicPS5-v1.5.3-PPSA99015.zip",
-          "size": 45521590,
-          "sha256": "ce4c8abf398538b52fde5095e1d5179455c80a3324aa99b531cae1f4e9cb7193",
-          "content_version": "01.053.000",
           "title_name": "Media Player Classic PS5"
         }
       ]
@@ -1085,7 +1085,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 249,
+      "stars": 250,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1153,7 +1153,7 @@
         "n64",
         "mupen64plus"
       ],
-      "stars": 38,
+      "stars": 37,
       "release": {
         "tag": "0.7.5",
         "asset": "Mupen64PlusPS5.zip",
@@ -1347,7 +1347,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 419,
+      "stars": 418,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1803,7 +1803,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 873,
+      "stars": 874,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1109,
+      "stars": 1110,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2625,7 +2625,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 269,
+      "stars": 268,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2655,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1700,
+      "stars": 1699,
       "release": {
         "tag": "vk-285-321",
         "asset": "PS5SX2-vk-285-321.zip",
@@ -2720,7 +2720,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 447,
+      "stars": 448,
       "release": {
         "tag": "v4.7.0-beta-4",
         "asset": "PS5_RetroArch-v4.7.0-beta-4.zip",
@@ -4042,7 +4042,7 @@
         "blur",
         "racing"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "01.008.000",
         "asset": "PPSA99404.zip",
@@ -4300,7 +4300,7 @@
         "gamecube",
         "mario"
       ],
-      "stars": 15,
+      "stars": 14,
       "release": {
         "tag": "v0.10.0",
         "asset": "Sunshine-PS5-v0.10.0.zip",
@@ -4393,7 +4393,7 @@
         "gamecube",
         "zelda"
       ],
-      "stars": 17,
+      "stars": 16,
       "release": {
         "tag": "ps5-v0.1.0",
         "asset": "PPSA99640.zip",
@@ -4522,7 +4522,7 @@
         "wii-u",
         "zelda"
       ],
-      "stars": 18,
+      "stars": 17,
       "release": {
         "tag": "ps5-v0.1.2",
         "asset": "PPSA99641.zip",
@@ -4584,7 +4584,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 66,
+      "stars": 67,
       "release": {
         "tag": "v0.13.7",
         "asset": "EVOPlayer-v0.13.7-PPSA99039.zip",
@@ -5174,7 +5174,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 36,
+      "stars": 37,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
