@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 531,
+      "stars": 532,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1803,7 +1803,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 874,
+      "stars": 875,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2464,7 +2464,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 161,
+      "stars": 162,
       "release": {
         "tag": "v2.4.7",
         "asset": "PPSA11018.zip",
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1111,
+      "stars": 1112,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2655,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1699,
+      "stars": 1700,
       "release": {
         "tag": "vk-285-329",
         "asset": "PS5SX2-vk-285-329.zip",
@@ -5103,15 +5103,25 @@
       ],
       "stars": 2,
       "release": {
-        "tag": "v1.0.0",
+        "tag": "v1.0.1",
         "asset": "CloudPlay-PS5.zip",
-        "size": 11293232,
-        "sha256": "fa47dd13c4ec4c8f1acf8ae41cc38f1411710b40c4853cddd65b135dc45ebb70",
+        "size": 11317676,
+        "sha256": "2ae7c27112dd3740db192a8ef6d565a13674b2e5f804cacad31466f325a6106d",
         "content_version": "01.000.000",
         "title_name": "Cloud Play",
-        "published_at": "2026-10-08T21:59:47Z",
-        "notes": "**Cloud Play** is a native PS Plus cloud streaming client for homebrew-enabled PS5 consoles, based on Chiaki. Browse the Premium catalog and games owned by your account, then stream PS5 Cloud and PS Now titles with sound and DualSense controls.\n\nAn active PS Plus Premium subscription is required. nanoDNS must be installed, configured and running, and the PS5 must have working internet access.\n\n## Installation\n\n1. Extract `CloudPlay-PS5.zip` and copy the complete `PPSA99600` folder to `/data/homebrew/` on the PS5.\n2. Wait for your homebrew loader, such as ShadowMountPlus, to add **Cloud Play** to the Home screen, then launch it.\n3. On a phone or computer connected to the same network, open the setup address shown at the bottom of the app, normally `http://PS5_IP:9055`.\n4. Use the setup page to sign in, paste the final redirect URL and NPSSO, then select **Complete setup**. Cloud Play resolves the required hosts, retrieves the account tokens and loads the catalog automatically.\n\nNever share your NPSSO, access tokens or `/download0/settings.json`.\n\n## Included in v1.0.0\n\n**PS5 Cloud and PS Now streaming**\n- Browse the Premium catalog and titles owned by the signed-in account.\n- Launch PS5 Cloud and PS4/PS Now variants from a single library.\n- Keep separate resolution, bitrate, language, datacenter and video recovery settings for each service.\n\n**Native PS5 video and audio**\n- H.264 and HEVC use the PS5 VideoDec2 hardware decoder with native AGC presentation.\n- Opus audio is played through the PS5 audio output.\n- Buttons, sticks, analog triggers, touch contacts, motion and standard rumble are forwarded from the DualSense.\n\n**Controller-friendly library**\n- Search, filters, sorting, recently played games, cover art and grouped PS5/PS4 versions.\n- Purchasable titles show a QR code that opens their store page.\n- The browser-based setup page can replace credentials without a separate desktop tool.\n\n**Stream diagnostics**\n- Optional in-game statistics show incoming and rendered FPS, packet loss, cloud RTT, decode timing, frame timing and an input-to-cloud estimate.\n\n## Known limitations\n\n- Adaptive trigger effects and DualSense haptic audio are not yet supported.\n- 1440p and 2160p modes need broader testing across displays and cloud titles.\n- Catalog and streaming availability depend on account region, subscription, entitlement and the cloud service accepting the selected title."
-      }
+        "published_at": "2026-11-24T08:52:51Z",
+        "notes": "## What's Changed\n* Enable DualSense adaptive trigger effects and rumble by @desstannoz in https://github.com/tertiumndatur/ps5-cloud-play/pull/5\n\n## New Contributors\n* @desstannoz made their first contribution in https://github.com/tertiumndatur/ps5-cloud-play/pull/5\n\n**Full Changelog**: https://github.com/tertiumndatur/ps5-cloud-play/compare/v1.0.0...v1.0.1"
+      },
+      "pins": [
+        {
+          "tag": "v1.0.0",
+          "asset": "CloudPlay-PS5.zip",
+          "size": 11293232,
+          "sha256": "fa47dd13c4ec4c8f1acf8ae41cc38f1411710b40c4853cddd65b135dc45ebb70",
+          "content_version": "01.000.000",
+          "title_name": "Cloud Play"
+        }
+      ]
     },
     {
       "id": "opennow-ps5",
@@ -5823,7 +5833,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 528,
+      "stars": 526,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
