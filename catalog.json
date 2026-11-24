@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 18,
+      "stars": 20,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -1085,7 +1085,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 250,
+      "stars": 251,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 530,
+      "stars": 531,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -2464,7 +2464,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 158,
+      "stars": 161,
       "release": {
         "tag": "v2.4.7",
         "asset": "PPSA11018.zip",
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1110,
+      "stars": 1111,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2657,16 +2657,24 @@
       ],
       "stars": 1699,
       "release": {
-        "tag": "vk-285-321",
-        "asset": "PS5SX2-vk-285-321.zip",
-        "size": 31332272,
-        "sha256": "2c72e77a4e58583d6e42909e3d7b82deb5321f39b17776ff4954c05b4825d241",
-        "content_version": "02.500.000",
+        "tag": "vk-285-329",
+        "asset": "PS5SX2-vk-285-329.zip",
+        "size": 32758948,
+        "sha256": "244e1381f3467a6c1ce145e355e615a8214e90ed85890586fda86b70b715868a",
+        "content_version": "02.600.000",
         "title_name": "PS5SX2",
-        "published_at": "2026-11-15T19:28:21Z",
-        "notes": "**PS5SX2 2.50** (build vk-285-321)\n\nLossless Scaling frame generation, a new settings sheet, and a long list of fixes from your reports. **Restart the console once after updating**: the disc helper is now 171q.\n\n**Lossless Scaling frame generation**\n- A second frame generation method. On a game's settings: *Picture* > *Frame gen method* > *Lossless Scaling*, and frame generation on.\n- It uses **your own** `Lossless.dll` (from your copy of Lossless Scaling), copied to `/data/PCSX2/lossless/Lossless.dll`. Nothing of Lossless Scaling comes with PS5SX2. Without the file, PS5SX2's own frame generation is used.\n- Like PS5SX2's own, it needs the 120 Hz output: a 60 fps game is shown at 120, a PAL game at 50 fps at 100.\n- The optical flow runs at full size at 4K; if a game can't keep full speed with it, it steps down to 75% and then 50% by itself and remembers that.\n- The watery, warped look on moving parts is fixed (a cache bug in the GPU driver).\n\n**120 Hz**\n- On some TVs frame generation said *FG: NO 120 HZ OUTPUT* now and then, although the TV does 120 Hz (a screen with a variable refresh rate idles at 48 Hz while nothing is drawn, and that fooled the check). Fixed.\n- The FPS box counts each generated picture once (a 30 fps game shows *FPS 60 (game 30)*, not 90).\n\n**The new settings sheet**\n- On the shelf and in the in-game menu: pages as tiles, values as coloured chips (set for this game, from all games, or the default), help on a card of its own.\n- *All games* settings start with **System update**, and are on pages too (Picture, Speed, PS2 console, Memory cards, Library, PS5SX2).\n- Lists wrap around. The empty file `flags/oldsheet` brings the old list back.\n\n**Leaving a game and saves**\n- Going back to the shelf no longer freezes on the fat consoles where it did.\n- If the game is still writing to a memory card, PS5SX2 waits for it (*SAVING - BACK TO MENU WHEN DONE*) instead of cutting the save off.\n- Save states have their screenshot again.\n- The disc drive is left alone while a game runs.\n\n**Games**\n- The game database is synced with upstream PCSX2 (12,906 entries).\n- `.pnach` patches and cheats are found by folder, serial, CRC, file name or `gametitle=`; letter case and separators don't matter. Cheats without a group name apply.\n- New options: C VIF unpacking (Mafia, #37), flat CRT filter (#75), Skipdraw start and end (#73), Game speed (#38), Dithering, EE/VU round modes (#44), HDD image (#60), USB guitar fret colours, Buzz! buzzers (#91).\n- Achievements work on discs whose ISO writer flagged every file as multi-extent (#83; thanks bobrass for PR #98).\n- DualShock 3 and guitar adapters that are one are turned on over USB (#67).\n\n**Shelf**\n- Games on NFS shares get home screen tiles (helper 171q)."
+        "published_at": "2026-11-23T22:18:08Z",
+        "notes": "**PS5SX2 2.60** (build vk-285-329)\n\nA new graphics driver: PS5SX2 now runs on **RADV**, Mesa's Vulkan driver for AMD GPUs, in Mihawk-99's PS5 port, with fixes of our own. Plus shelf fixes, 10x resolution and Rock Band 4 guitars.\n\n**A new graphics driver: RADV**\n- Until 2.50, PS5SX2 drew with ps5vk, a small driver that lacked many of the GPU features PCSX2 uses, so PCSX2's renderer took slower workaround paths. RADV has them all, and PS5SX2 now uses them: texture barriers, geometry shaders, BC textures, image copies on the GPU.\n- Our changes to it (in the repository, `ps5/radv`): waits that spun the CPU now sleep, the graphics driver records on its own thread without stalling at every draw, new GPU memory is cleared much faster (fewer hitches when a game builds new render targets), and your TV's refresh follows what's on screen: 60 Hz for the shelf and games without frame generation, 120 Hz for frame generation, and back to 60 Hz when you leave.\n- The first time you play each game, its shaders are compiled as they're needed (a few hitches); they're kept for the next time.\n\n**Shelf**\n- The selection box on the settings no longer lingers when you back out or close the sheet, and no longer flashes as a solid box.\n- Picking a game no longer leaves the game list on screen while the game loads.\n\n**Settings**\n- Resolution has **10x** (about 6K). \"8x (PS5 Pro)\" is just **8x**.\n\n**Games**\n- Rock Band 4 guitars work as guitars: PDP Riffmaster (PS5 and PS4), CRKD Gibson SG, Mad Catz Stratocaster, PDP Jaguar (#103). Frets, solo frets, strum, whammy, and star power by button or by tilting. Tell us how it plays: it hasn't met a real guitar yet.\n- Shadow Hearts no longer hangs.\n\n**BIOS**\n- PS5SX2 no longer comes with the open-source BIOS (OpenPS2BIOS). Games need a BIOS dumped from **your own** PS2, in `/data/PCSX2/bios` or on a USB drive.\n\n---\n\n## Download\n\n- **`PS5SX2-vk-285-329.zip`**: the app (eboot and files). The installer and System update install it for you.\n  SHA-256: `244e1381f3467a6c1ce145e355e615a8214e90ed85890586fda86b70b715868a`\n- **`PS5SX2Installer.elf`**: the installer (1.5, unchanged). Send it once and it installs this build; after that, use System update in the app.\n  SHA-256: `efdec4f8d968ef4a7c1880e75d26b96d212a042a6c208de46f0a859609f6224c`\n- **`PS5SXHelper.elf`**: disc helper 171q with the `/data` mount (only for ShadowMount+ 1.7beta3), unchanged.\n  SHA-256: `d8ff3a8d35dd2943ee405c5eca9405142f19057368eb539c4454b18b5de2917f`\n- **`PS5SXHelper-no-data-mount.elf`**: the same without the `/data` mount, for ShadowMount+ 1.7-beta5fix1 or newer (the app starts this one itself), unchanged.\n  SHA-256: `fc14c48b6b91da83f817e21afdef8e00d2a59c588de57b3f6d12d2015acc0654`"
       },
       "pins": [
+        {
+          "tag": "vk-285-321",
+          "asset": "PS5SX2-vk-285-321.zip",
+          "size": 31332272,
+          "sha256": "2c72e77a4e58583d6e42909e3d7b82deb5321f39b17776ff4954c05b4825d241",
+          "content_version": "02.500.000",
+          "title_name": "PS5SX2"
+        },
         {
           "tag": "vk-285-190",
           "asset": "PS5SX2-vk-285-190.zip",
@@ -3748,16 +3756,24 @@
       ],
       "stars": 5,
       "release": {
-        "tag": "v1.0.5",
+        "tag": "v1.0.6",
         "asset": "PPSA98001.zip",
-        "size": 8997540,
-        "sha256": "4bb71f9839b7e01afbd0d612deb921d3df3dbc09558aa7c42bcd5d2148c7bc04",
-        "content_version": "02.000.005",
+        "size": 8997599,
+        "sha256": "cb03b8eb94bbda1170862f2c6c33e88d0835113e0817bf038883ddbb4f3e4109",
+        "content_version": "02.000.006",
         "title_name": "PokeMMO Prospero",
-        "published_at": "2026-11-22T18:49:59Z",
-        "notes": "**Full Changelog**: https://github.com/Shabbypenguin/PokeMMO-Prospero/compare/v1.0.2...v1.0.5"
+        "published_at": "2026-11-23T22:50:26Z",
+        "notes": "**Full Changelog**: https://github.com/Shabbypenguin/PokeMMO-Prospero/compare/v1.0.5...v1.0.6"
       },
       "pins": [
+        {
+          "tag": "v1.0.5",
+          "asset": "PPSA98001.zip",
+          "size": 8997540,
+          "sha256": "4bb71f9839b7e01afbd0d612deb921d3df3dbc09558aa7c42bcd5d2148c7bc04",
+          "content_version": "02.000.005",
+          "title_name": "PokeMMO Prospero"
+        },
         {
           "tag": "v1.0.2",
           "asset": "PPSA98001.zip",
@@ -3787,18 +3803,26 @@
         "java",
         "sandbox"
       ],
-      "stars": 59,
+      "stars": 60,
       "release": {
-        "tag": "01.000.288",
+        "tag": "01.000.300",
         "asset": "PPSA99874.zip",
-        "size": 128592118,
-        "sha256": "e2e931fcabe01d9b8a4dd95bb03a55c4db1f611a074decbba5787b71b08b7766",
-        "content_version": "01.000.288",
+        "size": 128618598,
+        "sha256": "15c2f1727bd056aad04a877dc756b84c8a77aaa7ecd11734454ec80969149e7b",
+        "content_version": "01.000.300",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-19T18:21:30Z",
-        "notes": "### Added\n\n- Enable or disable installed mods without uninstalling them.\n- See each mod’s enabled state in the Installed list, including manually added mods.\n\n### Using the mod toggle\n\nOpen Instance Settings → Mods → Installed, select a mod and press X to enable or disable it. RIGHT still opens Uninstall.\n\nDisabled mods stay on your console. If another enabled mod needs one, the launcher tells you which dependency to enable instead of downloading it again. Disabling Controlify also disables its in-game controller support until you enable it again.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. Checksums, validation records and the corresponding source and OpenAL relink kit are included."
+        "published_at": "2026-11-23T19:16:21Z",
+        "notes": "### Bug fixes\n\n- Fixed flickering text in Minecraft 1.21 and 1.21.1, including the title, Languages, and Resource Packs menus.\n- Defaulted Controlify's on-screen button guides off on Fabric 1.21 and 1.21.1 to prevent flickering controller glyphs.\n- Improved installation and memory handling for large Fabric mods such as Cobblemon.\n\nThe text fix and shader rendering were confirmed on PS5 with this build.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. Checksums, validation records, corresponding source and the OpenAL relink kit are included with the release."
       },
       "pins": [
+        {
+          "tag": "01.000.288",
+          "asset": "PPSA99874.zip",
+          "size": 128592118,
+          "sha256": "e2e931fcabe01d9b8a4dd95bb03a55c4db1f611a074decbba5787b71b08b7766",
+          "content_version": "01.000.288",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.287",
           "asset": "PPSA99874.zip",
@@ -3829,14 +3853,6 @@
           "size": 128572074,
           "sha256": "ab92eafe8a1569d90a6a6e26339ec29ba69f149f6bd3e4f3567eeb2215c770a9",
           "content_version": "01.000.281",
-          "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.279",
-          "asset": "PPSA99874.zip",
-          "size": 127938217,
-          "sha256": "60a354e39a3a11b4bf0a4a4f62cba80220ea961781c846233929122197159cd2",
-          "content_version": "01.000.279",
           "title_name": "ProsperoCraft"
         }
       ]
@@ -4584,7 +4600,7 @@
         "nuvio",
         "addons"
       ],
-      "stars": 67,
+      "stars": 68,
       "release": {
         "tag": "v0.13.7",
         "asset": "EVOPlayer-v0.13.7-PPSA99039.zip",
@@ -4666,16 +4682,24 @@
       ],
       "stars": 15,
       "release": {
-        "tag": "v1.0.0.26-native",
+        "tag": "v1.0.1.0-native",
         "asset": "PPSA99288.zip",
-        "size": 46855598,
-        "sha256": "bd4150bb0b220cfd52875f553e389a077eb138bc68c4799a426b98b0dba95b94",
-        "content_version": "07.000.026",
+        "size": 47443356,
+        "sha256": "d13de557ac2e2a6da05ef4826bdf22171661705f545806a6283604210658356d",
+        "content_version": "07.001.000",
         "title_name": "Nuvio Max'd",
-        "published_at": "2026-11-15T03:20:52Z",
-        "notes": "# Nuvio Max'd 1.0.0.26 — age ratings\n\n- Movie and series details now show TMDB age certifications alongside year, runtime and genres.\n- Choose from 32 countries in Settings → Account & Services → Age-rating country. The preference is saved per profile and included in configuration backups.\n- The badge names its country. US ratings are used when the selected country's rating is missing; no badge appears when both are unavailable.\n- Country names and settings are translated into all eight menu languages. Ratings are display only.\n\nClose Max'd before updating and keep your app data. ZIP, native image, matching source and verification results are included."
+        "published_at": "2026-11-23T20:09:27Z",
+        "notes": "# Nuvio Max'd 1.0.1.0\n\n- **Free live TV:** enable it in Settings → Live TV, accept the disclaimer and choose one or more countries. Channels come from independent providers; availability and playback quality vary.\n- **One TV guide:** browse personal IPTV sources and enabled free channels together, with each channel's own guide, favorites and playback details. Four-screen TV remains available.\n- **Automatic channel updates:** choose Off, 1, 3, 6, 12 or 24 hours in Settings → Live TV. Refresh runs while Max'd is open, waits during playback and keeps the last working list if a download fails.\n- **Easier search:** multilingual controller keyboard, title suggestions from your configured catalogues, and an optional top menu with a Search tab.\n- **Fixes and TV controls:** SIMKL phone/QR sign-in and Thai subtitles, plus a per-profile start page, remembered TV groups, channel rename/hide controls and backup channel selection.\n\nClose Max'd before installing and keep your saved data. Enable the optional top menu in Settings → App & Updates → Top navigation. Use Options in the search keyboard for Chinese characters or Japanese kanji.\n\nFree channels are not hosted or controlled by Nuvio Max'd. Dead channels or buffering should not be reported to the developer. YMMV.\n\nThe embedded-caption and subtitle-download changes from issue #25 are included; that reporter's confirmation is still outstanding.\n\nThis release retains the dismissible **Unverified build** notice because the original offline signing key was unavailable. Normal use is unaffected."
       },
       "pins": [
+        {
+          "tag": "v1.0.0.26-native",
+          "asset": "PPSA99288.zip",
+          "size": 46855598,
+          "sha256": "bd4150bb0b220cfd52875f553e389a077eb138bc68c4799a426b98b0dba95b94",
+          "content_version": "07.000.026",
+          "title_name": "Nuvio Max'd"
+        },
         {
           "tag": "v1.0.0.25-native",
           "asset": "PPSA99288.zip",
@@ -4706,14 +4730,6 @@
           "size": 45296825,
           "sha256": "d9e30887bda7888f497dde50762c6bef633e5f5402950f6c87bf391d8759d7d0",
           "content_version": "07.000.017",
-          "title_name": "Nuvio Max'd"
-        },
-        {
-          "tag": "v1.0.0.11-native",
-          "asset": "PPSA99288.zip",
-          "size": 44411290,
-          "sha256": "e08ba610204d3864ab52f3838302c7a2589645a9437f41417fb274269a60be06",
-          "content_version": "07.000.011",
           "title_name": "Nuvio Max'd"
         }
       ]
@@ -4975,16 +4991,24 @@
       ],
       "stars": 10,
       "release": {
-        "tag": "01.000.215",
+        "tag": "01.000.216",
         "asset": "SmartTube-PPSA98260.zip",
-        "size": 41397964,
-        "sha256": "32f5336b8d9bcf8c208e9e3800c47a440d8324632e99a73b763d9331f4352863",
-        "content_version": "01.000.215",
+        "size": 41398346,
+        "sha256": "a52737eaa905fe0e93d47e92dac698d8483c07dcf411c47b2d52696db7d67147",
+        "content_version": "01.000.216",
         "title_name": "SmartTube",
-        "published_at": "2026-11-19T15:01:31Z",
-        "notes": "1.0.215: Subscriptions newest first, and an OLED screen saver\n\n- Subscriptions are sorted newest first. YouTube's TV app opens the list\n  with a \"Most relevant\" row; now every video appears once, by the age its\n  card shows (\"3 hours ago\", in any of the app's languages), with Shorts\n  after the rest.\n- Settings > General > Screen saver: Dim (as before) or Black (OLED),\n  which turns the screen black but for a small grey clock that moves to a\n  new spot every minute.\n- Screen dimming now also starts while a video is paused or finished,\n  not only outside the player, so a paused frame doesn't stay on an OLED.\n- The press that wakes the screen only wakes it; it doesn't also act."
+        "published_at": "2026-11-23T16:06:22Z",
+        "notes": "1.0.216: smoother 4K hardware playback (#2)\n\nFrom brunogm0's analysis in #2 (hidden VP9 frames were already left out\nsince 1.0.183; these close the remaining ways a frame could be shown out\nof step):\n\n- A picture that arrives a little behind the one on screen is left out\n  instead of shown at once. Shown, it jumped back a frame and forward\n  again: visible judder with no frames counted as dropped. A big step back\n  (a loop, a restarted stream) is still shown. The 5-second hardware line\n  in yt.log counts them (\"out of order N (M left out)\").\n- When a VP9 unit that should show a picture fails to decode, its time is\n  taken out of the queue too. Before, every picture after it carried the\n  time of the one before until the next keyframe.\n- A picture with no time at all is left out instead of being placed one\n  frame after the last.\n- The decoder errors 0x811d0300 / 0x811d0303 (broken reference state)\n  restart the decoder at the next keyframe at once, instead of after two\n  more broken frames.\n- The hardware path gets 8 steps a frame instead of 4 (reads, hand-overs\n  to the decoder thread, buffer swaps), so 4K60 and the catch-up after a\n  seek keep the decoder fed.\n- A packet the superframe filter refuses is logged."
       },
       "pins": [
+        {
+          "tag": "01.000.215",
+          "asset": "SmartTube-PPSA98260.zip",
+          "size": 41397964,
+          "sha256": "32f5336b8d9bcf8c208e9e3800c47a440d8324632e99a73b763d9331f4352863",
+          "content_version": "01.000.215",
+          "title_name": "SmartTube"
+        },
         {
           "tag": "01.000.214",
           "asset": "SmartTube-PPSA98260.zip",
@@ -5015,14 +5039,6 @@
           "size": 41352009,
           "sha256": "b67e9c4f2eb65cd06b3d01d95ae65a068bfcb2e4b6fdb6ed6214b739cc4e0280",
           "content_version": "01.000.208",
-          "title_name": "SmartTube"
-        },
-        {
-          "tag": "01.000.207",
-          "asset": "SmartTube-PPSA98260.zip",
-          "size": 33700378,
-          "sha256": "a78a3d61ebd38dd2c5677b9f4d15760f5e51f10f3bff82ef09edd478b987b3b8",
-          "content_version": "01.000.207",
           "title_name": "SmartTube"
         }
       ]
@@ -5144,7 +5160,7 @@
         "streaming",
         "pc"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99350.zip",
@@ -5643,16 +5659,24 @@
       ],
       "stars": 1,
       "release": {
-        "tag": "v0.6.1",
-        "asset": "photo-splat-vr-v0.6.1.zip",
-        "size": 34424634,
-        "sha256": "f755df34a9f815deed9f05dd304ec309bf34eb4a95305d6c82a5a0af1aeea78c",
-        "content_version": "01.006.001",
+        "tag": "v0.7.0",
+        "asset": "photo-splat-vr-v0.7.0.zip",
+        "size": 34472984,
+        "sha256": "1655f5873abd3f33e7f520147665237b5051924423888081e87efabaef2c348b",
+        "content_version": "01.007.000",
         "title_name": "Photo Splat VR",
-        "published_at": "2026-11-22T16:44:30Z",
-        "notes": "**Photo Splat VR v0.6.1** fixes the SHARP model download on the console, makes Quit faster, and adds PS VR2 support tables for more firmware versions.\n\n**What's new**\n- **SHARP downloads on the console.** The 2.8 GB model no longer stops at 5% with heavy lag: it downloads and gets ready in about 40 minutes; a faster setup is planned. A download that stalls now fails after 60 seconds with **Retry**, and **Cancel** and **Quit** always work. Tested on a base PS5, firmware 13.60.\n- **Faster Quit.** VR mode is turned off before the TV output closes, so leaving the app no longer waits on the display.\n- **More firmware support.** PS VR2 support tables for firmware 5.50 to 13.60; 10.01 uses the 10.00 tables. Tested on firmware 13.60; the other versions are untested on console. The tables come from the PS5VR project (Husam Osman, GPL-3.0); the notices are in the repository.\n- **A message when support is missing.** On a firmware without a table, the TV now shows a message explaining how to help add support instead of the app closing silently.\n\n**Install**\nUnzip `photo-splat-vr-v0.6.1.zip` and copy the `PPSA99770` folder to the console as described in the README (Install section). Title ID `PPSA99770`, content ID `IV0000-PPSA99770_00-PHOTOSPLATVR0001`. Installing over v0.6.0 or earlier keeps your scenes, photos, network locations and downloaded models: the app's data folder is separate from the app.\n\n**Unchanged from v0.6.0**\n- Convert photos on the console: SHARP (best quality) or Depth Anything V2 Small (fast, ~2 s; scene size is approximate).\n- Models are downloaded inside the app after you accept their licences; no model weights are shipped.\n- The photo picker browses folders on every source, scenes can be saved to a folder on a network location, and network scene libraries show albums.\n- Photo formats including camera RAW, splat import (`.ply`, `.splat`, `.spz`, `.compressed.ply`), rotate left or right on any photo or scene entry, visible folders with a passcode, thumbnail size, SMB and NFS network locations.\n- The TV has its own picture and menu, the scene and menu start in front of you, hold **Options** to recentre, and the menu window stays rigid.\n- Browsing, folders, rename and delete, VR viewing with DualSense or PS VR2 Sense controllers, comfort settings.\n- Three sample scenes (public-domain photos).\n\n**Known limitations**\n- Scaling a scene down tightens the space around the pivot; the whole scene does not get smaller (its highest point stays high). A better scale is planned for 0.9.\n- Folders on a network share cannot be created, renamed or deleted from the console; do that on the computer that hosts the share."
+        "published_at": "2026-11-23T20:15:42Z",
+        "notes": "**Photo Splat VR v0.7.0** adds PS5 Media Remote support and switches between VR and the TV when PS VR2 is turned on or off during a session, without a restart.\n\n**What's new**\n- **PS VR2 on or off during a session.** Turning the headset on while the app runs on the TV switches the session to VR. Turning it off during VR switches back to the TV. The scene and the open menu are kept; no restart is needed.\n- **PS5 Media Remote support.** In menus the **D-pad** moves the focus, **Enter** selects, **Back** goes back and **Options** opens the menu. In a scene, **D-pad left/right** go to the previous/next scene, holding **Enter** for about a second recentres, and **Options** opens the menu. The remote's media keys (play/pause, rewind, fast-forward) are not passed to apps by the system, so they do nothing here.\n- **The Sense controller grab is removed.** **L1/R1** only switch scenes now on every controller; the scene is moved with the sticks and scaled with **L2/R2**.\n\nTested on a base PS5, firmware 13.60: the Media Remote in menus and in a scene, PS VR2 turned on and off during a session in both directions, and L1/R1. Firmware versions other than 13.60 are untested on console.\n\n**Install**\nUnzip `photo-splat-vr-v0.7.0.zip` and copy the `PPSA99770` folder to the console as described in the README (Install section). Title ID `PPSA99770`, content ID `IV0000-PPSA99770_00-PHOTOSPLATVR0001`. Installing over v0.6.2 or earlier keeps your scenes, photos, network locations and downloaded models: the app's data folder is separate from the app.\n\n**Unchanged from v0.6.2**\n- SHARP (best quality) and Depth Anything V2 Small (fast, ~2 s; scene size is approximate) conversion on the console; models are downloaded inside the app after you accept their licences; no model weights are shipped. SHARP setup takes about 11 minutes on a base PS5.\n- Without PS VR2 at start, the app runs on the TV with the DualSense: browse, folders, photo conversion, model downloads and viewing scenes.\n- The photo picker browses folders on every source, scenes can be saved to a folder on a network location, and network scene libraries show albums; an offline share waits and saves the scene when it is back.\n- Photo formats including camera RAW, splat import (`.ply`, `.splat`, `.spz`, `.compressed.ply`), rotate left or right on any photo or scene entry, visible folders with a passcode, thumbnail size, SMB and NFS network locations.\n- The TV has its own picture and menu, the scene and menu start in front of you, hold **Options** to recentre, and the menu window stays rigid.\n- PS VR2 support tables for firmware 5.50 to 13.60, from the PS5VR project (Husam Osman, GPL-3.0); the notices are in the repository."
       },
       "pins": [
+        {
+          "tag": "v0.6.1",
+          "asset": "photo-splat-vr-v0.6.1.zip",
+          "size": 34424634,
+          "sha256": "f755df34a9f815deed9f05dd304ec309bf34eb4a95305d6c82a5a0af1aeea78c",
+          "content_version": "01.006.001",
+          "title_name": "Photo Splat VR"
+        },
         {
           "tag": "v0.6.0",
           "asset": "photo-splat-vr-v0.6.0.zip",
@@ -5934,16 +5958,24 @@
       ],
       "stars": 128,
       "release": {
-        "tag": "v1.4.3",
+        "tag": "v1.4.4",
         "asset": "PPSA76677.zip",
-        "size": 47209485,
-        "sha256": "789449f36a12dad79fe9ee608c8c835db1d7e1458a7e804d12e25e93fa09afd1",
-        "content_version": "01.004.003",
+        "size": 47271126,
+        "sha256": "2cdde7825052718a10d652aa1862ec303e54cd3c36125e58a10d3dc62c5386eb",
+        "content_version": "01.004.004",
         "title_name": "RommPS",
-        "published_at": "2026-11-12T05:30:31Z",
-        "notes": "I fixed a bunch of minor issues as well as some incorrect behavior when syncing certain consoles like the Switch. New UI sounds were added, and a few other enhancements.\n\n### Added\n\n- New interface sounds: pick Metal Gear Solid, Paper, Glass, Tones or Off in Settings.\n- XPSemu Alpha 3 support: saves sync from its new hard disk folder, and Alpha 2 still works. Thanks to kostas4949. ([#46](https://github.com/s0liton/RommPS/issues/46))\n- PC games (Windows, DOS and friends) now download with all their files. Thanks to Ribelio. ([#42](https://github.com/s0liton/RommPS/issues/42))\n\n### Fixed\n\n- Saves are compressed before uploading, so large Switch saves no longer go over RomM's upload limit. Thanks to Ribelio. ([#43](https://github.com/s0liton/RommPS/issues/43))\n- Games whose RomM entry was deleted, merged or rescanned now find their new entry on their own. Thanks to Ribelio. ([#44](https://github.com/s0liton/RommPS/issues/44))\n- Switch saves now sync for games without a title id in their file name. Thanks to Ribelio. ([#45](https://github.com/s0liton/RommPS/issues/45))\n- Switch updates downloaded on their own go to the updates folder instead of showing up as a game.\n- The library and covers no longer stay blank after an update until RommPS is reopened.\n- BIOS and firmware files you already had now update when RomM's copies change.\n- Emulators you don't have no longer show up as installed (PSXS5 next to SwanStationPS5, for one).\n- Saves are no longer offered to move into a different emulator's folder, which could cost you a memory card.\n- RommPS no longer keeps re-asking RomM for a collection it can't load; it shows the error once."
+        "published_at": "2026-11-23T21:50:46Z",
+        "notes": "Now that there is an experimental Switch 2 emulator, we can release it for the PS5 as well. I believe RommPS and RommDeck are the only clients supporting save syncs and downloading ROMs for it, but they'll catch up soon I'm sure. There are also some game library performance improvements, and general QoL enhancements.\n\n### Added\n\n- Handling of Wine Prefixes for ProsperoWin to make sure it can find the files we sync. Thanks to Ribelio. ([#50](https://github.com/s0liton/RommPS/issues/50))\n- Nintendo Switch 2 with EglantinePS5 support downloading games and save syncing.\n\n### Fixed\n\n- A very large library no longer slows every sync down. Fix by antonioacg. ([#62](https://github.com/s0liton/RommPS/issues/62))\n- A newer save synced down from RomM replaces save folders the emulator made for itself (PSP5 does), instead of failing with \"not a usable zip\". Thanks to marcussousax. ([#58](https://github.com/s0liton/RommPS/issues/58))\n- No more \"Couldn't set up the autostart\" each time RommPS opens on a console with no etaHEN or onionHEN, and a payload manager's copy of the service is kept up to date. Thanks to antonioacg. ([#61](https://github.com/s0liton/RommPS/issues/61))\n- The folder picker can open any folder on the console that we can actually read.\n- A RomM server that wants a client certificate now says so, instead of \"no RomM server answered\".\n- File names from RomM that would write outside the games or save folders are refused.\n- A Switch save kept only on the device is no longer unpacked over a user's save.\n- Firmware keeps its old set until the new one has fully downloaded.\n- Switch updates without a title id stay in the updates folder when a preset moves folders.\n- Vita title ids are read from a package inside a game folder."
       },
       "pins": [
+        {
+          "tag": "v1.4.3",
+          "asset": "PPSA76677.zip",
+          "size": 47209485,
+          "sha256": "789449f36a12dad79fe9ee608c8c835db1d7e1458a7e804d12e25e93fa09afd1",
+          "content_version": "01.004.003",
+          "title_name": "RommPS"
+        },
         {
           "tag": "v1.4.2",
           "asset": "PPSA76677.zip",
