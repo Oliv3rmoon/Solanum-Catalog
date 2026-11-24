@@ -27,7 +27,7 @@
         "sha256": "c6a5c87f81ab20474d69936f27bbf7dad0be283068d9295704eb6c1d7db845cc",
         "size": 16357
       },
-      "stars": 20,
+      "stars": 22,
       "release": {
         "tag": "v1.010.007",
         "asset": "Nightshade-v1.010.007.zip",
@@ -260,7 +260,7 @@
         "sha256": "00bc070520539be1939847c12da5d09037f1e84866cdc60b226e1c2faf936406",
         "size": 55093
       },
-      "stars": 15,
+      "stars": 16,
       "release": {
         "tag": "0.4.0",
         "asset": "PPSA76526.zip",
@@ -512,7 +512,7 @@
         "video",
         "ffmpeg"
       ],
-      "stars": 11,
+      "stars": 13,
       "release": {
         "tag": "v1.7.0",
         "asset": "MediaPlayerClassicPS5-v1.7.0-PPSA99015.zip",
@@ -656,7 +656,7 @@
         "cd",
         "media-player"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "v1.1.2",
         "asset": "PPSA98427.zip",
@@ -928,7 +928,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 99,
+      "stars": 100,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -957,18 +957,26 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 28,
+      "stars": 29,
       "release": {
-        "tag": "v1.0.23",
-        "asset": "Crux2-v1.0.23.zip",
-        "size": 39113320,
-        "sha256": "ef2bf8832624ddd45f5a0570f996f10188540307ca50edd1be08e65662a5310a",
-        "content_version": "01.023.000",
+        "tag": "v1.0.24",
+        "asset": "Crux2-v1.0.24.zip",
+        "size": 39155455,
+        "sha256": "051448bbe04c767f29ad057db8f4f1359bebd1d7c49f40c866c3c543b1d5b173",
+        "content_version": "01.024.000",
         "title_name": "Crux2",
-        "published_at": "2026-11-22T17:53:26Z",
-        "notes": "# Crux2 v1.0.23\n\nFreezes in the interface are fixed, anti-aliasing can be set per game and no longer raises the resolution, and the M.2 storage can hold games.\n\n## Added\n- **Games on the M.2 storage** (`/mnt/ext1`) and on `/mnt/ext0`: a folder named `crux2`, `ps2` or the like at the top is found as on a USB drive, and both are offered in the folder browser, for copying a disc, exporting saves and shader presets.\n- **Anti-Aliasing, SSAA Filter and Debanding** can be set for one game.\n- Test runs say more about where the graphics chip's time goes: what each conversion pass does (copies, depth conversions, deinterlacing, merging, clears), the pixels shaded by each kind of pass, and why the graphics thread waited for an image (the screen's pace, the GPU, a full queue; a patch to the graphics driver).\n- **IOP Stores Inline**, **Skip Unchanged Microprograms**, **Coarse Thread Times** and **Wake-Up Spin Time** (Settings, the Everything level; off, or as before).\n\n## Changed\n- **SSAA** scales the picture of the internal resolution you chose down to the screen; it no longer raises the resolution to 8x at 4K. FSR 1 is off while SSAA is chosen, and comes back when another choice is made.\n- **Driver Core Kept Free** is on: the emulator's other threads stay off the graphics driver's core.\n- The game page's settings tab is **Game Specific Settings** (and so are the quick menu's tile and the page's card); the file card is **Game File**.\n- PCSX2's messages on screen look like Crux2's own.\n- Faster paths in the CPU emulation, the VU thread, the GS and the audio's time stretch, each giving the same results as before. In the games measured they changed no frame rate: those are held back by the graphics chip, not by these paths.\n- The profile the title is compiled with is trained again on these sources.\n\n## Fixed\n- **Choosing a memory card or changing a memory card setting could freeze the interface and the game**: the Memory cards page opened every card (a folder card's saves all read) each frame it was shown.\n- **Loading texture packs again soon after a game with a pack started** (a game closed, a texture setting changed, a pack download ended) could freeze the picture and the interface for tens of seconds or minutes.\n- **A file written to a network share** (a card sync, a backup, a pack moved there) held up everything else on that share until it was written, the game's picture among them.\n- **Pinned settings**: the Settings home showed only the four oldest pins. It shows them in the quick menu's order and scrolls through the rest.\n- A resolution that SSAA had raised stayed raised after SSAA was turned off. It is put back now; one raised by an older version is not known: lower it by hand.\n\n## Tested"
+        "published_at": "2026-11-24T19:43:39Z",
+        "notes": "# Crux2 v1.0.24\n\nThe GS thread is split in two: one thread reads the game's graphics commands and another draws, so games that were held back by the GS thread hold their speed.\n\n## Added\n- **GS Thread Split** (Settings > Picture > Graphics, ADVANCED; on, two threads, by default): the thread that reads the game's graphics commands and decides when a draw is complete hands every draw, upload, palette load, memory move and frame end, in order, to a second thread that draws them on a core of its own. The picture is drawn by the same code, in the same order, with the same state. **Check (One Thread)** does the same work on one thread, to compare the picture; **Off** is the single thread as before. The split is not used (the boot log says why) with the software or GPU-target CLUT fixes, hardware AA1, a game's own memory-move fix, GS dumping, or paraLLEl-GS.\n\n## Changed\n- The profile the title is compiled with is trained again, with the GS thread split on.\n- With the split on, the overlay's GS figure is the thread that reads the graphics commands; the boot log's `gs split:` lines say how busy the drawing thread is.\n\n## Fixed\n- **The graphics switches under Graphics > Advanced** (Uncompressed Feedback Targets, Disable Render Target Compression, Leave out barriers with nothing to wait for, Reuse copies of the picture) were read only when the title started, for most games: a game's own choice, or a change made since the start, was not used. They are read again at each game's start.\n\n## Tested\nOn a PS5: test builds of this code with the split on two threads were played. A game held back by the GS thread ran at 100% on average at 4x over five minutes, under 95% for 3 s in all and a 1% low of 59.7 fps, where v1.0.23 ran it at 99% with 12 s under 95% and a 1% low of 51-54 fps; a second game held back by the GS thread ran at 99% at 4x. Six games were played with the split on while training the profile. The release candidate itself is being played as these notes are written. Not checked on a console with the split on: loading and saving states, resets, and settings changes in the middle of a game. On a PC: the host tests, the interface's walk-through of every screen, the check that no setting was lost, and the release check of the ZIP.\n\n## Installation\n- Copy the `PPSA99249` folder to `/data/homebrew/` on the console, over an older one if you have it.\n- Your games, BIOS files, memory cards, save states and settings are kept.\n- Read `LEGAL.txt` and `README.md` in the folder.\n\n## Reporting problems\n- Open an issue and attach `crux2-boot.log` from the title folder (written after a crash, a hang or Save the log). Don't attach games, BIOS files, firmware or keys."
       },
       "pins": [
+        {
+          "tag": "v1.0.23",
+          "asset": "Crux2-v1.0.23.zip",
+          "size": 39113320,
+          "sha256": "ef2bf8832624ddd45f5a0570f996f10188540307ca50edd1be08e65662a5310a",
+          "content_version": "01.023.000",
+          "title_name": "Crux2"
+        },
         {
           "tag": "v1.0.22",
           "asset": "Crux2-v1.0.22.zip",
@@ -999,14 +1007,6 @@
           "size": 35743309,
           "sha256": "9b585c6d46f855db0eb0b8d50910bc7fef6ed5f113733c218ea7e007deec2471",
           "content_version": "01.018.000",
-          "title_name": "Crux2"
-        },
-        {
-          "tag": "v1.0.17",
-          "asset": "Crux2-v1.0.17.zip",
-          "size": 32647214,
-          "sha256": "dc0dd59ee77a23b8c1baeb7cd1347100d553a6159c319aa8a263887a308a355e",
-          "content_version": "01.017.000",
           "title_name": "Crux2"
         }
       ]
@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 532,
+      "stars": 533,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1803,7 +1803,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 875,
+      "stars": 878,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2464,7 +2464,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 162,
+      "stars": 163,
       "release": {
         "tag": "v2.4.7",
         "asset": "PPSA11018.zip",
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1112,
+      "stars": 1113,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2625,7 +2625,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 268,
+      "stars": 269,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2655,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1700,
+      "stars": 1703,
       "release": {
         "tag": "vk-285-329",
         "asset": "PS5SX2-vk-285-329.zip",
@@ -2728,7 +2728,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 448,
+      "stars": 449,
       "release": {
         "tag": "v4.7.0-beta-4",
         "asset": "PS5_RetroArch-v4.7.0-beta-4.zip",
@@ -3754,7 +3754,7 @@
         "pokemmo",
         "java"
       ],
-      "stars": 5,
+      "stars": 6,
       "release": {
         "tag": "v1.0.6",
         "asset": "PPSA98001.zip",
@@ -4090,7 +4090,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 35,
+      "stars": 36,
       "release": {
         "tag": "v1.2.0",
         "asset": "PPSA99620.zip",
