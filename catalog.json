@@ -442,16 +442,24 @@
       ],
       "stars": 13,
       "release": {
-        "tag": "1.3.4",
-        "asset": "Emby5-1.3.4.zip",
-        "size": 32826289,
-        "sha256": "8d44c950ef38a7564ae0647f41e2aeb315edcf684d66e4f4fec76e34b25baa6c",
-        "content_version": "01.003.004",
+        "tag": "1.3.5",
+        "asset": "Emby5-1.3.5.zip",
+        "size": 32827687,
+        "sha256": "739e23f0ca7b201ce61b4252a81c1b23405a8355b6c0b0a063feea10b3be67e6",
+        "content_version": "01.003.005",
         "title_name": "Emby5",
-        "published_at": "2026-11-21T21:14:20Z",
-        "notes": "## What's new\n\n### Shuffle episodes\n- A show's page has a **Shuffle** button next to Play. It starts a random episode and plays on through the rest of the show in random order, each episode from its start. Specials (season 0) are left out, and each episode keeps its own season and episode number in the player. ([#11](https://github.com/bornaradusin/Emby5/issues/11))\n\n### \"Included in\" on film pages\n- A film's page can show the collections the film is in, above \"More like this\"; ✕ on one opens it. ([#11](https://github.com/bornaradusin/Emby5/issues/11))\n- It's off by default: turn it on under **Settings › Playback › Show \"Included in\" on film pages**. Emby and Jellyfin can't say which collections a film is in, so the first film page opened reads your collections once in the background (a few seconds on a large server; the page doesn't wait for it). The list is kept for ten minutes, so a film added to a collection on the server shows there within ten minutes.\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.4.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.4** under **Settings > System > Installed version**."
+        "published_at": "2026-11-25T20:34:43Z",
+        "notes": "## What's new\n\n### Continue Watching and Next Up on Home\n- A home screen whose \"keep watching\" section isn't one of the standard ones (a section that merges Continue Watching with Next Up, or one a plugin adds) showed neither row in Emby5. Emby5 now recognises such a section: it shows Continue Watching there, followed by Next Up when the layout has no separate Next Up. ([#11](https://github.com/bornaradusin/Emby5/issues/11))\n\n### Seasons as posters\n- A show's page can pick its season by poster, like Emby's own apps: each season's poster (the show's when the season has none) with its name under it. It's off by default: turn it on under **Settings › Playback › Show seasons as posters**. Moving, the Options menu and the episodes below work as with the season names. ([#11](https://github.com/bornaradusin/Emby5/issues/11))\n\nPlayback and video decoding are unchanged.\n\n## Installation and updating\n\n1. Close Emby5 completely.\n2. Download **Emby5-1.3.5.zip** from the assets below, not a source-code archive.\n3. Extract the ZIP to obtain the **PPSA99515/** folder.\n4. Copy the complete folder into **/data/homebrew/**. For an update, merge and overwrite the existing application files.\n5. Wait for the transfer to finish, then launch Emby5 and confirm **1.3.5** under **Settings > System > Installed version**."
       },
       "pins": [
+        {
+          "tag": "1.3.4",
+          "asset": "Emby5-1.3.4.zip",
+          "size": 32826289,
+          "sha256": "8d44c950ef38a7564ae0647f41e2aeb315edcf684d66e4f4fec76e34b25baa6c",
+          "content_version": "01.003.004",
+          "title_name": "Emby5"
+        },
         {
           "tag": "1.3.3",
           "asset": "Emby5-1.3.3.zip",
@@ -483,14 +491,6 @@
           "sha256": "282a27ce332022936873b2d668ce22f27714b86adad281a056fa4d936f106473",
           "content_version": "01.002.011",
           "title_name": "Emby5"
-        },
-        {
-          "tag": "1.2.10",
-          "asset": "Emby5-1.2.10.zip",
-          "size": 32738639,
-          "sha256": "8245685e9139840fcb8e45e86e6fceb3fabb1264a27cebad5c407336674a8085",
-          "content_version": "01.002.010",
-          "title_name": "Emby5"
         }
       ]
     },
@@ -514,16 +514,24 @@
       ],
       "stars": 13,
       "release": {
-        "tag": "v1.7.0",
-        "asset": "MediaPlayerClassicPS5-v1.7.0-PPSA99015.zip",
-        "size": 73239407,
-        "sha256": "6b527b9f81f52c5470c9c677a0885a9941aece3ec61a137906f1698ad9839f07",
-        "content_version": "01.070.000",
+        "tag": "v1.7.1",
+        "asset": "MediaPlayerClassicPS5-v1.7.1-PPSA99015.zip",
+        "size": 73296303,
+        "sha256": "524f8eb7492aa1916384bbfe87f63e140e621ac7a6889080342f0e4733cb6f60",
+        "content_version": "01.071.000",
         "title_name": "Media Player Classic PS5",
-        "published_at": "2026-11-23T02:04:13Z",
-        "notes": "## Media Player Classic PS5 1.7.0\n\n**Video post-processing on the GPU**, suggested by **Cris Valente**: thank you, Cris! Also a choice of where the\nhome screen lists the app, and the fixes made for 1.6.4 (which wasn't released on its own): **Stop** keeps the\nfile's position, and an audit's fixes. Application version is **1.7.0**, content version is **01.070.000**, and the\ntitle ID remains **PPSA99015**.\n\n### Added: Shaders (View > Options > Output > Shaders, Play > Shaders)\n\nA chain of compute passes between the decoder's picture and the screen, for the video only (never the window, the\nmenus or the subtitles), with the GPU renderer. **Off** is the default: the picture is drawn in one pass, as in 1.6.\n\n- **Presets:**\n  - **Performance:** FSR 1 enlarges the picture to the screen (AMD FidelityFX Super Resolution 1.0's EASU, with its\n    RCAS sharpening at 75 %).\n  - **Quality:** debanding and light deblocking first, then FSR 1 (sharpening 88 %).\n  - **Experimental:** Quality, and motion smoothing.\n  - **Custom:** each of them on or off, their strength, the scaler (FSR 1, Lanczos, bicubic or bilinear) and the\n    sharpening.\n- **Debanding** smooths the steps of gradients (skies, dark scenes) the way libplacebo and f3kdb do: where nearby\n  pixels differ by less than a threshold, their average is taken, then a little grain hides what is left.\n- **Deblocking** softens the 8×8 block edges of MPEG-2, MPEG-4 and early H.264 video, where the step between two\n  blocks is smaller than the texture around it (H.264's own rule), and keeps a pixel next to a strong edge within\n  its neighbours' range (deringing).\n- **Motion smoothing (experimental)** makes pictures between the film's own for the screen's 60 a second: each\n  picture's optical flow both ways, coarse to fine, then the picture at the display's time, with occluded areas taken\n  from the picture that shows them. A cut (two pictures more different than the **Scene cut** setting) is never\n  blended, and where the motion is beyond what the flow can follow the nearer picture is shown as it is, never a\n  double image. It is used while playing a film of 24, 25 or 30 pictures a second (not 48 or more, nor 24 to 30 at\n  twice the speed); paused, stepped or seeking, the picture is shown as it is.\n- **Colour controls:** brightness, contrast and saturation, with any preset but Off.\n- **Play > Shaders** switches between the presets at once; **Shader Options...** opens the page.\n- **View > Statistics** has a **Shaders** line with each pass's GPU time per frame (prep, motion smoothing, scale,\n  final); the statistics over the video (R3 + Square) show their sum. Without motion smoothing, a paused picture and\n  the repeats of a 24 fps film at 60 Hz cost only the last pass."
+        "published_at": "2026-11-25T15:52:04Z",
+        "notes": "## Media Player Classic PS5 1.7.1\n\nFixes for **issue #11** (the app showing only its logo) and for what an audit of the whole app found. Application\nversion is **1.7.1**, content version is **01.071.000**, and the title ID remains **PPSA99015**.\n\n> **If you had ticked View > Options > Fullscreen > \"Launch files in fullscreen\", tick it again.** It has its own\n> line in `mpc-hc.ini` now (`LaunchFullScreen=`); 1.7.0's `FullScreen=` isn't read.\n\n### Fixed: the screen with the logo alone (#11)\n\n- **The app always starts in its window**, not in full screen, as MPC-HC does. Up to 1.7.0, full screen\n  (Triangle, View > Full Screen) was saved as \"Launch files in fullscreen\": after a film watched in full screen the\n  next start was in full screen too, with nothing open, so the screen showed only the logo.\n- **Launch files in fullscreen** works as in MPC-HC: a film opens in full screen; the app itself starts in its window.\n- In full screen, a file with no picture (music without a cover) keeps the bars at the bottom.\n- With the menu bar hidden (View > Presets > Minimal), the OSD says which button opens the menu (\"OPTIONS: the\n  menu\"), also when the app starts that way.\n- A start that doesn't reach the screen is noticed by the next one, which writes `boot.log` even with Debug logs off\n  and says why.\n- The GPU start is watched: if the video still hasn't come up after 20 s, a notification says to close the app and\n  open it again (the next start uses the software renderer).\n\n### Issue #12: Games or Media, and the fonts in the backup\n\n- **The fonts folder is in the settings backup** (View > Options > Miscellaneous > Backup): the fonts you added for\n  subtitles are copied to `<drive>/mpcps5/backup/fonts` with the settings, and **Import...** copies back the ones\n  missing from the fonts folder (a font of the same name already there is kept).\n- **Listing the app under Games again** is the option 1.7.0 added: **View > Options > Miscellaneous > \"On the PS5's\n  home screen, under: Games\"**. The page now says what it brings: under Games, the PS5 allows screenshots and video\n  clips and counts the play time, as for a game. The choice is written into the app's `param.json`, which\n  ShadowMount+ reads when it adds the app to the home screen: after changing it, delete the app from the home screen\n  (OPTIONS on its tile > Delete) and ShadowMount+ adds it again where you chose. The complete installer writes the\n  choice into the app it installs; after an in-app update the app writes it back when it starts (restart it before\n  you re-add the tile). The choice is in the settings backup too, so an import brings it back.\n- The play time itself is counted and kept by the PS5, not by the app: the app can't save it or bring it back after\n  a reinstall or a factory reset."
       },
       "pins": [
+        {
+          "tag": "v1.7.0",
+          "asset": "MediaPlayerClassicPS5-v1.7.0-PPSA99015.zip",
+          "size": 73239407,
+          "sha256": "6b527b9f81f52c5470c9c677a0885a9941aece3ec61a137906f1698ad9839f07",
+          "content_version": "01.070.000",
+          "title_name": "Media Player Classic PS5"
+        },
         {
           "tag": "v1.6.3",
           "asset": "MediaPlayerClassicPS5-v1.6.3-PPSA99015.zip",
@@ -554,14 +562,6 @@
           "size": 72813867,
           "sha256": "f12d9daf3542290a55fcbdd1ebf2fe0809cb4e8cc7a65b035f438e71600adc74",
           "content_version": "01.060.000",
-          "title_name": "Media Player Classic PS5"
-        },
-        {
-          "tag": "v1.5.4",
-          "asset": "MediaPlayerClassicPS5-v1.5.4-PPSA99015.zip",
-          "size": 45564262,
-          "sha256": "a75a14887c8dd2eeeca08cfcb53bc0dda37e0f7519a019ceb386970be84ac5fb",
-          "content_version": "01.054.000",
           "title_name": "Media Player Classic PS5"
         }
       ]
@@ -744,7 +744,7 @@
         "radio",
         "visualizer"
       ],
-      "stars": 8,
+      "stars": 9,
       "release": {
         "tag": "01.000.006",
         "asset": "PPSA47770.zip",
@@ -928,7 +928,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 100,
+      "stars": 101,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1085,7 +1085,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 251,
+      "stars": 252,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1124,7 +1124,7 @@
         "psp",
         "ppsspp"
       ],
-      "stars": 56,
+      "stars": 57,
       "release": {
         "tag": "v1.000.100",
         "asset": "PPSA99131.zip",
@@ -1347,7 +1347,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 418,
+      "stars": 419,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 534,
+      "stars": 535,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1905,7 +1905,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 219,
+      "stars": 220,
       "release": {
         "tag": "v3.6",
         "asset": "PPSA97358.zip",
@@ -2464,18 +2464,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 163,
+      "stars": 164,
       "release": {
-        "tag": "v2.4.7",
+        "tag": "v2.4.9",
         "asset": "PPSA11018.zip",
-        "size": 328006232,
-        "sha256": "fda2b173f994be5063495b46534ee07f30a289611ac343a4169e02ca6b85237c",
-        "content_version": "02.004.007",
+        "size": 328019302,
+        "sha256": "b11b51a2dc1c7bb1801a158a727d4729894b7983d334b04481759faffbace105",
+        "content_version": "02.004.009",
         "title_name": "PC5",
-        "published_at": "2026-11-22T15:32:24Z",
-        "notes": "PC5 2.4.7 reads Microsoft's DirectX End-User Runtime as it is downloaded, gives older games Microsoft's own sound engine where Wine's falls short, and fixes games that stopped for memory while enough was free.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Microsoft's DirectX End-User Runtime, as it is downloaded**: put Microsoft's `directx_Jun2010_redist.exe` in `/data/prospero-win/pc5/dx9`. At the next game start PC5 takes Microsoft's Direct3D helpers (D3DX) and shader compilers from it for every game, as DLLs put in that folder already did, and Microsoft's sound engine for older games (XACT) for the games whose sound needs Microsoft's own. It reads the package once. A game that needs it and doesn't have it says so in its log.\n\n### Fixed\n\n- **Older games whose voices went missing**, with their ambient sound too loud and out of step: a game that hands the sound engine for older games (XACT) its own audio engine gets Microsoft's XACT from the DirectX End-User Runtime above, as Wine's doesn't take it.\n- **Games whose screen stayed black after switching to fullscreen** (Direct3D 9): their effects (D3DX) answered \"not implemented\" when the game reset its graphics for fullscreen, and the game stopped drawing. They now answer as Microsoft's do.\n- **Games that stopped with \"out of memory\" while enough memory was free**: the console's memory was split into pieces, and a game's large request, or a large graphics buffer, needed one piece bigger than any free. Such a request now takes several pieces.\n- **\"Video memory has been exhausted\" shown by Unreal Engine games**: the console's graphics driver counted every graphics allocation twice in the memory it reports.\n- **A game drawn only with DirectX 12 taken for DirectX 11** (RE Engine), as its protected program shows only DXGI: it was given Wine's own DirectX 12, which couldn't make its device. It starts with DirectX 12, an installed one too.\n- **A game's log when memory runs out** now tells all the memory still free, beside the largest free piece, so a full console can be told from one whose memory is split into pieces.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem"
+        "published_at": "2026-11-25T20:31:11Z",
+        "notes": "PC5 2.4.9 fixes Java games that counted each controller button press twice.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Java games that counted each button press twice with the Xbox controller setting** (Necesse, whose inventory opened and closed at once): they found one controller twice, once through XInput and once as a joystick. A game with its own Java beside it now finds it once.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs.\n- Recording or saving video from inside a game.\n- Frame generation for DirectDraw games and games drawn without 3D, and HDR output.\n\n<!-- pc5-update-from: 2.4.8 -->"
       },
       "pins": [
+        {
+          "tag": "v2.4.7",
+          "asset": "PPSA11018.zip",
+          "size": 328006232,
+          "sha256": "fda2b173f994be5063495b46534ee07f30a289611ac343a4169e02ca6b85237c",
+          "content_version": "02.004.007",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.4.6",
           "asset": "PPSA11018.zip",
@@ -2506,14 +2514,6 @@
           "size": 327975844,
           "sha256": "343dc7c9b5065b09611040a72c85373f2739acb9a04bdaf19984403030faf059",
           "content_version": "02.004.002",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.3.13",
-          "asset": "PPSA11018.zip",
-          "size": 327907675,
-          "sha256": "b7ddd64b76f602e83e5f89cfaf9afa5e14dd90e2e2a601370c11f4fe7ed6e45f",
-          "content_version": "02.003.013",
           "title_name": "PC5"
         }
       ]
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1115,
+      "stars": 1116,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2655,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1703,
+      "stars": 1705,
       "release": {
         "tag": "vk-285-345",
         "asset": "PS5SX2-vk-285-345.zip",
@@ -2728,7 +2728,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 449,
+      "stars": 450,
       "release": {
         "tag": "v4.7.0-beta-4",
         "asset": "PS5_RetroArch-v4.7.0-beta-4.zip",
@@ -2783,7 +2783,7 @@
         "emulator",
         "snes"
       ],
-      "stars": 68,
+      "stars": 69,
       "release": {
         "tag": "v2.11",
         "asset": "Snes9xPS5-v2.11-PPSA99922.zip",
@@ -3423,7 +3423,7 @@
         "xbox",
         "fps"
       ],
-      "stars": 95,
+      "stars": 96,
       "release": {
         "tag": "build-143",
         "asset": "halo-ps5-release.zip",
@@ -3803,18 +3803,26 @@
         "java",
         "sandbox"
       ],
-      "stars": 60,
+      "stars": 61,
       "release": {
-        "tag": "01.000.300",
+        "tag": "01.000.308",
         "asset": "PPSA99874.zip",
-        "size": 128618598,
-        "sha256": "15c2f1727bd056aad04a877dc756b84c8a77aaa7ecd11734454ec80969149e7b",
-        "content_version": "01.000.300",
+        "size": 128697374,
+        "sha256": "e1b48dcb60428229df05b8ad740ffbdf2820e8c439e7d865f2f5540938366c69",
+        "content_version": "01.000.308",
         "title_name": "ProsperoCraft",
-        "published_at": "2026-11-23T19:16:21Z",
-        "notes": "### Bug fixes\n\n- Fixed flickering text in Minecraft 1.21 and 1.21.1, including the title, Languages, and Resource Packs menus.\n- Defaulted Controlify's on-screen button guides off on Fabric 1.21 and 1.21.1 to prevent flickering controller glyphs.\n- Improved installation and memory handling for large Fabric mods such as Cobblemon.\n\nThe text fix and shader rendering were confirmed on PS5 with this build.\n\nDownload PPSA99874.zip to install or update ProsperoCraft. Checksums, validation records, corresponding source and the OpenAL relink kit are included with the release."
+        "published_at": "2026-11-25T16:50:12Z",
+        "notes": "## Dedicated servers in early beta\n\nHost a Vanilla Minecraft Java 26.x world on your PS5 for players on the same network. Turn on **Server [BETA]** in Settings to show the Servers tab, now between Instances and Settings. Both Settings and Servers have larger text and controls for TV use.\n\n- Scan the Servers QR code or open the browser address shown on your PS5, then enter the pairing code. From the browser you can pick a version, accept the EULA, start the server, cancel setup, save and stop, or return to the launcher. Join using the Minecraft address shown on the Servers screen, with a copy button in the browser.\n- See live status, player names and count, and uptime. The browser also shows the last 50 console lines and supports a limited set of Minecraft admin commands.\n- Edit the server name, player limit, game mode, difficulty, view and simulation distance, PvP, and whitelist in the browser while the server is stopped. Changes apply on the next start.\n\n## Launcher and uploads\n\n- Hold **X** to save and stop a server, confirm instance deletion, or confirm an uninstall. The progress indicator shows when the action will confirm. Mouse clicks and Enter still confirm immediately.\n- A **HOSTING** badge and dimmed tabs show when the server has control. Success and error messages appear as notifications, and downloads show transfer speed and estimated time remaining.\n- Drag and drop files into browser uploads and track progress separately for each file.\n\n## Bug fixes\n\n- Fixed garbled server names containing accented letters and other non-ASCII characters."
       },
       "pins": [
+        {
+          "tag": "01.000.300",
+          "asset": "PPSA99874.zip",
+          "size": 128618598,
+          "sha256": "15c2f1727bd056aad04a877dc756b84c8a77aaa7ecd11734454ec80969149e7b",
+          "content_version": "01.000.300",
+          "title_name": "ProsperoCraft"
+        },
         {
           "tag": "01.000.288",
           "asset": "PPSA99874.zip",
@@ -3846,14 +3854,6 @@
           "sha256": "c46d07bb0ca56988e83cacc7f5b2b495f8ff70f36c4dbaca134d5ba15f505ae4",
           "content_version": "01.000.285",
           "title_name": "ProsperoCraft"
-        },
-        {
-          "tag": "01.000.281",
-          "asset": "PPSA99874.zip",
-          "size": 128572074,
-          "sha256": "ab92eafe8a1569d90a6a6e26339ec29ba69f149f6bd3e4f3567eeb2215c770a9",
-          "content_version": "01.000.281",
-          "title_name": "ProsperoCraft"
         }
       ]
     },
@@ -3876,7 +3876,7 @@
         "vr",
         "psvr2"
       ],
-      "stars": 1,
+      "stars": 2,
       "release": {
         "tag": "01.000.001",
         "asset": "Pulse-01.000.001.zip",
@@ -4989,7 +4989,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "01.000.216",
         "asset": "SmartTube-PPSA98260.zip",
@@ -5170,7 +5170,7 @@
         "streaming",
         "pc"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99350.zip",
@@ -5514,7 +5514,7 @@
         "saves",
         "backup"
       ],
-      "stars": 36,
+      "stars": 35,
       "release": {
         "tag": "v1.3.17",
         "asset": "PPSA99700.zip",
@@ -5610,18 +5610,26 @@
         "jailbreak",
         "pldmgr"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
-        "tag": "v00.001.003",
+        "tag": "v00.001.004",
         "asset": "PPSA67670.zip",
-        "size": 19457120,
-        "sha256": "5647525a1fab0397678599d1c4abbed466d03fc6c9b46f159719db93c1652357",
-        "content_version": "00.001.003",
+        "size": 19464482,
+        "sha256": "eaf901598b0a2334f27b0d556dc789b881f2927ed4798d8dbeb9daa1be317126",
+        "content_version": "00.001.004",
         "title_name": "PayLoader",
-        "published_at": "2026-11-10T08:29:52Z",
-        "notes": "### Fixed\n\n- Repositories load on consoles where PayLoader made pldmgr's folder before pldmgr did. That folder was readable\n  but not writable for pldmgr, so pldmgr could not save its repositories or sources: PayLoader showed no\n  payloads to install or update. PayLoader now opens the folder for pldmgr, also on consoles where it is already\n  there."
+        "published_at": "2026-11-25T15:40:49Z",
+        "notes": "### Added\n\n- Restore the boot list from a recovery USB stick: \"Restore from the USB stick\" under Safety, whenever a stick has ps5-autoloader's list, also while the chain runs from the stick. The stick's list and its files become the list on the console. The console's list is first kept on the stick, in `payloader-before-restore-<time>`. Nothing changes when the stick's copy is incomplete.\n\n### Changed\n\n- When PayLoader cannot write pldmgr's settings, the message now says why (for example `open: Permission denied`), so the cause can be found."
       },
       "pins": [
+        {
+          "tag": "v00.001.003",
+          "asset": "PPSA67670.zip",
+          "size": 19457120,
+          "sha256": "5647525a1fab0397678599d1c4abbed466d03fc6c9b46f159719db93c1652357",
+          "content_version": "00.001.003",
+          "title_name": "PayLoader"
+        },
         {
           "tag": "v00.001.002",
           "asset": "PPSA67670.zip",
