@@ -411,7 +411,7 @@
         "emby",
         "video"
       ],
-      "stars": 51,
+      "stars": 52,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -802,7 +802,7 @@
         "video",
         "streaming"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "v1.6.0.7",
         "asset": "wiliwili-PS5-v1.6.0.7.zip",
@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 533,
+      "stars": 534,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1764,7 +1764,7 @@
         "llm",
         "chat"
       ],
-      "stars": 69,
+      "stars": 70,
       "release": {
         "tag": "01.007.000",
         "asset": "PPSA99004.zip",
@@ -1803,7 +1803,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 878,
+      "stars": 879,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1113,
+      "stars": 1115,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2657,16 +2657,24 @@
       ],
       "stars": 1703,
       "release": {
-        "tag": "vk-285-329",
-        "asset": "PS5SX2-vk-285-329.zip",
-        "size": 32758948,
-        "sha256": "244e1381f3467a6c1ce145e355e615a8214e90ed85890586fda86b70b715868a",
-        "content_version": "02.600.000",
+        "tag": "vk-285-345",
+        "asset": "PS5SX2-vk-285-345.zip",
+        "size": 32778946,
+        "sha256": "c85d4636f5d9cec182ad7173b1b566b02aef3bdce64ba247cd1b3eecd13a973f",
+        "content_version": "02.610.000",
         "title_name": "PS5SX2",
-        "published_at": "2026-11-23T22:18:08Z",
-        "notes": "**PS5SX2 2.60** (build vk-285-329)\n\nA new graphics driver: PS5SX2 now runs on **RADV**, Mesa's Vulkan driver for AMD GPUs, in Mihawk-99's PS5 port, with fixes of our own. Plus shelf fixes, 10x resolution and Rock Band 4 guitars.\n\n**A new graphics driver: RADV**\n- Until 2.50, PS5SX2 drew with ps5vk, a small driver that lacked many of the GPU features PCSX2 uses, so PCSX2's renderer took slower workaround paths. RADV has them all, and PS5SX2 now uses them: texture barriers, geometry shaders, BC textures, image copies on the GPU.\n- Our changes to it (in the repository, `ps5/radv`): waits that spun the CPU now sleep, the graphics driver records on its own thread without stalling at every draw, new GPU memory is cleared much faster (fewer hitches when a game builds new render targets), and your TV's refresh follows what's on screen: 60 Hz for the shelf and games without frame generation, 120 Hz for frame generation, and back to 60 Hz when you leave.\n- The first time you play each game, its shaders are compiled as they're needed (a few hitches); they're kept for the next time.\n\n**Shelf**\n- The selection box on the settings no longer lingers when you back out or close the sheet, and no longer flashes as a solid box.\n- Picking a game no longer leaves the game list on screen while the game loads.\n\n**Settings**\n- Resolution has **10x** (about 6K). \"8x (PS5 Pro)\" is just **8x**.\n\n**Games**\n- Rock Band 4 guitars work as guitars: PDP Riffmaster (PS5 and PS4), CRKD Gibson SG, Mad Catz Stratocaster, PDP Jaguar (#103). Frets, solo frets, strum, whammy, and star power by button or by tilting. Tell us how it plays: it hasn't met a real guitar yet.\n- Shadow Hearts no longer hangs.\n\n**BIOS**\n- PS5SX2 no longer comes with the open-source BIOS (OpenPS2BIOS). Games need a BIOS dumped from **your own** PS2, in `/data/PCSX2/bios` or on a USB drive.\n\n---\n\n## Download\n\n- **`PS5SX2-vk-285-329.zip`**: the app (eboot and files). The installer and System update install it for you.\n  SHA-256: `244e1381f3467a6c1ce145e355e615a8214e90ed85890586fda86b70b715868a`\n- **`PS5SX2Installer.elf`**: the installer (1.5, unchanged). Send it once and it installs this build; after that, use System update in the app.\n  SHA-256: `efdec4f8d968ef4a7c1880e75d26b96d212a042a6c208de46f0a859609f6224c`\n- **`PS5SXHelper.elf`**: disc helper 171q with the `/data` mount (only for ShadowMount+ 1.7beta3), unchanged.\n  SHA-256: `d8ff3a8d35dd2943ee405c5eca9405142f19057368eb539c4454b18b5de2917f`\n- **`PS5SXHelper-no-data-mount.elf`**: the same without the `/data` mount, for ShadowMount+ 1.7-beta5fix1 or newer (the app starts this one itself), unchanged.\n  SHA-256: `fc14c48b6b91da83f817e21afdef8e00d2a59c588de57b3f6d12d2015acc0654`"
+        "published_at": "2026-11-24T23:24:25Z",
+        "notes": "**PS5SX2 2.61** (build vk-285-345)\n\nPerformance improvements.\n\n---\n\n## Download\n\n- **`PS5SX2-vk-285-345.zip`**: the app (eboot and files). The installer and System update install it for you.\n  SHA-256: `c85d4636f5d9cec182ad7173b1b566b02aef3bdce64ba247cd1b3eecd13a973f`\n- **`PS5SX2Installer.elf`**: the installer (1.5, unchanged). Send it once and it installs this build; after that, use System update in the app.\n  SHA-256: `efdec4f8d968ef4a7c1880e75d26b96d212a042a6c208de46f0a859609f6224c`\n- **`PS5SXHelper.elf`**: disc helper 171q with the `/data` mount (only for ShadowMount+ 1.7beta3), unchanged.\n  SHA-256: `d8ff3a8d35dd2943ee405c5eca9405142f19057368eb539c4454b18b5de2917f`\n- **`PS5SXHelper-no-data-mount.elf`**: the same without the `/data` mount, for ShadowMount+ 1.7-beta5fix1 or newer (the app starts this one itself), unchanged.\n  SHA-256: `fc14c48b6b91da83f817e21afdef8e00d2a59c588de57b3f6d12d2015acc0654`\n\nSource: [Swordpdf/PS5SX2](https://github.com/Swordpdf/PS5SX2) `main` (commit 9b5cf47). The driver: RADV from [Mihawk-99's PS5_Mesa](https://github.com/mihawk-99/PS5_Mesa) with PS5SX2's patch in `ps5/radv`."
       },
       "pins": [
+        {
+          "tag": "vk-285-329",
+          "asset": "PS5SX2-vk-285-329.zip",
+          "size": 32758948,
+          "sha256": "244e1381f3467a6c1ce145e355e615a8214e90ed85890586fda86b70b715868a",
+          "content_version": "02.600.000",
+          "title_name": "PS5SX2"
+        },
         {
           "tag": "vk-285-321",
           "asset": "PS5SX2-vk-285-321.zip",
@@ -2697,14 +2705,6 @@
           "size": 24454104,
           "sha256": "739c652acab11fc4eb79a7e20a67d22183ee97ea5292d3b8330bf5dbca412076",
           "content_version": "02.200.000",
-          "title_name": "PS5SX2"
-        },
-        {
-          "tag": "vk-285-177",
-          "asset": "PS5SX2-vk-285-177.zip",
-          "size": 21387634,
-          "sha256": "4a63f445a904808382a11b1f84d7affdf3a7a3e47a6facb3eec2bb0b1524569b",
-          "content_version": "02.150.000",
           "title_name": "PS5SX2"
         }
       ]
@@ -4680,7 +4680,7 @@
         "addons",
         "hdr"
       ],
-      "stars": 15,
+      "stars": 16,
       "release": {
         "tag": "v1.0.1.0-native",
         "asset": "PPSA99288.zip",
@@ -4753,7 +4753,7 @@
         "video",
         "addons"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "v0.1.0-alpha.7",
         "asset": "PPSA99997.zip",
