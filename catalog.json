@@ -411,7 +411,7 @@
         "emby",
         "video"
       ],
-      "stars": 52,
+      "stars": 53,
       "release": {
         "tag": "v0.7.0",
         "asset": "Jelly5-00.007.000.zip",
@@ -1347,7 +1347,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 420,
+      "stars": 421,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 536,
+      "stars": 537,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -2031,7 +2031,7 @@
         "screenshots",
         "capture"
       ],
-      "stars": 30,
+      "stars": 31,
       "release": {
         "tag": "1.0",
         "asset": "PPSA99773.zip",
@@ -2060,7 +2060,7 @@
         "capture",
         "usb"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "v1.0.0",
         "asset": "PPSA17035.zip",
@@ -2421,7 +2421,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 412,
+      "stars": 413,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2464,18 +2464,26 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 164,
+      "stars": 167,
       "release": {
-        "tag": "v2.5.0",
+        "tag": "v2.5.2",
         "asset": "PPSA11018.zip",
-        "size": 328026293,
-        "sha256": "b61b754dcea643fae3fa3281d585119e6db3a8970ee2ae29015cc6eef9c3c14f",
-        "content_version": "02.005.000",
+        "size": 328028703,
+        "sha256": "539673b4d0d3d33825b43b343aa3f1ed6274b821f9b077d6302c007909308970",
+        "content_version": "02.005.002",
         "title_name": "PC5",
-        "published_at": "2026-11-26T08:11:00Z",
-        "notes": "PC5 2.5.0 makes Brian Lara International Cricket 2007 start by itself, gives Unity games the Xbox controller, and fixes Noreya and a driver check AMD-aware games make.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Brian Lara International Cricket 2007 never reached its menu**: without its settings in the registry it tried to start its setup program, which the console can't, and then it hung on its intro films. PC5 now writes the settings its setup program would (1920×1080, 60 Hz, windowed), and sets its two intro films aside (renamed `.pc5-skip`, kept beside them). Your own settings, if you already set them, are kept.\n- **Unity games that didn't react to the Xbox controller** (Yestersol): Unity opens a controller as a device before it reads it, and there was nothing to open. With **Controller › Xbox controller**, a Unity game now finds the controller as Windows shows an Xbox 360 controller.\n- **Noreya stopping at \"Unexpected end of JSON input\"**: an earlier start that ended early left its `save.json` empty. PC5 now puts it back as the game ships it before the game starts (the broken one is kept as `save.json.pc5-broken`).\n- **Games that check the AMD graphics driver** (Valor Mortis): the console's driver now reports its Radeon Software version, as on a PC and as Proton does.\n- **Max Payne 3's frame rate in busy scenes**: it gets the DXVK option DXVK itself gives GTA V, Rockstar's same engine, for scenes held back by the processor.\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in."
+        "published_at": "2026-11-26T18:54:02Z",
+        "notes": "PC5 2.5.2 fixes Infinity Engine games played from a USB drive and web games whose cache was cut short, and says when the console ran out of memory.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Icewind Dale II and other Infinity Engine games played from a USB drive** find their data again: PC5's fix of the game's paths in its ini (from 2.4.8) was skipped for a game on a USB drive, because the check looked for the game's folder in the wrong place ([#746](https://github.com/bornaradusin/PC5/issues/746)).\n- **Web games (Electron) whose cache was cut short** by an earlier start that ended early start again: the cache's block files are now checked too, not just its index, and a broken cache is cleared (Noreya, [#693](https://github.com/bornaradusin/PC5/issues/693)).\n- **A game that runs the console out of memory** is no longer reported as \"nothing went wrong\": PC5's message and the GitHub report say the console ran out of memory, with what to try ([#773](https://github.com/bornaradusin/PC5/issues/773)).\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs."
       },
       "pins": [
+        {
+          "tag": "v2.5.0",
+          "asset": "PPSA11018.zip",
+          "size": 328026293,
+          "sha256": "b61b754dcea643fae3fa3281d585119e6db3a8970ee2ae29015cc6eef9c3c14f",
+          "content_version": "02.005.000",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.4.9",
           "asset": "PPSA11018.zip",
@@ -2506,14 +2514,6 @@
           "size": 327997053,
           "sha256": "58cd8d9aedb2751c475b1c1f1a38102752c7fd100db2b75558d4618147228d56",
           "content_version": "02.004.005",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.4.3",
-          "asset": "PPSA11018.zip",
-          "size": 327980417,
-          "sha256": "dbaaca34e158ecf3d13bcd72f398445b95ee00af13f9effdd1f9a6ca35854156",
-          "content_version": "02.004.003",
           "title_name": "PC5"
         }
       ]
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1117,
+      "stars": 1120,
       "release": {
         "tag": "v0.11.0",
         "asset": "playden-ps5-0.11.0.zip",
@@ -2655,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1706,
+      "stars": 1705,
       "release": {
         "tag": "vk-285-345",
         "asset": "PS5SX2-vk-285-345.zip",
@@ -2728,7 +2728,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 451,
+      "stars": 453,
       "release": {
         "tag": "v4.7.0-beta-4",
         "asset": "PS5_RetroArch-v4.7.0-beta-4.zip",
@@ -2825,7 +2825,7 @@
         "zelda",
         "libultraship"
       ],
-      "stars": 20,
+      "stars": 19,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99621.zip",
@@ -4205,7 +4205,7 @@
         "racing",
         "need-for-speed"
       ],
-      "stars": 9,
+      "stars": 10,
       "release": {
         "tag": "01.000.004",
         "asset": "PPSA90505.zip",
@@ -5238,7 +5238,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 31,
+      "stars": 33,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5578,7 +5578,7 @@
         "library",
         "box-art"
       ],
-      "stars": 49,
+      "stars": 50,
       "release": {
         "tag": "01.107.000",
         "asset": "PPSA99062.zip",
@@ -5618,7 +5618,7 @@
         "jailbreak",
         "pldmgr"
       ],
-      "stars": 12,
+      "stars": 13,
       "release": {
         "tag": "v00.001.004",
         "asset": "PPSA67670.zip",
@@ -5982,7 +5982,7 @@
         "saves",
         "sync"
       ],
-      "stars": 128,
+      "stars": 129,
       "release": {
         "tag": "v1.4.4",
         "asset": "PPSA76677.zip",
