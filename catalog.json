@@ -928,7 +928,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 101,
+      "stars": 102,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1029,7 +1029,7 @@
         "dreamcast",
         "flycast"
       ],
-      "stars": 40,
+      "stars": 41,
       "release": {
         "tag": "v1.4.1",
         "asset": "PSFlyCast-v1.4.1.zip",
@@ -1085,7 +1085,7 @@
         "wii",
         "dolphin"
       ],
-      "stars": 252,
+      "stars": 255,
       "release": {
         "tag": "v4.5",
         "asset": "Porpoise-4.5.zip",
@@ -1153,7 +1153,7 @@
         "n64",
         "mupen64plus"
       ],
-      "stars": 37,
+      "stars": 38,
       "release": {
         "tag": "0.7.5",
         "asset": "Mupen64PlusPS5.zip",
@@ -1347,7 +1347,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 421,
+      "stars": 423,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -1377,7 +1377,7 @@
         "3ds",
         "switch"
       ],
-      "stars": 537,
+      "stars": 540,
       "release": {
         "tag": "v5.1.0",
         "asset": "PS5-ECAM-v5.1.0.zip",
@@ -1905,7 +1905,7 @@
         "xbox",
         "xemu"
       ],
-      "stars": 220,
+      "stars": 221,
       "release": {
         "tag": "v3.6",
         "asset": "PPSA97358.zip",
@@ -2421,7 +2421,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 413,
+      "stars": 415,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2655,7 +2655,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1705,
+      "stars": 1707,
       "release": {
         "tag": "vk-285-345",
         "asset": "PS5SX2-vk-285-345.zip",
@@ -2728,7 +2728,7 @@
         "libretro",
         "es-de"
       ],
-      "stars": 453,
+      "stars": 454,
       "release": {
         "tag": "v4.7.0-beta-4",
         "asset": "PS5_RetroArch-v4.7.0-beta-4.zip",
@@ -5238,7 +5238,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 33,
+      "stars": 35,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5982,7 +5982,7 @@
         "saves",
         "sync"
       ],
-      "stars": 129,
+      "stars": 130,
       "release": {
         "tag": "v1.4.4",
         "asset": "PPSA76677.zip",
@@ -6114,7 +6114,7 @@
       "tags": [
         "trophies"
       ],
-      "stars": 10,
+      "stars": 11,
       "release": {
         "tag": "v0.1.1",
         "asset": "Trophy-Manager-v0.1.1-PPSA99842.zip",
