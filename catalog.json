@@ -928,7 +928,7 @@
         "ps1",
         "pcsx-rearmed"
       ],
-      "stars": 102,
+      "stars": 103,
       "release": {
         "tag": "v2.0.0",
         "asset": "PSXS5-v2.0.0.zip",
@@ -1803,7 +1803,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 881,
+      "stars": 883,
       "release": {
         "tag": "v0.11.0",
         "asset": "ps5lm-app-v0.11.0.zip",
@@ -2356,7 +2356,7 @@
         "switch",
         "eden"
       ],
-      "stars": 7,
+      "stars": 8,
       "release": {
         "tag": "v6.000.000",
         "asset": "ProsperoEden-v6.000.000.zip",
@@ -2421,7 +2421,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 415,
+      "stars": 417,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2466,16 +2466,24 @@
       ],
       "stars": 167,
       "release": {
-        "tag": "v2.5.2",
+        "tag": "v2.5.5",
         "asset": "PPSA11018.zip",
-        "size": 328028703,
-        "sha256": "539673b4d0d3d33825b43b343aa3f1ed6274b821f9b077d6302c007909308970",
-        "content_version": "02.005.002",
+        "size": 328048027,
+        "sha256": "4004ce27d7969a22b3cb5bf23d279db448b4c44a52d87f2aa0424fbaf9df1179",
+        "content_version": "02.005.005",
         "title_name": "PC5",
-        "published_at": "2026-11-26T18:54:02Z",
-        "notes": "PC5 2.5.2 fixes Infinity Engine games played from a USB drive and web games whose cache was cut short, and says when the console ran out of memory.\n\n### Install\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### Fixed\n\n- **Icewind Dale II and other Infinity Engine games played from a USB drive** find their data again: PC5's fix of the game's paths in its ini (from 2.4.8) was skipped for a game on a USB drive, because the check looked for the game's folder in the wrong place ([#746](https://github.com/bornaradusin/PC5/issues/746)).\n- **Web games (Electron) whose cache was cut short** by an earlier start that ended early start again: the cache's block files are now checked too, not just its index, and a broken cache is cleared (Noreya, [#693](https://github.com/bornaradusin/PC5/issues/693)).\n- **A game that runs the console out of memory** is no longer reported as \"nothing went wrong\": PC5's message and the GitHub report say the console ran out of memory, with what to try ([#773](https://github.com/bornaradusin/PC5/issues/773)).\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI).\n- 16-bit Windows and DOS programs."
+        "published_at": "2026-11-27T12:43:16Z",
+        "notes": "PC5 2.5.5 adds a controller mode for games with DualSense mods: the game plays with an Xbox controller while the mod drives the DualSense's adaptive triggers and light bar.\n\n### Install\n\n\n- **ProsperoStore**: update PC5 from its page in the store.\n- **PC5's own updater**: **Settings › System › Update now**, or **Update now** when PC5 asks as it opens. It downloads only what changed when you have the version before, otherwise the whole app. PC5 restarts by itself when the update is installed.\n\n### New\n\n- **Xbox + DualSense**, a fourth choice in a game's **△ › Controller**: the game sees an Xbox controller, as with **Xbox controller**, and a mod of it finds the DualSense too, as one plugged into a PC by USB. That's for mods that add the DualSense's adaptive triggers, light bar and rumble to a game that only knows Xbox controllers, such as GTA IV's ([#739](https://github.com/bornaradusin/PC5/discussions/739)). The game still has one controller: DirectInput, raw input and SDL see only the Xbox controller. The game's rumble and the mod's play together, the stronger of the two on each motor. A mod that plays haptics through the DualSense's speaker (its audio) gets no sound from it. **Xbox controller**, **DualSense** and **Keyboard & mouse** work as before. See [Controllers](https://github.com/bornaradusin/PC5/wiki/Controllers).\n\n### Which games run\n\nSee the [game compatibility list](https://github.com/bornaradusin/PC5/wiki/Game-compatibility), made from players' reports and issues. Got a game running? Use **Report it works** (a game's **△ › Manage**, or PC5's web page), or [add it here](https://github.com/bornaradusin/PC5/discussions/new?category=game-compatibility): the form takes a minute.\n\n### Reporting a problem\n\nPlease report problems as an [issue on GitHub](https://github.com/bornaradusin/PC5/issues/new/choose), not in ProsperoStore's comments:\n- **A game doesn't run** for a game.\n- **A problem with PC5** for PC5 itself.\n\nAttach the game's zip from `/data/prospero-win/logs/`: an `issue-…zip`, or the game's newest `log-…zip` when nothing crashed. The form asks for it, as the cause can't be found without it. **△** on PC5's crash message, or a game's **△ › Manage › Report a problem**, opens the form for you, filled in.\n\nIf an update from PC5 fails, the message says why. Turn on **Settings › System › Keep all logs**, try again and attach PC5's own log. See [Logs and debugging](https://github.com/bornaradusin/PC5/wiki/Logs-and-debugging) for what an issue may ask for.\n\n### Not supported\n\n- Games that need a store's launcher or client running (Steam, EA app, Ubisoft Connect, Rockstar Games Launcher).\n- Anti-cheat, games that need kernel drivers, and DRM-protected games.\n- .NET programs that mix .NET and C++ (C++/CLI)."
       },
       "pins": [
+        {
+          "tag": "v2.5.2",
+          "asset": "PPSA11018.zip",
+          "size": 328028703,
+          "sha256": "539673b4d0d3d33825b43b343aa3f1ed6274b821f9b077d6302c007909308970",
+          "content_version": "02.005.002",
+          "title_name": "PC5"
+        },
         {
           "tag": "v2.5.0",
           "asset": "PPSA11018.zip",
@@ -2506,14 +2514,6 @@
           "size": 328003160,
           "sha256": "cf4aca9285d338dbc406050fd6945549dc925b6783339a34baa05ebb4396d230",
           "content_version": "02.004.006",
-          "title_name": "PC5"
-        },
-        {
-          "tag": "v2.4.5",
-          "asset": "PPSA11018.zip",
-          "size": 327997053,
-          "sha256": "58cd8d9aedb2751c475b1c1f1a38102752c7fd100db2b75558d4618147228d56",
-          "content_version": "02.004.005",
           "title_name": "PC5"
         }
       ]
@@ -2568,18 +2568,26 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1120,
+      "stars": 1121,
       "release": {
-        "tag": "v0.11.0",
-        "asset": "playden-ps5-0.11.0.zip",
-        "size": 58778957,
-        "sha256": "e7a5579a693c4d7f48f1f66fd3339f9f27ef503de56809e1950cb036d77736d3",
-        "content_version": "00.011.000",
+        "tag": "v0.12.0",
+        "asset": "playden-ps5-0.12.0.zip",
+        "size": 60189524,
+        "sha256": "05c620fe9e6ce3b6efd08631df64a1912bf74097d21f40a57f51647070477a1f",
+        "content_version": "00.012.000",
         "title_name": "Playden",
-        "published_at": "2026-11-16T07:29:02Z",
-        "notes": "Community recipes are here: Game settings lists the settings other players shared for a game, with how well they ran, and you can share your own with no GitHub account. Games can run at 120 Hz on a VRR display, you can save your own presets, and turn a game's DLC on or off. Playden starts faster with many games, and keeps your data through a crash. New runtime kit 0.28 gives 32-bit games up to 4 GB of memory, lets Project Zomboid load a world again, runs Steam games from Steam's own folder, and fixes Euro Truck Simulator 2 with mods, Metro 2033 Redux, Spider-Man: Web of Shadows, Need for Speed III and more.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.11.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.28.zip` | Runtime kit 0.28. Playden downloads it by itself; you need this file only to install the kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its runtime kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.28 (about 495 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept.\n\n**After the update:** games set up with an older runtime kit show \"Runtime kit update available\". Playden asks once whether to update them all to the new runtime kit. This takes about 30 seconds per game and downloads nothing from Steam. If you choose Later, Play updates a game's runtime kit first, and the Runtimes tab of Settings › Storage › Manage installed games updates many at once. Until then, games keep running on their old runtime kit from PS5 Home.\n\n**Recreate bottle for two fixes:** the new fonts and the Metro 2033 Redux fix are in the Windows setup that a game gets when Playden prepares it. A game set up before keeps its old setup. To get them, use Maintenance › Recreate bottle on that game (your saves and Game settings are kept). Games you installed before also keep running from their own folder; see Steam library folder below.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself."
+        "published_at": "2026-11-27T09:24:33Z",
+        "notes": "Online play is here, GOG is a second store, and controller layouts can be set on the PS5 and shared in community recipes. Games can use the controller's microphone and Steam Workshop items, and games that need the Rockstar Games Launcher can run (experimental). New runtime kit 0.36 fixes Unreal Engine 5 games on Direct3D 12 and Unity games stuck on their first spinner.\n\n> [!WARNING]\n> Alpha software. Playden signs in to your real Steam account and reads and writes your Steam Cloud saves. Online play signs that account in to Steam from the console, and a game with Valve Anti-Cheat could get it banned from that game. Read [Before you use it](https://github.com/leolobato/playden-ps5#before-you-use-it) and [Online play](https://github.com/leolobato/playden-ps5/blob/main/docs/online-play.md) first.\n\n## Downloads\n\n| File | What it is |\n| --- | --- |\n| `playden-ps5-0.12.0.zip` | The Playden app (the `FAKE77031` folder), the console tools (`tools/`), the README, the compatibility list and the license files. |\n| `playden-kit-0.36.zip` | Runtime kit 0.36. Playden downloads it by itself; you need this file only to install the runtime kit by hand. |\n| `playden-update.json` | Used by Playden to update itself and to find its runtime kit. You don't need to download it. |\n\n**Updating from 0.6.0 or newer:** Playden offers the update the next time it starts, or from Settings › Updates › Check now. It updates the app and runtime kit 0.36 (about 515 MB). Make sure console storage has at least **8 GB free** first (PS5 Settings › Storage). Your sign-in, games, saves and Game settings are kept. On a 0.12.0 beta with runtime kit 0.36, only the app is downloaded (60 MB).\n\n**After the update:** games set up with an older runtime kit show \"Runtime kit update available\". Playden asks once whether to update them all to the new runtime kit. This takes about 30 seconds per game and downloads nothing from Steam. If you choose Later, Play updates a game's runtime kit first, and the Runtimes tab of Settings › Games › Manage installed games updates many at once. No Recreate bottle is needed.\n\n**Updating from 0.5.0 or older:** update to [0.6.0](https://github.com/leolobato/playden-ps5/releases/tag/v0.6.0) first (see its notes), then let Playden update itself.\n\n**New install:** unzip `playden-ps5-0.12.0.zip` into a folder of its own and copy the `FAKE77031` folder to `/data/homebrew/` (see the [README](https://github.com/leolobato/playden-ps5#install)). On its first start Playden offers to download the runtime kit; you can sign in while it downloads.\n\n## What's new"
       },
       "pins": [
+        {
+          "tag": "v0.11.0",
+          "asset": "playden-ps5-0.11.0.zip",
+          "size": 58778957,
+          "sha256": "e7a5579a693c4d7f48f1f66fd3339f9f27ef503de56809e1950cb036d77736d3",
+          "content_version": "00.011.000",
+          "title_name": "Playden"
+        },
         {
           "tag": "v0.10.0",
           "asset": "playden-ps5-0.10.0.zip",
@@ -2625,7 +2633,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 269,
+      "stars": 270,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -5208,7 +5216,7 @@
         "icons",
         "steamgriddb"
       ],
-      "stars": 37,
+      "stars": 38,
       "release": {
         "tag": "v1.4.0",
         "asset": "PS5_ArtSwap-v1.4.0.zip",
@@ -5238,7 +5246,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 35,
+      "stars": 41,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
@@ -5849,7 +5857,7 @@
         "llm",
         "llama-cpp"
       ],
-      "stars": 525,
+      "stars": 527,
       "release": {
         "tag": "v0.8.4",
         "asset": "ps5lm-plus-v0.8.4.zip",
