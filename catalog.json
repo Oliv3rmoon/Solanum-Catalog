@@ -1347,7 +1347,7 @@
         "xbox-360",
         "xenia"
       ],
-      "stars": 423,
+      "stars": 424,
       "release": {
         "tag": "v1.0.2",
         "asset": "PPSA50011.zip",
@@ -2421,7 +2421,7 @@
         "pc-games",
         "steam"
       ],
-      "stars": 417,
+      "stars": 419,
       "release": {
         "tag": "v6.0.0-alpha-6",
         "asset": "PS5_MihawkOS-v6.0.0-alpha-6-PPSA99170.zip",
@@ -2464,7 +2464,7 @@
         "pc-games",
         "launcher"
       ],
-      "stars": 167,
+      "stars": 168,
       "release": {
         "tag": "v2.5.5",
         "asset": "PPSA11018.zip",
@@ -2568,7 +2568,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 1121,
+      "stars": 1122,
       "release": {
         "tag": "v0.12.0",
         "asset": "playden-ps5-0.12.0.zip",
@@ -2633,7 +2633,7 @@
         "windows",
         "pc-games"
       ],
-      "stars": 270,
+      "stars": 271,
       "release": {
         "tag": "v0.3.0",
         "asset": "prospero-win-v0.3.0.zip",
@@ -2663,7 +2663,7 @@
         "ps2",
         "pcsx2"
       ],
-      "stars": 1707,
+      "stars": 1708,
       "release": {
         "tag": "vk-285-345",
         "asset": "PS5SX2-vk-285-345.zip",
@@ -4902,7 +4902,7 @@
         "music",
         "spotify"
       ],
-      "stars": 25,
+      "stars": 26,
       "release": {
         "tag": "v1.1.0",
         "asset": "PPSA99061.zip",
@@ -5005,7 +5005,7 @@
         "video",
         "sponsorblock"
       ],
-      "stars": 11,
+      "stars": 12,
       "release": {
         "tag": "01.000.216",
         "asset": "SmartTube-PPSA98260.zip",
@@ -5246,7 +5246,7 @@
         "temperature",
         "payloads"
       ],
-      "stars": 41,
+      "stars": 42,
       "release": {
         "tag": "v1.9.1",
         "asset": "PPSA92878.zip",
